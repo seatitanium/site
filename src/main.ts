@@ -7,10 +7,13 @@ import '@/styles/global.less';
 import * as mdijs from '@mdi/js';
 // @ts-ignore
 import mdiVue from 'mdi-vue/v2';
+// @ts-ignore
+import checkView from 'vue-check-view';
 
 Vue.use(mdiVue, {
 	icons: mdijs
 });
+Vue.use(checkView)
 Vue.config.productionTip = false;
 
 new Vue({
