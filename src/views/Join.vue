@@ -1,5 +1,5 @@
 <template>
     <div page>
-        about
+        join
     </div>
 </template>

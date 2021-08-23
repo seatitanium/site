@@ -1,32 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<div class="app">
+    <navbar/>
+		<transition name="fade" mode="out-in">
+			<router-view view />
+		</transition>
+	</div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+import Navbar from '@/components/Navbar.vue'
+
+export default Vue.extend({
+  components: {
+    Navbar
+  }
+})
+</script>
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+[view] {
+	margin-top: 56px;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-enter,
+.fade-leave-to {
+	visibility: hidden;
+	opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.2s ease;
+}
+.fade-enter-to,
+.fade-leave {
+	opacity: 1;
+	visibility: visible;
 }
 </style>
