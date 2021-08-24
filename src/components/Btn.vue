@@ -51,18 +51,10 @@ export default Vue.extend({
 		svg {
 			color: @primary;
 		}
+
 		&:hover {
-			background-clip: unset;
-			color: white;
 			&::after {
-				background: linear-gradient(
-					to right,
-					#fcd307 29.88%,
-					#ffb526 67.68%
-				);
-			}
-			svg {
-				color: white;
+				background: darken(white, 4%);
 			}
 		}
 

@@ -1,9 +1,6 @@
 <template>
 	<nav class="navbar">
-		<div class="nav-logo">
-			<img src="@/assets/seatide-main.png" class="img" />
-			<span class="text">SEATiDE</span>
-		</div>
+		<logo class="small"/>
 		<div class="nav-link">
 			<div
 				@click="$router.push({ name: x.route })"
@@ -20,6 +17,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import Logo from "@/components/Logo.vue"
+
 export default Vue.extend({
 	data() {
 		return {
@@ -43,31 +42,13 @@ export default Vue.extend({
 			],
 		};
 	},
+	components: {
+		Logo
+	}
 });
 </script>
 
 <style lang="less" scoped>
-.nav-logo {
-	display: flex;
-	align-items: center;
-	cursor: default;
-
-	*::selection {
-		background: transparent;
-	}
-
-	.img {
-		width: 32px;
-	}
-	.text {
-		margin-left: 0.5em;
-		font-size: "SF Pro Display", "Inter", Segoe UI, sans-serif;
-		font-weight: 600;
-		color: @textgray;
-		font-size: 20px;
-	}
-}
-
 .nav-link {
 	margin-left: 32px;
 	display: flex;

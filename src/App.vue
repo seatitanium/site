@@ -1,21 +1,24 @@
 <template>
 	<div class="app">
-    <navbar/>
+		<navbar />
 		<transition name="fade" mode="out-in">
 			<router-view view />
 		</transition>
+		<Footer />
 	</div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Navbar from '@/components/Navbar.vue'
+import Vue from "vue";
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
 export default Vue.extend({
-  components: {
-    Navbar
-  }
-})
+	components: {
+		Navbar,
+		Footer,
+	},
+});
 </script>
 
 <style lang="less">
