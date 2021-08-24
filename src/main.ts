@@ -15,6 +15,9 @@ Vue.use(mdiVue, {
 });
 Vue.use(checkView)
 Vue.config.productionTip = false;
+Vue.prototype.$open = (url: string) => {
+	window.open(url);
+}
 
 new Vue({
 	router,

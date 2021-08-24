@@ -22,10 +22,6 @@ export default Vue.extend({
 </script>
 
 <style lang="less">
-[view] {
-	margin-top: 56px;
-}
-
 .fade-enter,
 .fade-leave-to {
 	visibility: hidden;

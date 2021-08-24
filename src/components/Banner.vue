@@ -30,7 +30,7 @@ export default Vue.extend({
 	background-repeat: no-repeat;
 
 	&[fullscreen] {
-		height: calc(100vh - 56px);
+		height: 100vh;
 		@media screen and (max-width: 1000px) {
 			height: 500px;
 		}

@@ -1,6 +1,6 @@
 <template>
-	<nav class="navbar">
-		<logo class="small"/>
+	<nav class="navbar" :class="active ? 'active' : 'inactive'">
+		<logo class="small" :class="active ? '' : 'light'" />
 		<div class="nav-link">
 			<div
 				@click="$router.push({ name: x.route })"
@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Logo from "@/components/Logo.vue"
+import Logo from "@/components/Logo.vue";
 
 export default Vue.extend({
 	data() {
@@ -40,15 +40,47 @@ export default Vue.extend({
 					route: "changelog",
 				},
 			],
+			active: false,
 		};
 	},
 	components: {
-		Logo
-	}
+		Logo,
+	},
+	mounted() {
+		document.addEventListener("scroll", (e) => {
+			if (document.scrollingElement?.scrollTop) {
+				if (document.scrollingElement.scrollTop > 100) {
+					this.active = true;
+				} else {
+					this.active = false;
+				}
+			}
+		});
+	},
 });
 </script>
 
 <style lang="less" scoped>
+.navbar {
+	&.inactive {
+		.link {
+			&:not(.active):hover {
+				color: @textlightwhite !important;
+			}
+			&.active {
+				color: white !important;
+			}
+			color: @textmidwhite;
+		}
+		background: transparent;
+		backdrop-filter: blur(5px);
+	}
+
+	&.active {
+		background: white;
+	}
+}
+
 .nav-link {
 	margin-left: 32px;
 	display: flex;
@@ -76,10 +108,10 @@ export default Vue.extend({
 		&::after {
 			background: @primary;
 			width: 0;
-			content: ' ';
+			content: " ";
 			display: block;
 			position: absolute;
-			bottom: .5px;
+			bottom: 0.5px;
 			z-index: -1;
 			height: 5px;
 			left: 50%;
@@ -92,10 +124,10 @@ export default Vue.extend({
 }
 
 .navbar {
+	transition: all .2s ease;
 	z-index: 1000;
 	display: flex;
 	align-items: center;
-	background: white;
 	box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.21);
 	padding: 12px;
 	position: fixed;

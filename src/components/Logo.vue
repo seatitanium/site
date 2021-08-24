@@ -29,6 +29,16 @@ export default Vue.extend({});
 		}
 	}
 
+	&.footer {
+		.img {
+			width: 72px;
+		}
+
+		.text {
+			font-size: 45px;
+		}
+	}
+
 	&.hero {
 		.img {
 			width: 200px;

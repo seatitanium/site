@@ -6,7 +6,7 @@ body {
 
 [page] {
 	width: 100%;
-	min-height: calc(100vh - 56px);
+	min-height: 100vh;
 	position: relative;
 }
 
@@ -17,6 +17,10 @@ body {
 	@media screen and (max-width: 1200px) {
 		padding: 16px;
 	}
+}
+
+*::selection {
+	background: rgba(@primary, .2);
 }
 
 @textgray: #272727;
