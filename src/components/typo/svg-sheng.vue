@@ -22,42 +22,8 @@
 
 <script lang="typescript">
 import Vue from "vue";
-import anime from "animejs";
 
 export default Vue.extend({
-	methods: {
-		view() {
-            anime({
-				targets: ".sheng .b",
-				opacity: [0, 1],
-				translateY: [30, 0],
-				easing: "linear",
-				duration: 200,
-				delay: 800,
-			});
-			anime({
-				targets: ".sheng .a",
-				opacity: [0, 1],
-				translateY: [-30, 0],
-				easing: "easeInOutExpo",
-				duration: 800 + 600,
-			});
-		},
-	},
-	props: ["width"],
-	mounted() {
-		this.view()
-	}
+	props: ["width"]
 });
 </script>
-
-<style lang="less" scoped>
-.sheng {
-	overflow: visible;
-	.a,
-	.b {
-		transition: all 0.2s ease;
-		opacity: 0;
-	}
-}
-</style>

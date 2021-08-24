@@ -36,6 +36,40 @@ export default Vue.extend({
 		}
 	}
 
+	&.primarylight {
+		position: relative;
+		background: linear-gradient(94deg, #FCD307 29.88%, #FFB526 67.68%);
+		background-clip: text;
+		color: transparent;
+		svg {
+			color: @primary;
+		}
+		&:hover {
+			background-clip: unset;
+			color: white;
+			&::after {
+				background: linear-gradient(to right, #fcd307 29.88%, #ffb526 67.68%);
+			}
+			svg {
+				color: white;
+			}
+		}
+
+		&::after {
+			transition: all .5s ease;
+			content: " ";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: inherit;
+			width: 100%;
+			height: 100%;
+			background: white;
+			z-index: -20;
+		}
+	}
+
 	&.primary {
 		background-image: linear-gradient(
 			to right,

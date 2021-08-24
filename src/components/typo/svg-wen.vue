@@ -22,44 +22,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import anime from "animejs";
 
 export default Vue.extend({
-	methods: {
-		view() {
-			anime({
-				targets: ".wen .a",
-				opacity: [0, 1],
-				translateX: [-30, 0],
-				translateY: [-30, 0],
-				easing: "easeInOutExpo",
-				duration: 300,
-			});
-			anime({
-				targets: ".wen .b",
-				opacity: [0, 1],
-				translateX: [30, 0],
-				translateY: [30, 0],
-				easing: "linear",
-				duration: 300,
-				delay: 100,
-			});
-		},
-	},
-	props: ["width"],
-	mounted() {
-		this.view()
-	}
+	props: ["width"]
 });
 </script>
-
-<style lang="less" scoped>
-.wen {
-	overflow: visible;
-	.a,
-	.b {
-		transition: all 0.2s ease;
-		opacity: 0;
-	}
-}
-</style>

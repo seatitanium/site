@@ -28,6 +28,10 @@ export default Vue.extend({
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+
+	&[fullscreen] {
+		height: calc(100vh - 56px);
+	}
 }
 
 .text-box {
