@@ -30,22 +30,45 @@ export default Vue.extend({});
 	}
 
 	&.footer {
-		.img {
-			width: 72px;
+		@media screen and (min-width: 1000px) {
+			.img {
+				width: 72px;
+			}
+
+			.text {
+				font-size: 45px;
+			}
 		}
 
-		.text {
-			font-size: 45px;
+		@media screen and (max-width: 1000px) {
+			.img {
+				width: 54.4px;
+			}
+
+			.text {
+				font-size: 34px;
+			}
 		}
 	}
 
 	&.hero {
-		.img {
-			width: 200px;
-		}
+		@media screen and (min-width: 1000px) {
+			.img {
+				width: 200px;
+			}
 
-		.text {
-			font-size: 96px;
+			.text {
+				font-size: 96px;
+			}
+		}
+		@media screen and (max-width: 1000px) {
+			.img {
+				width: 100px;
+			}
+
+			.text {
+				font-size: 48px;
+			}
 		}
 	}
 

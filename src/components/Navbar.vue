@@ -85,6 +85,9 @@ export default Vue.extend({
 	margin-left: 32px;
 	display: flex;
 	align-items: center;
+	@media screen and (max-width: 700px) {
+		display: none;
+	}
 
 	.link {
 		margin: 0 16px;

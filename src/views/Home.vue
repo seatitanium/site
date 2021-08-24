@@ -268,9 +268,15 @@ export default Vue.extend({
 		text-align: center;
 		margin-bottom: 32px;
 		color: white;
+		@media screen and (max-width: 1000px) {
+			font-size: 42px;
+		}
 	}
 
 	p {
+		@media screen and (max-width: 1000px) {
+			font-size: 18px;
+		}
 		font-size: 24px;
 		line-height: 1.5;
 		color: @textmidwhite;
