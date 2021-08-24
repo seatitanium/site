@@ -83,7 +83,12 @@
 								"
 								v-view.once="animateSFTypo"
 							/>
-							<btn type="primary arrow" size="large" icon="arrow-right">了解「民主」</btn>
+							<btn
+								type="primarylight arrow"
+								size="large"
+								icon="arrow-right"
+								>了解「民主」</btn
+							>
 						</div>
 					</div>
 					<div class="single-feature light">
@@ -96,7 +101,12 @@
 								"
 								v-view.once="animateSFTypo"
 							/>
-							<btn type="primarylight arrow" size="large" icon="arrow-right">了解「技术」</btn>
+							<btn
+								type="primary arrow"
+								size="large"
+								icon="arrow-right"
+								>了解「技术」</btn
+							>
 						</div>
 						<svg-jishu />
 					</div>
@@ -114,7 +124,9 @@
 								"
 								v-view.once="animateSFTypo"
 							/>
-							<btn type="outlined" size="large">你可以在加入后了解相关内容</btn>
+							<btn type="outlined" size="large"
+								>你可以在加入后了解相关内容</btn
+							>
 						</div>
 					</div>
 				</section>
@@ -178,7 +190,7 @@ export default Vue.extend({
 				opacity: [0, 1],
 				translateY: [30, 0],
 				easing: "easeInOutExpo",
-				delay: 200
+				delay: 200,
 			});
 		},
 	},
@@ -211,6 +223,10 @@ export default Vue.extend({
 		width: 33.333%;
 		margin: 0 8px;
 		opacity: 0;
+		@media screen and (max-width: 1000px) {
+			justify-content: center;
+			margin: 16px 0 !important;
+		}
 
 		.text {
 			height: 100%;
@@ -250,16 +266,26 @@ export default Vue.extend({
 
 		.single-feature {
 			opacity: 0;
-			margin: 72px 0;
-			padding: 32px 16px;
+			@media screen and (min-width: 1000px) {
+				margin: 72px 0;
+				padding: 32px 16px;
+			}
 			&:not(.light) {
 				background: rgba(0, 0, 0, 0.4);
 			}
 			&.light {
 				background: rgba(255, 255, 255, 0.3);
 			}
-			width: 100%;
 			display: flex;
+			@media screen and (max-width: 1000px) {
+				flex-direction: column;
+				padding: 56px 16px;
+				margin: 32px 0;
+				width: 100%;
+				> svg:first-child, >svg:last-child {
+					display: none;
+				}
+			}
 			align-items: center;
 
 			svg {
@@ -267,9 +293,18 @@ export default Vue.extend({
 			}
 
 			.typo {
-				margin-left: 32px;
+				@media screen and (min-width: 1000px) {
+					margin-left: 32px;
+					width: 40%;
+				}
+
+				@media screen and (max-width: 1000px) {
+					text-align: center;
+					button {
+						margin: auto;
+					}
+				}
 				color: white;
-				width: 40%;
 				text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
 
 				h2 {
@@ -277,6 +312,12 @@ export default Vue.extend({
 					margin-top: 0;
 					margin-bottom: 8px;
 					font-size: 32px;
+					@media screen and (max-width: 1000px) {
+						font-size: 22.4px;
+						svg {
+							transform: scale(1.4) !important;
+						}
+					}
 					svg {
 						transform: scale(1.2);
 						margin-right: 0.5em;
@@ -285,6 +326,9 @@ export default Vue.extend({
 
 				h1 {
 					font-size: 48px;
+					@media screen and (max-width: 1000px) {
+						font-size: 30px;
+					}
 					margin: 0;
 				}
 
@@ -292,6 +336,10 @@ export default Vue.extend({
 					font-size: 18px;
 					font-style: italic;
 					color: @textmidwhite;
+					@media screen and (max-width: 1000px) {
+						font-size: 14px;
+					}
+					max-width: 400px;
 				}
 			}
 		}

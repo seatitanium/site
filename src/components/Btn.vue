@@ -1,7 +1,9 @@
 <template>
 	<button class="btn" :class="type + ' ' + size">
-		<slot />
-		<mdicon v-if="icon" :name="icon" class="icon" />
+		<div class="content">
+			<slot />
+			<mdicon v-if="icon" :name="icon" class="icon" />
+		</div>
 	</button>
 </template>
 
@@ -14,15 +16,20 @@ export default Vue.extend({
 
 <style lang="less" scoped>
 .btn {
-	display: flex;
-	align-items: center;
+	display: block;
 	border-radius: 5px;
-	padding: 10px 20px;
+	padding: 8px 12px;
 	border: none;
 	transition: all 0.2s ease;
 	cursor: pointer;
 
 	&.large {
+		@media screen and (max-width: 1000px) {
+			font-size: 14px;
+		}
+		@media screen and (min-width: 1000px) {
+			padding: 10px 20px;
+		}
 		font-size: 18px;
 	}
 
@@ -38,7 +45,7 @@ export default Vue.extend({
 
 	&.primarylight {
 		position: relative;
-		background: linear-gradient(94deg, #FCD307 29.88%, #FFB526 67.68%);
+		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
 		background-clip: text;
 		color: transparent;
 		svg {
@@ -48,7 +55,11 @@ export default Vue.extend({
 			background-clip: unset;
 			color: white;
 			&::after {
-				background: linear-gradient(to right, #fcd307 29.88%, #ffb526 67.68%);
+				background: linear-gradient(
+					to right,
+					#fcd307 29.88%,
+					#ffb526 67.68%
+				);
 			}
 			svg {
 				color: white;
@@ -56,7 +67,7 @@ export default Vue.extend({
 		}
 
 		&::after {
-			transition: all .5s ease;
+			transition: all 0.5s ease;
 			content: " ";
 			display: block;
 			position: absolute;
@@ -93,20 +104,27 @@ export default Vue.extend({
 		}
 	}
 
+	&.arrow {
+		@media screen and (min-width: 1000px) {
+			svg {
+				transition: all 0.2s ease;
+			}
+
+			&:hover svg {
+				transform: translateX(4px);
+			}
+		}
+	}
+}
+
+.content {
+	display: flex;
+	align-items: center;
+
 	.icon {
 		margin-left: 0.3em;
 		svg {
 			width: 20px;
-		}
-	}
-
-	&.arrow {
-		svg {
-			transition: all 0.2s ease;
-		}
-
-		&:hover svg {
-			transform: translateX(4px);
 		}
 	}
 }
