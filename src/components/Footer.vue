@@ -43,7 +43,7 @@ export default Vue.extend({
 
 <style lang="less" scoped>
 footer {
-	box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.6);
+	box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.4);
 	background: #212121;
 	color: white;
 

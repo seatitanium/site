@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-	max-width: 1400px;
+	max-width: 1200px;
 	display: block;
 	margin: auto;
 	@media screen and (max-width: 1200px) {
@@ -31,9 +31,26 @@ body {
 	}
 }
 
+.typo {
+	color: @textmidgray;
+	line-height: 1.8;
+	strong {
+		color: black;
+	}
+}
+
+.primary-text{
+	color: transparent;
+	background: @primaryg;
+	background-clip: text;
+	display: inline-block;
+}
+
 @textgray: #272727;
 @textmidgray: rgba(0, 0, 0, 0.5);
 @textlightgray: rgba(0, 0, 0, 0.3);
 @textmidwhite: rgba(255, 255, 255, 0.6);
 @textlightwhite: rgba(255, 255, 255, 0.7);
 @primary: #fcd307;
+@primaryg: linear-gradient(135deg, rgba(255,230,0,1) 0%, rgb(250, 173, 6) 100%);
+

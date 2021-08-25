@@ -18,3 +18,24 @@ interface ViewObjectTarget {
 interface Dictionary {
     [prop: string]: any
 }
+
+interface ServerInformation {
+    mods: ServerMod[],
+    version: string,
+    since: string,
+    bestram: number,
+    term: string
+}
+
+interface ServerMod {
+    type: string,
+    zh?: string,
+    name: string,
+    desc?: string,
+    count?: number
+}
+
+interface BackendResponse {
+    data: null | Object,
+    status: "ok" | "ng" | "http-error" | "error" | null
+}

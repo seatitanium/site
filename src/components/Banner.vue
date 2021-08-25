@@ -31,7 +31,7 @@ export default Vue.extend({
 
 	&[fullscreen] {
 		height: 100vh;
-		@media screen and (max-width: 1000px) {
+		@media screen and (max-width: 800px) {
 			height: 500px;
 		}
 	}
@@ -39,11 +39,11 @@ export default Vue.extend({
 
 .text-box {
 	color: white;
-	@media screen and (min-width: 1000px) {
+	@media screen and (min-width: 800px) {
 		margin-left: 48px;
 	}
 
-	@media screen and (max-width: 1000px) {
+	@media screen and (max-width: 800px) {
 		padding: 32px;
 	}
 
@@ -56,7 +56,7 @@ export default Vue.extend({
 
 	h1 {
 		font-size: 58px;
-		@media screen and (max-width: 1000px) {
+		@media screen and (max-width: 800px) {
 			font-size: 40.5px;
 		}
 	}
@@ -65,7 +65,7 @@ export default Vue.extend({
 		font-size: 38.4px;
 		font-weight: normal;
 		margin-bottom: 8px;
-		@media screen and (max-width: 1000px) {
+		@media screen and (max-width: 800px) {
 			font-size: 26.88px;
 		}
 	}
@@ -73,9 +73,8 @@ export default Vue.extend({
 	p {
 		font-size: 21.6px;
 		margin-top: 16px;
-		line-height: 1.8;
-		font-style: italic;
-		@media screen and (max-width: 1000px) {
+		line-height: 1.5;
+		@media screen and (max-width: 800px) {
 			font-size: 15.12px;
 		}
 	}
