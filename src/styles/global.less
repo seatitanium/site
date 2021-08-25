@@ -23,6 +23,14 @@ body {
 	background: rgba(@primary, .2);
 }
 
+.hoverscale {
+	@media screen and (min-width: 1000px) {
+		&:hover {
+			transform: scale(1.2) !important;
+		}
+	}
+}
+
 @textgray: #272727;
 @textmidgray: rgba(0, 0, 0, 0.5);
 @textlightgray: rgba(0, 0, 0, 0.3);

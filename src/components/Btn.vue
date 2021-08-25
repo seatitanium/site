@@ -39,7 +39,7 @@ export default Vue.extend({
 
 	&.hover {
 		&:hover {
-			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 		}
 	}
 

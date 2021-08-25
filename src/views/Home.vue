@@ -84,7 +84,7 @@
 								v-view.once="animateSFTypo"
 							/>
 							<btn
-								type="primarylight arrow"
+								type="primarylight arrow hover"
 								size="large"
 								icon="arrow-right"
 								>了解「民主」</btn
@@ -102,7 +102,7 @@
 								v-view.once="animateSFTypo"
 							/>
 							<btn
-								type="primary arrow"
+								type="primary arrow hover"
 								size="large"
 								icon="arrow-right"
 								>了解「技术」</btn
@@ -135,8 +135,8 @@
 		<div style="background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/CIqsdXzikVKgR3F.jpg')" class="more-information-section">
 			<div class="container">
 				<section class="more-information">
-					<logo class="hero center light" />
-					<h1>详细了解 SEATiDE</h1>
+					<logo v-view.once="flowUp" class="hero center light" />
+					<h1 v-view.once="flowUp">详细了解 SEATiDE</h1>
 					<p v-view.once="flowUp">
 						<strong>「SEATiDE」这一名称</strong>最初创建于 2018
 						年，曾经短暂地独立运行过，后来归属于 SoTap
@@ -168,7 +168,7 @@
 							></small
 						>
 					</p>
-					<btn v-view.once="flowUp" class="join-btn" type="primary arrow" icon="arrow-right" size="large">加入我们</btn>
+					<btn v-view.once="flowUp" class="hoverscale hover join-btn" type="primary arrow" icon="arrow-right" size="large">加入我们</btn>
 				</section>
 			</div>
 		</div>
@@ -250,10 +250,9 @@ export default Vue.extend({
 	padding: 96px 0;
 	.hero {
 		margin-bottom: 64px;
-		
 	}
 
-	p, button {
+	p, button, .hero, h1 {
 		opacity: 0;
 	}
 
