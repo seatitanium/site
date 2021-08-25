@@ -18,17 +18,26 @@
 						<template #name> 版本 </template>
 						<template #text>
 							<span style="font-family: Consolas, monospace"
-								>Java {{ server.version ? server.version : '获取中...' }}</span
+								>Java
+								{{
+									server.version
+										? server.version
+										: "获取中..."
+								}}</span
 							>
 						</template>
 					</meta-item>
 					<meta-item icon="package">
 						<template #name> 模组数 </template>
-						<template #text> {{server.mods ? server.mods.length : '获取中...'}} </template>
+						<template #text>
+							{{ server.mods ? server.mods.length : "获取中..." }}
+						</template>
 					</meta-item>
 					<meta-item icon="map-clock">
 						<template #name> 开服时间 </template>
-						<template #text> {{ server.since ? server.since : '获取中...'}} </template>
+						<template #text>
+							{{ server.since ? server.since : "获取中..." }}
+						</template>
 					</meta-item>
 				</meta-bar>
 				<p class="typo">
@@ -37,9 +46,11 @@
 					<br />作为 SEATiDE
 					项目建立以后的第一个周目，本周目的时间<strong>将会较长</strong>。
 				</p>
-				<div class="mods">
+				<div class="mods" v-if="server.mods">
 					<div
-						v-for="(x, i) in server.mods.filter(x => x.type !== 'dep')"
+						v-for="(x, i) in server.mods.filter(
+							(x) => x.type !== 'dep'
+						)"
 						:key="i"
 						class="mod"
 						style="
@@ -51,6 +62,12 @@
 						<h2 v-if="x.zh">{{ x.name }}</h2>
 						<p v-if="x.desc">{{ x.desc }}</p>
 					</div>
+					<small
+						>另包含前置类模组（{{
+							getDepNames(server.mods).length
+						}}
+						个）：{{ getDepNames(server.mods).join("、") }}。</small
+					>
 				</div>
 			</div>
 		</div>
@@ -81,6 +98,17 @@ export default Vue.extend({
 				this.server = r.data.data;
 			}
 		});
+	},
+	methods: {
+		getDepNames(mod: ServerMod[]) {
+			let names: string[] = [];
+			mod.forEach((e) => {
+				if (e.type === "dep") {
+					names.push(e.name.toLowerCase());
+				}
+			});
+			return names;
+		},
 	},
 });
 </script>
