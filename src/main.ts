@@ -4,6 +4,7 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import '@/styles/global.less';
+import '@/styles/mc.less';
 import * as mdijs from '@mdi/js';
 // @ts-ignore
 import mdiVue from 'mdi-vue/v2';

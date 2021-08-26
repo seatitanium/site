@@ -24,7 +24,36 @@ interface ServerInformation {
     version: string,
     since: string,
     bestram: number,
-    term: string
+    term: string,
+    ip: string,
+    online: boolean,
+    onlinePlayers: number,
+    maxPlayers: number,
+    motd: string,
+    onlinePlayersDetails: PlayerDetail[],
+    rawMods: RawMod[]
+}
+
+interface InstanceInformation {
+    bandwidth: number,
+    datadisk: InstanceDisk,
+    type: string,
+    zone: string
+}
+
+interface InstanceDisk {
+    size: number,
+    type: string
+}
+
+interface PlayerDetail {
+    id: string,
+    name: string
+}
+
+interface RawMod {
+    modId: string,
+    modmarker: string
 }
 
 interface ServerMod {

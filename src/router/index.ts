@@ -20,9 +20,9 @@ const routes: Array<RouteConfig> = [
     component: () => import("@/views/About.vue")
   },
   {
-    path: '/log',
-    name: 'changelog',
-    component: () => import("@/views/Changelog.vue")
+    path: '/server',
+    name: 'server',
+    component: () => import("@/views/Server.vue")
   },
 ]
 

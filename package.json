@@ -11,6 +11,7 @@
     "animejs": "^3.2.1",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "mcmotdparser": "^1.3.1",
     "mdi-vue": "^3.0.7",
     "register-service-worker": "^1.7.1",
     "style-resources-loader": "^1.4.1",

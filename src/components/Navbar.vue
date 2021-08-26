@@ -1,9 +1,16 @@
 <template>
 	<nav class="navbar" :class="active ? 'active' : 'inactive'">
-		<logo @click.native="$router.push('/')" class="small" :class="active ? '' : 'light'" />
+		<logo
+			@click.native="$router.push('/')"
+			class="small"
+			:class="active ? '' : 'light'"
+		/>
 		<div class="nav-link">
 			<div
-				@click="scrollTop(); $router.push({ name: x.route })"
+				@click="
+					scrollTop();
+					$router.push({ name: x.route });
+				"
 				class="link"
 				:class="$route.name === x.route ? 'active' : ''"
 				v-for="(x, i) in links"
@@ -32,12 +39,12 @@ export default Vue.extend({
 					route: "join",
 				},
 				{
-					name: "关于",
-					route: "about",
+					name: "状态",
+					route: "server",
 				},
 				{
-					name: "日志",
-					route: "changelog",
+					name: "关于",
+					route: "about",
 				},
 			],
 			active: false,
@@ -61,8 +68,8 @@ export default Vue.extend({
 		scrollTop() {
 			// @ts-ignore
 			document.getElementsByTagName("html")[0].scrollTo(0, 0);
-		}
-	}
+		},
+	},
 });
 </script>
 
@@ -137,7 +144,7 @@ export default Vue.extend({
 }
 
 .navbar {
-	transition: all .2s ease;
+	transition: all 0.2s ease;
 	z-index: 1000;
 	display: flex;
 	align-items: center;

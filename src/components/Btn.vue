@@ -33,8 +33,13 @@ export default Vue.extend({
 		font-size: 18px;
 	}
 
+	&.small {
+		padding: 2px 8px;
+		font-size: 12px;
+	}
+
 	&.shadow {
-		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 	}
 
 	&.hover {
@@ -105,6 +110,16 @@ export default Vue.extend({
 			&:hover svg {
 				transform: translateX(4px);
 			}
+		}
+	}
+
+	&.dark {
+		border-color: @textmidgray;
+		color: @textmidgray;
+
+		&:hover {
+			border-color: black;
+			color: black;
 		}
 	}
 }

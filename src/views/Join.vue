@@ -189,8 +189,9 @@ export default Vue.extend({
 	},
 	mounted() {
 		get("/api/server/v1/get/server").then((r) => {
-			if (!isNaN(Number(r.data.data.bestram))) {
-				this.server = r.data.data;
+			let data: ServerInformation | null = r.data.data as any;
+			if (data !== null) {
+				this.server = data;
 			}
 		});
 	},
@@ -272,7 +273,7 @@ export default Vue.extend({
 			}
 			position: relative;
 			border-radius: 5px;
-			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+			box-shadow: @shadowlight;
 			padding: 16px 24px;
 			display: flex;
 			flex-wrap: nowrap;
@@ -346,8 +347,8 @@ export default Vue.extend({
 	.feature {
 		width: 33.333%;
 		margin: 0 8px;
-		text-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+		text-shadow: @shadowlight;
+		box-shadow: @shadowlight;
 
 		&.black {
 			background: #212121;

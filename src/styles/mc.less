@@ -1,0 +1,83 @@
+.mc {
+	padding: 1em;
+	font-family: Consolas, monospace;
+	background-color: #212121;
+	color: white;
+	border-radius: 5px;
+}
+.mc_black {
+	color: black;
+}
+.mc_dark_blue {
+	color: #0000aa;
+}
+.mc_dark_green {
+	color: #00aa00;
+}
+.mc_dark_aqua {
+	color: #00aaaa;
+}
+.mc_dark_red {
+	color: #aa0000;
+}
+.mc_dark_purple {
+	color: #aa00aa;
+}
+.mc_gold {
+	color: #ffaa00;
+}
+.mc_gray {
+	color: #aaaaaa;
+}
+.mc_dark_gray {
+	color: #555555;
+}
+.mc_blue {
+	color: #5555ff;
+}
+.mc_green {
+	color: #55ff55;
+}
+.mc_aqua {
+	color: #55ffff;
+}
+.mc_red {
+	color: #ff5555;
+}
+.mc_light_purple {
+	color: #ff55ff;
+}
+.mc_yellow {
+	color: #ffff55;
+}
+.mc_white {
+	color: white;
+}
+.mc_bold {
+	font-weight: bold;
+}
+.mc_italic {
+	font-style: italic;
+}
+.mc_strikethrough,
+.mc_underlined {
+	position: relative;
+	display: inline-block;
+}
+.mc_strikethrough::before,
+.mc_underlined::after {
+	content: '';
+	width: 100%;
+	position: absolute;
+	right: 0;
+}
+.mc_strikethrough::before {
+	border-bottom: 2px solid;
+	border-bottom-color: inherit;
+	top: 55%;
+}
+.mc_underlined::after {
+	border-bottom: 2px solid;
+	border-bottom-color: inherit;
+	bottom: -8%;
+}
