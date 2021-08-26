@@ -213,10 +213,10 @@ export default Vue.extend({
 		animateFeatureBox(e: ViewObject) {
 			anime({
 				targets: ".features .feature",
-				translateY: [50, 0],
 				opacity: [0, 1],
-				duration: 600,
-				easing: "easeInExpo",
+				translateY: [50, 0],
+				duration: 750,
+				easing: "easeInOutExpo",
 				delay: (el, i) => {
 					return 150 * i;
 				},
@@ -425,6 +425,7 @@ export default Vue.extend({
 			right: 32px;
 			top: 32px;
 		}
+		opacity: 0;
 	}
 }
 
