@@ -1,9 +1,9 @@
 <template>
 	<nav class="navbar" :class="active ? 'active' : 'inactive'">
-		<logo class="small" :class="active ? '' : 'light'" />
+		<logo @click.native="$router.push('/')" class="small" :class="active ? '' : 'light'" />
 		<div class="nav-link">
 			<div
-				@click="$router.push({ name: x.route })"
+				@click="scrollTop(); $router.push({ name: x.route })"
 				class="link"
 				:class="$route.name === x.route ? 'active' : ''"
 				v-for="(x, i) in links"
@@ -57,11 +57,21 @@ export default Vue.extend({
 			}
 		});
 	},
+	methods: {
+		scrollTop() {
+			// @ts-ignore
+			document.getElementsByTagName("html")[0].scrollTo(0, 0);
+		}
+	}
 });
 </script>
 
 <style lang="less" scoped>
 .navbar {
+	.small {
+		cursor: pointer;
+	}
+
 	&.inactive {
 		.link {
 			&:not(.active):hover {
