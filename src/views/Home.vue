@@ -63,9 +63,7 @@
 			</section>
 		</div>
 		<div
-			style="
-				background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/3.jpg');
-			"
+		v-lazy:background-image="'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/3.jpg'"
 			class="feature-section"
 		>
 			<div class="container">
@@ -132,7 +130,7 @@
 				</section>
 			</div>
 		</div>
-		<div style="background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/4.jpg')" class="more-information-section">
+		<div v-lazy:background-image="'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/4.jpg'" class="more-information-section">
 			<div class="container">
 				<section class="more-information">
 					<logo v-view.once="flowUp" class="hero center light" />
@@ -168,7 +166,7 @@
 							></small
 						>
 					</p>
-					<btn v-view.once="flowUp" class="hoverscale hover join-btn" type="primary arrow" icon="arrow-right" size="large">加入我们</btn>
+					<btn @click.native="$router.push('/join')" v-view.once="flowUp" class="hoverscale hover join-btn" type="primary arrow" icon="arrow-right" size="large">加入我们</btn>
 				</section>
 			</div>
 		</div>

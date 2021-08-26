@@ -1,5 +1,5 @@
 <template>
-	<div class="banner" :style="'background-image: url(' + bg + ')'">
+	<div class="banner" v-lazy:background-image="bg">
 		<div class="text-box">
 			<h2><slot name="subtitle" /></h2>
 			<h1><slot name="title" /></h1>
@@ -28,6 +28,7 @@ export default Vue.extend({
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-color: black;
 
 	&[fullscreen] {
 		height: 100vh;

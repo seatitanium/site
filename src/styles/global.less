@@ -24,7 +24,7 @@ body {
 }
 
 *::selection {
-	background: rgba(@primary, .2);
+	background: rgba(@primary, 0.2);
 }
 
 .hoverscale {
@@ -35,9 +35,41 @@ body {
 	}
 }
 
+.img {
+	box-shadow: @shadowlight;
+	border-radius: 5px;
+}
+
+figure {
+	text-align: center;
+
+	figcaption {
+		color: @textlightgray;
+		margin: 16px 0;
+		span {
+			font-weight: bold;
+			color: black;
+			margin-right: 1em;
+		}
+	}
+}
+
 .typo {
 	color: @textmidgray;
 	line-height: 1.8;
+	position: relative;
+
+	& + figure {
+		position: relative;
+	}
+
+	& + figure img,
+	& + img {
+		width: 100%;
+		display: block;
+		margin: auto;
+		.img;
+	}
 
 	&.light {
 		strong {
@@ -56,11 +88,11 @@ body {
 		position: relative;
 		text-decoration: none;
 		color: inherit;
-		transition: all .2s ease;
+		transition: all 0.2s ease;
 		&::after {
 			background: @primary;
 			width: 100%;
-			content: " ";
+			content: ' ';
 			display: block;
 			position: absolute;
 			bottom: 0.5px;
@@ -68,8 +100,8 @@ body {
 			height: 5px;
 			left: 50%;
 			transform: translateX(-50%);
-			opacity: .4;
-			transition: all .2s ease;
+			opacity: 0.4;
+			transition: all 0.2s ease;
 		}
 
 		&:hover {
@@ -85,7 +117,7 @@ a {
 	text-decoration: none;
 }
 
-.primary-text{
+.primary-text {
 	color: transparent;
 	background: @primaryg;
 	background-clip: text;
@@ -100,6 +132,73 @@ abbr {
 	cursor: help;
 }
 
+.container.content,
+.container > .content {
+	padding: 32px 0;
+	.primary-text {
+		font-size: 49.5px;
+		margin: 8px 0;
+	}
+
+	p {
+		font-size: 22px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+}
+
+[lazy] {
+	transition: background-image 0.3s ease, box-shadow 0.2s ease !important;
+}
+
+.link-card {
+	.mdi {
+		position: absolute;
+		right: 24px;
+		top: 16px;
+		opacity: 0.3;
+		transition: all 0.2s ease;
+	}
+	&:hover {
+		.mdi {
+			opacity: 1;
+		}
+		.mdi.mdi-arrow-right {
+			transform: translateX(10px);
+		}
+		opacity: 0.5;
+	}
+	position: relative;
+	border-radius: 5px;
+	box-shadow: @shadowlight;
+	padding: 16px 24px;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+	img {
+		width: 100px;
+		height: 100px;
+		transform: scale(1.1);
+	}
+	.text {
+		padding-left: 16px;
+		h2 {
+			font-weight: normal;
+		}
+
+		h1,
+		h2 {
+			margin: 8px 0;
+		}
+
+		h2 {
+			font-size: 18px;
+		}
+	}
+	margin: 0 8px;
+}
 
 @textgray: #272727;
 @textmidgray: rgba(0, 0, 0, 0.5);
@@ -107,6 +206,6 @@ abbr {
 @textmidwhite: rgba(255, 255, 255, 0.6);
 @textlightwhite: rgba(255, 255, 255, 0.7);
 @primary: #fcd307;
-@primaryg: linear-gradient(135deg, rgba(255,230,0,1) 0%, rgb(250, 173, 6) 100%);
+@primaryg: linear-gradient(135deg, rgba(255, 230, 0, 1) 0%, rgb(250, 173, 6) 100%);
 @shadowlight: 0 3px 5px rgba(0, 0, 0, 0.1);
 @shadowdark: 0 3px 5px rgba(0, 0, 0, 0.6);

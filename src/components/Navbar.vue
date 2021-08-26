@@ -7,10 +7,7 @@
 		/>
 		<div class="nav-link">
 			<div
-				@click="
-					scrollTop();
-					$router.push({ name: x.route });
-				"
+				@click="$router.push({ name: x.route })"
 				class="link"
 				:class="$route.name === x.route ? 'active' : ''"
 				v-for="(x, i) in links"
@@ -63,12 +60,6 @@ export default Vue.extend({
 				}
 			}
 		});
-	},
-	methods: {
-		scrollTop() {
-			// @ts-ignore
-			document.getElementsByTagName("html")[0].scrollTo(0, 0);
-		},
 	},
 });
 </script>

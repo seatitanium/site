@@ -75,7 +75,7 @@
 					</div>
 					<div class="card">
 						<h1 class="primarys-text">建议内存</h1>
-						<p>≥ {{ server.bestram }}GB</p>
+						<p>≥ {{ server.bestram || '?' }}GB</p>
 					</div>
 				</div>
 				<p v-if="loading" class="loading-tip">
@@ -198,6 +198,8 @@ export default Vue.extend({
 						Motd.toHtml(this.server.motd, (err, res) => {
 							this.motdHtml = res;
 						});
+					} else {
+						this.lastUpdated.date = "没有返回任何数据";
 					}
 				})
 				.catch((e) => {

@@ -1,8 +1,6 @@
 <template>
 	<div page>
-		<banner
-			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/2.jpg"
-		>
+		<banner bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/2.jpg">
 			<template #title> 加入 SEATiDE </template>
 			<template #subtitle> 开始体验 </template>
 			<template #text>
@@ -30,7 +28,11 @@
 					<meta-item icon="package">
 						<template #name> 模组数 </template>
 						<template #text>
-							{{ server.mods ? getModCount(server.mods) : "获取中..." }}
+							{{
+								server.mods
+									? getModCount(server.mods)
+									: "获取中..."
+							}}
 						</template>
 					</meta-item>
 					<meta-item icon="map-clock">
@@ -54,12 +56,10 @@
 						)"
 						:key="i"
 						class="mod"
-						:style="
-							'background-image: url(\'' +
-							(x.bg ? x.bg : '') +
-							'\');'
+						v-lazy:background-image="x.bg ? x.bg : ''"
+						@click="
+							$open('https://search.mcmod.cn/s?key=' + x.name)
 						"
-						@click="$open('https://search.mcmod.cn/s?key=' + x.name)"
 					>
 						<span>#{{ i + 1 }}</span>
 						<h1>{{ x.zh ? x.zh : x.name }}</h1>
@@ -71,7 +71,9 @@
 					>另包含前置类模组（{{
 						getDepNames(server.mods).length
 					}}
-					个）：{{ getDepNames(server.mods).join("、") }}，模组图片来源 CurseForge。</small
+					个）：{{
+						getDepNames(server.mods).join("、")
+					}}，模组图片来源 CurseForge。</small
 				>
 			</div>
 			<div class="features content">
@@ -116,7 +118,8 @@
 			<div class="join content">
 				<h1 class="primary-text" v-view.once="flowUp">立即加入</h1>
 				<p class="typo" v-view.once="flowUp">
-					若要加入 SEATiDE，请先加入我们的讨论群并注明你的 ID，我们将给予白名单。
+					若要加入 SEATiDE，请先加入我们的讨论群并注明你的
+					ID，我们将给予白名单。
 				</p>
 				<p class="typo" v-view.once="flowUp">
 					SEATiDE 当前主要以 QQ
@@ -224,31 +227,18 @@ export default Vue.extend({
 		},
 		getModCount(mod: ServerMod[]) {
 			let count = mod.length;
-			mod.forEach(e => {
-				if (e.type === 'set' && e.count) {
+			mod.forEach((e) => {
+				if (e.type === "set" && e.count) {
 					count += e.count - 1;
 				}
-			})
+			});
 			return count;
-		}
+		},
 	},
 });
 </script>
 
 <style lang="less" scoped>
-.content {
-	padding: 32px 0;
-	.primary-text {
-		font-size: 49.5px;
-		margin: 8px 0;
-	}
-
-	p {
-		font-size: 22px;
-		margin: 8px 0;
-	}
-}
-
 .join {
 	.join-cards {
 		margin: 16px 0;
@@ -257,58 +247,12 @@ export default Vue.extend({
 
 		.join-card {
 			width: 50%;
-			.mdi {
-				position: absolute;
-				right: 24px;
-				top: 16px;
-				opacity: 0.3;
-				transition: all 0.2s ease;
-			}
-			&:hover {
-				.mdi {
-					opacity: 1;
-				}
-				opacity: 0.5;
-			}
-			position: relative;
-			border-radius: 5px;
-			box-shadow: @shadowlight;
-			padding: 16px 24px;
-			display: flex;
-			flex-wrap: nowrap;
-			align-items: center;
-			cursor: pointer;
-
-			img {
-				width: 100px;
-				height: 100px;
-				transform: scale(1.1);
-			}
-			.text {
-				padding-left: 16px;
-				h2 {
-					font-weight: normal;
-				}
-
-				h1,
-				h2 {
-					margin: 8px 0;
-				}
-
-				h2 {
-					font-size: 18px;
-				}
-			}
-			margin: 0 8px;
-
+			.link-card;
 			&.qq {
 				background: linear-gradient(-96deg, #1680c7, #12b7f5);
 				color: white;
 				h2 {
 					color: @textlightwhite;
-				}
-				&:hover .mdi {
-					transform: translateX(10px);
 				}
 			}
 

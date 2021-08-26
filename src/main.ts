@@ -10,15 +10,23 @@ import * as mdijs from '@mdi/js';
 import mdiVue from 'mdi-vue/v2';
 // @ts-ignore
 import checkView from 'vue-check-view';
+import VueLazyload from "vue-lazyload";
 
 Vue.use(mdiVue, {
 	icons: mdijs
 });
 Vue.use(checkView)
+Vue.use(VueLazyload)
 Vue.config.productionTip = false;
 Vue.prototype.$open = (url: string) => {
 	window.open(url);
 }
+router.beforeEach((to, from, next) => {
+	if (to.path !== from.path) {
+		document.getElementsByTagName("html")[0].scrollTo(0, 0);
+	}
+	next();
+})
 
 new Vue({
 	router,
