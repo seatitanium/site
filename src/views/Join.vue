@@ -71,7 +71,7 @@
 					>另包含前置类模组（{{
 						getDepNames(server.mods).length
 					}}
-					个）：{{ getDepNames(server.mods).join("、") }}。</small
+					个）：{{ getDepNames(server.mods).join("、") }}，模组图片来源 CurseForge。</small
 				>
 			</div>
 			<div class="features content">
@@ -117,7 +117,7 @@
 				<h1 class="primary-text" v-view.once="flowUp">立即加入</h1>
 				<p class="typo" v-view.once="flowUp">
 					服务器的 IP
-					会不定期变动，故不公开，建议直接加入讨论群以保持消息的更新。
+					会不定期变动，建议直接加入讨论群以保持消息的更新。
 				</p>
 				<p class="typo" v-view.once="flowUp">
 					SEATiDE 当前主要以 QQ
