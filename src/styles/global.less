@@ -34,9 +34,51 @@ body {
 .typo {
 	color: @textmidgray;
 	line-height: 1.8;
+
+	&.light {
+		strong {
+			color: white;
+		}
+		a:hover {
+			color: white;
+		}
+		color: @textmidwhite;
+	}
 	strong {
 		color: black;
 	}
+
+	a {
+		position: relative;
+		text-decoration: none;
+		color: inherit;
+		transition: all .2s ease;
+		&::after {
+			background: @primary;
+			width: 100%;
+			content: " ";
+			display: block;
+			position: absolute;
+			bottom: 0.5px;
+			z-index: -1;
+			height: 5px;
+			left: 50%;
+			transform: translateX(-50%);
+			opacity: .4;
+			transition: all .2s ease;
+		}
+
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+			color: black;
+		}
+	}
+}
+
+a {
+	text-decoration: none;
 }
 
 .primary-text{
