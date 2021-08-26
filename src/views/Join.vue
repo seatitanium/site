@@ -12,8 +12,8 @@
 		</banner>
 		<div class="container">
 			<div class="server-status content">
-				<h1 class="primary-text">服务器概况</h1>
-				<meta-bar>
+				<h1 class="primary-text" v-view.once="flowUp">服务器概况</h1>
+				<meta-bar v-view.once="flowUp">
 					<meta-item icon="minecraft">
 						<template #name> 版本 </template>
 						<template #text>
@@ -40,7 +40,7 @@
 						</template>
 					</meta-item>
 				</meta-bar>
-				<p class="typo">
+				<p class="typo" v-view.once="flowUp">
 					SEATiDE
 					当前处于<strong>第一周目</strong>，本周目的主题是<strong>「环境学」</strong>，偏向于休闲生存，配备了许多家具模组。
 					<br />作为 SEATiDE
@@ -48,6 +48,7 @@
 				</p>
 				<div class="mods" v-if="server.mods">
 					<div
+						v-view.once="scaleIn"
 						v-for="(x, i) in server.mods.filter(
 							(x) => x.type !== 'dep'
 						)"
@@ -72,10 +73,12 @@
 			</div>
 			<div class="features content">
 				<div class="hero-box">
-					<h1 class="primary-text">三个概念</h1>
-					<p>有助于你更好地了解 SEATiDE 服务器的运行模式</p>
+					<h1 class="primary-text" v-view.once="flowUp">三个概念</h1>
+					<p v-view.once="flowUp">
+						有助于你更好地了解 SEATiDE 服务器的运行模式
+					</p>
 				</div>
-				<div class="feature-box">
+				<div class="feature-box" v-view.once="animateFeatureBox">
 					<div class="feature black">
 						<mdicon name="human-handsup" />
 						<span>DEMOCRACY</span>
@@ -91,7 +94,7 @@
 						<h1>技术</h1>
 						<p class="typo light">
 							在
-							SEATiDE，我们<strong>提倡使用各种技术</strong>来解决一些原本看似比较棘手的问题，并尽可能发挥长处，减少痛苦。<br />诚然，一个人不可能是全能的，所以需要来自多方的协助。我们提倡互相学习，即使你什么都不了解，也不必担心。
+							SEATiDE，我们<strong>提倡使用各种技术</strong>来解决一些原本看似比较棘手的问题，并尽可能发挥长处，减少痛苦。<br />诚然，一个人不可能是全能的，所以需要来自<strong>多方的协助</strong>。我们提倡互相学习，即使你什么都不了解，也<strong>不必担心</strong>。
 						</p>
 					</div>
 					<div class="feature white">
@@ -100,20 +103,20 @@
 						<h1 class="primary-text">自动化</h1>
 						<p class="typo light">
 							得益于阿里云的
-							API，我们可以做到自动备份，甚至编写插件，通过让服务器在无人在线超过
+							API，我们可以做到<strong>自动备份</strong>，甚至编写插件，通过让服务器在无人在线<strong>超过
 							12
-							小时后自动关闭来节省经费，投入到更应该使用的地方。<br />在一些看不见的地方，我们也使用了自动化，这是为了节省和简化开服体验。
+							小时</strong>后自动关闭来节省经费，投入到更应该使用的地方。<br />在一些看不见的地方，我们也使用了自动化，这是为了<strong>节省和简化开服体验</strong>。
 						</p>
 					</div>
 				</div>
 			</div>
 			<div class="join content">
-				<h1 class="primary-text">立即加入</h1>
-				<p class="typo">
+				<h1 class="primary-text" v-view.once="flowUp">立即加入</h1>
+				<p class="typo" v-view.once="flowUp">
 					服务器的 IP
 					会不定期变动，故不公开，建议直接加入讨论群以保持消息的更新。
 				</p>
-				<p class="typo">
+				<p class="typo" v-view.once="flowUp">
 					SEATiDE 当前主要以 QQ
 					群的形式存在，同时也有微信讨论群以便交流，没有运营团队。SEATiDE
 					<strong>没有</strong>加入门槛，仅需<strong>
@@ -122,7 +125,12 @@
 					的电脑以防模组加载导致的游戏卡顿。
 				</p>
 				<div class="join-cards">
-					<a class="join-card qq" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" target="_blank">
+					<a
+						v-view.once="scaleIn"
+						class="join-card qq"
+						href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi"
+						target="_blank"
+					>
 						<mdicon name="arrow-right" />
 						<img src="@/assets/tencent-qq.svg" />
 						<div class="text">
@@ -133,7 +141,7 @@
 							</h2>
 						</div>
 					</a>
-					<div class="join-card wechant">
+					<div v-view.once="scaleIn" class="join-card wechant">
 						<mdicon name="qrcode-scan" />
 						<img src="@/assets/tencent-wechant.svg" />
 						<div class="text">
@@ -142,11 +150,11 @@
 						</div>
 					</div>
 				</div>
-				<p class="typo">
+				<p class="typo" v-view.once="flowUp">
 					加入以后，你可以在<strong>群公告</strong>中找到最新的服务器详细信息（包含<strong>版本</strong>、<strong>IP</strong>、<strong>客户端和模组包下载地址</strong>等）。同时，你也将会被<strong>正式认定</strong>为「SEATiDE」玩家。接下来，你只需要准备好游戏，然后加入服务器即可开始你的
 					SEATiDE 之旅！
 				</p>
-				<p class="typo">
+				<p class="typo" v-view.once="flowUp">
 					如果你对模组有些生疏，不知道如何开始，或者拥有其它问题，你可以在<strong>群聊里询问</strong>，或者也可以阅读<strong
 						>我们编写的<a href="#">维基</a></strong
 					>。维基相当于是本电子书，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题
@@ -162,7 +170,8 @@ import Vue from "vue";
 import Banner from "@/components/Banner.vue";
 import MetaBar from "@/components/MetaBar.vue";
 import MetaItem from "@/components/MetaItem.vue";
-import { get } from "@/fn";
+import { get, flowUp, scaleIn, flowUpQuick } from "@/fn";
+import anime from "animejs";
 
 export default Vue.extend({
 	components: {
@@ -191,6 +200,21 @@ export default Vue.extend({
 				}
 			});
 			return names;
+		},
+		flowUp,
+		scaleIn,
+		flowUpQuick,
+		animateFeatureBox(e: ViewObject) {
+			anime({
+				targets: ".features .feature",
+				translateY: [50, 0],
+				opacity: [0, 1],
+				duration: 600,
+				easing: "easeInExpo",
+				delay: (el, i) => {
+					return 150 * i;
+				},
+			});
 		},
 	},
 });
@@ -225,7 +249,6 @@ export default Vue.extend({
 				opacity: 0.3;
 				transition: all 0.2s ease;
 			}
-			transition: all 0.2s ease;
 			&:hover {
 				.mdi {
 					opacity: 1;
@@ -346,7 +369,6 @@ export default Vue.extend({
 			margin-right: 0;
 		}
 		border-radius: 12px;
-		transition: 0.2s ease;
 		color: white;
 		padding: 32px;
 
@@ -400,6 +422,7 @@ export default Vue.extend({
 	}
 
 	.mod {
+		opacity: 0;
 		margin: 8px;
 		position: relative;
 		h2,
@@ -413,7 +436,7 @@ export default Vue.extend({
 		color: white;
 		padding: 16px;
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition: box-shadow 0.2s ease;
 
 		&:hover {
 			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
