@@ -32,7 +32,8 @@ interface ServerMod {
     zh?: string,
     name: string,
     desc?: string,
-    count?: number
+    count?: number,
+    bg?: string
 }
 
 interface BackendResponse {

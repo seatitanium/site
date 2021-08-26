@@ -30,7 +30,7 @@
 					<meta-item icon="package">
 						<template #name> 模组数 </template>
 						<template #text>
-							{{ server.mods ? server.mods.length : "获取中..." }}
+							{{ server.mods ? getModCount(server.mods) : "获取中..." }}
 						</template>
 					</meta-item>
 					<meta-item icon="map-clock">
@@ -54,22 +54,25 @@
 						)"
 						:key="i"
 						class="mod"
-						style="
-							background-image: url('https://z3.ax1x.com/2021/08/25/hepl9g.jpg');
+						:style="
+							'background-image: url(\'' +
+							(x.bg ? x.bg : '') +
+							'\');'
 						"
+						@click="$open('https://search.mcmod.cn/s?key=' + x.name)"
 					>
 						<span>#{{ i + 1 }}</span>
 						<h1>{{ x.zh ? x.zh : x.name }}</h1>
 						<h2 v-if="x.zh">{{ x.name }}</h2>
 						<p v-if="x.desc">{{ x.desc }}</p>
 					</div>
-					<small
-						>另包含前置类模组（{{
-							getDepNames(server.mods).length
-						}}
-						个）：{{ getDepNames(server.mods).join("、") }}。</small
-					>
 				</div>
+				<small
+					>另包含前置类模组（{{
+						getDepNames(server.mods).length
+					}}
+					个）：{{ getDepNames(server.mods).join("、") }}。</small
+				>
 			</div>
 			<div class="features content">
 				<div class="hero-box">
@@ -103,9 +106,9 @@
 						<h1 class="primary-text">自动化</h1>
 						<p class="typo light">
 							得益于阿里云的
-							API，我们可以做到<strong>自动备份</strong>，甚至编写插件，通过让服务器在无人在线<strong>超过
-							12
-							小时</strong>后自动关闭来节省经费，投入到更应该使用的地方。<br />在一些看不见的地方，我们也使用了自动化，这是为了<strong>节省和简化开服体验</strong>。
+							API，我们可以做到<strong>自动备份</strong>，甚至编写插件，通过让服务器在无人在线<strong
+								>超过 12 小时</strong
+							>后自动关闭来节省经费，投入到更应该使用的地方。<br />在一些看不见的地方，我们也使用了自动化，这是为了<strong>节省和简化开服体验</strong>。
 						</p>
 					</div>
 				</div>
@@ -194,6 +197,9 @@ export default Vue.extend({
 	methods: {
 		getDepNames(mod: ServerMod[]) {
 			let names: string[] = [];
+			if (!!!mod) {
+				return [];
+			}
 			mod.forEach((e) => {
 				if (e.type === "dep") {
 					names.push(e.name.toLowerCase());
@@ -216,6 +222,15 @@ export default Vue.extend({
 				},
 			});
 		},
+		getModCount(mod: ServerMod[]) {
+			let count = mod.length;
+			mod.forEach(e => {
+				if (e.type === 'set' && e.count) {
+					count += e.count - 1;
+				}
+			})
+			return count;
+		}
 	},
 });
 </script>
@@ -414,6 +429,11 @@ export default Vue.extend({
 }
 
 .server-status {
+	small {
+		font-style: italic;
+		color: @textlightgray;
+	}
+
 	.mods {
 		width: 100%;
 		display: flex;
@@ -425,6 +445,17 @@ export default Vue.extend({
 		opacity: 0;
 		margin: 8px;
 		position: relative;
+		&::after {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.3);
+			position: absolute;
+			content: " ";
+			left: 0;
+			top: 0;
+			border-radius: inherit;
+			z-index: -2;
+		}
 		h2,
 		p {
 			font-weight: normal;
@@ -458,13 +489,13 @@ export default Vue.extend({
 			font-size: 14px;
 			margin-top: 10px;
 			margin-bottom: 0;
-			max-width: 250px;
+			max-width: 200px;
 		}
 
 		span {
 			position: absolute;
 			right: 16px;
-			top: 16px;
+			bottom: 16px;
 			font-family: Consolas, monospace;
 			opacity: 0.4;
 		}
