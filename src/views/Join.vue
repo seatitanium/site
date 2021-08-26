@@ -1,7 +1,7 @@
 <template>
 	<div page>
 		<banner
-			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/2021-08-24_21.23.12.png"
+			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/2.jpg"
 		>
 			<template #title> 加入 SEATiDE </template>
 			<template #subtitle> 开始体验 </template>

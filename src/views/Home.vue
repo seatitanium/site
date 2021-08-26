@@ -1,7 +1,7 @@
 <template>
 	<div page>
 		<banner
-			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/rMzSIUVHQ3hL9Nu.jpg"
+			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/5.jpg"
 			fullscreen
 		>
 			<template #title> 高效运行的玩家主导服务器 </template>
@@ -64,7 +64,7 @@
 		</div>
 		<div
 			style="
-				background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/AvOpWF5Rm861jNf.jpg');
+				background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/3.jpg');
 			"
 			class="feature-section"
 		>
@@ -132,7 +132,7 @@
 				</section>
 			</div>
 		</div>
-		<div style="background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/CIqsdXzikVKgR3F.jpg')" class="more-information-section">
+		<div style="background-image: url('https://fnmdp.oss-cn-beijing.aliyuncs.com/images/4.jpg')" class="more-information-section">
 			<div class="container">
 				<section class="more-information">
 					<logo v-view.once="flowUp" class="hero center light" />
