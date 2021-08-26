@@ -35,11 +35,6 @@ body {
 	}
 }
 
-.img {
-	box-shadow: @shadowlight;
-	border-radius: 5px;
-}
-
 figure {
 	text-align: center;
 
@@ -54,10 +49,17 @@ figure {
 	}
 }
 
+.typo-img {
+	box-shadow: @shadowlight;
+	border-radius: 5px;
+}
+
 .typo {
 	color: @textmidgray;
 	line-height: 1.8;
 	position: relative;
+
+	
 
 	& + figure {
 		position: relative;
@@ -68,7 +70,7 @@ figure {
 		width: 100%;
 		display: block;
 		margin: auto;
-		.img;
+		.typo-img;
 	}
 
 	&.light {
@@ -138,12 +140,20 @@ abbr {
 	.primary-text {
 		font-size: 49.5px;
 		margin: 8px 0;
+
+		@media screen and (max-width: 1000px) {
+			font-size: 40.6px;
+		}
 	}
 
 	p {
 		font-size: 22px;
 		margin-top: 8px;
 		margin-bottom: 8px;
+
+		@media screen and (max-width: 1000px) {
+			font-size: 18px;
+		}
 	}
 }
 
@@ -159,14 +169,16 @@ abbr {
 		opacity: 0.3;
 		transition: all 0.2s ease;
 	}
-	&:hover {
-		.mdi {
-			opacity: 1;
+	@media (min-width: 1000px) {
+		&:hover {
+			.mdi {
+				opacity: 1;
+			}
+			.mdi.mdi-arrow-right {
+				transform: translateX(10px);
+			}
+			opacity: 0.5;
 		}
-		.mdi.mdi-arrow-right {
-			transform: translateX(10px);
-		}
-		opacity: 0.5;
 	}
 	position: relative;
 	border-radius: 5px;

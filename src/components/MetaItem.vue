@@ -32,10 +32,16 @@ export default Vue.extend({
 		font-weight: bold;
 		margin-right: 1em;
 		font-size: 110%;
+		@media (max-width: 1000px) {
+			display: none;
+		}
 	}
 
 	.text {
 		color: black;
+		@media (max-width: 800px) {
+			font-size: 14px;
+		}
 	}
 
 	&::after {
@@ -43,7 +49,15 @@ export default Vue.extend({
 		display: block;
 		color: rgba(0, 0, 0, 0.21);
 		height: 100%;
-		margin: 0 16px;
+		@media (min-width: 1000px) {
+			margin: 0 16px;
+		}
+		
+		@media (max-width: 1000px) {
+			margin: 0 8px;
+			content: "/";
+			transform: scale(0.8);
+		}
 	}
 
 	&:last-child::after {

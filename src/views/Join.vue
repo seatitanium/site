@@ -51,9 +51,11 @@
 				<div class="mods" v-if="server.mods">
 					<div
 						v-view.once="scaleIn"
-						v-for="(x, i) in server.mods.filter(
-							(x) => x.type !== 'dep'
-						)"
+						v-for="(x, i) in isPC()
+							? server.mods.filter((x) => x.type !== 'dep')
+							: server.mods
+									.filter((x) => x.type !== 'dep')
+									.slice(0, 5)"
 						:key="i"
 						class="mod"
 						v-lazy:background-image="x.bg ? x.bg : ''"
@@ -66,6 +68,10 @@
 						<h2 v-if="x.zh">{{ x.name }}</h2>
 						<p v-if="x.desc">{{ x.desc }}</p>
 					</div>
+					<span class="see-full-in-pc" v-if="!isPC()"
+						><mdicon name="information-outline" />
+						在电脑端查看完整内容</span
+					>
 				</div>
 				<small
 					>另包含前置类模组（{{
@@ -175,7 +181,7 @@ import Vue from "vue";
 import Banner from "@/components/Banner.vue";
 import MetaBar from "@/components/MetaBar.vue";
 import MetaItem from "@/components/MetaItem.vue";
-import { get, flowUp, scaleIn, flowUpQuick } from "@/fn";
+import { get, flowUp, scaleIn, flowUpQuick, isPC } from "@/fn";
 import anime from "animejs";
 
 export default Vue.extend({
@@ -234,6 +240,7 @@ export default Vue.extend({
 			});
 			return count;
 		},
+		isPC,
 	},
 });
 </script>
@@ -244,9 +251,18 @@ export default Vue.extend({
 		margin: 16px 0;
 		display: flex;
 		align-items: stretch;
+		@media (max-width: 1000px) {
+			flex-direction: column;
+		}
 
 		.join-card {
-			width: 50%;
+			@media (min-width: 1000px) {
+				width: 50%;
+			}
+			@media (max-width: 1000px) {
+				margin: 8px 0;
+			}
+
 			.link-card;
 			&.qq {
 				background: linear-gradient(-96deg, #1680c7, #12b7f5);
@@ -279,7 +295,12 @@ export default Vue.extend({
 .features {
 	.feature-box {
 		display: flex;
-		align-items: stretch;
+		@media (min-width: 1000px) {
+			align-items: stretch;
+		}
+		@media (max-width: 1000px) {
+			flex-direction: column;
+		}
 	}
 }
 
@@ -288,8 +309,13 @@ export default Vue.extend({
 	flex-direction: column;
 
 	.feature {
-		width: 33.333%;
-		margin: 0 8px;
+		@media (min-width: 1000px) {
+			width: 33.333%;
+			margin: 0 8px;
+		}
+		@media (max-width: 1000px) {
+			margin: 8px 0;
+		}
 		text-shadow: @shadowlight;
 		box-shadow: @shadowlight;
 
@@ -410,28 +436,46 @@ export default Vue.extend({
 		background-repeat: no-repeat;
 		border-radius: 4px;
 		color: white;
+		@media (max-width: 800px) {
+			padding: 8px 16px;
+			p {
+				margin: 0 !important;
+				max-width: 100px !important;
+			}
+		}
 		padding: 16px;
 		cursor: pointer;
 		transition: box-shadow 0.2s ease;
 
-		&:hover {
-			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-			transform: scale(1.1);
+		@media (min-width: 1000px) {
+			&:hover {
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+				transform: scale(1.1);
+			}
 		}
 
 		h1 {
 			font-size: 24px;
+			@media (max-width: 1000px) {
+				font-size: 18px;
+			}
 			margin: 0;
 		}
 
 		h2 {
 			font-size: 14px;
+			@media (max-width: 1000px) {
+				font-size: 10.5px;
+			}
 			margin: 0;
 			color: rgba(255, 255, 255, 0.5);
 		}
 
 		p {
 			font-size: 14px;
+			@media (max-width: 1000px) {
+				font-size: 10.5px;
+			}
 			margin-top: 10px;
 			margin-bottom: 0;
 			max-width: 200px;
@@ -443,7 +487,19 @@ export default Vue.extend({
 			bottom: 16px;
 			font-family: Consolas, monospace;
 			opacity: 0.4;
+			@media (max-width: 800px) {
+				display: none;
+			}
 		}
+	}
+}
+
+.see-full-in-pc {
+	display: block;
+	margin: 16px auto;
+	color: @textmidgray;
+	.mdi {
+		margin-right: 0.5em;
 	}
 }
 </style>

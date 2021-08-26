@@ -38,3 +38,13 @@ export function get(url: string) {
 			.catch(e => rj(e));
 	});
 }
+
+export function isPC() {
+	var agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+	for (let v in agents) {
+		if (navigator.userAgent.includes(v)) {
+			return false;
+		}
+	}
+	return true;
+}
