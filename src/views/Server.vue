@@ -1,12 +1,12 @@
 <template>
 	<div page>
 		<banner
-			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/2021-08-24_21.23.12.png"
+			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/1.jpg"
 		>
 			<template #title> 服务器状态 </template>
 			<template #subtitle> 实时 </template>
 			<template #text
-				>查看当前服务器的运行情况和一些基本信息<br />这些信息大体是即时更新的，可通过刷新页面来刷新数据</template
+				>查看当前服务器的运行情况和一些基本信息<br />这些信息在服务器上是即时更新的，可通过点击「刷新数据 <mdicon name="refresh"/>」按钮来刷新</template
 			>
 		</banner>
 		<div class="basic container">
@@ -18,10 +18,12 @@
 					@click.native="init()"
 					>刷新数据</btn
 				>
-				<br /><span>{{ lastUpdated.date }}<br/>{{lastUpdated.time}}</span>
+				<br /><span
+					>{{ lastUpdated.date }}<br />{{ lastUpdated.time }}</span
+				>
 			</div>
 			<div class="ip">
-				<h2>当前服务器的 IP</h2>
+				<h2>当前服务器 IP</h2>
 				<h1 class="ip primary-text">{{ server.ip || "加载中..." }}</h1>
 				<span
 					class="status"
@@ -81,29 +83,32 @@
 						name="information-outline"
 					/>其它信息将在加载完成后显示
 				</p>
-				<div class="players" v-if="hasPlayer()">
-					<h1 class="primary-text">
-						当前在线 ({{ server.onlinePlayers }}/{{
-							server.maxPlayers
-						}})
-					</h1>
-					<div class="player-details">
-						<div
-							@click="$open('https://namemc.com/profile/' + x.id)"
-							class="player"
-							v-for="(x, i) in server.onlinePlayersDetails"
-							:key="i"
-						>
-							<img
-								:src="
-									'https://crafatar.com/renders/head/' + x.id
+				<div class="server-data">
+					<div class="players" v-if="hasPlayer()">
+						<h1 class="primary-text">
+							当前在线 ({{ server.onlinePlayers }}/{{
+								server.maxPlayers
+							}})
+						</h1>
+						<div class="player-details">
+							<div
+								@click="
+									$open('https://namemc.com/profile/' + x.id)
 								"
-							/>
-							<h1>{{ x.name }}</h1>
+								class="player"
+								v-for="(x, i) in server.onlinePlayersDetails"
+								:key="i"
+							>
+								<img
+									:src="
+										'https://crafatar.com/renders/head/' +
+										x.id
+									"
+								/>
+								<h1>{{ x.name }}</h1>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="server-data">
 					<div v-if="motdHtml">
 						<h1 class="primary-text">
 							<abbr title="Message of the Day">MOTD</abbr> 信息
@@ -130,8 +135,7 @@
 						{{ instance.zone }} / 硬盘
 						{{ instance.systemdisk.size }}+{{
 							instance.datadisk.size
-						}}GB
-						/ 带宽 {{ instance.bandwidth }}Mbps / ￥0.8 per GB
+						}}GB / 带宽 {{ instance.bandwidth }}Mbps / ￥0.8 per GB
 					</p>
 				</div>
 			</div>
@@ -159,9 +163,9 @@ export default Vue.extend({
 			loading: true,
 			instance: {} as InstanceInformation,
 			lastUpdated: {
-                date: "",
-                time: ""
-            },
+				date: "",
+				time: "",
+			},
 		};
 	},
 	mounted() {
@@ -175,30 +179,31 @@ export default Vue.extend({
 			return false;
 		},
 		init() {
-            this.lastUpdated.time = "";
-            this.lastUpdated.date = "更新中...";
-			get("/api/server/v1/get/server").then((r) => {
-				console.log(r);
-				let data: ServerInformation | null = r.data.data as any;
-				if (data !== null) {
-                    let d = new Date();
-					this.lastUpdated.date = d.toLocaleDateString();
-                    this.lastUpdated.time = d.toLocaleTimeString();
-					this.loading = false;
-					if (data.onlinePlayersDetails !== null) {
-						data.onlinePlayersDetails =
-							data.onlinePlayersDetails.slice(0, 20);
+			this.lastUpdated.time = "";
+			this.lastUpdated.date = "更新中...";
+			get("/api/server/v1/get/server")
+				.then((r) => {
+					let data: ServerInformation | null = r.data.data as any;
+					if (data !== null) {
+						let d = new Date();
+						this.lastUpdated.date = d.toLocaleDateString();
+						this.lastUpdated.time = d.toLocaleTimeString();
+						this.loading = false;
+						if (data.onlinePlayersDetails !== null) {
+							data.onlinePlayersDetails =
+								data.onlinePlayersDetails.slice(0, 20);
+						}
+						this.server = data;
+						//@ts-ignore
+						Motd.toHtml(this.server.motd, (err, res) => {
+							this.motdHtml = res;
+						});
 					}
-					this.server = data;
-					//@ts-ignore
-					Motd.toHtml(this.server.motd, (err, res) => {
-						this.motdHtml = res;
-					});
-				}
-			}).catch(e => {
-                console.warn(e);
-                this.lastUpdated.date = "更新失败";
-            });
+				})
+				.catch((e) => {
+					console.warn(e);
+					this.lastUpdated.date = "更新失败";
+				});
 			get("/api/ecs/v1/describe/instance").then((r) => {
 				let data: InstanceInformation | null = r.data.data as any;
 				if (data !== null) {
@@ -327,7 +332,6 @@ export default Vue.extend({
 	}
 }
 
-.players,
 .server-data {
 	margin: 32px 0;
 }

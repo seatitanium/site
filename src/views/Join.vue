@@ -116,8 +116,7 @@
 			<div class="join content">
 				<h1 class="primary-text" v-view.once="flowUp">立即加入</h1>
 				<p class="typo" v-view.once="flowUp">
-					服务器的 IP
-					会不定期变动，建议直接加入讨论群以保持消息的更新。
+					若要加入 SEATiDE，请先加入我们的讨论群并注明你的 ID，我们将给予白名单。
 				</p>
 				<p class="typo" v-view.once="flowUp">
 					SEATiDE 当前主要以 QQ
