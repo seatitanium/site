@@ -4,8 +4,7 @@
 			<template #title> 加入 SEATiDE </template>
 			<template #subtitle> 开始体验 </template>
 			<template #text>
-				SEATiDE 是 Java 正版高版本模组服务器，加入唯一的门槛<br />
-				是价值 ￥165 的正版以及一台可以带动模组的电脑。
+				SEATiDE 是 Java 正版高版本模组服务器，加入暂时没有门槛。<br/>本页将引导你粗略了解 SEATiDE 并提供加入方式。
 			</template>
 		</banner>
 		<div class="container">
@@ -264,19 +263,6 @@ export default Vue.extend({
 			}
 
 			.link-card;
-			&.qq {
-				background: linear-gradient(-96deg, #1680c7, #12b7f5);
-				color: white;
-				h2 {
-					color: @textlightwhite;
-				}
-			}
-
-			&.wechant {
-				h2 {
-					color: @textlightgray;
-				}
-			}
 		}
 	}
 }

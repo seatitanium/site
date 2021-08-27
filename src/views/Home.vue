@@ -17,6 +17,7 @@
 					type="primary shadow arrow"
 					size="large"
 					icon="arrow-right"
+					to="/join"
 					>立即加入</btn
 				>
 				<btn class="learnmore-btn" type="outlined hover" size="large"

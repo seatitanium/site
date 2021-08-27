@@ -59,8 +59,6 @@ figure {
 	line-height: 1.8;
 	position: relative;
 
-	
-
 	& + figure {
 		position: relative;
 	}
@@ -117,6 +115,7 @@ figure {
 
 a {
 	text-decoration: none;
+	color: inherit;
 }
 
 .primary-text {
@@ -145,9 +144,12 @@ abbr {
 	}
 }
 
-.container.content,
 .container > .content {
 	padding: 32px 0;
+}
+
+.container.content,
+.container > .content {
 	.primary-text {
 		font-size: 49.5px;
 		margin: 8px 0;
@@ -179,6 +181,26 @@ abbr {
 		top: 16px;
 		opacity: 0.3;
 		transition: all 0.2s ease;
+	}
+
+	&.github {
+		h2 {
+			color: @textlightgray;
+		}
+	}
+
+	&.qq {
+		background: linear-gradient(-96deg, #1680c7, #12b7f5);
+		color: white;
+		h2 {
+			color: @textlightwhite;
+		}
+	}
+
+	&.wechant {
+		h2 {
+			color: @textlightgray;
+		}
 	}
 	@media (min-width: 1000px) {
 		&:hover {
@@ -219,8 +241,18 @@ abbr {
 		h2 {
 			font-size: 18px;
 		}
+
+		@media (max-width: 800px) {
+			h1 {
+				font-size: 22px;
+			}
+
+			h2 {
+				font-size: 14px;
+			}
+		}
 	}
-	margin: 0 8px;
+	margin: 16px;
 }
 
 @textgray: #272727;
@@ -230,5 +262,5 @@ abbr {
 @textlightwhite: rgba(255, 255, 255, 0.7);
 @primary: #fcd307;
 @primaryg: linear-gradient(135deg, rgba(255, 230, 0, 1) 0%, rgb(250, 173, 6) 100%);
-@shadowlight: 0 3px 5px rgba(0, 0, 0, 0.1);
+@shadowlight: 0 3px 5px rgba(0, 0, 0, 0.2);
 @shadowdark: 0 3px 5px rgba(0, 0, 0, 0.6);

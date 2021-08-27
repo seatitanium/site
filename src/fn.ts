@@ -4,7 +4,16 @@ import axios, { AxiosResponse } from 'axios';
 export function flowUp(e: ViewObject) {
 	anime({
 		targets: e.target.element,
-		translateY: [10, 0],
+		translateY: [20, 0],
+		opacity: [0, 1],
+		easing: 'easeInOutExpo'
+	});
+}
+
+export function flowLeft(e: ViewObject) {
+	anime({
+		targets: e.target.element,
+		translateX: [-20, 0],
 		opacity: [0, 1],
 		easing: 'easeInOutExpo'
 	});
@@ -13,7 +22,7 @@ export function flowUp(e: ViewObject) {
 export function flowUpQuick(e: ViewObject) {
 	anime({
 		targets: e.target.element,
-		translateY: [10, 0],
+		translateY: [20, 0],
 		opacity: [0, 1],
 		easing: 'easeInOutExpo',
 		duration: 300

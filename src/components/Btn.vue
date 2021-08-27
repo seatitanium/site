@@ -1,5 +1,5 @@
 <template>
-	<button class="btn" :class="type + ' ' + size">
+	<button @click="go(to)" class="btn" :class="type + ' ' + size">
 		<div class="content">
 			<slot />
 			<mdicon v-if="icon" :name="icon" class="icon" />
@@ -10,7 +10,13 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-	props: ["type", "size", "icon"],
+	props: ["type", "size", "icon", "to"],
+	methods: {
+		go(path: string) {
+			if (!path) return;
+			this.$router.push(path);
+		}
+	}
 });
 </script>
 
