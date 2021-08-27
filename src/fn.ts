@@ -39,6 +39,10 @@ export function get(url: string) {
 	});
 }
 
+export function isPCSize() {
+	return window.innerWidth > 1000;
+}
+
 export function isPC() {
 	var agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
 	for (let v in agents) {

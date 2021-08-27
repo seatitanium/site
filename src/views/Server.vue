@@ -17,9 +17,8 @@
 					@click.native="init()"
 					>刷新数据</btn
 				>
-				<br /><span
-					>{{ lastUpdated.date }}<br />{{ lastUpdated.time }}</span
-				>
+				<br />
+				<div>{{ lastUpdated.date }}<br />{{ lastUpdated.time }}</div>
 			</div>
 			<div class="ip">
 				<h2>当前服务器 IP</h2>
@@ -121,13 +120,19 @@
 						<div class="raw-mods">
 							<div
 								class="raw-mod"
-								v-for="(x, i) in server.rawMods"
+								v-for="(x, i) in isPCSize()
+									? server.rawMods
+									: server.rawMods.slice(0, 10)"
 								:key="i"
 							>
 								<div class="name">{{ x.modId }}</div>
 								<div class="version">{{ x.modmarker }}</div>
 							</div>
 						</div>
+						<span class="see-full-in-pc" v-if="!isPCSize()"
+							><mdicon name="information-outline" />
+							在电脑端查看完整内容</span
+						>
 					</div>
 					<p class="debug-info" v-if="instance.type">
 						阿里云 ECS 配置信息：实例类型 {{ instance.type }} / 地域
@@ -145,7 +150,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Banner from "@/components/Banner.vue";
-import { get } from "@/fn";
+import { get, isPCSize } from "@/fn";
 // @ts-ignore
 import Motd from "mcmotdparser";
 import Btn from "@/components/Btn.vue";
@@ -177,6 +182,7 @@ export default Vue.extend({
 			}
 			return false;
 		},
+		isPCSize,
 		init() {
 			this.lastUpdated.time = "";
 			this.lastUpdated.date = "更新中...";
@@ -272,7 +278,12 @@ export default Vue.extend({
 }
 
 .ip {
-	margin: 56px 0;
+	@media (min-width: 1000px) {
+		margin: 56px 0;
+	}
+	@media (max-width: 1000px) {
+		margin: 16px 0;
+	}
 	text-align: center;
 	h2 {
 		font-weight: normal;
@@ -286,6 +297,14 @@ export default Vue.extend({
 
 	h1 {
 		font-size: 56px;
+	}
+	@media (max-width: 800px) {
+		h1 {
+			font-size: 42px;
+		}
+		h2 {
+			font-size: 24px;
+		}
 	}
 
 	.status {
@@ -311,10 +330,35 @@ export default Vue.extend({
 .arguments {
 	display: flex;
 	align-items: stretch;
+	@media (max-width: 1000px) {
+		flex-direction: row;
+	}
 
 	.card {
-		margin: 0 8px;
 		width: 33.33%;
+		margin: 0 8px;
+		@media (max-width: 1000px) {
+			h1 {
+				font-size: 14px !important;
+			}
+			p {
+				font-size: 18px !important;
+			}
+			padding: 0 !important;
+			box-shadow: none;
+			position: relative;
+			&::after {
+				content: "|";
+				color: rgba(0, 0, 0, 0.21);
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: -12px;
+			}
+			&:last-child::after {
+				content: none;
+			}
+		}
 		text-align: center;
 		h1 {
 			text-align: center;
@@ -341,6 +385,13 @@ export default Vue.extend({
 
 .container {
 	position: relative;
+}
+
+.primary-text {
+	@media (max-width: 800px) {
+		text-align: center;
+		width: 100%;
+	}
 }
 
 .player-details {
@@ -375,16 +426,19 @@ export default Vue.extend({
 
 .refresh {
 	display: block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	text-align: right;
+	text-align: center;
+	@media (min-width: 1000px) {
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-align: right;
+	}
 	button {
 		display: inline-block;
 	}
-	span {
+	div {
 		font-size: 12px;
-		text-align: right;
+		margin-top: 8px;
 	}
 }
 </style>

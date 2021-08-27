@@ -51,7 +51,7 @@
 				<div class="mods" v-if="server.mods">
 					<div
 						v-view.once="scaleIn"
-						v-for="(x, i) in isPC()
+						v-for="(x, i) in isPCSize()
 							? server.mods.filter((x) => x.type !== 'dep')
 							: server.mods
 									.filter((x) => x.type !== 'dep')
@@ -68,11 +68,11 @@
 						<h2 v-if="x.zh">{{ x.name }}</h2>
 						<p v-if="x.desc">{{ x.desc }}</p>
 					</div>
-					<span class="see-full-in-pc" v-if="!isPC()"
-						><mdicon name="information-outline" />
-						在电脑端查看完整内容</span
-					>
 				</div>
+				<span class="see-full-in-pc" v-if="!isPCSize()"
+					><mdicon name="information-outline" />
+					在电脑端查看完整内容</span
+				>
 				<small
 					>另包含前置类模组（{{
 						getDepNames(server.mods).length
@@ -181,7 +181,7 @@ import Vue from "vue";
 import Banner from "@/components/Banner.vue";
 import MetaBar from "@/components/MetaBar.vue";
 import MetaItem from "@/components/MetaItem.vue";
-import { get, flowUp, scaleIn, flowUpQuick, isPC } from "@/fn";
+import { get, flowUp, scaleIn, flowUpQuick, isPCSize } from "@/fn";
 import anime from "animejs";
 
 export default Vue.extend({
@@ -240,7 +240,7 @@ export default Vue.extend({
 			});
 			return count;
 		},
-		isPC,
+		isPCSize,
 	},
 });
 </script>
@@ -491,15 +491,6 @@ export default Vue.extend({
 				display: none;
 			}
 		}
-	}
-}
-
-.see-full-in-pc {
-	display: block;
-	margin: 16px auto;
-	color: @textmidgray;
-	.mdi {
-		margin-right: 0.5em;
 	}
 }
 </style>
