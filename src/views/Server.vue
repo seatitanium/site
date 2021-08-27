@@ -1,12 +1,11 @@
 <template>
 	<div page>
-		<banner
-			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/1.jpg"
-		>
+		<banner bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/1.jpg">
 			<template #title> 服务器状态 </template>
 			<template #subtitle> 实时 </template>
 			<template #text
-				>查看当前服务器的运行情况和一些基本信息<br />这些信息在服务器上是即时更新的，可通过点击「刷新数据 <mdicon name="refresh"/>」按钮来刷新</template
+				>查看当前服务器的运行情况和一些基本信息<br />这些信息在服务器上是即时更新的，可通过点击「刷新数据
+				<mdicon name="refresh" />」按钮来刷新</template
 			>
 		</banner>
 		<div class="basic container">
@@ -75,7 +74,7 @@
 					</div>
 					<div class="card">
 						<h1 class="primarys-text">建议内存</h1>
-						<p>≥ {{ server.bestram || '?' }}GB</p>
+						<p>≥ {{ server.bestram || "?" }}GB</p>
 					</div>
 				</div>
 				<p v-if="loading" class="loading-tip">
@@ -189,9 +188,11 @@ export default Vue.extend({
 						this.lastUpdated.date = d.toLocaleDateString();
 						this.lastUpdated.time = d.toLocaleTimeString();
 						this.loading = false;
-						if (data.onlinePlayersDetails !== null) {
-							data.onlinePlayersDetails =
-								data.onlinePlayersDetails.slice(0, 20);
+						if (data.online) {
+							if (data.onlinePlayersDetails !== null) {
+								data.onlinePlayersDetails =
+									data.onlinePlayersDetails.slice(0, 20);
+							}
 						}
 						this.server = data;
 						//@ts-ignore
