@@ -1,27 +1,55 @@
 <template>
-	<nav class="navbar" :class="active ? 'active' : 'inactive'">
-		<logo
-			@click.native="$router.push('/')"
-			class="nav"
-			:class="active ? '' : 'light'"
-		/>
-		<div class="nav-link">
+	<div class="navbar-box">
+		<nav class="navbar" :class="active ? 'active' : 'inactive'">
 			<div
-				@click="$router.push({ name: x.route })"
-				class="link"
-				:class="$route.name === x.route ? 'active' : ''"
-				v-for="(x, i) in links"
-				:key="i"
+				class="hamburger"
+				:class="hamburgerOpen ? 'open' : ''"
+				@click="
+					hamburgerOpen = !hamburgerOpen;
+					toggleDropdown();
+				"
 			>
-				{{ x.name }}
+				<span class="hamburger__top-bun"></span>
+				<span class="hamburger__bottom-bun"></span>
 			</div>
-		</div>
-	</nav>
+			<logo
+				@click.native="$router.push('/')"
+				class="nav"
+				:class="active ? '' : 'light'"
+			/>
+			<div class="nav-link">
+				<div
+					@click="$router.push({ name: x.route })"
+					class="link"
+					:class="$route.name === x.route ? 'active' : ''"
+					v-for="(x, i) in links"
+					:key="i"
+				>
+					{{ x.name }}
+				</div>
+			</div>
+			<div ref="dropdown" class="dropdown" style="display: none">
+				<span
+					@click="
+						$router.push({ name: x.route });
+						hamburgerOpen = false;
+						toggleDropdown();
+					"
+					class="dropdown-item"
+					v-for="(x, i) in links"
+					:key="i"
+				>
+					{{ x.name }}
+				</span>
+			</div>
+		</nav>
+	</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Logo from "@/components/Logo.vue";
+import anime from "animejs";
 
 export default Vue.extend({
 	data() {
@@ -45,6 +73,7 @@ export default Vue.extend({
 				},
 			],
 			active: false,
+			hamburgerOpen: false,
 		};
 	},
 	components: {
@@ -53,24 +82,72 @@ export default Vue.extend({
 	mounted() {
 		document.addEventListener("scroll", (e) => {
 			if (document.scrollingElement?.scrollTop) {
-				if (document.scrollingElement.scrollTop > 100) {
-					this.active = true;
-				} else {
-					this.active = false;
+				if (!this.hamburgerOpen) {
+					this.activateNav();
 				}
 			}
 		});
+	},
+	watch: {
+		hamburgerOpen(v) {
+			if (v) {
+				this.active = true;
+			} else {
+				this.activateNav();
+			}
+		},
+	},
+	methods: {
+		toggleDropdown(directOption?: boolean) {
+			let obj: HTMLDivElement = this.$refs.dropdown as HTMLDivElement;
+			let p =
+				directOption !== undefined
+					? directOption
+					: obj.style.display === "none" || this.hamburgerOpen;
+			let n =
+				directOption !== undefined
+					? !directOption
+					: obj.style.display === "" || !this.hamburgerOpen;
+			if (p) {
+				obj.style.display = "";
+			}
+			anime({
+				targets: ".dropdown",
+				translateY: p ? [-50, 0] : [0, -50],
+				opacity: p ? [0, 1] : [1, 0],
+				easing: "easeOutExpo",
+				duration: 500,
+			});
+			if (n) {
+				obj.style.pointerEvents = "none";
+			}
+			if (p) {
+				obj.style.pointerEvents = "auto";
+			}
+		},
+		activateNav() {
+			if ((document.scrollingElement as Element).scrollTop > 100) {
+				this.active = true;
+			} else {
+				this.active = false;
+			}
+		},
 	},
 });
 </script>
 
 <style lang="less" scoped>
 .navbar {
-	.small {
+	.logo.nav {
 		cursor: pointer;
+		margin-left: 42px;
 	}
 
 	&.inactive {
+		.hamburger__bottom-bun,
+		.hamburger__top-bun {
+			background: #fff;
+		}
 		.link {
 			&:not(.active):hover {
 				color: @textlightwhite !important;
@@ -85,6 +162,10 @@ export default Vue.extend({
 	}
 
 	&.active {
+		.hamburger__bottom-bun,
+		.hamburger__top-bun {
+			background: @textmidgray;
+		}
 		background: white;
 	}
 }
@@ -145,9 +226,74 @@ export default Vue.extend({
 	top: 0;
 	left: 0;
 	right: 0;
+	height: 40px;
+}
+
+/* Hamburger from https://apple.com */
+
+.hamburger {
+	cursor: pointer;
+	position: absolute;
+	left: 8px;
+	width: 48px;
+	height: 48px;
+	transition: all 0.25s;
+	z-index: 10000;
+
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
+}
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 15px;
+	width: 18px;
+	height: 2.2px;
+	transform: rotate(0);
+	transition: all 0.25s;
+}
+
+.hamburger__top-bun {
+	top: 23px;
+	transform: translateY(-3px);
+}
+
+.hamburger__bottom-bun {
+	bottom: 23px;
+	transform: translateY(3px);
+}
+
+.open {
+	transform: rotate(90deg);
+	.hamburger__top-bun {
+		transform: rotate(45deg) translateY(0px);
+	}
+	.hamburger__bottom-bun {
+		transform: rotate(-45deg) translateY(0px);
+	}
+}
+
+.dropdown {
+	z-index: 200;
 	width: 100%;
-	@media (max-width: 800px) {
-		
+	position: absolute;
+	top: 62px;
+	left: 0;
+	background: white;
+
+	.dropdown-item {
+		width: 100%;
+		display: block;
+		color: @textmidgray;
+		padding: 16px;
+		font-size: 1.1rem;
+		transition: all 0.2s ease;
+		cursor: pointer;
+		text-decoration: none;
 	}
 }
 </style>

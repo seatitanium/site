@@ -302,8 +302,8 @@ export default Vue.extend({
 		@media (max-width: 1000px) {
 			margin: 8px 0;
 		}
-		text-shadow: @shadowlight;
-		box-shadow: @shadowlight;
+		text-shadow: @shadowlightx;
+		box-shadow: @shadowlightx;
 
 		&.black {
 			background: #212121;
@@ -311,6 +311,9 @@ export default Vue.extend({
 
 		&.primary {
 			background: @primaryg;
+			p {
+				color: @textlightgray;
+			}
 		}
 
 		&.white {
