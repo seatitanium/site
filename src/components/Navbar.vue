@@ -2,7 +2,7 @@
 	<nav class="navbar" :class="active ? 'active' : 'inactive'">
 		<logo
 			@click.native="$router.push('/')"
-			class="small"
+			class="nav"
 			:class="active ? '' : 'light'"
 		/>
 		<div class="nav-link">
@@ -146,5 +146,8 @@ export default Vue.extend({
 	left: 0;
 	right: 0;
 	width: 100%;
+	@media (max-width: 800px) {
+		
+	}
 }
 </style>

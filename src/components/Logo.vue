@@ -20,6 +20,15 @@ export default Vue.extend({});
 		background: transparent;
 	}
 
+	&.nav {
+		.img {
+			width: 38px;
+		}
+		.text {
+			font-size: 26px;
+		}
+	}
+
 	&.small {
 		.img {
 			width: 32px;

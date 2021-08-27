@@ -1,5 +1,9 @@
 <template>
-	<button @click="go(to)" class="btn" :class="type + ' ' + size">
+	<button
+		@click="go(to)"
+		class="btn"
+		:class="type + ' ' + size + ' ' + (isPCSize() ? 'pc' : 'mobile')"
+	>
 		<div class="content">
 			<slot />
 			<mdicon v-if="icon" :name="icon" class="icon" />
@@ -9,14 +13,16 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { isPCSize } from "@/fn";
 export default Vue.extend({
 	props: ["type", "size", "icon", "to"],
 	methods: {
 		go(path: string) {
 			if (!path) return;
 			this.$router.push(path);
-		}
-	}
+		},
+		isPCSize,
+	},
 });
 </script>
 
@@ -54,15 +60,22 @@ export default Vue.extend({
 		}
 	}
 
-	&.primarylight {
-		position: relative;
+	&.primarylight.pc {
 		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
 		background-clip: text;
 		color: transparent;
-		svg {
-			color: @primary;
-		}
+	}
 
+	&.mobile {
+		color: @primarydark;
+	}
+
+	&.primarylight {
+		position: relative;
+
+		svg {
+			color: @primarydark;
+		}
 		&:hover {
 			&::after {
 				background: darken(white, 4%);
