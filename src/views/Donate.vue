@@ -73,7 +73,7 @@
 				<h1 v-view.once="flowUp" class="primary-text">感谢捐助</h1>
 				<p v-view.once="flowUp">
 					感谢这些人的无偿捐助，帮助了 SEATiDE
-					发展和维持运行。排名使用洗牌算法随机排列。
+					发展和维持运行。排名使用洗牌算法随机排列，刷新可重排。
 				</p>
 				<ul v-view.once="flowUp">
 					<li v-for="(x, i) in donators.shuffle()" :key="i">

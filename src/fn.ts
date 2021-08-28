@@ -1,6 +1,8 @@
 import anime from 'animejs';
 import axios, { AxiosResponse } from 'axios';
 
+const API_HOST = 'https://seatide.leviatan.cn';
+
 export function flowUp(e: ViewObject) {
 	anime({
 		targets: e.target.element,
@@ -42,7 +44,7 @@ export function scaleIn(e: ViewObject) {
 export function get(url: string) {
 	return new Promise<AxiosResponse<BackendResponse>>((re, rj) => {
 		axios
-			.get(url)
+			.get(API_HOST + url)
 			.then(r => re(r))
 			.catch(e => rj(e));
 	});
