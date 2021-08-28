@@ -19,7 +19,7 @@
 			/>
 			<div class="nav-link">
 				<div
-					@click="$router.push({ name: x.route })"
+					@click="$router.push({ name: x.route }); activateNav()"
 					class="link"
 					:class="$route.name === x.route ? 'active' : ''"
 					v-for="(x, i) in links"
@@ -71,6 +71,10 @@ export default Vue.extend({
 					name: "关于",
 					route: "about",
 				},
+				{
+					name: "捐助",
+					route: "donate"
+				}
 			],
 			active: false,
 			hamburgerOpen: false,
