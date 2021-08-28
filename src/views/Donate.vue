@@ -10,7 +10,9 @@
 		</banner>
 		<div class="container">
 			<div class="content typo">
-				<h1 v-view.once="flowUp" class="primary-text">SEATiDE 的资金使用原理</h1>
+				<h1 v-view.once="flowUp" class="primary-text">
+					SEATiDE 的资金使用原理
+				</h1>
 				<p v-view.once="flowUp">
 					SEATiDE 的开销主要来自两个方面：Minecraft
 					服务器和网页服务器。其中网页服务器使用的是阿里云轻量应用服务器（香港），每个月固定缴纳
@@ -76,7 +78,7 @@
 					发展和维持运行。排名使用洗牌算法随机排列，刷新可重排。
 				</p>
 				<ul v-view.once="flowUp">
-					<li v-for="(x, i) in donators.shuffle()" :key="i">
+					<li v-for="(x, i) in shuffle(donators)" :key="i">
 						{{ x.name }} —
 						<span class="money">￥{{ x.amount }}</span>
 					</li>
@@ -84,7 +86,8 @@
 				<p v-view.once="flowUp">
 					同时感谢
 					<a href="//leviatan.cn" target="_blank">WindSpirit</a> 为
-					SEATiDE 提供的高速 API 托管服务，感谢 123__jk 为本站提供的 Minecraft 摄影作品。
+					SEATiDE 提供的高速 API 托管服务，感谢 123__jk 为本站提供的
+					Minecraft 摄影作品。
 				</p>
 			</div>
 		</div>
@@ -94,7 +97,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Banner from "@/components/Banner.vue";
-import { flowUp } from '@/fn';
+import { flowUp } from "@/fn";
 
 export default Vue.extend({
 	components: {
@@ -126,9 +129,21 @@ export default Vue.extend({
 			],
 		};
 	},
-    methods: {
-        flowUp
-    }
+	methods: {
+		flowUp,
+		shuffle(array: Array<any>) {
+			var m = array.length,
+				t,
+				i;
+			while (m) {
+				i = Math.floor(Math.random() * m--);
+				t = array[m];
+				array[m] = array[i];
+				array[i] = t;
+			}
+			return array;
+		},
+	},
 });
 </script>
 
