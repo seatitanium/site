@@ -27,13 +27,13 @@ Vue.prototype.$open = (url: string) => {
 };
 router.beforeEach((to, from, next) => {
 	NProgress.start();
-	if (to.path !== from.path) {
-		document.getElementsByTagName('html')[0].scrollTo(0, 0);
-	}
 	next();
 });
 
 router.afterEach((to, from) => {
+	if (to.path !== from.path) {
+		document.getElementsByTagName('html')[0].scrollTo(0, 0);
+	}
 	NProgress.done();
 })
 
