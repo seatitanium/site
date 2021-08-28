@@ -2,7 +2,7 @@
 	<div class="app">
 		<navbar />
 		<transition name="fade" mode="out-in">
-			<router-view view />
+			<router-view :class="isPCSize() ? (isMobile() ? 'mobile-pc-size' : 'pc-size') : 'mobile-size'" view />
 		</transition>
 		<Footer />
 	</div>
@@ -12,12 +12,17 @@
 import Vue from "vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import { isPCSize, isMobile } from "@/fn";
 
 export default Vue.extend({
 	components: {
 		Navbar,
 		Footer,
 	},
+	methods: {
+		isPCSize,
+		isMobile
+	}
 });
 </script>
 

@@ -14,7 +14,7 @@
 					<meta-item icon="minecraft">
 						<template #name> 版本 </template>
 						<template #text>
-							<span style="font-family: Consolas, monospace"
+							<span class="monospace"
 								>Java
 								{{
 									server.version
@@ -378,7 +378,7 @@ export default Vue.extend({
 		}
 
 		> span:not(.mdi) {
-			font-family: Consolas, monospace;
+			.monospace;
 			position: absolute;
 			opacity: 0.3;
 			right: 32px;
@@ -474,7 +474,7 @@ export default Vue.extend({
 			position: absolute;
 			right: 16px;
 			bottom: 16px;
-			font-family: Consolas, monospace;
+			.monospace;
 			opacity: 0.4;
 			@media (max-width: 800px) {
 				display: none;

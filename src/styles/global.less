@@ -2,7 +2,7 @@
 
 body {
 	margin: 0;
-	font-family: 'Inter', -apple-system, Helvetica, 'Segoe UI', '微软雅黑', 'Microsoft YaHei UI', sans-serif;
+	font-family: ui-sans-serif, 'Inter', -apple-system, Helvetica, 'Segoe UI', '微软雅黑', 'Microsoft YaHei UI', sans-serif;
 	scroll-behavior: smooth;
 }
 
@@ -16,8 +16,11 @@ body {
 	max-width: 1200px;
 	display: block;
 	margin: auto;
+	@media screen and (max-width: 800px) {
+		padding: 20px !important;
+	}
 	@media screen and (max-width: 1200px) {
-		padding: 16px;
+		padding: 64px;
 	}
 }
 
@@ -49,6 +52,10 @@ figure {
 			margin-right: 1em;
 		}
 	}
+}
+
+.monospace {
+	font-family: Consolas, 'SF Mono', 'SFMono-Regular', ui-monospace, Menlo, monospace;
 }
 
 .typo-img {
@@ -116,6 +123,14 @@ figure {
 
 	ul, ol {
 		padding-left: 24px;
+	}
+
+	h1, h2 {
+		line-height: 1.5;
+	}
+
+	p {
+		line-height: 1.8;
 	}
 }
 

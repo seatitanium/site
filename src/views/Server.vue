@@ -427,7 +427,7 @@ export default Vue.extend({
 .refresh {
 	display: block;
 	text-align: center;
-	@media (min-width: 1000px) {
+	@media (min-width: 1200px) {
 		position: absolute;
 		right: 0;
 		top: 0;

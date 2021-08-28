@@ -93,7 +93,7 @@
 					<div class="single-feature light">
 						<div class="typo">
 							<h2><mdicon name="console" /> 利用技术解决问题</h2>
-							<h1>自己动手，丰衣足食</h1>
+							<h1>自己动手，<br/>丰衣足食</h1>
 							<p
 								v-html="
 									'无论是我们需要的功能，还是新的游戏玩法；无论是游戏内还是游戏外，我们都可以亲自来创造。<br/>SEATiDE 提倡用各种各样的技术方法来完善我们共同的游戏体验，为服务器添砖加瓦。'
@@ -186,7 +186,7 @@ import Vue from "vue";
 import anime from "animejs";
 import SvgZidonghua from "@/components/typo/svg-zidonghua.vue";
 import Logo from "@/components/Logo.vue";
-import { flowUp } from "@/fn"
+import { flowUp, isPCSize, isMobile } from "@/fn"
 
 export default Vue.extend({
 	components: {
@@ -236,6 +236,8 @@ export default Vue.extend({
 				delay: 200,
 			});
 		},
+		isPCSize,
+		isMobile
 	},
 });
 </script>

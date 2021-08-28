@@ -2,7 +2,7 @@
 	<button
 		@click="go(to)"
 		class="btn"
-		:class="type + ' ' + size + ' ' + (isPCSize() ? 'pc' : 'mobile')"
+		:class="type + ' ' + size + ' ' + (isMobile() ? 'mobile' : 'pc')"
 	>
 		<div class="content">
 			<slot />
@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { isPCSize } from "@/fn";
+import { isPCSize, isMobile } from "@/fn";
 export default Vue.extend({
 	props: ["type", "size", "icon", "to"],
 	methods: {
@@ -22,6 +22,7 @@ export default Vue.extend({
 			this.$router.push(path);
 		},
 		isPCSize,
+		isMobile
 	},
 });
 </script>

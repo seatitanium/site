@@ -144,7 +144,9 @@ export default Vue.extend({
 .navbar {
 	.logo.nav {
 		cursor: pointer;
-		margin-left: 42px;
+		@media (max-width: 800px) {
+			margin-left: 42px;
+		}
 	}
 
 	&.inactive {
@@ -178,7 +180,7 @@ export default Vue.extend({
 	margin-left: 32px;
 	display: flex;
 	align-items: center;
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 800px) {
 		display: none;
 	}
 
