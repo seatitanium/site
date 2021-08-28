@@ -64,7 +64,9 @@
 			</section>
 		</div>
 		<div
-		v-lazy:background-image="'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/3.jpg'"
+			v-lazy:background-image="
+				'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/3.jpg'
+			"
 			class="feature-section"
 		>
 			<div class="container">
@@ -93,7 +95,9 @@
 					<div class="single-feature light">
 						<div class="typo">
 							<h2><mdicon name="console" /> 利用技术解决问题</h2>
-							<h1>自己动手，<br/>丰衣足食</h1>
+							<h1>
+								自己动手，<br v-if="!isPhoneSize()" />丰衣足食
+							</h1>
 							<p
 								v-html="
 									'无论是我们需要的功能，还是新的游戏玩法；无论是游戏内还是游戏外，我们都可以亲自来创造。<br/>SEATiDE 提倡用各种各样的技术方法来完善我们共同的游戏体验，为服务器添砖加瓦。'
@@ -114,9 +118,13 @@
 						<div class="typo">
 							<h2>
 								<mdicon name="cash-check" />
-								让游戏变得容易且省钱
+								让游戏容易且省钱
 							</h2>
-							<h1>随时想玩，随时开<br />不玩不浪费。</h1>
+							<h1>
+								随时想玩，<br
+									v-if="!isPhoneSize()"
+								/>随时开，<br />不玩不浪费。
+							</h1>
 							<p
 								v-html="
 									'SEATiDE 使用阿里云抢占式 ECS，并利用内网优势与阿里云 OSS 直接相连。<br/>在保障数据安全的同时降低不必要的资金消耗，同时也为玩家提供便利的「开服渠道」以便在需要的时候恢复游戏。'
@@ -131,13 +139,18 @@
 				</section>
 			</div>
 		</div>
-		<div v-lazy:background-image="'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/4.jpg'" class="more-information-section">
+		<div
+			v-lazy:background-image="
+				'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/4.jpg'
+			"
+			class="more-information-section"
+		>
 			<div class="container">
 				<section class="more-information">
 					<logo v-view.once="flowUp" class="hero center light" />
 					<h1 v-view.once="flowUp">详细了解 SEATiDE</h1>
 					<p v-view.once="flowUp">
-						<strong>「SEATiDE」这一名称</strong>最初创建于 2018
+						<strong>「SEATiDE」这一名称</strong>最初创建于 2019
 						年，曾经短暂地独立运行过，后来归属于 SoTap
 						服务器。现在几经辗转，今日的 SEATiDE
 						成为了一个<strong>全新的独立的实验性项目</strong>，长期以来模组服的定位<strong>从未改变</strong>。
@@ -167,7 +180,15 @@
 							></small
 						>
 					</p>
-					<btn @click.native="$router.push('/join')" v-view.once="flowUp" class="hoverscale hover join-btn" type="primary arrow" icon="arrow-right" size="large">加入我们</btn>
+					<btn
+						@click.native="$router.push('/join')"
+						v-view.once="flowUp"
+						class="hoverscale hover join-btn"
+						type="primary arrow"
+						icon="arrow-right"
+						size="large"
+						>加入我们</btn
+					>
 				</section>
 			</div>
 		</div>
@@ -186,7 +207,7 @@ import Vue from "vue";
 import anime from "animejs";
 import SvgZidonghua from "@/components/typo/svg-zidonghua.vue";
 import Logo from "@/components/Logo.vue";
-import { flowUp, isPCSize, isMobile } from "@/fn"
+import { flowUp, isPCSize, isMobile, isPhoneSize } from "@/fn";
 
 export default Vue.extend({
 	components: {
@@ -237,7 +258,20 @@ export default Vue.extend({
 			});
 		},
 		isPCSize,
-		isMobile
+		isMobile,
+		isIOS() {
+			let nav = window.navigator;
+			if (/iPad|iPhone|iPod/.test(nav.platform)) {
+				return true;
+			} else {
+				return (
+					nav.maxTouchPoints &&
+					nav.maxTouchPoints > 2 &&
+					/MacIntel/.test(nav.platform)
+				);
+			}
+		},
+		isPhoneSize,
 	},
 });
 </script>
@@ -253,7 +287,10 @@ export default Vue.extend({
 		margin-bottom: 64px;
 	}
 
-	p, button, .hero, h1 {
+	p,
+	button,
+	.hero,
+	h1 {
 		opacity: 0;
 	}
 

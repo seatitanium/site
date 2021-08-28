@@ -51,10 +51,15 @@ export function get(url: string) {
 }
 
 export function isPCSize() {
-	return window.innerWidth > 1000;
+	return window.innerWidth > 1100;
+}
+
+export function isPhoneSize() {
+	return window.innerWidth < 800;
 }
 
 export function isMobile() {
+	if (isIOS(navigator)) return true;
 	return (
 		/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(
 			navigator.userAgent
@@ -63,4 +68,12 @@ export function isMobile() {
 			navigator.userAgent.substr(0, 4)
 		)
 	);
+}
+
+export function isIOS(nav: Navigator) {
+	if (/iPad|iPhone|iPod/.test(nav.platform)) {
+		return true;
+	} else {
+		return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
+	}
 }

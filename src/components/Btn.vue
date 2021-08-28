@@ -2,7 +2,9 @@
 	<button
 		@click="go(to)"
 		class="btn"
-		:class="type + ' ' + size + ' ' + (isMobile() ? 'mobile' : 'pc')"
+		:class="
+			type + ' ' + size + ' ' + (isPCSize() && !isIOS() ? 'pc' : 'mobile')
+		"
 	>
 		<div class="content">
 			<slot />
@@ -13,7 +15,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { isPCSize, isMobile } from "@/fn";
+import { isPCSize, isIOS } from "@/fn";
 export default Vue.extend({
 	props: ["type", "size", "icon", "to"],
 	methods: {
@@ -22,7 +24,18 @@ export default Vue.extend({
 			this.$router.push(path);
 		},
 		isPCSize,
-		isMobile
+		isIOS() {
+			let nav = window.navigator;
+			if (/iPad|iPhone|iPod/.test(nav.platform)) {
+				return true;
+			} else {
+				return (
+					nav.maxTouchPoints &&
+					nav.maxTouchPoints > 2 &&
+					/MacIntel/.test(nav.platform)
+				);
+			}
+		},
 	},
 });
 </script>
@@ -65,6 +78,10 @@ export default Vue.extend({
 		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
 		background-clip: text;
 		color: transparent;
+	}
+
+	&.primarylight.mobile {
+		color: @primarydark;
 	}
 
 	&.mobile {
