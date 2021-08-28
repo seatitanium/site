@@ -15,16 +15,16 @@
     "mdi-vue": "^3.0.7",
     "register-service-worker": "^1.7.1",
     "style-resources-loader": "^1.4.1",
-    "vue": "^2.6.11",
+    "vue": "^2.6.14",
     "vue-check-view": "^0.3.0",
     "vue-lazyload": "^1.3.3",
+    "vue-meta": "^2.4.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@types/animejs": "^3.1.4",
     "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
