@@ -335,6 +335,7 @@ export default Vue.extend({
 				background: @primaryg;
 				background-clip: text;
 				color: transparent;
+				display: inline-block;
 			}
 			p {
 				color: @textlightgray;
