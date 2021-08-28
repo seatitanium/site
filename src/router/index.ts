@@ -20,7 +20,7 @@ const routes: Array<RouteConfig> = [
 		component: () => import('@/views/About.vue')
 	},
 	{
-		path: '/server',
+		path: '/status',
 		name: 'server',
 		component: () => import('@/views/Server.vue')
 	},
