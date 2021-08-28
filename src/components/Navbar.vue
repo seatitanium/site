@@ -110,7 +110,7 @@ export default Vue.extend({
 		},
 		$route(v) {
 			this.activateNav();
-			this.updateTitle(v);
+			this.updateTitle(v.name);
 		},
 	},
 	methods: {
