@@ -50,7 +50,6 @@
 import Vue from "vue";
 import Logo from "@/components/Logo.vue";
 import anime from "animejs";
-import { Route } from "node_modules/_vue-router@3.5.2@vue-router/types";
 
 export default Vue.extend({
 	data() {
