@@ -112,7 +112,7 @@
 					<div class="feature white">
 						<mdicon name="cog" />
 						<span>AUTOMATION</span>
-						<h1 class="primary-text">自动化</h1>
+						<h1>自动化</h1>
 						<p class="typo light">
 							得益于阿里云的
 							API，我们可以做到<strong>自动备份</strong>，甚至编写插件，通过让服务器在无人在线<strong
@@ -332,6 +332,9 @@ export default Vue.extend({
 		&.white {
 			h1 {
 				text-shadow: none;
+				background: @primaryg;
+				background-clip: text;
+				color: transparent;
 			}
 			p {
 				color: @textlightgray;

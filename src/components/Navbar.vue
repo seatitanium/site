@@ -19,7 +19,7 @@
 			/>
 			<div class="nav-link">
 				<div
-					@click="$router.push({ name: x.route });"
+					@click="$router.push({ name: x.route })"
 					class="link"
 					:class="$route.name === x.route ? 'active' : ''"
 					v-for="(x, i) in links"
@@ -61,7 +61,7 @@ export default Vue.extend({
 				},
 				{
 					name: "加入",
-					route: "join"
+					route: "join",
 				},
 				{
 					name: "状态",
@@ -73,8 +73,8 @@ export default Vue.extend({
 				},
 				{
 					name: "捐助",
-					route: "donate"
-				}
+					route: "donate",
+				},
 			],
 			active: false,
 			hamburgerOpen: false,
@@ -83,8 +83,8 @@ export default Vue.extend({
 				join: "立即加入",
 				server: "服务器状态",
 				about: "关于",
-				donate: "捐助"
-			}
+				donate: "捐助",
+			},
 		};
 	},
 	components: {
@@ -98,6 +98,7 @@ export default Vue.extend({
 				}
 			}
 		});
+		this.updateTitle(this.$route.name as string);
 	},
 	watch: {
 		hamburgerOpen(v) {
@@ -108,14 +109,17 @@ export default Vue.extend({
 			}
 		},
 		$route(v) {
-			if (Object.keys(this.titles).includes(v.name)) {
-				// @ts-ignore
-				document.title = 'SEATiDE | ' + this.titles[v.name];
-			}
 			this.activateNav();
-		}
+			this.updateTitle(v);
+		},
 	},
 	methods: {
+		updateTitle(name: string) {
+			if (Object.keys(this.titles).includes(name)) {
+				// @ts-ignore
+				document.title = "SEATiDE | " + this.titles[name];
+			}
+		},
 		toggleDropdown(directOption?: boolean) {
 			let obj: HTMLDivElement = this.$refs.dropdown as HTMLDivElement;
 			let p =
@@ -150,7 +154,7 @@ export default Vue.extend({
 				this.active = false;
 			}
 		},
-	}
+	},
 });
 </script>
 
