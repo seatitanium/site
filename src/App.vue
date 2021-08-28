@@ -1,10 +1,10 @@
 <template>
 	<div class="app">
-		<navbar />
+		<navbar v-if="load"/>
 		<transition name="fade" mode="out-in">
 			<router-view :class="isPCSize() ? (isMobile() ? 'mobile-pc-size' : 'pc-size') : 'mobile-size'" view />
 		</transition>
-		<Footer />
+		<Footer v-if="load"/>
 	</div>
 </template>
 

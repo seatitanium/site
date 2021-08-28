@@ -25,6 +25,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$open = (url: string) => {
 	window.open(url);
 };
+Vue.prototype.load = false;
 router.beforeEach((to, from, next) => {
 	NProgress.start();
 	next();
@@ -35,6 +36,7 @@ router.afterEach((to, from) => {
 		document.getElementsByTagName('html')[0].scrollTo(0, 0);
 	}
 	NProgress.done();
+	Vue.prototype.load = true;
 })
 
 Vue.mixin({
