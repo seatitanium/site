@@ -19,7 +19,7 @@
 			/>
 			<div class="nav-link">
 				<div
-					@click="$router.push({ name: x.route }); activateNav()"
+					@click="$router.push({ name: x.route });"
 					class="link"
 					:class="$route.name === x.route ? 'active' : ''"
 					v-for="(x, i) in links"
@@ -112,6 +112,7 @@ export default Vue.extend({
 				// @ts-ignore
 				document.title = 'SEATiDE | ' + this.titles[v.name];
 			}
+			this.activateNav();
 		}
 	},
 	methods: {
