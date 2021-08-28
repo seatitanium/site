@@ -4,7 +4,8 @@
 			<template #title> 加入 SEATiDE </template>
 			<template #subtitle> 开始体验 </template>
 			<template #text>
-				SEATiDE 是 Java 正版高版本模组服务器，加入暂时没有门槛。<br/>本页将引导你粗略了解 SEATiDE 并提供加入方式。
+				SEATiDE 是 Java 正版高版本模组服务器，加入暂时没有门槛。<br />本页将引导你粗略了解
+				SEATiDE 并提供加入方式。
 			</template>
 		</banner>
 		<div class="container">
@@ -47,6 +48,7 @@
 					<br />作为 SEATiDE
 					项目建立以后的第一个周目，本周目的时间<strong>将会较长</strong>。
 				</p>
+				<status :status="loadingStatus" />
 				<div class="mods" v-if="server.mods">
 					<div
 						v-view.once="scaleIn"
@@ -182,25 +184,36 @@ import MetaBar from "@/components/MetaBar.vue";
 import MetaItem from "@/components/MetaItem.vue";
 import { get, flowUp, scaleIn, flowUpQuick, isPCSize } from "@/fn";
 import anime from "animejs";
+import Status from "@/components/Status.vue";
 
 export default Vue.extend({
 	components: {
 		Banner,
 		MetaBar,
 		MetaItem,
+		Status,
 	},
 	data() {
 		return {
 			server: {} as ServerInformation,
+			loadingStatus: "loading",
 		};
 	},
 	mounted() {
-		get("/api/server/v1/get/server").then((r) => {
-			let data: ServerInformation | null = r.data.data as any;
-			if (data !== null) {
-				this.server = data;
-			}
-		});
+		get("/api/server/v1/get/server")
+			.then((r) => {
+				let data: ServerInformation | null = r.data.data as any;
+				if (data !== null) {
+					this.server = data;
+					this.loadingStatus = "";
+				} else {
+					this.loadingStatus = "error";
+				}
+			})
+			.catch((e) => {
+				console.warn(e);
+				this.loadingStatus = "error";
+			});
 	},
 	methods: {
 		getDepNames(mod: ServerMod[]) {

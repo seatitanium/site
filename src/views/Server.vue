@@ -8,7 +8,8 @@
 				<mdicon name="refresh" />」按钮来刷新</template
 			>
 		</banner>
-		<div class="basic container">
+		<status :status="loadingStatus" />
+		<div v-if="loadingStatus.length === 0" class="basic container">
 			<div class="refresh">
 				<btn
 					type="outlined dark small"
@@ -154,17 +155,19 @@ import { get, isPCSize } from "@/fn";
 // @ts-ignore
 import Motd from "mcmotdparser";
 import Btn from "@/components/Btn.vue";
+import Status from "@/components/Status.vue";
 
 export default Vue.extend({
 	components: {
 		Banner,
 		Btn,
+		Status,
 	},
 	data() {
 		return {
 			server: {} as ServerInformation,
 			motdHtml: "",
-			loading: true,
+			loadingStatus: "loading",
 			instance: {} as InstanceInformation,
 			lastUpdated: {
 				date: "",
@@ -186,6 +189,7 @@ export default Vue.extend({
 		init() {
 			this.lastUpdated.time = "";
 			this.lastUpdated.date = "更新中...";
+			this.loadingStatus = 'loading';
 			get("/api/server/v1/get/server")
 				.then((r) => {
 					let data: ServerInformation | null = r.data.data as any;
@@ -193,7 +197,7 @@ export default Vue.extend({
 						let d = new Date();
 						this.lastUpdated.date = d.toLocaleDateString();
 						this.lastUpdated.time = d.toLocaleTimeString();
-						this.loading = false;
+						this.loadingStatus = "";
 						if (data.online) {
 							if (data.onlinePlayersDetails !== null) {
 								data.onlinePlayersDetails =
@@ -207,11 +211,13 @@ export default Vue.extend({
 						});
 					} else {
 						this.lastUpdated.date = "没有返回任何数据";
+						this.loadingStatus = "error";
 					}
 				})
 				.catch((e) => {
 					console.warn(e);
 					this.lastUpdated.date = "更新失败";
+					this.loadingStatus = "error";
 				});
 			get("/api/ecs/v1/describe/instance").then((r) => {
 				let data: InstanceInformation | null = r.data.data as any;
