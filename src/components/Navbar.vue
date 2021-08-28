@@ -80,7 +80,7 @@ export default Vue.extend({
 			active: false,
 			hamburgerOpen: false,
 			titles: {
-				home: "高版本模组服务器",
+				home: "高效运行的 Mod 服",
 				join: "立即加入",
 				server: "服务器状态",
 				about: "关于",
