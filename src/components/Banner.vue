@@ -33,7 +33,7 @@ export default Vue.extend({
 	&[fullscreen] {
 		height: 100vh;
 		@media screen and (max-width: 800px) {
-			height: 500px;
+			height: 600px;
 		}
 	}
 }
