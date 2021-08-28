@@ -77,11 +77,6 @@
 						<p>≥ {{ server.bestram || "?" }}GB</p>
 					</div>
 				</div>
-				<p v-if="loading" class="loading-tip">
-					<mdicon
-						name="information-outline"
-					/>其它信息将在加载完成后显示
-				</p>
 				<div class="server-data">
 					<div class="players" v-if="hasPlayer()">
 						<h1 class="primary-text">
@@ -233,18 +228,6 @@ export default Vue.extend({
 <style lang="less" scoped>
 .debug-info {
 	color: @textlightgray;
-}
-
-.loading-tip {
-	text-align: center;
-	color: @textlightgray;
-	margin: 56px 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	.mdi {
-		margin-right: 1em;
-	}
 }
 
 .raw-mods {

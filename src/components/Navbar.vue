@@ -50,6 +50,7 @@
 import Vue from "vue";
 import Logo from "@/components/Logo.vue";
 import anime from "animejs";
+import { Route } from "node_modules/_vue-router@3.5.2@vue-router/types";
 
 export default Vue.extend({
 	data() {
@@ -61,7 +62,7 @@ export default Vue.extend({
 				},
 				{
 					name: "加入",
-					route: "join",
+					route: "join"
 				},
 				{
 					name: "状态",
@@ -78,6 +79,13 @@ export default Vue.extend({
 			],
 			active: false,
 			hamburgerOpen: false,
+			titles: {
+				home: "高版本模组服务器",
+				join: "立即加入",
+				server: "服务器状态",
+				about: "关于",
+				donate: "捐助"
+			}
 		};
 	},
 	components: {
@@ -100,6 +108,12 @@ export default Vue.extend({
 				this.activateNav();
 			}
 		},
+		$route(v) {
+			if (Object.keys(this.titles).includes(v.name)) {
+				// @ts-ignore
+				document.title = 'SEATiDE | ' + this.titles[v.name];
+			}
+		}
 	},
 	methods: {
 		toggleDropdown(directOption?: boolean) {
@@ -136,7 +150,7 @@ export default Vue.extend({
 				this.active = false;
 			}
 		},
-	},
+	}
 });
 </script>
 

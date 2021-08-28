@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 import '@/styles/global.less';
 import '@/styles/mc.less';
+import '@/styles/nprogress.less';
 import * as mdijs from '@mdi/js';
 // @ts-ignore
 import mdiVue from 'mdi-vue/v2';
@@ -12,6 +13,7 @@ import mdiVue from 'mdi-vue/v2';
 import checkView from 'vue-check-view';
 import VueLazyload from 'vue-lazyload';
 import Meta from 'vue-meta';
+import NProgress from 'nprogress';
 
 Vue.use(mdiVue, {
 	icons: mdijs
@@ -24,11 +26,16 @@ Vue.prototype.$open = (url: string) => {
 	window.open(url);
 };
 router.beforeEach((to, from, next) => {
+	NProgress.start();
 	if (to.path !== from.path) {
 		document.getElementsByTagName('html')[0].scrollTo(0, 0);
 	}
 	next();
 });
+
+router.afterEach((to, from) => {
+	NProgress.done();
+})
 
 Vue.mixin({
 	metaInfo: {
