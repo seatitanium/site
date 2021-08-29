@@ -25,6 +25,7 @@
 				<h2>当前服务器 IP</h2>
 				<h1 class="ip primary-text">{{ server.ip || "加载中..." }}</h1>
 				<span
+					v-if="!noInstanceInfo"
 					class="status"
 					:class="
 						typeof server.online !== 'undefined'
@@ -49,13 +50,14 @@
 							: "获取中..."
 					}}</span
 				>
+				<span v-else class="status unknown">实例已被自动释放，请手动开启</span>
 			</div>
 			<div class="container">
 				<div class="arguments">
 					<div class="card">
 						<h1 class="primarys-text">周目名称</h1>
 						<p>
-							{{ server.term || "???" }}
+							{{ server.term || "-" }}
 						</p>
 					</div>
 					<div class="card">
@@ -63,18 +65,24 @@
 						<p>
 							{{
 								(typeof server.onlinePlayers === "undefined"
-									? "??"
+									? "-"
 									: server.onlinePlayers) +
 								"/" +
 								(typeof server.onlinePlayers === "undefined"
-									? "??"
+									? "-"
 									: server.maxPlayers)
 							}}
 						</p>
 					</div>
 					<div class="card">
 						<h1 class="primarys-text">建议内存</h1>
-						<p>≥ {{ server.bestram || "?" }}GB</p>
+						<p>
+							{{
+								server.bestram
+									? "≥" + server.bestram + "GB"
+									: "-"
+							}}
+						</p>
 					</div>
 				</div>
 				<div class="server-data">
@@ -168,6 +176,7 @@ export default Vue.extend({
 				date: "",
 				time: "",
 			},
+			noInstanceInfo: false,
 		};
 	},
 	mounted() {
@@ -184,9 +193,26 @@ export default Vue.extend({
 		init() {
 			this.lastUpdated.time = "";
 			this.lastUpdated.date = "更新中...";
-			this.loadingStatus = 'loading';
+			this.loadingStatus = "loading";
 			get("/api/server/v1/get/server")
 				.then((r) => {
+					this.noInstanceInfo = false;
+					if (r.data.status !== "ok") {
+						if (
+							r.data.status === "ng" &&
+							r.data.msg === "No server ip found in database."
+						) {
+							this.lastUpdated.date = "";
+							this.server.ip = "实例未开通";
+							this.server.online = false;
+							this.loadingStatus = "";
+							this.noInstanceInfo = true;
+						} else {
+							this.loadingStatus = "error";
+							console.log(r.data.status, r.data.msg);
+						}
+						return;
+					}
 					let data: ServerInformation | null = r.data.data as any;
 					if (data !== null) {
 						let d = new Date();

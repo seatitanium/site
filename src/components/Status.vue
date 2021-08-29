@@ -9,7 +9,7 @@
 			/>
 		</div>
 		<div v-if="status === 'error'" class="status-error status-msg">
-			<span class="mdi mdi-alert alert-icon" />
+			<mdicon name="alert"/>
 			<span class="status-info">加载失败</span>
 		</div>
 	</div>
@@ -37,9 +37,11 @@ export default Vue.extend({
 .status {
 	text-align: center;
 	margin: 96px 0;
+	height: 100%;
 	.status-msg {
-		.alert-icon {
-			font-size: 5rem;
+		.mdi-alert svg {
+			transform: scale(2.5);
+			margin-bottom: 32px;
 		}
 
 		display: flex;

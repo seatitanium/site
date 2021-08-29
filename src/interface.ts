@@ -67,5 +67,6 @@ interface ServerMod {
 
 interface BackendResponse {
     data: null | Object,
-    status: "ok" | "ng" | "http-error" | "error" | null
+    status: "ok" | "ng" | "http-error" | "error" | null,
+    msg?: string
 }
