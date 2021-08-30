@@ -37,6 +37,7 @@ interface ServerInformation {
 interface InstanceInformation {
     bandwidth: number,
     datadisk: InstanceDisk,
+    systemdisk: InstanceDisk,
     type: string,
     zone: string
 }
