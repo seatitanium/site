@@ -85,6 +85,7 @@
 								v-view.once="animateSFTypo"
 							/>
 							<btn
+							@click.native="$open('https://w.seatide.top/about/operation.html#%E7%8E%A9%E5%AE%B6%E4%B8%BB%E5%AF%BC-%E6%B0%91%E4%B8%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96')"
 								type="primarylight arrow hover"
 								size="large"
 								icon="arrow-right"
@@ -105,6 +106,7 @@
 								v-view.once="animateSFTypo"
 							/>
 							<btn
+								@click.native="$open('https://w.seatide.top/about/operation.html#%E4%BD%8E%E6%88%90%E6%9C%AC-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A2%E5%8D%A0%E5%BC%8F-ecs-%E7%AE%80%E4%BB%8B')"
 								type="primary arrow hover"
 								size="large"
 								icon="arrow-right"
