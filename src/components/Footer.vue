@@ -26,6 +26,10 @@
 					icon="github"
 					class="dark"
 				/>
+				<icon-btn
+				@click.native="$open('https://w.seatide.top')"
+				icon="book-outline"
+				class="dark"/>
 			</div>
 		</div>
 	</footer>
@@ -75,6 +79,10 @@ footer {
 }
 
 .button-list {
+	display: flex;
+	> * {
+		margin: 0 5px;
+	}
 	@media screen and (min-width: 1000px) {
 		position: absolute;
 		top: 32px;

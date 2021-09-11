@@ -19,7 +19,7 @@
 			/>
 			<div class="nav-link">
 				<div
-					@click="$router.push({ name: x.route })"
+					@click="x.route ? $router.push({ name: x.route }) : $open(x.href)"
 					class="link"
 					:class="$route.name === x.route ? 'active' : ''"
 					v-for="(x, i) in links"
@@ -75,6 +75,10 @@ export default Vue.extend({
 					name: "捐助",
 					route: "donate",
 				},
+				{
+					name: "知识库",
+					href: "https://w.seatide.top"
+				}
 			],
 			active: false,
 			hamburgerOpen: false,
