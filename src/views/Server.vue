@@ -50,7 +50,9 @@
 							: "获取中..."
 					}}</span
 				>
-				<span v-else class="status unknown">实例已被自动释放，请手动开启</span>
+				<span v-else class="status unknown"
+					>实例已被自动释放，请手动开启</span
+				>
 			</div>
 			<div class="container">
 				<div class="arguments">
@@ -198,19 +200,9 @@ export default Vue.extend({
 				.then((r) => {
 					this.noInstanceInfo = false;
 					if (r.data.status !== "ok") {
-						if (
-							r.data.status === "ng" &&
-							r.data.msg === "No server ip found in database."
-						) {
-							this.lastUpdated.date = "";
-							this.server.ip = "实例未开通";
-							this.server.online = false;
-							this.loadingStatus = "";
-							this.noInstanceInfo = true;
-						} else {
-							this.loadingStatus = "error";
-							console.log(r.data.status, r.data.msg);
-						}
+						this.server.ip = "??.??.??.??";
+						this.loadingStatus = "error";
+						console.log(r.data.status, r.data.msg);
 						return;
 					}
 					let data: ServerInformation | null = r.data.data as any;
@@ -219,6 +211,14 @@ export default Vue.extend({
 						this.lastUpdated.date = d.toLocaleDateString();
 						this.lastUpdated.time = d.toLocaleTimeString();
 						this.loadingStatus = "";
+						if (data.created === false) {
+							this.server.ip = "实例未开通";
+							this.server.online = false;
+							this.loadingStatus = "";
+							this.noInstanceInfo = true;
+							return;
+						}
+
 						if (data.online) {
 							if (data.onlinePlayersDetails !== null) {
 								data.onlinePlayersDetails =

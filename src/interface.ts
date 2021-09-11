@@ -31,7 +31,8 @@ interface ServerInformation {
     maxPlayers: number,
     motd: string,
     onlinePlayersDetails: PlayerDetail[],
-    rawMods: RawMod[]
+    rawMods: RawMod[],
+    created: boolean
 }
 
 interface InstanceInformation {

@@ -1,7 +1,7 @@
 import anime from 'animejs';
 import axios, { AxiosResponse } from 'axios';
 
-const API_HOST = 'https://seatide.leviatan.cn';
+const API_HOST = 'http://localhost:8080';
 
 export function flowUp(e: ViewObject) {
 	anime({

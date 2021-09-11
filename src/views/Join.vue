@@ -9,7 +9,7 @@
 			</template>
 		</banner>
 		<div class="container">
-			<div class="server-status content" v-if="serverExists">
+			<div class="server-status content">
 				<h1 class="primary-text" v-view.once="flowUp">服务器概况</h1>
 				<meta-bar v-view.once="flowUp">
 					<meta-item icon="minecraft">
@@ -201,25 +201,22 @@ export default Vue.extend({
 		};
 	},
 	mounted() {
-		get("/api/ecs/v1/describe/status").then((r) => {
-			if (r.data.status === "ok") {
-				this.serverExists = true;
-				get("/api/server/v1/get/server")
-					.then((r) => {
-						let data: ServerInformation | null = r.data.data as any;
-						if (data !== null) {
-							this.server = data;
-							this.loadingStatus = "";
-						} else {
-							this.loadingStatus = "error";
-						}
-					})
-					.catch((e) => {
-						console.warn(e);
-						this.loadingStatus = "error";
-					});
-			}
-		});
+		get("/api/server/v1/get/server")
+			.then((r) => {
+				console.log(r);
+				let data: ServerInformation | null = r.data.data as any;
+				this.serverExists = data?.created ? true : false;
+				if (data !== null) {
+					this.server = data;
+					this.loadingStatus = "";
+				} else {
+					this.loadingStatus = "error";
+				}
+			})
+			.catch((e) => {
+				console.warn(e);
+				this.loadingStatus = "error";
+			});
 	},
 	methods: {
 		getDepNames(mod: ServerMod[]) {
