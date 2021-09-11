@@ -202,7 +202,7 @@ export default Vue.extend({
 					if (r.data.status !== "ok") {
 						this.server.ip = "??.??.??.??";
 						this.loadingStatus = "error";
-						console.log(r.data.status, r.data.msg);
+						console.warn(r.data.status, r.data.msg);
 						return;
 					}
 					let data: ServerInformation | null = r.data.data as any;

@@ -203,7 +203,6 @@ export default Vue.extend({
 	mounted() {
 		get("/api/server/v1/get/server")
 			.then((r) => {
-				console.log(r);
 				let data: ServerInformation | null = r.data.data as any;
 				this.serverExists = data?.created ? true : false;
 				if (data !== null) {
