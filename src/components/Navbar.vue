@@ -78,6 +78,10 @@ export default Vue.extend({
 				{
 					name: "知识库",
 					href: "https://w.seatide.top"
+				},
+				{
+					name: "规则",
+					href: "https://w.seatide.top/server/rules.html"
 				}
 			],
 			active: false,
