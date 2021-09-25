@@ -116,7 +116,7 @@ export default Vue.extend({
 				},
 				{
 					name: "Majesty_W",
-					amount: 50,
+					amount: 100,
 				},
 				{
 					name: "WindSpirit",
