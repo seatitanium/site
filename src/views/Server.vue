@@ -140,13 +140,6 @@
 							在电脑端查看完整内容</span
 						>
 					</div>
-					<p class="debug-info" v-if="instance.type">
-						阿里云 ECS 配置信息：实例类型 {{ instance.type }} / 地域
-						{{ instance.zone }} / 硬盘
-						{{ instance.systemdisk.size }}+{{
-							instance.datadisk.size
-						}}GB / 带宽 {{ instance.bandwidth }}Mbps / ￥0.8 per GB
-					</p>
 				</div>
 			</div>
 		</div>
@@ -173,7 +166,6 @@ export default Vue.extend({
 			server: {} as ServerInformation,
 			motdHtml: "",
 			loadingStatus: "loading",
-			instance: {} as InstanceInformation,
 			lastUpdated: {
 				date: "",
 				time: "",
@@ -240,12 +232,6 @@ export default Vue.extend({
 					this.lastUpdated.date = "更新失败";
 					this.loadingStatus = "error";
 				});
-			get("/api/ecs/v1/describe/instance").then((r) => {
-				let data: InstanceInformation | null = r.data.data as any;
-				if (data !== null) {
-					this.instance = data;
-				}
-			});
 		},
 	},
 });
