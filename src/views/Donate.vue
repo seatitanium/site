@@ -16,7 +16,7 @@
 				<p v-view.once="flowUp">
 					SEATiDE 的开销主要来自两个方面：Minecraft
 					服务器和网页服务器。其中网页服务器使用的是阿里云轻量应用服务器（香港），每个月固定缴纳
-					<span class="money">￥24</span>。Minecraft
+					<span class="money">￥34</span>。Minecraft
 					服务器运行在阿里云 ECS
 					的<strong>抢占式实例</strong>上，根据阿里云官方的描述，其根据市场供需结构和库存来决定扣款时机和扣款数额。通常情况下扣款数额不会过于偏离<strong>第一个小时的价格</strong>。当前我们使用的服务器类型是
 					<strong>ecs.g6.xlarge</strong>，第一个小时的价格为
@@ -51,8 +51,7 @@
 					>
 				</p>
 				<p v-view.once="flowUp">
-					此处提供 QQ 和微信支付
-					的二维码，如需其它支付方式可联系服主。若要捐助，扫描二维码即可，付款时<strong
+					此处提供支付宝和微信支付的二维码，如需其它支付方式（不支持 QQ 支付）可联系服主。若要捐助，扫描二维码即可，付款时<strong
 						>请备注你的 Minecraft 用户名</strong
 					>，以便我们写入鸣谢名单（低于
 					<span class="money">￥0.5</span>
@@ -63,7 +62,7 @@
 				<div v-view.once="flowUp" class="pay">
 					<img
 						v-lazy="
-							'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/qqpay-qr.JPG'
+							'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/alipay-qr.jpg'
 						"
 					/>
 					<img
