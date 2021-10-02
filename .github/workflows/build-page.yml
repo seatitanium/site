@@ -2,7 +2,7 @@ name: Release Page
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-deploy:
