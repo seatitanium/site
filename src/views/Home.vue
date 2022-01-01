@@ -4,12 +4,29 @@
 			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/5.jpg"
 			fullscreen
 		>
-			<template #title> 高效运行的玩家主导服务器 </template>
-			<template #subtitle> 不一样的服务器体验 </template>
+			<template #title>
+				高效运行的<span class="stroke stroke-2">玩家主导</span>服务器
+			</template>
+			<template #subtitle> 不一样的体验 </template>
 			<template #text>
-				在 SEATiDE，我们力求“民主、科技与自动化”的游戏体验。
+				在 SEATiDE，你能体验到具有「民主、科技与自动化」特色的游戏。
 				<br />
-				我们的目标是以最低廉的方式实现较为高效的 Minecraft 服务器实例。
+				——在独特的自由氛围下探索模组玩法和游戏实践。
+				<br />
+				<div class="simple-info">
+					<div class="item">
+						<mdicon name="numeric-2-box-outline" />
+						<span><span class="no-mobile">当前周目</span> ST2</span>
+					</div>
+					<div class="item">
+						<mdicon name="minecraft" />
+						<span><span class="no-mobile">游戏版本</span> 1.16.5</span>
+					</div>
+					<div class="item">
+						<mdicon name="check" />
+						<span>正版验证<span class="no-mobile">开启</span></span>
+					</div>
+				</div>
 			</template>
 			<template #buttons>
 				<btn
@@ -20,8 +37,8 @@
 					to="/join"
 					>立即加入</btn
 				>
-				<btn class="learnmore-btn" type="outlined hover" size="large"
-					>了解更多</btn
+				<btn @click.native="$open('https://w.seatide.top')" class="learnmore-btn" type="outlined hover" size="large"
+					>阅读文档</btn
 				>
 			</template>
 		</banner>
@@ -85,7 +102,11 @@
 								v-view.once="animateSFTypo"
 							/>
 							<btn
-							@click.native="$open('https://w.seatide.top/about/operation.html#%E7%8E%A9%E5%AE%B6%E4%B8%BB%E5%AF%BC-%E6%B0%91%E4%B8%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96')"
+								@click.native="
+									$open(
+										'https://w.seatide.top/about/operation.html#%E7%8E%A9%E5%AE%B6%E4%B8%BB%E5%AF%BC-%E6%B0%91%E4%B8%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96'
+									)
+								"
 								type="primarylight arrow hover"
 								size="large"
 								icon="arrow-right"
@@ -106,7 +127,11 @@
 								v-view.once="animateSFTypo"
 							/>
 							<btn
-								@click.native="$open('https://w.seatide.top/about/operation.html#%E4%BD%8E%E6%88%90%E6%9C%AC-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A2%E5%8D%A0%E5%BC%8F-ecs-%E7%AE%80%E4%BB%8B')"
+								@click.native="
+									$open(
+										'https://w.seatide.top/about/operation.html#%E4%BD%8E%E6%88%90%E6%9C%AC-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A2%E5%8D%A0%E5%BC%8F-ecs-%E7%AE%80%E4%BB%8B'
+									)
+								"
 								type="primary arrow hover"
 								size="large"
 								icon="arrow-right"
@@ -152,10 +177,10 @@
 					<logo v-view.once="flowUp" class="hero center light" />
 					<h1 v-view.once="flowUp">详细了解 SEATiDE</h1>
 					<p v-view.once="flowUp">
-						<strong>「SEATiDE」这一名称</strong>最初创建于 2019
+						<strong>SEATiDE</strong> 最初创建于 2019
 						年，曾经短暂地独立运行过，后来归属于 SoTap
-						服务器。现在几经辗转，今日的 SEATiDE
-						成为了一个<strong>全新的独立的实验性项目</strong>，长期以来模组服的定位<strong>从未改变</strong>。
+						服务器。几经辗转，今日的 SEATiDE
+						成为了一个<strong>全新的独立项目</strong>，而长期以来我们的模组服的定位没有改变。
 					</p>
 					<p v-view.once="flowUp">
 						<strong>本项目开始于 2021 年 8 月底。</strong
@@ -166,20 +191,12 @@
 					<p v-view.once="flowUp">
 						<strong
 							>SEATiDE 主攻 Java
-							高版本模组公益（支持无偿捐助）服务器，且没有成为快餐服的意向。</strong
+							高版本模组公益（支持无偿捐助）服务器，且永远不会成为快餐服。</strong
 						>我们想让模组服也变得更耐玩，更持久，玩家的目标不仅限于「毕业」。虽然有周目制度，我们依然会根据地图发展状况酌情延长和缩短，并永久保留曾经玩过的地图。
 					</p>
 					<p v-view.once="flowUp">
 						<strong
-							>由于我们尚处于建设初期，并没有足够的图片用于展示在这个地方，所以我们在这里提供了这样几段简短的描述供你参考。</strong
-						>
-					</p>
-					<p v-view.once="flowUp">
-						<small
-							><em
-								>SEATiDE 的 Logo 灵感来源于 SoTap 上游服务器
-								SunRise 的 Logo。</em
-							></small
+							>我们当前处于建设的初期，经验不够丰富，因而欢迎所有玩家和运营同好的加入，更希望能够得到你的意见和建议。</strong
 						>
 					</p>
 					<btn
@@ -490,6 +507,75 @@ export default Vue.extend({
 					max-width: 400px;
 				}
 			}
+		}
+	}
+}
+
+.stroke {
+	position: relative;
+	&::after {
+		@media screen and (max-width: 800px) {
+			content: none;
+		}
+		content: "";
+		height: 100%;
+		width: 100%;
+		left: 0;
+		bottom: -100%;
+		position: absolute;
+		filter: drop-shadow(0px 2px 4px #00000050);
+	}
+
+	&.stroke-1::after {
+		background: url(../assets/stroke.svg);
+		background-repeat: no-repeat;
+	}
+
+	&.stroke-2::after {
+		background: url(../assets/stroke2.svg);
+		background-repeat: no-repeat;
+	}
+
+	&.stroke-3::after {
+		background: url(../assets/stroke3.svg);
+		background-repeat: no-repeat;
+	}
+}
+
+.simple-info {
+	font-size: 18px;
+	@media screen and (max-width: 800px) {
+		font-size: 12px;
+		margin-top: 8px;
+		padding: 4px 8px;
+	}
+	background: rgba(0, 0, 0, 0.3);
+	padding: 8px 16px;
+	margin-top: 32px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	.mdi {
+		margin-right: 0.5em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@media (max-width: 800px) {
+			width: 16px;
+		}
+	}
+	.item {
+		display: inline-flex;
+		align-items: center;
+		&::after {
+			content: "·";
+			margin: 0 12px;
+			@media screen and (max-width: 800px) {
+				margin: 0 8px;
+			}
+		}
+		&:last-child::after {
+			content: none;
 		}
 	}
 }

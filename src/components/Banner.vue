@@ -21,7 +21,7 @@ export default Vue.extend({
 <style lang="less" scoped>
 .banner {
 	z-index: -2;
-	height: 600px;
+	height: 500px;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -32,8 +32,8 @@ export default Vue.extend({
 
 	&[fullscreen] {
 		height: 100vh;
-		@media screen and (max-width: 800px) {
-			height: 600px;
+		@media (max-width: 800px) {
+			height: calc(100vh * 0.9);
 		}
 	}
 }
@@ -74,9 +74,9 @@ export default Vue.extend({
 	p {
 		font-size: 21.6px;
 		margin-top: 16px;
-		line-height: 1.5;
+		line-height: 1.8;
 		@media screen and (max-width: 800px) {
-			font-size: 15.12px;
+			font-size: 16.7px;
 		}
 	}
 }

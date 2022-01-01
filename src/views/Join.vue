@@ -10,7 +10,7 @@
 		</banner>
 		<div class="container">
 			<div class="server-status content">
-				<h1 class="primary-text" v-view.once="flowUp">服务器概况</h1>
+				<h1 class="primary-text" v-view.once="flowUp">周目概况</h1>
 				<meta-bar v-view.once="flowUp">
 					<meta-item icon="minecraft">
 						<template #name> 版本 </template>
@@ -20,7 +20,7 @@
 								{{
 									server.version
 										? server.version
-										: "获取中..."
+										: "-"
 								}}</span
 							>
 						</template>
@@ -31,22 +31,21 @@
 							{{
 								server.mods
 									? getModCount(server.mods)
-									: "获取中..."
+									: "-"
 							}}
 						</template>
 					</meta-item>
 					<meta-item icon="map-clock">
-						<template #name> 开服时间 </template>
+						<template #name> 开始时间 </template>
 						<template #text>
-							{{ server.since ? server.since : "获取中..." }}
+							{{ server.since ? server.since : "-" }}
 						</template>
 					</meta-item>
 				</meta-bar>
 				<p class="typo" v-view.once="flowUp">
 					SEATiDE
-					当前处于<strong>第一周目</strong>，本周目的主题是<strong>「环境学」</strong>，偏向于休闲生存，配备了许多家具模组。
-					<br />作为 SEATiDE
-					项目建立以后的第一个周目，本周目的时间<strong>将会较长</strong>。
+					当前处于 <strong>ST2</strong> 周目，本周目的主题是<strong>「机械重组」</strong>，配备有一些科技模组，但整体上仍然偏向休闲和探索。
+					项目建立以后的第二个周目。
 				</p>
 				<status :status="loadingStatus" />
 				<div class="mods" v-if="server.mods">
@@ -72,22 +71,22 @@
 				</div>
 				<span class="see-full-in-pc" v-if="!isPCSize()"
 					><mdicon name="information-outline" />
-					在电脑端查看完整内容</span
+					可在电脑端查看完整内容</span
 				>
-				<small
+				<small class="no-mobile"
 					>另包含前置类模组（{{
 						getDepNames(server.mods).length
 					}}
 					个）：{{
 						getDepNames(server.mods).join("、")
-					}}，模组图片来源 CurseForge。</small
+					}}，模组图片均来自原作者。</small
 				>
 			</div>
 			<div class="features content">
 				<div class="hero-box">
 					<h1 class="primary-text" v-view.once="flowUp">三个概念</h1>
 					<p v-view.once="flowUp">
-						有助于你更好地了解 SEATiDE 服务器的运行模式
+						了解 SEATiDE 服务器的运行模式
 					</p>
 				</div>
 				<div class="feature-box" v-view.once="animateFeatureBox">
@@ -163,13 +162,12 @@
 					</div>
 				</div>
 				<p class="typo" v-view.once="flowUp">
-					加入以后，你可以在<strong>群公告</strong>中找到最新的服务器详细信息（包含<strong>版本</strong>、<strong>IP</strong>、<strong>客户端和模组包下载地址</strong>等）。同时，你也将会被<strong>正式认定</strong>为「SEATiDE」玩家。接下来，你只需要准备好游戏，然后加入服务器即可开始你的
-					SEATiDE 之旅！
+					加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。
 				</p>
 				<p class="typo" v-view.once="flowUp">
-					如果你对模组有些生疏，不知道如何开始，或者拥有其它问题，你可以在<strong>群聊里询问</strong>，或者也可以阅读<strong
-						>我们编写的<a href="#">维基</a></strong
-					>。维基相当于是本电子书，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题
+					如果你对模组有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读<strong
+						>我们编写的<a target="_blank" href="https://w.seatide.top">维基</a></strong
+					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题
 					:)
 				</p>
 			</div>
@@ -409,8 +407,8 @@ export default Vue.extend({
 
 .server-status {
 	small {
-		font-style: italic;
 		color: @textlightgray;
+		padding: 0 8px;
 	}
 
 	.mods {
@@ -492,13 +490,23 @@ export default Vue.extend({
 		span {
 			position: absolute;
 			right: 16px;
-			bottom: 16px;
+			top: 16px;
 			.monospace;
 			opacity: 0.4;
 			@media (max-width: 800px) {
 				display: none;
 			}
 		}
+	}
+}
+
+.see-full-in-pc {
+	display: flex;
+	align-items: center;
+	.mdi {
+		width: 20px;
+		display: inline-flex;
+		align-items: center;
 	}
 }
 </style>

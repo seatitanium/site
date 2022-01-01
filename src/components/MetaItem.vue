@@ -18,14 +18,20 @@ export default Vue.extend({
 	position: relative;
 	font-size: 20px;
 	color: rgba(0, 0, 0, 0.32);
-	svg {
-		fill: rgba(0, 0, 0, 0.32);
-	}
 	display: flex;
 	align-items: center;
 
 	.mdi {
 		margin-right: 0.5em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			@media (max-width: 800px) {
+				width: 18px;
+			}
+			fill: rgba(0, 0, 0, 0.32);
+		}
 	}
 
 	.name {
@@ -40,7 +46,7 @@ export default Vue.extend({
 	.text {
 		color: black;
 		@media (max-width: 800px) {
-			font-size: 14px;
+			font-size: 13.5px;
 		}
 	}
 
@@ -52,7 +58,7 @@ export default Vue.extend({
 		@media (min-width: 1000px) {
 			margin: 0 16px;
 		}
-		
+
 		@media (max-width: 1000px) {
 			margin: 0 8px;
 			content: "/";
