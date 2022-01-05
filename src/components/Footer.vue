@@ -4,7 +4,7 @@
 			<div class="col first">
 				<logo class="footer light" />
 				<p class="copyright">
-					&copy; 2022 SEATiDE Minecraft Server with Mod<br />
+					&copy; 2022 SEATiDE Modded Minecraft Server<br />
 					<small
 						>网站基于 Vue 2 · 我们❤️开源</small>
 				</p>
