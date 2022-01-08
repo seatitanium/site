@@ -88,7 +88,7 @@
 		>
 			<div class="container">
 				<section class="single-features">
-					<div class="single-feature">
+					<div class="single-feature light">
 						<svg-minzhu />
 						<div class="typo">
 							<h2>
@@ -114,7 +114,7 @@
 							>
 						</div>
 					</div>
-					<div class="single-feature light">
+					<div class="single-feature">
 						<div class="typo">
 							<h2><mdicon name="console" /> 利用技术解决问题</h2>
 							<h1>
@@ -140,7 +140,7 @@
 						</div>
 						<svg-jishu />
 					</div>
-					<div class="single-feature">
+					<div class="single-feature light">
 						<svg-zidonghua />
 						<div class="typo">
 							<h2>
