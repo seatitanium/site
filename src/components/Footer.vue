@@ -4,19 +4,16 @@
 			<div class="col first">
 				<logo class="footer light" />
 				<p class="copyright">
-					&copy; 2021 SEATiDE Minecraft Server with Mod<br />
+					&copy; 2022 SEATiDE Modded Minecraft Server<br />
 					<small
-						>网站基于 Vue 2 · 代码开源，请前往官方 GitHub
-						查看</small
-					>
+						>网站基于 Vue 2 · 我们❤️开源</small>
 				</p>
 				<p>
-					SEATiDE 致力于以较低成本的方式来换取高质量的 Minecraft
-					游戏体验和社区气氛，在此基础上继续修饰、完善服务器的内容。
+					SEATiDE 致力于以低成本的方式来换取高质量的 Minecraft
+					服务器体验和社区气氛，在此基础上继续修饰、完善服务器的内容。
 				</p>
 				<p>
-					作为 Minecraft
-					玩家的你可以随时参与进我们的建设中，我们也欢迎你来单纯地旅个游
+					我们欢迎你成为 SEATiDE 一员或是单纯来旅个游
 					:)
 				</p>
 			</div>
