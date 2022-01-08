@@ -302,6 +302,7 @@ export default Vue.extend({
 
 .more-information {
 	padding: 96px 0;
+	text-shadow: @shadowdark;
 	.hero {
 		margin-bottom: 64px;
 	}
