@@ -48,8 +48,8 @@
 							>￥0.06</span
 						>
 					</li>
-					<li>计算类月均收费次数：243</li>
-					<li>存储类月均收费次数：201</li>
+					<li>计算类月均收费次数：<strong>243</strong></li>
+					<li>存储类月均收费次数：<strong>201</strong></li>
 				</ul>
 				<p v-view.once="flowUp">
 					我们会不定期向阿里云账户内充入余额以支付 Minecraft

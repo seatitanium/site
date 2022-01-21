@@ -121,11 +121,13 @@ figure {
 		}
 	}
 
-	ul, ol {
+	ul,
+	ol {
 		padding-left: 24px;
 	}
 
-	h1, h2 {
+	h1,
+	h2 {
 		line-height: 1.5;
 	}
 
@@ -185,7 +187,9 @@ abbr {
 		}
 	}
 
-	p, ul, ol {
+	p,
+	ul,
+	ol {
 		font-size: 22px;
 		margin-top: 8px;
 		margin-bottom: 8px;
@@ -247,12 +251,21 @@ abbr {
 	flex-wrap: nowrap;
 	align-items: center;
 	cursor: pointer;
-	transition: opacity 0.2s ease;
+	transition: all 0.2s ease;
+	@media (max-width: 800px) {
+		padding: 8px 12px;
+	}
 	img {
 		width: 100px;
 		height: 100px;
 		transform: scale(1.1);
+
+		@media (max-width: 800px) {
+			width: 72px;
+			height: 72px;
+		}
 	}
+
 	.text {
 		padding-left: 16px;
 		h2 {
@@ -274,7 +287,7 @@ abbr {
 			}
 
 			h2 {
-				font-size: 14px;
+				font-size: 12px;
 			}
 		}
 	}

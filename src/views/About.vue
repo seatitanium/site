@@ -9,44 +9,52 @@
 		</banner>
 		<div class="container content">
 			<img class="bad-design" src="@/assets/bad-design.svg" />
-			<h1 v-view.once="flowUp" class="primary-text">SEATiDE 的由来</h1>
+			<h1 v-view.once="flowUp" class="primary-text">SEATiDE 的过去</h1>
 			<p v-view.once="flowUp" class="typo">
-				SEATiDE 成立于
-				<strong>2019 年</strong
-				>，最初是一个没有什么目的的模组小服。后来由于经费问题加之玩家热度<strong>单调递减</strong>，SEATiDE
-				第一次停服，那时 SEATiDE 开了没到一年时间。
+				<strong>SEATiDE</strong> 最初是在 2019
+				年作为服主探索开服的一个简单项目出现的，其名称来自于一个<strong>搁置的域名</strong>。
+				由于服主并没有开展宣传工作，加之内容单一，<strong>并没有招来很多玩家</strong>。后来由于服主的现实原因，一直处于搁置状态。
 			</p>
 			<p v-view.once="flowUp" class="typo">
-				接下来的一段时间里，由于服主的工作原因，一直处于搁置状态。直到后来
-				SEATiDE 成为 SoTap
-				服务器的一个<strong>下属项目</strong>，承接资金并<strong>转型为商业服</strong>以补贴服务器费用，再次开启。最后依然由于玩家数量、亏损以及内部原因停止。
+				在 2020 年，SEATiDE 成为
+				<strong
+					><a href="https://sotap.org" target="_blank"
+						>SoTap 服务器</a
+					></strong
+				>的一个下属项目，由 SoTap
+				提供资金并<strong>转型为商业服</strong>以补贴 SoTap
+				服务器的费用。最后依然由于玩家数量、亏损以及人手原因停止。
 			</p>
 			<p v-view.once="flowUp" class="typo">
-				<strong>「SEATiDE」这一名称</strong>最初来源于 SoTap
-				服务器所拥有的一个空闲域名
-				seatide.net，后一直作为本服的名称。SEATiDE 的 Logo 也参考了
-				SoTap 当时的<strong>上游服务器 SunRise</strong> 的 Logo。
+				SEATiDE 的 Logo 设计参考了 SoTap 当时的上游服务器
+				<strong>SunRise</strong> 的 Logo。
 			</p>
 			<figure>
 				<img v-view.once="flowLeft" src="@/assets/sunrise.svg" />
-				<figcaption>
-					<span>fig. 1</span>SunRise 的 Logo（已授权在这里使用）
-				</figcaption>
+				<figcaption>SunRise 的 Logo 是个太阳</figcaption>
 			</figure>
+			<h1 v-view.once="flowUp" class="primary-text">新的开始</h1>
 			<p v-view.once="flowUp" class="typo">
-				如今，大概是 SEATiDE
-				的又一次「复活」，并在这一次做了正式的官网（可以到<a
+				2021 年 8 月，SEATiDE 又一次<strong>「复活」</strong>。
+			</p>
+			<p v-view.once="flowUp" class="typo">
+				这次复活完全是因为服主的个人兴趣。服主认为，<strong>开服是为了开心</strong>，因而才想到利用一些简单的程序来实现自动化。
+				这样即使或开或停，服务器也<strong>一直存在着</strong>，不必担心过度的消耗，也不必担心来玩的人太少。
+			</p>
+			<div class="saying">
+				「
+				<p v-view.once="flowUp">
+					就是想弄个<strong>不管怎么运行</strong>都能正常的服，<strong>关了但没完全关，开了但没完全开</strong>，总之<strong>一直存在着</strong>，不挺好
+				</p>
+				」
+			</div>
+			<p v-view.once="flowUp" class="typo">
+				相比于早期 SEATiDE 的单页面介绍式网站，SEATiDE
+				在这一次拥有了更为正式的官网（可以到<a
 					href="https://github.com/Subilan/seatide.net-archive"
 					target="_blank"
 					>这里</a
-				>查看之前官网的源码）。这次由于面向公众，所以应当是长久的。SEATiDE
-				不只是一个服务器，更是一个用来贯彻
-				<strong
-					><abbr
-						title="指认为在 Minecraft 这款游戏上，尤其是开服上，花钱越少越好的思想"
-						>165 主义</abbr
-					></strong
-				>的探索性项目，一个「<strong>低成本，高效率</strong>」且受欢迎的服务器是我们的最终目标。
+				>查看旧官网的源码）。
 			</p>
 			<figure>
 				<img
@@ -55,35 +63,56 @@
 						'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/seatide-archive.png'
 					"
 				/>
-				<figcaption>
-					<span>fig. 2</span>SEATiDE 的旧官网（一个页面包含所有信息）
-				</figcaption>
+				<figcaption>SEATiDE 的旧官网</figcaption>
 			</figure>
-			<h1 v-view.once="flowUp" class="primary-text">新的目标</h1>
 			<p v-view.once="flowUp" class="typo">
-				众所周知，模组服领域是「<strong>遍地快餐服，不快不寻常</strong>」的局面，玩家的目标主要集中于将所玩的模组「<strong>毕业</strong>」，然后就<strong>再也没有了目标</strong>，这对于玩家留存是致命的，所以我们尝试创造一种<strong>不以完成模组为根本目标</strong>的游戏模式。
+				SEATiDE 不只是一个普普通通的 Mod 服务器，更是一个用来探索
+				<strong
+					><abbr
+						title="指认为在 Minecraft 这款游戏上，尤其是开服上，花钱越少越好的思想"
+						>165 主义</abbr
+					></strong
+				>可行性的实验性项目。打造一个「<strong>低成本，高效率</strong>」且受欢迎的服务器是最终的目标。
 			</p>
+			<h1 v-view.once="flowUp" class="primary-text">新的模式</h1>
 			<p v-view.once="flowUp" class="typo">
-				同时，由于服务器的费用高昂，玩家在线数目短期内无法显著提升，黏性也有待培养，因此我们认为<strong>非常没有必要为此每个月购买高达近千元或者数千元的服务器</strong>，所以我们启用了抢占式
+				在我们看来，稳定的服务器的费用高昂（<del
+					>主要原因还是因为 MOJANG 优化太烂，太吃机器</del
+				>），玩家在线数目短期或长期无法显著提升，黏性也需要不断培养，收入更是问题，充满了机遇性。因此我们认为<strong>非常没有必要为此每个月购买高达近千元或者数千元的服务器</strong>。所以我们想到了阿里云抢占式
 				ECS 自动化的服务模式。
 			</p>
 			<p v-view.once="flowUp" class="typo">
-				受此模式启发，我们提倡使用<strong>现代程序工具</strong>来解决我们所遇到的种种问题、满足我们提出的需求。比如我们<strong>根据灵感增添游戏内容</strong>，添加一些特殊机制，这无疑是为服务器增光添彩的好方式。如果你有兴趣，我们<strong>随时欢迎你</strong>加入其中，开发也好，提想法也好，总之一起建设并体验
-				SEATiDE！
+				在这个模式下，不再会出现<strong>数天无人在线，服务器空转</strong>的现象。玩家随时想玩，可以随时开；不玩时，服务器也会自动关闭。同时，也有稳定的存档每
+				10 分钟保存在阿里云 OSS
+				上。就这样，我们免除了包月所带来的最大的困扰——<strong>人少，消耗大。</strong>根据
+				2021 年 2 月到 2022 年 1 月的统计，我们每个月的最高消费约为
+				<span class="money">￥150</span>，而同类型服务器包月的价格是
+				<span class="money">￥500</span>。
 			</p>
 			<figure>
 				<img
 					v-view.once="flowLeft"
 					v-lazy="'https://z3.ax1x.com/2021/08/27/hMmttU.png'"
 				/>
-				<figcaption>
-					<span>fig. 3</span>SEATiDE 的抢占式 ECS 与 OSS 账单预览
-				</figcaption>
+				<figcaption>阿里云账单预览</figcaption>
 			</figure>
+			<p v-view.once="flowUp" class="typo">
+				不过，这个模式仍然存在着一定的问题。例如<strong>收费不稳定</strong>（2022
+				年 1 月由于阿里云上调价格且服主没有设置价格预警，导致
+				<strong>10 天花费了 100 元</strong
+				>的高价）、<strong>宣传难度大</strong>（没有固定的 IP
+				地址和稳定的服务器在线情况，使得无法在服务器榜上出现）等，但显然这些问题都是可以解决的。
+			</p>
+			<p v-view.once="flowUp" class="typo">
+				<strong>诚邀你加入我们</strong
+				>——在游玩的同时，和我们一同探索更好的 Minecraft
+				服务器运作模式吧！
+			</p>
 			<h1 v-view.once="flowUp" class="primary-text">欢迎加入</h1>
 			<p v-view.once="flowUp" class="typo">
 				目前，SEATiDE
-				并没有运营团队，全部工作（后端程序的开发、网站的编写和维护、服务器的编写和维护等）工作由服主一人承担，但由于服主并没有太多精力，因此如果你有任何意向，欢迎加入我们的讨论群咨询！
+				并没有运营团队，全部工作（后端程序的开发、网站的编写和维护、服务器的编写和维护等）由服主一人承担。如果你有任何加入项目的意向，或者希望在
+				SEATiDE 游玩，欢迎加入我们的讨论群！
 			</p>
 			<a
 				v-view.once="flowLeft"
@@ -151,5 +180,38 @@ export default Vue.extend({
 
 .container {
 	margin-bottom: 64px;
+}
+
+.saying {
+	p {
+		font-style: italic;
+		text-align: center;
+		display: inline;
+	}
+
+	&,
+	p {
+		font-size: 44px !important;
+		@media (max-width: 1000px) {
+			font-size: 20px !important;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		margin: 16px 0 !important;
+		padding: 16px;
+	}
+	margin: 32px 0 !important;
+	color: rgba(255, 255, 255, 0.5);
+	padding: 32px;
+	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+		url(https://fnmdp.oss-cn-beijing.aliyuncs.com/images/say-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	strong {
+		color: white;
+		font-weight: normal;
+	}
 }
 </style>
