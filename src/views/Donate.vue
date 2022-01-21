@@ -125,6 +125,10 @@ export default Vue.extend({
 					name: "Constant137",
 					amount: 100,
 				},
+				{
+					name: "usua233",
+					amount: 30
+				}
 			],
 		};
 	},
