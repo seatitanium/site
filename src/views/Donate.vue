@@ -4,8 +4,9 @@
 			<template #title> 捐助 SEATiDE </template>
 			<template #subtitle> 帮助我们持续运行 </template>
 			<template #text>
-				SEATiDE 是公益服，没有任何盈利项目，但接受无偿捐助，这能够维持 SEATiDE
-				的运行，也是 SEATiDE 的唯一收入。<br />你可以在本页面查看 SEATiDE 的资金运转情况和捐赠者信息。
+				SEATiDE 是公益服，没有任何盈利项目，但接受无偿捐助，这能够维持
+				SEATiDE 的运行，也是 SEATiDE 的唯一收入。<br />你可以在本页面查看
+				SEATiDE 的资金运转情况和捐赠者信息。
 			</template>
 		</banner>
 		<div class="container">
@@ -14,25 +15,39 @@
 					SEATiDE 的资金使用原理
 				</h1>
 				<p v-view.once="flowUp">
-					SEATiDE 的开销主要来自实例运行（计算类）和服务器备份和数据存储（存储类）。SEATiDE
+					SEATiDE
+					的开销主要来自实例运行（计算类）和服务器备份和数据存储（存储类）。SEATiDE
 					服务器运行在阿里云 ECS
 					的<strong>抢占式实例</strong>上，根据阿里云官方的描述，其根据市场供需结构和库存来决定扣款时机和扣款数额。通常情况下扣款数额不会过于偏离<strong>第一个小时的价格</strong>。当前我们使用的服务器类型是
 					<strong>ecs.g6.xlarge</strong>，第一个小时的价格为
 					<span class="money">￥0.159</span>。
 				</p>
 				<p v-view.once="flowUp">
-					我们通过统计 2021 年 2 月至 2022 年 1 月的账单，得出了如下结论。括号后注明的是与上次统计相比的变化。
+					我们通过统计 2021 年 2 月至 2022 年 1
+					月的账单，得出了如下结论。括号后注明的是与上次统计相比的变化。
 				</p>
 				<ul v-view.once="flowUp">
 					<li>
 						计算类平均扣款量（时间不均匀）：<span class="money"
-							>￥0.17（-0.02）</span
+							>￥0.17</span
+						>（-0.02）
+					</li>
+					<li>
+						计算类最高收费：<span class="money"
+							>￥1.29</span
+						>（+0.79）
+					</li>
+					<li>计算类最低收费：<span class="money">￥0.01</span></li>
+					<li>
+						计算类收费数额众数：<span class="money"
+							>￥0.18</span
+						>（+0.01）
+					</li>
+					<li>
+						存储类平均扣款量（时间不均匀）<span class="money"
+							>￥0.06</span
 						>
 					</li>
-					<li>计算类最高收费：<span class="money">￥1.29（+0.79）</span></li>
-					<li>计算类最低收费：<span class="money">￥0.01</span></li>
-					<li>计算类收费数额众数：<span class="money">￥0.18（+0.01）</span></li>
-					<li>存储类平均扣款量（时间不均匀）<span class="money">￥0.06</span></li>
 					<li>计算类月均收费次数：243</li>
 					<li>存储类月均收费次数：201</li>
 				</ul>
@@ -46,11 +61,13 @@
 				<h1 v-view.once="flowUp" class="primary-text">如何捐助</h1>
 				<p v-view.once="flowUp">
 					免责声明：<strong
-						>未满 18 岁的未成年人请在家长同意后进行捐助，SEATiDE 从未教唆未成年人「为游戏充值」。捐助即代表你已经阅读并知晓该声明。</strong
+						>未满 18 岁的未成年人请在家长同意后进行捐助，SEATiDE
+						从未教唆未成年人「为游戏充值」。捐助即代表你已经阅读并知晓该声明。</strong
 					>
 				</p>
 				<p v-view.once="flowUp">
-					此处提供支付宝和微信支付的二维码，如需其它支付方式（不支持 QQ 支付）可联系服主。若要捐助，扫描二维码即可，付款时<strong
+					此处提供支付宝和微信支付的二维码，如需其它支付方式（不支持
+					QQ 支付）可联系服主。若要捐助，扫描二维码即可，付款时<strong
 						>请备注你的 Minecraft 用户名</strong
 					>，以便我们写入鸣谢名单（低于
 					<span class="money">￥5</span>
@@ -126,8 +143,8 @@ export default Vue.extend({
 				},
 				{
 					name: "usua233",
-					amount: 30
-				}
+					amount: 30,
+				},
 			],
 		};
 	},
