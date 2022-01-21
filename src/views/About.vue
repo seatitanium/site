@@ -42,11 +42,11 @@
 				这样即使或开或停，服务器也<strong>一直存在着</strong>，不必担心过度的消耗，也不必担心来玩的人太少。
 			</p>
 			<div class="saying">
-				「
+				
 				<p v-view.once="flowUp">
-					就是想弄个<strong>不管怎么运行</strong>都能正常的服，<strong>关了但没完全关，开了但没完全开</strong>，总之<strong>一直存在着</strong>，不挺好
-				</p>
-				」
+					<span class="quote">「</span> 就是想弄个<strong>不管怎么运行</strong>都能正常的服，<strong>关了但没完全关，开了但没完全开</strong>，总之<strong>一直存在着</strong>，不挺好
+				 <span class="quote">」</span></p>
+				
 			</div>
 			<p v-view.once="flowUp" class="typo">
 				相比于早期 SEATiDE 的单页面介绍式网站，SEATiDE
@@ -186,7 +186,9 @@ export default Vue.extend({
 	p {
 		font-style: italic;
 		text-align: center;
-		display: inline;
+		.quote {
+			font-style: normal;
+		}
 	}
 
 	&,

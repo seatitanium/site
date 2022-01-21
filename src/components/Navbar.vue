@@ -182,7 +182,7 @@ export default Vue.extend({
 		}
 		.link {
 			&:not(.active):hover {
-				color: @textlightwhite !important;
+				color: white !important;
 			}
 			&.active {
 				color: white !important;
@@ -191,6 +191,10 @@ export default Vue.extend({
 		}
 		background: rgba(0, 0, 0, .2);
 		backdrop-filter: blur(5px);
+	}
+
+	.link.active {
+		font-weight: bold;
 	}
 
 	&.active {
