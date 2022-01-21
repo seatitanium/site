@@ -4,8 +4,8 @@
 			<template #title> 捐助 SEATiDE </template>
 			<template #subtitle> 帮助我们持续运行 </template>
 			<template #text>
-				SEATiDE 是公益服，但仍然接受无偿捐助，这能够维持 SEATiDE
-				的运行。<br />所有无偿捐助者的名字均会在本页面显示。
+				SEATiDE 是公益服，没有任何盈利项目，但接受无偿捐助，这能够维持 SEATiDE
+				的运行，也是 SEATiDE 的唯一收入。<br />你可以在本页面查看 SEATiDE 的资金运转情况和捐赠者信息。
 			</template>
 		</banner>
 		<div class="container">
