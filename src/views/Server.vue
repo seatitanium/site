@@ -22,37 +22,37 @@
 				<div>{{ lastUpdated.date }}<br />{{ lastUpdated.time }}</div>
 			</div>
 			<div class="ip">
-				<h2>当前服务器 IP</h2>
+				<h2>{{ noInstanceInfo ? "" : "当前服务器 IP" }}</h2>
 				<h1 class="ip primary-text">{{ server.ip || "加载中..." }}</h1>
 				<span
 					v-if="!noInstanceInfo"
 					class="status"
-					:class="
-						typeof server.online !== 'undefined'
-							? server.online === true
-								? 'online'
-								: 'offline'
-							: 'unknown'
-					"
+					:class="server.online === true ? 'online' : 'offline'"
 					><mdicon
 						:name="
-							typeof server.online !== 'undefined'
-								? server.online === true
-									? 'check-circle-outline'
-									: 'close-circle-outline'
-								: 'help-circle-outline'
+							server.online === true
+								? 'check-circle-outline'
+								: 'close-circle-outline'
 						"
-					/>{{
-						typeof server.online !== "undefined"
-							? server.online === true
-								? "在线"
-								: "不在线"
-							: "获取中..."
-					}}</span
+					/>{{ server.online === true ? "在线" : "不在线" }}</span
 				>
-				<span v-else class="status unknown"
-					>实例已被自动释放，请手动开启</span
+			</div>
+			<div v-if="noInstanceInfo" class="unknown-actions">
+				<btn
+					type="primary hover-light"
+					:size="isPCSize() ? 'large' : 'small'"
+					icon="launch"
+					href="https://lab.seatide.top"
+					>打开 TiDELab</btn
 				>
+				<btn
+					:size="isPCSize() ? 'large' : 'small'"
+					icon="book-outline"
+					href="https://w.seatide.top/automation/tidelab-index"
+					type="primary-outlined hover-light"
+				>
+					查看帮助
+				</btn>
 			</div>
 			<div class="container">
 				<div class="arguments">
@@ -149,7 +149,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Banner from "@/components/Banner.vue";
-import { get, isPCSize } from "@/fn";
+import { get, isPCSize, isMobile } from "@/fn";
 // @ts-ignore
 import Motd from "mcmotdparser";
 import Btn from "@/components/Btn.vue";
@@ -177,6 +177,7 @@ export default Vue.extend({
 		this.init();
 	},
 	methods: {
+		isMobile,
 		hasPlayer() {
 			if (this.server.onlinePlayers) {
 				return this.server.onlinePlayers > 0;
@@ -280,7 +281,7 @@ export default Vue.extend({
 
 .ip {
 	@media (min-width: 1000px) {
-		margin: 56px 0;
+		margin: 48px 0;
 	}
 	@media (max-width: 1000px) {
 		margin: 16px 0;
@@ -440,6 +441,18 @@ export default Vue.extend({
 	div {
 		font-size: 12px;
 		margin-top: 8px;
+	}
+}
+
+.unknown-actions {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 32px;
+
+	.btn {
+		margin: 0 8px;
 	}
 }
 </style>

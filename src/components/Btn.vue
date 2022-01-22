@@ -1,6 +1,6 @@
 <template>
 	<button
-		@click="go(to)"
+		@click="go()"
 		class="btn"
 		:class="
 			type + ' ' + size + ' ' + (isPCSize() && !isIOS() ? 'pc' : 'mobile')
@@ -17,11 +17,11 @@
 import Vue from "vue";
 import { isPCSize, isIOS } from "@/fn";
 export default Vue.extend({
-	props: ["type", "size", "icon", "to"],
+	props: ["type", "size", "icon", "to", "href"],
 	methods: {
-		go(path: string) {
-			if (!path) return;
-			this.$router.push(path);
+		go() {
+			if (this.to) this.$router.push(this.to);
+			if (this.href) window.open(this.href);
 		},
 		isPCSize,
 		isIOS() {
@@ -48,6 +48,7 @@ export default Vue.extend({
 	border: none;
 	transition: all 0.2s ease;
 	cursor: pointer;
+	font-family: inherit;
 
 	&.large {
 		@media screen and (max-width: 1000px) {
@@ -74,6 +75,23 @@ export default Vue.extend({
 		}
 	}
 
+	&.hover-light {
+		&:hover {
+			box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	&.primary-outlined {
+		border: 1px solid #fcd307;
+		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
+		background-clip: text;
+		color: transparent;
+
+		svg {
+			color: #fcd307;
+		}
+	}
+
 	&.primarylight.pc {
 		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
 		background-clip: text;
@@ -90,13 +108,12 @@ export default Vue.extend({
 
 	&.primarylight {
 		position: relative;
-
 		svg {
 			color: @primarydark;
 		}
 		&:hover {
 			&::after {
-				background: darken(white, 4%);
+				background: #eee;
 			}
 		}
 
