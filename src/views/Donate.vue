@@ -100,7 +100,7 @@
 				</ul>
 				<p v-view.once="flowUp">
 					同时感谢
-					<a href="//leviatan.cn" target="_blank">WindSpirit</a> 为
+					<a href="https://leviatan.cn" target="_blank">WindSpiritSR</a> 为
 					SEATiDE 提供的高速 API 托管服务，感谢 123__jk 为本站提供的
 					Minecraft 摄影作品。
 				</p>
@@ -134,7 +134,7 @@ export default Vue.extend({
 					amount: 150,
 				},
 				{
-					name: "WindSpirit",
+					name: "WindSpiritSR",
 					amount: 51,
 				},
 				{
