@@ -82,6 +82,10 @@ export default Vue.extend({
 				{
 					name: "规则",
 					href: "https://w.seatide.top/server/rules.html"
+				},
+				{
+					name: "Lab",
+					href: "https://lab.seatide.top"
 				}
 			],
 			active: false,
