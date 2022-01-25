@@ -43,9 +43,7 @@
 					</meta-item>
 				</meta-bar>
 				<p class="typo" v-view.once="flowUp">
-					SEATiDE
-					当前处于 <strong>ST2</strong> 周目，本周目的主题是<strong>「机械重组」</strong>，配备有一些科技模组，但整体上仍然偏向休闲和探索。
-					项目建立以后的第二个周目。
+					SEATiDE 实行周目制，每个周目会在开启<strong>至少一个月</strong>后根据玩家的发展情况和意见考虑更换。不同周目的模组不相同，且由玩家<strong>投票决定</strong>。
 				</p>
 				<status :status="loadingStatus" />
 				<div class="mods" v-if="server.mods">
