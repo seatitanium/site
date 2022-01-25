@@ -64,10 +64,6 @@ export default Vue.extend({
 					route: "join",
 				},
 				{
-					name: "状态",
-					route: "server",
-				},
-				{
 					name: "关于",
 					route: "about",
 				},
@@ -76,11 +72,15 @@ export default Vue.extend({
 					route: "donate",
 				},
 				{
+					name: "服务器",
+					route: "server",
+				},
+				{
 					name: "知识库",
 					href: "https://w.seatide.top"
 				},
 				{
-					name: "规则",
+					name: "服规",
 					href: "https://w.seatide.top/server/rules.html"
 				},
 				{
