@@ -15,7 +15,7 @@
 				<br />
 				<div class="simple-info">
 					<div class="item">
-						<mdicon name="numeric-2-box-outline" />
+						<mdicon name="numeric-3-box-outline" />
 						<span><span class="no-mobile">当前周目</span> ST3</span>
 					</div>
 					<div class="item">
@@ -512,8 +512,21 @@ export default Vue.extend({
 	}
 }
 
+@keyframes opacity {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: .5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 .stroke {
-	position: relative;
 	&::after {
 		@media screen and (max-width: 800px) {
 			content: none;
