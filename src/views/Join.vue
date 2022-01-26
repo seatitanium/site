@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/2.jpg">
+		<banner :bg="require('@/assets/images/2.jpg')">
 			<template #title> 加入 SEATiDE </template>
 			<template #subtitle> 开始体验 </template>
 			<template #text>
@@ -9,83 +9,10 @@
 			</template>
 		</banner>
 		<div class="container">
-			<div class="server-status content">
-				<h1 class="primary-text" v-view.once="flowUp">周目概况</h1>
-				<meta-bar v-view.once="flowUp">
-					<meta-item icon="minecraft">
-						<template #name> 版本 </template>
-						<template #text>
-							<span class="monospace"
-								>Java
-								{{
-									server.version
-										? server.version
-										: "-"
-								}}</span
-							>
-						</template>
-					</meta-item>
-					<meta-item icon="package">
-						<template #name> 模组数 </template>
-						<template #text>
-							{{
-								server.mods
-									? getModCount(server.mods)
-									: "-"
-							}}
-						</template>
-					</meta-item>
-					<meta-item icon="map-clock">
-						<template #name> 开始时间 </template>
-						<template #text>
-							{{ server.since ? server.since : "-" }}
-						</template>
-					</meta-item>
-				</meta-bar>
-				<p class="typo" v-view.once="flowUp">
-					SEATiDE 实行周目制，每个周目会在开启<strong>至少一个月</strong>后根据玩家的发展情况和意见考虑更换。不同周目的模组不相同，且由玩家<strong>投票决定</strong>。
-				</p>
-				<status :status="loadingStatus" />
-				<div class="mods" v-if="server.mods">
-					<div
-						v-view.once="scaleIn"
-						v-for="(x, i) in isPCSize()
-							? server.mods.filter((x) => x.type !== 'dep')
-							: server.mods
-									.filter((x) => x.type !== 'dep')
-									.slice(0, 5)"
-						:key="i"
-						class="mod"
-						v-lazy:background-image="x.bg ? x.bg : ''"
-						@click="
-							$open('https://search.mcmod.cn/s?key=' + x.name)
-						"
-					>
-						<span>#{{ i + 1 }}</span>
-						<h1>{{ x.zh ? x.zh : x.name }}</h1>
-						<h2 v-if="x.zh">{{ x.name }}</h2>
-						<p v-if="x.desc">{{ x.desc }}</p>
-					</div>
-				</div>
-				<span class="see-full-in-pc" v-if="!isPCSize()"
-					><mdicon name="information-outline" />
-					可在电脑端查看完整内容</span
-				>
-				<small class="no-mobile"
-					>另包含前置类模组（{{
-						getDepNames(server.mods).length
-					}}
-					个）：{{
-						getDepNames(server.mods).join("、")
-					}}，模组图片均来自原作者。</small
-				>
-			</div>
 			<div class="features content">
 				<div class="hero-box">
 					<h1 class="primary-text" v-view.once="flowUp">三个概念</h1>
-					<p v-view.once="flowUp">
-						了解 SEATiDE 服务器的运行模式
-					</p>
+					<p v-view.once="flowUp">了解 SEATiDE 服务器的运行模式</p>
 				</div>
 				<div class="feature-box" v-view.once="animateFeatureBox">
 					<div class="feature black">
@@ -164,7 +91,11 @@
 				</p>
 				<p class="typo" v-view.once="flowUp">
 					如果你对模组有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读<strong
-						>我们编写的<a target="_blank" href="https://w.seatide.top">维基</a></strong
+						>我们编写的<a
+							target="_blank"
+							href="https://w.seatide.top"
+							>维基</a
+						></strong
 					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题
 					:)
 				</p>
@@ -176,56 +107,16 @@
 <script lang="ts">
 import Vue from "vue";
 import Banner from "@/components/Banner.vue";
-import MetaBar from "@/components/MetaBar.vue";
-import MetaItem from "@/components/MetaItem.vue";
-import { get, flowUp, scaleIn, flowUpQuick, isPCSize } from "@/fn";
+
+import {flowUp, scaleIn, flowUpQuick, isPCSize } from "@/fn";
 import anime from "animejs";
-import Status from "@/components/Status.vue";
+
 
 export default Vue.extend({
 	components: {
 		Banner,
-		MetaBar,
-		MetaItem,
-		Status,
-	},
-	data() {
-		return {
-			server: {} as ServerInformation,
-			loadingStatus: "loading",
-			serverExists: false,
-		};
-	},
-	mounted() {
-		get("/api/server/v1/get/server")
-			.then((r) => {
-				let data: ServerInformation | null = r.data.data as any;
-				this.serverExists = data?.created ? true : false;
-				if (data !== null) {
-					this.server = data;
-					this.loadingStatus = "";
-				} else {
-					this.loadingStatus = "error";
-				}
-			})
-			.catch((e) => {
-				console.warn(e);
-				this.loadingStatus = "error";
-			});
 	},
 	methods: {
-		getDepNames(mod: ServerMod[]) {
-			let names: string[] = [];
-			if (!!!mod) {
-				return [];
-			}
-			mod.forEach((e) => {
-				if (e.type === "dep") {
-					names.push(e.name.toLowerCase());
-				}
-			});
-			return names;
-		},
 		flowUp,
 		scaleIn,
 		flowUpQuick,
@@ -240,15 +131,6 @@ export default Vue.extend({
 					return 150 * i;
 				},
 			});
-		},
-		getModCount(mod: ServerMod[]) {
-			let count = mod.length;
-			mod.forEach((e) => {
-				if (e.type === "set" && e.count) {
-					count += e.count - 1;
-				}
-			});
-			return count;
 		},
 		isPCSize,
 	},
@@ -400,111 +282,6 @@ export default Vue.extend({
 			top: 32px;
 		}
 		opacity: 0;
-	}
-}
-
-.server-status {
-	small {
-		color: @textlightgray;
-		padding: 0 8px;
-	}
-
-	.mods {
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: stretch;
-	}
-
-	.mod {
-		opacity: 0;
-		margin: 8px;
-		position: relative;
-		&::after {
-			width: 100%;
-			height: 100%;
-			background: rgba(0, 0, 0, 0.3);
-			position: absolute;
-			content: " ";
-			left: 0;
-			top: 0;
-			border-radius: inherit;
-			z-index: -2;
-		}
-		h2,
-		p {
-			font-weight: normal;
-		}
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-		border-radius: 4px;
-		color: white;
-		@media (max-width: 800px) {
-			padding: 8px 16px;
-			p {
-				margin: 0 !important;
-				max-width: 100px !important;
-			}
-		}
-		padding: 16px;
-		cursor: pointer;
-		transition: box-shadow 0.2s ease;
-
-		@media (min-width: 1000px) {
-			&:hover {
-				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-				transform: scale(1.1);
-			}
-		}
-
-		h1 {
-			font-size: 24px;
-			@media (max-width: 1000px) {
-				font-size: 18px;
-			}
-			margin: 0;
-		}
-
-		h2 {
-			font-size: 14px;
-			@media (max-width: 1000px) {
-				font-size: 10.5px;
-			}
-			margin: 0;
-			color: rgba(255, 255, 255, 0.5);
-		}
-
-		p {
-			font-size: 14px;
-			@media (max-width: 1000px) {
-				font-size: 10.5px;
-			}
-			margin-top: 10px;
-			margin-bottom: 0;
-			max-width: 200px;
-		}
-
-		span {
-			position: absolute;
-			right: 16px;
-			top: 16px;
-			.monospace;
-			opacity: 0.4;
-			@media (max-width: 800px) {
-				display: none;
-			}
-		}
-	}
-}
-
-.see-full-in-pc {
-	display: flex;
-	align-items: center;
-	.mdi {
-		width: 20px;
-		display: inline-flex;
-		align-items: center;
 	}
 }
 </style>

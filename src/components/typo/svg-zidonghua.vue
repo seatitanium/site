@@ -1,7 +1,5 @@
 <template>
 	<svg
-		width="750"
-		height="349"
 		viewBox="0 0 750 349"
 		fill="none"
 		class="zidonghua"

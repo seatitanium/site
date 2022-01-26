@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/1.jpg">
+		<banner :bg="require('@/assets/images/1.jpg')">
 			<template #title> 服务器状态 </template>
 			<template #subtitle> 实时 </template>
 			<template #text

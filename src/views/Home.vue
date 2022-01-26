@@ -1,9 +1,6 @@
 <template>
 	<div page>
-		<banner
-			bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/5.jpg"
-			fullscreen
-		>
+		<banner :bg="require('@/assets/images/5.jpg')" fullscreen>
 			<template #title>
 				高效运行的<span class="stroke stroke-2">玩家主导</span>服务器
 			</template>
@@ -20,7 +17,10 @@
 					</div>
 					<div class="item">
 						<mdicon name="minecraft" />
-						<span><span class="no-mobile">游戏版本</span> 1.16.5</span>
+						<span
+							><span class="no-mobile">游戏版本</span>
+							1.16.5</span
+						>
 					</div>
 					<div class="item">
 						<mdicon name="check" />
@@ -37,18 +37,24 @@
 					to="/join"
 					>立即加入</btn
 				>
-				<btn @click.native="$open('https://w.seatide.top')" class="learnmore-btn" type="outlined hover" size="large"
+				<btn
+					@click.native="$open('https://w.seatide.top')"
+					class="learnmore-btn"
+					type="outlined hover"
+					size="large"
 					>阅读文档</btn
 				>
 			</template>
 		</banner>
-		<div class="container">
-			<h1 id="features-title">SEATiDE 有哪些特点？</h1>
+		<section class="container">
+			<center>
+				<h1 id="features-title">SEATiDE 有哪些特点？</h1>
+			</center>
 			<section class="features">
 				<div class="feature-item" v-view.once="animateFeature">
-					<svg-wen width="150px" />
+					<mdicon class="feature-icon" name="bug-check-outline" />
 					<div class="a text">
-						<h1>稳定可靠</h1>
+						<h1>基础稳定</h1>
 						<p
 							v-text="
 								'SEATiDE 全局使用阿里云的产品。存档每 10 分钟备份一次，同时存留五个版本，每次停服也会自动备份。存档稳定保存在阿里云 OSS 中，周目结束后可限时开放下载。'
@@ -57,7 +63,7 @@
 					</div>
 				</div>
 				<div class="feature-item">
-					<svg-sheng width="150px" />
+					<mdicon class="feature-icon" name="wallet-plus-outline" />
 					<div class="b text">
 						<h1>忠于节省</h1>
 						<p
@@ -68,7 +74,7 @@
 					</div>
 				</div>
 				<div class="feature-item">
-					<svg-yi width="150px" />
+					<mdicon class="feature-icon" name="message-text-outline" />
 					<div class="c text">
 						<h1>倡导提议</h1>
 						<p
@@ -79,17 +85,15 @@
 					</div>
 				</div>
 			</section>
-		</div>
-		<div
-			v-lazy:background-image="
-				'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/3.jpg'
-			"
+		</section>
+		<section
+			v-lazy:background-image="require('@/assets/images/3.jpg')"
 			class="feature-section"
 		>
 			<div class="container">
 				<section class="single-features">
-					<div class="single-feature light">
-						<svg-minzhu />
+					<div class="single-feature">
+						<svg-minzhu f />
 						<div class="typo">
 							<h2>
 								<mdicon name="human-handsup" /> 民主决定游戏内容
@@ -114,12 +118,10 @@
 							>
 						</div>
 					</div>
-					<div class="single-feature">
+					<div class="single-feature light">
 						<div class="typo">
 							<h2><mdicon name="console" /> 利用技术解决问题</h2>
-							<h1>
-								自己动手，<br v-if="!isPhoneSize()" />丰衣足食
-							</h1>
+							<h1>自己动手，丰衣足食</h1>
 							<p
 								v-html="
 									'无论是我们需要的功能，还是新的游戏玩法；无论是游戏内还是游戏外，我们都可以亲自来创造。<br/>SEATiDE 提倡用各种各样的技术方法来完善我们共同的游戏体验，为服务器添砖加瓦。'
@@ -138,20 +140,16 @@
 								>了解「技术」</btn
 							>
 						</div>
-						<svg-jishu />
+						<svg-jishu f />
 					</div>
-					<div class="single-feature light">
-						<svg-zidonghua />
+					<div class="single-feature">
+						<svg-zidonghua f />
 						<div class="typo">
 							<h2>
 								<mdicon name="cash-check" />
 								让游戏容易且省钱
 							</h2>
-							<h1>
-								随时想玩，<br
-									v-if="!isPhoneSize()"
-								/>随时开。<br />不玩不浪费。
-							</h1>
+							<h1>随时想玩，随时开。<br />不玩不浪费。</h1>
 							<p
 								v-html="
 									'SEATiDE 使用阿里云抢占式 ECS，并利用内网优势与阿里云 OSS 直接相连。<br/>在保障数据安全的同时降低不必要的资金消耗，同时也为玩家提供便利的「开服渠道」以便在需要的时候恢复游戏。'
@@ -165,11 +163,77 @@
 					</div>
 				</section>
 			</div>
-		</div>
-		<div
-			v-lazy:background-image="
-				'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/4.jpg'
-			"
+		</section>
+		<section class="container">
+			<div class="server-status content">
+				<h1 class="primary-text" v-view.once="flowUp">周目概况</h1>
+				<meta-bar v-view.once="flowUp">
+					<meta-item icon="minecraft">
+						<template #name> 版本 </template>
+						<template #text>
+							<span class="monospace"
+								>Java
+								{{
+									server.version ? server.version : "-"
+								}}</span
+							>
+						</template>
+					</meta-item>
+					<meta-item icon="package">
+						<template #name> 模组数 </template>
+						<template #text>
+							{{ server.mods ? getModCount(server.mods) : "-" }}
+						</template>
+					</meta-item>
+					<meta-item icon="map-clock">
+						<template #name> 开始时间 </template>
+						<template #text>
+							{{ server.since ? server.since : "-" }}
+						</template>
+					</meta-item>
+				</meta-bar>
+				<p class="typo" v-view.once="flowUp">
+					SEATiDE
+					实行周目制，每个周目会在开启<strong>至少一个月</strong>后根据玩家的发展情况和意见考虑更换。不同周目的模组不相同，且由玩家<strong>投票决定</strong>。
+				</p>
+				<status :status="loadingStatus" />
+				<div class="mods" v-if="server.mods">
+					<div
+						v-view.once="scaleIn"
+						v-for="(x, i) in isPCSize()
+							? server.mods.filter((x) => x.type !== 'dep')
+							: server.mods
+									.filter((x) => x.type !== 'dep')
+									.slice(0, 5)"
+						:key="i"
+						class="mod"
+						v-lazy:background-image="x.bg ? x.bg : ''"
+						@click="
+							$open('https://search.mcmod.cn/s?key=' + x.name)
+						"
+					>
+						<span>#{{ i + 1 }}</span>
+						<h1>{{ x.zh ? x.zh : x.name }}</h1>
+						<h2 v-if="x.zh">{{ x.name }}</h2>
+						<p v-if="x.desc">{{ x.desc }}</p>
+					</div>
+				</div>
+				<span class="see-full-in-pc" v-if="!isPCSize()"
+					><mdicon name="information-outline" />
+					可在电脑端查看完整内容</span
+				>
+				<small class="no-mobile"
+					>另包含前置类模组（{{
+						getDepNames(server.mods).length
+					}}
+					个）：{{
+						getDepNames(server.mods).join("、")
+					}}，模组图片均来自原作者。</small
+				>
+			</div>
+		</section>
+		<section
+			v-lazy:background-image="require('@/assets/images/4.jpg')"
 			class="more-information-section"
 		>
 			<div class="container">
@@ -210,13 +274,16 @@
 					>
 				</section>
 			</div>
-		</div>
+		</section>
 	</div>
 </template>
 
 <script lang="ts">
 import Banner from "@/components/Banner.vue";
 import Btn from "@/components/Btn.vue";
+import MetaBar from "@/components/MetaBar.vue";
+import MetaItem from "@/components/MetaItem.vue";
+import Status from "@/components/Status.vue";
 import SvgSheng from "@/components/typo/svg-sheng.vue";
 import SvgWen from "@/components/typo/svg-wen.vue";
 import SvgYi from "@/components/typo/svg-yi.vue";
@@ -226,7 +293,7 @@ import Vue from "vue";
 import anime from "animejs";
 import SvgZidonghua from "@/components/typo/svg-zidonghua.vue";
 import Logo from "@/components/Logo.vue";
-import { flowUp, isPCSize, isMobile, isPhoneSize } from "@/fn";
+import { flowUp, isPCSize, isMobile, isPhoneSize, get, scaleIn } from "@/fn";
 
 export default Vue.extend({
 	components: {
@@ -239,13 +306,24 @@ export default Vue.extend({
 		SvgJishu,
 		SvgZidonghua,
 		Logo,
+		MetaBar,
+		MetaItem,
+		Status
+	},
+	data() {
+		return {
+			server: {} as ServerInformation,
+			loadingStatus: "loading",
+			serverExists: false,
+		}
 	},
 	methods: {
+		scaleIn,
 		animateFeature() {
 			anime({
 				targets: "#features-title",
 				opacity: [0, 1],
-				translateX: [-30, 0],
+				translateY: [30, 0],
 				easing: "easeInOutExpo",
 			});
 			anime({
@@ -291,6 +369,44 @@ export default Vue.extend({
 			}
 		},
 		isPhoneSize,
+		getDepNames(mod: ServerMod[]) {
+			let names: string[] = [];
+			if (!!!mod) {
+				return [];
+			}
+			mod.forEach((e) => {
+				if (e.type === "dep") {
+					names.push(e.name.toLowerCase());
+				}
+			});
+			return names;
+		},
+		getModCount(mod: ServerMod[]) {
+			let count = mod.length;
+			mod.forEach((e) => {
+				if (e.type === "set" && e.count) {
+					count += e.count - 1;
+				}
+			});
+			return count;
+		},
+	},
+	mounted() {
+		get("/api/server/v1/get/server")
+			.then((r) => {
+				let data: ServerInformation | null = r.data.data as any;
+				this.serverExists = data?.created ? true : false;
+				if (data !== null) {
+					this.server = data;
+					this.loadingStatus = "";
+				} else {
+					this.loadingStatus = "error";
+				}
+			})
+			.catch((e) => {
+				console.warn(e);
+				this.loadingStatus = "error";
+			});
 	},
 });
 </script>
@@ -298,6 +414,13 @@ export default Vue.extend({
 <style lang="less" scoped>
 .learnmore-btn {
 	margin-left: 32px;
+}
+
+[page] > section {
+	margin: 32px auto;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .more-information {
@@ -374,18 +497,43 @@ export default Vue.extend({
 		flex-direction: row;
 		align-items: flex-start;
 		width: 33.333%;
-		margin: 0 8px;
+		margin: 0 16px;
 		opacity: 0;
-		@media screen and (max-width: 1000px) {
+		position: relative;
+
+		.feature-icon {
+			color: @primary;
+			svg {
+				width: 100px;
+				height: 100px;
+				@media (max-width: 1200px) {
+					width: 150px;
+					height: 150px;
+				}
+			}
+		}
+
+		@media (max-width: 1200px) {
+			.feature-icon {
+				position: absolute;
+				z-index: -100;
+				opacity: 0.4;
+				left: 50%;
+				bottom: 50%;
+				transform: translate3d(-50%, 50%, 0);
+			}
+		}
+
+		@media (max-width: 1000px) {
 			justify-content: center;
 			margin: 16px 0 !important;
 		}
-
 		.text {
 			height: 100%;
 			margin-left: 16px;
-			width: 60%;
-
+			@media (max-width: 1200px) {
+				text-align: center;
+			}
 			h1 {
 				margin-top: 0;
 				font-size: 28px;
@@ -405,6 +553,22 @@ export default Vue.extend({
 
 	#features-title {
 		opacity: 0;
+		text-align: center;
+		font-size: 48px;
+		margin-bottom: 32px;
+		margin-top: 0;
+		&::after {
+			content: "";
+			display: block;
+			background: @primary;
+			height: 20px;
+			position: absolute;
+			width: 45%;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 4px;
+			z-index: -2;
+		}
 	}
 }
 
@@ -421,10 +585,11 @@ export default Vue.extend({
 		align-items: center;
 
 		.single-feature {
+			width: 90%;
 			opacity: 0;
 			@media screen and (min-width: 1000px) {
 				margin: 72px 0;
-				padding: 32px 16px;
+				padding: 32px;
 			}
 			&:not(.light) {
 				background: rgba(0, 0, 0, 0.4);
@@ -436,11 +601,13 @@ export default Vue.extend({
 				}
 			}
 			display: flex;
-			@media screen and (max-width: 1000px) {
+			@media (max-width: 1000px) {
 				flex-direction: column;
 				padding: 56px 16px;
 				margin: 32px 0;
 				width: 100%;
+			}
+			@media (max-width: 1200px) {
 				> svg:first-child,
 				> svg:last-child {
 					display: none;
@@ -454,8 +621,7 @@ export default Vue.extend({
 
 			.typo {
 				@media screen and (min-width: 1000px) {
-					margin-left: 32px;
-					width: 40%;
+					width: 75%;
 				}
 
 				@media screen and (max-width: 1000px) {
@@ -505,7 +671,6 @@ export default Vue.extend({
 					@media screen and (max-width: 1000px) {
 						font-size: 14px;
 					}
-					max-width: 400px;
 				}
 			}
 		}
@@ -518,7 +683,7 @@ export default Vue.extend({
 	}
 
 	50% {
-		opacity: .5;
+		opacity: 0.5;
 	}
 
 	100% {
@@ -527,6 +692,8 @@ export default Vue.extend({
 }
 
 .stroke {
+	position: relative;
+
 	&::after {
 		@media screen and (max-width: 800px) {
 			content: none;
@@ -591,6 +758,112 @@ export default Vue.extend({
 		&:last-child::after {
 			content: none;
 		}
+	}
+}
+
+
+.server-status {
+	small {
+		color: @textlightgray;
+		padding: 0 8px;
+	}
+
+	.mods {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+
+	.mod {
+		opacity: 0;
+		margin: 8px;
+		position: relative;
+		&::after {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.3);
+			position: absolute;
+			content: " ";
+			left: 0;
+			top: 0;
+			border-radius: inherit;
+			z-index: -2;
+		}
+		h2,
+		p {
+			font-weight: normal;
+		}
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-radius: 4px;
+		color: white;
+		@media (max-width: 800px) {
+			padding: 8px 16px;
+			p {
+				margin: 0 !important;
+				max-width: 100px !important;
+			}
+		}
+		padding: 16px;
+		cursor: pointer;
+		transition: box-shadow 0.2s ease;
+
+		@media (min-width: 1000px) {
+			&:hover {
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+				transform: scale(1.1);
+			}
+		}
+
+		h1 {
+			font-size: 24px;
+			@media (max-width: 1000px) {
+				font-size: 18px;
+			}
+			margin: 0;
+		}
+
+		h2 {
+			font-size: 14px;
+			@media (max-width: 1000px) {
+				font-size: 10.5px;
+			}
+			margin: 0;
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		p {
+			font-size: 14px;
+			@media (max-width: 1000px) {
+				font-size: 10.5px;
+			}
+			margin-top: 10px;
+			margin-bottom: 0;
+			max-width: 200px;
+		}
+
+		span {
+			position: absolute;
+			right: 16px;
+			top: 16px;
+			.monospace;
+			opacity: 0.4;
+			@media (max-width: 800px) {
+				display: none;
+			}
+		}
+	}
+}
+
+.see-full-in-pc {
+	display: flex;
+	align-items: center;
+	.mdi {
+		width: 20px;
+		display: inline-flex;
+		align-items: center;
 	}
 }
 </style>

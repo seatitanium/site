@@ -1,8 +1,6 @@
 <template>
 	<svg
 		v-view.once="view"
-		width="734"
-		height="383"
 		viewBox="0 0 734 383"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"

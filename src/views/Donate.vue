@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/7.jpg">
+		<banner :bg="require('@/assets/images/7.jpg')">
 			<template #title> 捐助 SEATiDE </template>
 			<template #subtitle> 帮助我们持续运行 </template>
 			<template #text>
@@ -78,12 +78,12 @@
 				<div v-view.once="flowUp" class="pay">
 					<img
 						v-lazy="
-							'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/alipay-qr.jpg'
+							require('@/assets/images/alipay-qr.jpg')
 						"
 					/>
 					<img
 						v-lazy="
-							'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/wechat-qr.JPG'
+							require('@/assets/images/wechat-qr.jpg')
 						"
 					/>
 				</div>

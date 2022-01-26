@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner bg="https://fnmdp.oss-cn-beijing.aliyuncs.com/images/6.jpg">
+		<banner :bg="require('@/assets/images/6.jpg')">
 			<template #title>关于 SEATiDE</template>
 			<template #subtitle>了解更多</template>
 			<template #text
@@ -60,7 +60,7 @@
 				<img
 					v-view.once="flowLeft"
 					v-lazy="
-						'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/seatide-archive.png'
+						require('@/assets/images/seatide-archive.png')
 					"
 				/>
 				<figcaption>SEATiDE 的旧官网</figcaption>
@@ -206,8 +206,8 @@ export default Vue.extend({
 	margin: 32px 0 !important;
 	color: rgba(255, 255, 255, 0.5);
 	padding: 32px;
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
-		url(https://fnmdp.oss-cn-beijing.aliyuncs.com/images/say-bg.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+		url('~@/assets/images/say-bg.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
