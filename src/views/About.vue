@@ -11,7 +11,7 @@
 			<img class="bad-design" src="@/assets/bad-design.svg" />
 			<h1 v-view.once="flowUp" class="primary-text">SEATiDE 的过去</h1>
 			<p v-view.once="flowUp" class="typo">
-				<strong>SEATiDE</strong> 最初是在 2019
+				<strong>SEATiDE</strong> 最初是在 2018
 				年作为服主探索开服的一个简单项目出现的，其名称来自于一个<strong>搁置的域名</strong>。
 				由于服主并没有开展宣传工作，加之内容单一，<strong>并没有招来很多玩家</strong>。后来由于服主的现实原因，一直处于搁置状态。
 			</p>
