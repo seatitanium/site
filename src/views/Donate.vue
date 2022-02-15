@@ -127,7 +127,7 @@ export default Vue.extend({
 				},
 				{
 					name: "Litter_white",
-					amount: 50,
+					amount: 100,
 				},
 				{
 					name: "Majesty_W",
