@@ -148,6 +148,10 @@ export default Vue.extend({
 				{
 					name: "匿名玩家",
 					amount: 88
+				},
+				{
+					name: "Yuinkland",
+					amount: 50
 				}
 			],
 		};
