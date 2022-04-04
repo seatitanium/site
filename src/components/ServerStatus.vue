@@ -75,9 +75,9 @@
 				</meta-bar>
 			</div>
 
-			<div class="players-online" v-if="hasPlayer()">
-				<h2>在线玩家</h2>
-				<div class="player-details">
+			<div class="players-online">
+				<h2>{{ hasPlayer() ? '在线玩家' : '当前暂无在线玩家'}}</h2>
+				<div class="player-details" v-if="hasPlayer()">
 					<div
 						@click="$open('https://namemc.com/profile/' + x.id)"
 						class="player"
