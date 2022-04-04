@@ -35,9 +35,8 @@ export default Vue.extend({
 	}
 
 	.name {
-		font-weight: bold;
 		margin-right: 1em;
-		font-size: 110%;
+		font-size: 16px;
 		@media (max-width: 1000px) {
 			display: none;
 		}
@@ -45,9 +44,11 @@ export default Vue.extend({
 
 	.text {
 		color: black;
+		font-size: 18px;
 		@media (max-width: 800px) {
 			font-size: 13.5px;
 		}
+		
 	}
 
 	&::after {
@@ -55,6 +56,7 @@ export default Vue.extend({
 		display: block;
 		color: rgba(0, 0, 0, 0.21);
 		height: 100%;
+		transform: scale(.8);
 		@media (min-width: 1000px) {
 			margin: 0 16px;
 		}

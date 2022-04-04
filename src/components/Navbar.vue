@@ -72,10 +72,6 @@ export default Vue.extend({
 					route: "donate",
 				},
 				{
-					name: "服务器",
-					route: "server",
-				},
-				{
 					name: "知识库",
 					href: "https://w.seatide.top"
 				},

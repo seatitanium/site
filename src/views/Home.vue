@@ -46,235 +46,183 @@
 				>
 			</template>
 		</banner>
-		<section class="container">
-			<center>
-				<h1 id="features-title">SEATiDE 有哪些特点？</h1>
-			</center>
-			<section class="features">
-				<div class="feature-item" v-view.once="animateFeature">
-					<mdicon class="feature-icon" name="bug-check-outline" />
-					<div class="a text">
-						<h1>基础稳定</h1>
-						<p
-							v-text="
-								'SEATiDE 全局使用阿里云的产品。存档每 10 分钟备份一次，同时存留五个版本，每次停服也会自动备份。存档稳定保存在阿里云 OSS 中，周目结束后可限时开放下载。'
-							"
-						/>
+		<div class="sections">
+			<section class="container">
+				<center>
+					<h1 id="features-title">SEATiDE 有哪些特点？</h1>
+				</center>
+				<section class="features">
+					<div class="feature-item" v-view.once="animateFeature">
+						<mdicon class="feature-icon" name="bug-check-outline" />
+						<div class="a text">
+							<h1>稳定可靠</h1>
+							<p
+								v-text="
+									'SEATiDE 全局使用阿里云的产品。游戏存档和所有数据每 10 分钟全量备份一次，且同时存留五个版本。每次停服也会自动备份。存档保存在安全的阿里云 OSS 中。'
+								"
+							/>
+						</div>
 					</div>
-				</div>
-				<div class="feature-item">
-					<mdicon class="feature-icon" name="wallet-plus-outline" />
-					<div class="b text">
-						<h1>忠于节省</h1>
-						<p
-							v-text="
-								'考虑到淡季效应，我们实行连续 1 小时 0 人在线则自动备份并停服的机制。若有玩家想继续游戏，可自行开启。我们认为不应让高昂的服务器费用阻碍美好的 Minecraft 体验。'
-							"
+					<div class="feature-item">
+						<mdicon
+							class="feature-icon"
+							name="wallet-plus-outline"
 						/>
+						<div class="b text">
+							<h1>忠于节省</h1>
+							<p
+								v-text="
+									'我们实行如连续 1 小时 0 人在线则停服的机制。若有玩家想继续游戏，可自行开启服务器。我们认为不应让高昂的服务器费用阻碍美好的 Minecraft 体验。'
+								"
+							/>
+						</div>
 					</div>
-				</div>
-				<div class="feature-item">
-					<mdicon class="feature-icon" name="message-text-outline" />
-					<div class="c text">
-						<h1>倡导提议</h1>
-						<p
-							v-text="
-								'我们相信，对玩家需求的满足是服务器运营的最大动力。你可以在这里自由地发表你对服务器策划的合理建议。在与大家一同讨论的同时，共同建设更好的 SEATiDE 服务器！'
-							"
+					<div class="feature-item">
+						<mdicon
+							class="feature-icon"
+							name="message-text-outline"
 						/>
+						<div class="c text">
+							<h1>倡导提议</h1>
+							<p
+								v-text="
+									'玩家需求的满足是服务器运营的最大意义。在这里，你可以自由地发表对服务器策划和设计的合理建议，在与大家一同讨论的同时，共同建设更好的 SEATiDE。'
+								"
+							/>
+						</div>
 					</div>
+				</section>
+			</section>
+			<section
+				v-lazy:background-image="require('@/assets/images/3.jpg')"
+				class="feature-section"
+			>
+				<div class="container">
+					<section class="single-features">
+						<div class="single-feature">
+							<svg-minzhu f />
+							<div class="typo">
+								<h2>
+									<mdicon name="human-handsup" />
+									民主决定游戏内容
+								</h2>
+								<h1>多一种想法，多一个选择</h1>
+								<p
+									v-html="
+										'每一位加入服务器并成为正式成员的玩家都有权利提出自己对游戏内容的想法，无论内容。<br/>你的想法将成为游戏内容的一个选择，若得到大部分的认可，则可直接付诸实践。'
+									"
+									v-view.once="animateSFTypo"
+								/>
+								<btn
+									@click.native="
+										$open(
+											'https://w.seatide.top/about/operation.html#%E7%8E%A9%E5%AE%B6%E4%B8%BB%E5%AF%BC-%E6%B0%91%E4%B8%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96'
+										)
+									"
+									type="primarylight arrow hover"
+									size="large"
+									icon="arrow-right"
+									>了解「民主」</btn
+								>
+							</div>
+						</div>
+						<div class="single-feature light">
+							<div class="typo">
+								<h2>
+									<mdicon name="console" /> 利用技术解决问题
+								</h2>
+								<h1>自己动手，丰衣足食</h1>
+								<p
+									v-html="
+										'无论是我们需要的功能，还是新的游戏玩法；无论是游戏内还是游戏外，我们都可以亲自来创造。<br/>SEATiDE 提倡用各种各样的技术方法来完善我们共同的游戏体验，为服务器添砖加瓦。'
+									"
+									v-view.once="animateSFTypo"
+								/>
+								<btn
+									@click.native="
+										$open(
+											'https://w.seatide.top/about/operation.html#%E4%BD%8E%E6%88%90%E6%9C%AC-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A2%E5%8D%A0%E5%BC%8F-ecs-%E7%AE%80%E4%BB%8B'
+										)
+									"
+									type="primary arrow hover"
+									size="large"
+									icon="arrow-right"
+									>了解「技术」</btn
+								>
+							</div>
+							<svg-jishu f />
+						</div>
+						<div class="single-feature">
+							<svg-zidonghua f />
+							<div class="typo">
+								<h2>
+									<mdicon name="cash-check" />
+									让游戏容易且省钱
+								</h2>
+								<h1>随时想玩，随时开。<br />不玩不浪费。</h1>
+								<p
+									v-html="
+										'SEATiDE 使用阿里云抢占式 ECS，并利用内网优势与阿里云 OSS 直接相连。<br/>在保障数据安全的同时降低不必要的资金消耗，同时也为玩家提供便利的「开服渠道」以便在需要的时候恢复游戏。'
+									"
+									v-view.once="animateSFTypo"
+								/>
+								<btn type="outlined" size="large"
+									>你可以在加入后了解相关内容</btn
+								>
+							</div>
+						</div>
+					</section>
 				</div>
 			</section>
-		</section>
-		<section
-			v-lazy:background-image="require('@/assets/images/3.jpg')"
-			class="feature-section"
-		>
-			<div class="container">
-				<section class="single-features">
-					<div class="single-feature">
-						<svg-minzhu f />
-						<div class="typo">
-							<h2>
-								<mdicon name="human-handsup" /> 民主决定游戏内容
-							</h2>
-							<h1>多一种想法，多一个选择</h1>
-							<p
-								v-html="
-									'每一位加入服务器并成为正式成员的玩家都有权利提出自己对游戏内容的想法，无论内容。<br/>你的想法将成为游戏内容的一个选择，若得到大部分的认可，则可直接付诸实践。'
-								"
-								v-view.once="animateSFTypo"
-							/>
-							<btn
-								@click.native="
-									$open(
-										'https://w.seatide.top/about/operation.html#%E7%8E%A9%E5%AE%B6%E4%B8%BB%E5%AF%BC-%E6%B0%91%E4%B8%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96'
-									)
-								"
-								type="primarylight arrow hover"
-								size="large"
-								icon="arrow-right"
-								>了解「民主」</btn
-							>
-						</div>
-					</div>
-					<div class="single-feature light">
-						<div class="typo">
-							<h2><mdicon name="console" /> 利用技术解决问题</h2>
-							<h1>自己动手，丰衣足食</h1>
-							<p
-								v-html="
-									'无论是我们需要的功能，还是新的游戏玩法；无论是游戏内还是游戏外，我们都可以亲自来创造。<br/>SEATiDE 提倡用各种各样的技术方法来完善我们共同的游戏体验，为服务器添砖加瓦。'
-								"
-								v-view.once="animateSFTypo"
-							/>
-							<btn
-								@click.native="
-									$open(
-										'https://w.seatide.top/about/operation.html#%E4%BD%8E%E6%88%90%E6%9C%AC-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A2%E5%8D%A0%E5%BC%8F-ecs-%E7%AE%80%E4%BB%8B'
-									)
-								"
-								type="primary arrow hover"
-								size="large"
-								icon="arrow-right"
-								>了解「技术」</btn
-							>
-						</div>
-						<svg-jishu f />
-					</div>
-					<div class="single-feature">
-						<svg-zidonghua f />
-						<div class="typo">
-							<h2>
-								<mdicon name="cash-check" />
-								让游戏容易且省钱
-							</h2>
-							<h1>随时想玩，随时开。<br />不玩不浪费。</h1>
-							<p
-								v-html="
-									'SEATiDE 使用阿里云抢占式 ECS，并利用内网优势与阿里云 OSS 直接相连。<br/>在保障数据安全的同时降低不必要的资金消耗，同时也为玩家提供便利的「开服渠道」以便在需要的时候恢复游戏。'
-								"
-								v-view.once="animateSFTypo"
-							/>
-							<btn type="outlined" size="large"
-								>你可以在加入后了解相关内容</btn
-							>
-						</div>
-					</div>
-				</section>
-			</div>
-		</section>
-		<section class="container">
-			<div class="server-status content">
-				<h1 class="primary-text" v-view.once="flowUp">周目概况</h1>
-				<meta-bar v-view.once="flowUp">
-					<meta-item icon="minecraft">
-						<template #name> 版本 </template>
-						<template #text>
-							<span class="monospace"
-								>Java
-								{{
-									server.version ? server.version : "-"
-								}}</span
-							>
-						</template>
-					</meta-item>
-					<meta-item icon="package">
-						<template #name> 模组数 </template>
-						<template #text>
-							{{ server.mods ? getModCount(server.mods) : "-" }}
-						</template>
-					</meta-item>
-					<meta-item icon="map-clock">
-						<template #name> 开始时间 </template>
-						<template #text>
-							{{ server.since ? server.since : "-" }}
-						</template>
-					</meta-item>
-				</meta-bar>
-				<p class="typo" v-view.once="flowUp">
-					SEATiDE
-					实行周目制，每个周目会在开启<strong>至少一个月</strong>后根据玩家的发展情况和意见考虑更换。不同周目的模组不相同，且由玩家<strong>投票决定</strong>。
-				</p>
-				<status :status="loadingStatus" />
-				<div class="mods" v-if="server.mods">
-					<div
-						v-view.once="scaleIn"
-						v-for="(x, i) in isPCSize()
-							? server.mods.filter((x) => x.type !== 'dep')
-							: server.mods
-									.filter((x) => x.type !== 'dep')
-									.slice(0, 5)"
-						:key="i"
-						class="mod"
-						v-lazy:background-image="x.bg ? x.bg : ''"
-						@click="
-							$open('https://search.mcmod.cn/s?key=' + x.name)
-						"
-					>
-						<span>#{{ i + 1 }}</span>
-						<h1>{{ x.zh ? x.zh : x.name }}</h1>
-						<h2 v-if="x.zh">{{ x.name }}</h2>
-						<p v-if="x.desc">{{ x.desc }}</p>
-					</div>
+			<section v-lazy:background-image="require('@/assets/images/1.jpg')" class="server-status-section">
+				<div class="container">
+					<server-status v-view.once="flowUp" />
 				</div>
-				<span class="see-full-in-pc" v-if="!isPCSize()"
-					><mdicon name="information-outline" />
-					可在电脑端查看完整内容</span
-				>
-				<small class="no-mobile"
-					>另包含前置类模组（{{
-						getDepNames(server.mods).length
-					}}
-					个）：{{
-						getDepNames(server.mods).join("、")
-					}}，模组图片均来自原作者。</small
-				>
-			</div>
-		</section>
-		<section
-			v-lazy:background-image="require('@/assets/images/4.jpg')"
-			class="more-information-section"
-		>
-			<div class="container">
-				<section class="more-information">
-					<logo v-view.once="flowUp" class="hero center light" />
-					<h1 v-view.once="flowUp">详细了解 SEATiDE</h1>
-					<p v-view.once="flowUp">
-						<strong>SEATiDE</strong> 最初创建于 2019
-						年，曾经短暂地独立运行过，后来归属于 SoTap
-						服务器。几经辗转，今日的 SEATiDE
-						成为了一个<strong>全新的独立项目</strong>，而长期以来我们的模组服的定位没有改变。
-					</p>
-					<p v-view.once="flowUp">
-						<strong>本项目开始于 2021 年 8 月底。</strong
-						>如果你能够看到这条消息，代表着我们依然在发展初期阶段，时刻欢迎你作为建设者、体验者来访。我们欢迎所有的
-						Minecraft
-						玩家加入我们的服务器并提出你的意见以及对服务器玩法、运营方面的设想。
-					</p>
-					<p v-view.once="flowUp">
-						<strong
-							>SEATiDE 主攻 Java
-							高版本模组公益（支持无偿捐助）服务器，且永远不会成为快餐服。</strong
-						>我们想让模组服也变得更耐玩，更持久，玩家的目标不仅限于「毕业」。虽然有周目制度，我们依然会根据地图发展状况酌情延长和缩短，并永久保留曾经玩过的地图。
-					</p>
-					<p v-view.once="flowUp">
-						<strong
-							>我们当前处于建设的初期，经验不够丰富，因而欢迎所有玩家和运营同好的加入，更希望能够得到你的意见和建议。</strong
+			</section>
+			<section
+				v-lazy:background-image="require('@/assets/images/4.jpg')"
+				class="more-information-section"
+			>
+				<div class="container">
+					<section class="more-information">
+						<logo v-view.once="flowUp" class="hero center light" />
+						<h1 v-view.once="flowUp">详细了解 SEATiDE</h1>
+						<p v-view.once="flowUp">
+							<strong>SEATiDE</strong> 最初创建于 2019
+							年，曾经短暂地独立运行过，后来归属于 SoTap
+							服务器。几经辗转，今日的 SEATiDE
+							成为了一个<strong>全新的独立项目</strong>，而长期以来我们的模组服的定位没有改变。
+						</p>
+						<p v-view.once="flowUp">
+							<strong>本项目开始于 2021 年 8 月底。</strong
+							>如果你能够看到这条消息，代表着我们依然在发展初期阶段，时刻欢迎你作为建设者、体验者来访。我们欢迎所有的
+							Minecraft
+							玩家加入我们的服务器并提出你的意见以及对服务器玩法、运营方面的设想。
+						</p>
+						<p v-view.once="flowUp">
+							<strong
+								>SEATiDE 主攻 Java
+								高版本模组公益（支持无偿捐助）服务器，且永远不会成为快餐服。</strong
+							>我们想让模组服也变得更耐玩，更持久，玩家的目标不仅限于「毕业」。虽然有周目制度，我们依然会根据地图发展状况酌情延长和缩短，并永久保留曾经玩过的地图。
+						</p>
+						<p v-view.once="flowUp">
+							<strong
+								>我们当前处于建设的初期，经验不够丰富，因而欢迎所有玩家和运营同好的加入，更希望能够得到你的意见和建议。</strong
+							>
+						</p>
+						<btn
+							@click.native="$router.push('/join')"
+							v-view.once="flowUp"
+							class="hoverscale hover join-btn"
+							type="primary arrow"
+							icon="arrow-right"
+							size="large"
+							>加入我们</btn
 						>
-					</p>
-					<btn
-						@click.native="$router.push('/join')"
-						v-view.once="flowUp"
-						class="hoverscale hover join-btn"
-						type="primary arrow"
-						icon="arrow-right"
-						size="large"
-						>加入我们</btn
-					>
-				</section>
-			</div>
-		</section>
+					</section>
+				</div>
+			</section>
+		</div>
 	</div>
 </template>
 
@@ -294,6 +242,7 @@ import anime from "animejs";
 import SvgZidonghua from "@/components/typo/svg-zidonghua.vue";
 import Logo from "@/components/Logo.vue";
 import { flowUp, isPCSize, isMobile, isPhoneSize, get, scaleIn } from "@/fn";
+import ServerStatus from "@/components/ServerStatus.vue";
 
 export default Vue.extend({
 	components: {
@@ -308,14 +257,15 @@ export default Vue.extend({
 		Logo,
 		MetaBar,
 		MetaItem,
-		Status
+		Status,
+		ServerStatus,
 	},
 	data() {
 		return {
 			server: {} as ServerInformation,
 			loadingStatus: "loading",
 			serverExists: false,
-		}
+		};
 	},
 	methods: {
 		scaleIn,
@@ -416,11 +366,9 @@ export default Vue.extend({
 	margin-left: 32px;
 }
 
-[page] > section {
-	margin: 32px auto;
-	&:last-child {
-		margin-bottom: 0;
-	}
+.sections {
+	display: flex;
+	flex-direction: column;
 }
 
 .more-information {
@@ -551,6 +499,7 @@ export default Vue.extend({
 	> h1 {
 		color: @textgray;
 	}
+	padding: 32px 0;
 
 	#features-title {
 		opacity: 0;
@@ -577,6 +526,10 @@ export default Vue.extend({
 .more-information-section {
 	background-position: center;
 	background-size: cover;
+}
+
+.more-information-section {
+	background-blend-mode: darken;
 }
 
 .feature-section {
@@ -762,7 +715,6 @@ export default Vue.extend({
 	}
 }
 
-
 .server-status {
 	small {
 		color: @textlightgray;
@@ -866,5 +818,11 @@ export default Vue.extend({
 		display: inline-flex;
 		align-items: center;
 	}
+}
+
+.server-status-section {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 </style>

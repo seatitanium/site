@@ -47,10 +47,9 @@
 				</div>
 			</div>
 			<div class="join content">
-				<h1 class="primary-text" v-view.once="flowUp">立即加入</h1>
+				<h1 class="primary-text" v-view.once="flowUp">加入群聊</h1>
 				<p class="typo" v-view.once="flowUp">
-					若要加入 SEATiDE，请先加入我们的讨论群并注明你的
-					ID，我们将给予白名单。
+					我们强烈推荐你加入我们的讨论群。入群时，请注明你的正版 ID。
 				</p>
 				<p class="typo" v-view.once="flowUp">
 					SEATiDE 当前主要以 QQ
@@ -62,7 +61,7 @@
 				</p>
 				<div class="join-cards">
 					<a
-						v-view.once="scaleIn"
+						v-view.once="flowUp"
 						class="join-card qq"
 						href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi"
 						target="_blank"
@@ -77,7 +76,7 @@
 							</h2>
 						</div>
 					</a>
-					<div v-view.once="scaleIn" class="join-card wechant">
+					<div v-view.once="flowUp" class="join-card wechant">
 						<mdicon name="qrcode-scan" />
 						<img src="@/assets/tencent-wechant.svg" />
 						<div class="text">
@@ -100,6 +99,27 @@
 					:)
 				</p>
 			</div>
+			<div class="tidelab content">
+				<h1 class="primary-text" v-view.once="flowUp">加入 TiDELab</h1>
+				<p class="typo">
+					<strong>TiDELab</strong> 是 SEATiDE 自主开发并<a
+						target="_blank"
+						href="https://github.com/seatidemc/ui"
+						>开源</a
+					>的服务器管理平台，用于玩家与服务器的简单交互，将来还将围绕服务器的需求推出更多功能。SEATiDE
+					玩家可以通过 TiDELab
+					参与管理服务器。例如，当服务器长期无人在线而自动关闭时，如果你有
+					TiDELab 账户，则可以登入后手动开启。
+				</p>
+				<p class="typo">
+					TiDELab
+					目前的注册<strong>没有限制</strong>的。具体使用方法请参阅维基上的<a
+						target="_blank"
+						href="https://w.seatide.top/automation/tidelab-index.html"
+						>这篇文章</a
+					>。
+				</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -108,9 +128,8 @@
 import Vue from "vue";
 import Banner from "@/components/Banner.vue";
 
-import {flowUp, scaleIn, flowUpQuick, isPCSize } from "@/fn";
+import { flowUp, scaleIn, flowUpQuick, isPCSize } from "@/fn";
 import anime from "animejs";
-
 
 export default Vue.extend({
 	components: {

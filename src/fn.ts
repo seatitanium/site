@@ -70,10 +70,23 @@ export function isMobile() {
 	);
 }
 
+export function copy(text: string) {
+	navigator.clipboard
+		.writeText(text)
+		.then(r => {})
+		.catch(r => {
+			console.warn('copy: something wrong happend: ', r);
+		});
+}
+
 export function isIOS(nav: Navigator) {
 	if (/iPad|iPhone|iPod/.test(nav.platform)) {
 		return true;
 	} else {
 		return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
 	}
+}
+
+export function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

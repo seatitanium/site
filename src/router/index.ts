@@ -20,11 +20,6 @@ const routes: Array<RouteConfig> = [
 		component: () => import('@/views/About.vue')
 	},
 	{
-		path: '/status',
-		name: 'server',
-		component: () => import('@/views/Server.vue')
-	},
-	{
 		path: '/donate',
 		name: 'donate',
 		component: () => import('@/views/Donate.vue')
