@@ -64,7 +64,7 @@
 						<template #name>版本</template>
 						<template #text>1.16.5</template>
 					</meta-item>
-					<meta-item icon="package">
+					<meta-item icon="gamepad">
 						<template #name>主题</template
 						><template #text>养老</template>
 					</meta-item>
