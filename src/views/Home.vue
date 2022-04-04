@@ -12,8 +12,8 @@
 				<br />
 				<div class="simple-info">
 					<div class="item">
-						<mdicon name="numeric-3-box-outline" />
-						<span><span class="no-mobile">当前周目</span> ST3</span>
+						<mdicon name="numeric-4-box-outline" />
+						<span><span class="no-mobile">当前周目</span> ST4</span>
 					</div>
 					<div class="item">
 						<mdicon name="minecraft" />
