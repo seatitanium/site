@@ -126,7 +126,7 @@
 								>
 							</div>
 						</div>
-						<div class="single-feature light">
+						<div class="single-feature">
 							<div class="typo">
 								<h2>
 									<mdicon name="console" /> 利用技术解决问题
