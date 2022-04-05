@@ -308,7 +308,7 @@ abbr {
 
 .darken-background {
 	position: relative;
-	z-index: -2;
+	z-index: 100;
 	&::after {
 		content: "";
 		height: 100%;
@@ -317,7 +317,6 @@ abbr {
 		top: 0;
 		left: 0;
 		z-index: -1;
-		
 	}
 
 	&.darken-1::after {
@@ -328,6 +327,12 @@ abbr {
 	}
 	&.darken-3::after {
 		background: rgba(0, 0, 0, 0.3);
+	}
+}
+
+.icon-small {
+	svg {
+		width: 16px;
 	}
 }
 

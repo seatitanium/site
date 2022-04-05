@@ -174,7 +174,18 @@
 					</section>
 				</div>
 			</section>
-			<section v-lazy:background-image="require('@/assets/images/1.jpg')" class="server-status-section">
+			<section
+				v-lazy:background-image="require('@/assets/images/1.jpg')"
+				class="server-status-section"
+			>
+				<btn
+					@click.native="$open('https://lab.seatide.top')"
+					class="open-in-tidelab-btn"
+					type="primary scale"
+					>在 TiDELab 打开&emsp;<mdicon
+						name="launch"
+						class="icon-small"
+				/></btn>
 				<div class="container">
 					<server-status v-view.once="flowUp" />
 				</div>
@@ -187,23 +198,38 @@
 					<section class="more-information">
 						<logo v-view.once="flowUp" class="hero center light" />
 						<p v-view.once="flowUp" class="typo">
-							<strong>在 SEATiDE，你可以体验到与众不同的制度模式。</strong>
+							<strong
+								>在
+								SEATiDE，你可以体验到与众不同的制度模式。</strong
+							>
 							在这里，几乎一切与游戏内容相关的事情都可以经过民主表决。无论加入时间长短、能力高下，每个人的声音都一样重要。
 						</p>
 						<p v-view.once="flowUp" class="typo">
-							<strong>在 SEATiDE，没有虚无缥缈的华丽外饰或者权限结构。</strong>
-							SEATiDE 不会向服务器中添加称号、装扮等旨在区分玩家等级高下的非游戏性内容，也不会以推出只方便少数人的特权。
+							<strong
+								>在
+								SEATiDE，没有虚无缥缈的华丽外饰或者权限结构。</strong
+							>
+							SEATiDE
+							不会向服务器中添加称号、装扮等旨在区分玩家等级高下的非游戏性内容，也不会以推出只方便少数人的特权。
 						</p>
 						<p v-view.once="flowUp" class="typo">
-							<strong>在 SEATiDE，没有妨碍你灵感发挥的屏障。</strong>
+							<strong
+								>在 SEATiDE，没有妨碍你灵感发挥的屏障。</strong
+							>
 							只要是你创作的建筑，都默认受到服规的保护，无论是否圈地。只要遇到熊孩子，我们都会彻查和处理，尽最大可能减少损失。
 						</p>
 						<p v-view.once="flowUp" class="typo">
-							<strong>在 SEATiDE，你可以尽情发挥想象，享你所想。</strong>
+							<strong
+								>在
+								SEATiDE，你可以尽情发挥想象，享你所想。</strong
+							>
 							从建筑到生存，从冒险到休闲，这里的一切都极富有变化，为你带来无限的可能。不同周目拥有不同的主题，而这一切都由你来参与决定。
 						</p>
 						<p v-view.once="flowUp" class="typo">
-							<strong>SEATiDE 仍在发展初期，诚邀你加入参与到这一切的瑰丽。</strong>
+							<strong
+								>SEATiDE
+								仍在发展初期，诚邀你加入参与到这一切的瑰丽。</strong
+							>
 						</p>
 						<btn
 							@click.native="$router.push('/join')"
@@ -369,7 +395,7 @@ export default Vue.extend({
 .more-information {
 	padding: 96px 0;
 	text-shadow: @shadowlight;
-	
+
 	.hero {
 		margin-bottom: 64px;
 	}
@@ -806,19 +832,19 @@ export default Vue.extend({
 	}
 }
 
-.see-full-in-pc {
-	display: flex;
-	align-items: center;
-	.mdi {
-		width: 20px;
-		display: inline-flex;
-		align-items: center;
-	}
-}
-
 .server-status-section {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	position: relative;
+}
+
+.open-in-tidelab-btn {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	@media (max-width: 1200px) {
+		display: none;
+	}
 }
 </style>

@@ -308,6 +308,10 @@ export default Vue.extend({
 	border-radius: 5px;
 	margin: 32px 0;
 	background: white;
+	@media (max-width: 1200px) {
+		max-width: 700px;
+		margin: 32px auto;
+	}
 
 	h2 {
 		font-size: 20px;
