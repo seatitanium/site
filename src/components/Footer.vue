@@ -17,6 +17,9 @@
 				</p>
 			</div>
 			<div class="links">
+				联系服主 — <a href="mailto:christophersubilan@gmail.com">christophersubilan@gmail.com</a>
+				<br/>
+				友链 —
 				<a href="https://sotap.org" target="_blank">SoTap</a> ·
 				<a href="https://i.teriri.cc/" target="_blank"
 					>桜酱的温馨小窝</a
@@ -61,6 +64,7 @@ footer {
 			text-align: center;
 			margin: 8px 0;
 		}
+		
 		position: absolute;
 		right: 0;
 		bottom: calc(32px + 14px);
@@ -68,6 +72,7 @@ footer {
 		color: @textmidwhite;
 		font-size: 14px;
 		a {
+			margin-top: 5px;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 			transition: all 0.2s ease;
 			display: inline-block;
