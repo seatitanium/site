@@ -5,20 +5,24 @@
 				<logo class="footer light" />
 				<p class="copyright">
 					&copy; 2022 SEATiDE Modded Minecraft Server<br />
-					<small
-						>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small>
+					<small>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small>
 				</p>
 				<p>
 					SEATiDE 致力于以简单的方式获得高质量的 Minecraft
 					服务器体验和社区气氛。我们随时欢迎你成为 SEATiDE 一员 ;)
 				</p>
 				<p>
-					注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归 SEATiDE 所有。侵权必究。
+					注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归
+					SEATiDE 所有。侵权必究。
 				</p>
 			</div>
 			<div class="links">
 				<a href="https://sotap.org" target="_blank">SoTap</a> ·
-				<a href="https://i.teriri.cc/" target="_blank">桜酱的温馨小窝</a> · <a href="https://subilan.win" target="_blank">服主博客</a>
+				<a href="https://i.teriri.cc/" target="_blank"
+					>桜酱的温馨小窝</a
+				>
+				· <a href="https://subilan.win" target="_blank">服主博客</a> ·
+				<a href="https://www.mcnav.net/" target="_blank">MCNav</a>
 			</div>
 			<div class="button-list">
 				<icon-btn
@@ -27,9 +31,10 @@
 					class="dark"
 				/>
 				<icon-btn
-				@click.native="$open('https://w.seatide.top')"
-				icon="book-outline"
-				class="dark"/>
+					@click.native="$open('https://w.seatide.top')"
+					icon="book-outline"
+					class="dark"
+				/>
 			</div>
 		</div>
 	</footer>
@@ -63,8 +68,8 @@ footer {
 		color: @textmidwhite;
 		font-size: 14px;
 		a {
-			border-bottom: 1px solid rgba(255,255,255,.3);
-			transition: all .2s ease;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+			transition: all 0.2s ease;
 			display: inline-block;
 			&:hover {
 				color: white;
