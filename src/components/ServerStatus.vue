@@ -75,7 +75,7 @@
 				</meta-bar>
 			</div>
 
-			<div class="players-online">
+			<div class="players-online" v-if="server.online === true">
 				<h2>{{ hasPlayer() ? '在线玩家' : '当前暂无在线玩家'}}</h2>
 				<div class="player-details" v-if="hasPlayer()">
 					<div
