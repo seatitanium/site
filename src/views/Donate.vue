@@ -98,12 +98,6 @@
 						<span class="money">￥{{ x.amount }}</span>
 					</li>
 				</ul>
-				<p v-view.once="flowUp">
-					同时感谢
-					<a href="https://leviatan.cn" target="_blank">WindSpiritSR</a> 为
-					SEATiDE 提供的高速 API 托管服务，感谢 123__jk 为本站提供的
-					Minecraft 摄影作品。
-				</p>
 			</div>
 		</div>
 	</div>

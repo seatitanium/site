@@ -8,6 +8,7 @@
 				<slot name="buttons" />
 			</div>
 		</div>
+		
 	</div>
 </template>
 

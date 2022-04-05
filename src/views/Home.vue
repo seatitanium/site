@@ -181,34 +181,29 @@
 			</section>
 			<section
 				v-lazy:background-image="require('@/assets/images/4.jpg')"
-				class="more-information-section"
+				class="more-information-section darken-background darken-2"
 			>
 				<div class="container">
 					<section class="more-information">
 						<logo v-view.once="flowUp" class="hero center light" />
-						<h1 v-view.once="flowUp">详细了解 SEATiDE</h1>
-						<p v-view.once="flowUp">
-							<strong>SEATiDE</strong> 最初创建于 2019
-							年，曾经短暂地独立运行过，后来归属于 SoTap
-							服务器。几经辗转，今日的 SEATiDE
-							成为了一个<strong>全新的独立项目</strong>，而长期以来我们的模组服的定位没有改变。
+						<p v-view.once="flowUp" class="typo">
+							<strong>在 SEATiDE，你可以体验到与众不同的制度模式。</strong>
+							在这里，几乎一切与游戏内容相关的事情都可以经过民主表决。无论加入时间长短、能力高下，每个人的声音都一样重要。
 						</p>
-						<p v-view.once="flowUp">
-							<strong>本项目开始于 2021 年 8 月底。</strong
-							>如果你能够看到这条消息，代表着我们依然在发展初期阶段，时刻欢迎你作为建设者、体验者来访。我们欢迎所有的
-							Minecraft
-							玩家加入我们的服务器并提出你的意见以及对服务器玩法、运营方面的设想。
+						<p v-view.once="flowUp" class="typo">
+							<strong>在 SEATiDE，没有虚无缥缈的华丽外饰或者权限结构。</strong>
+							SEATiDE 不会向服务器中添加称号、装扮等旨在区分玩家等级高下的非游戏性内容，也不会以推出只方便少数人的特权。
 						</p>
-						<p v-view.once="flowUp">
-							<strong
-								>SEATiDE 主攻 Java
-								高版本模组公益（支持无偿捐助）服务器，且永远不会成为快餐服。</strong
-							>我们想让模组服也变得更耐玩，更持久，玩家的目标不仅限于「毕业」。虽然有周目制度，我们依然会根据地图发展状况酌情延长和缩短，并永久保留曾经玩过的地图。
+						<p v-view.once="flowUp" class="typo">
+							<strong>在 SEATiDE，没有妨碍你灵感发挥的屏障。</strong>
+							只要是你创作的建筑，都默认受到服规的保护，无论是否圈地。只要遇到熊孩子，我们都会彻查和处理，尽最大可能减少损失。
 						</p>
-						<p v-view.once="flowUp">
-							<strong
-								>我们当前处于建设的初期，经验不够丰富，因而欢迎所有玩家和运营同好的加入，更希望能够得到你的意见和建议。</strong
-							>
+						<p v-view.once="flowUp" class="typo">
+							<strong>在 SEATiDE，你可以尽情发挥想象，享你所想。</strong>
+							从建筑到生存，从冒险到休闲，这里的一切都极富有变化，为你带来无限的可能。不同周目拥有不同的主题，而这一切都由你来参与决定。
+						</p>
+						<p v-view.once="flowUp" class="typo">
+							<strong>SEATiDE 仍在发展初期，诚邀你加入参与到这一切的瑰丽。</strong>
 						</p>
 						<btn
 							@click.native="$router.push('/join')"
@@ -373,7 +368,8 @@ export default Vue.extend({
 
 .more-information {
 	padding: 96px 0;
-	text-shadow: @shadowdark;
+	text-shadow: @shadowlight;
+	
 	.hero {
 		margin-bottom: 64px;
 	}
@@ -406,7 +402,7 @@ export default Vue.extend({
 			font-size: 18px;
 		}
 		font-size: 24px;
-		line-height: 1.5;
+		line-height: 1.8;
 		color: @textmidwhite;
 		max-width: 700px;
 		margin: 16px auto;

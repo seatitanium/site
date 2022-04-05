@@ -37,7 +37,7 @@ router.afterEach((to, from) => {
 	}
 	NProgress.done();
 	Vue.prototype.load = true;
-})
+});
 
 Vue.mixin({
 	metaInfo: {
@@ -82,8 +82,8 @@ Vue.mixin({
 				content: '这里是 SEATiDE 服务器官方网站，你可以在这里获取到关于 SEATiDE 的介绍以及服务器的运行信息。'
 			},
 			{
-				name: "theme-color",
-				content: "#fcd307"
+				name: 'theme-color',
+				content: '#fcd307'
 			}
 		],
 		link: [

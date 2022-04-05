@@ -110,10 +110,9 @@
 			</p>
 			<h1 v-view.once="flowUp" class="primary-text">欢迎加入</h1>
 			<p v-view.once="flowUp" class="typo">
-				目前，SEATiDE
-				并没有运营团队，全部工作（后端程序的开发、网站的编写和维护、服务器的编写和维护等）由服主一人承担。如果你有任何加入项目的意向，或者希望在
-				SEATiDE 游玩，欢迎加入我们的讨论群！
+				SEATiDE 目前尚处于开端。无论是玩家数，还是运营团队人数都不足以称上「一般服务器」。因此，我们随时期待你的参与！下面是我们的 QQ 讨论群链接和 GitHub 主页链接。
 			</p>
+			
 			<a
 				v-view.once="flowLeft"
 				class="link-card qq"
@@ -147,6 +146,15 @@
 					</h2>
 				</div>
 			</a>
+			<h1 id="special-thanks" v-view.once="flowUp" class="primary-text">鸣谢</h1>
+			<p v-view.once="flowUp" class="typo">
+				感谢这些曾经为 SEATiDE 奉献过的人或组织。如果没有他们，SEATiDE 将缺少许多美妙。
+				<ul>
+					<li><a href="https://leviatan.cn" target="_blank">WindSpiritSR</a> 为 SEATiDE 提供高速 API 托管服务和部分技术支持</li>
+					<li>123__jk 为 SEATiDE 提供部分摄影作品</li>
+					<li><a href="https://sotap.org" target="_blank">SoTap 服务器</a>为摄影作品提供取景地</li>
+				</ul>
+			</p>
 		</div>
 	</div>
 </template>
@@ -207,7 +215,7 @@ export default Vue.extend({
 	color: rgba(255, 255, 255, 0.5);
 	padding: 32px;
 	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-		url('~@/assets/images/say-bg.jpg');
+		url("~@/assets/images/say-bg.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

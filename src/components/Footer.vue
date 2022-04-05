@@ -6,15 +6,14 @@
 				<p class="copyright">
 					&copy; 2022 SEATiDE Modded Minecraft Server<br />
 					<small
-						>网站基于 Vue 2 · 我们❤️开源</small>
+						>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small>
 				</p>
 				<p>
-					SEATiDE 致力于以低成本的方式来换取高质量的 Minecraft
-					服务器体验和社区气氛，在此基础上继续修饰、完善服务器的内容。
+					SEATiDE 致力于以简单的方式获得高质量的 Minecraft
+					服务器体验和社区气氛。我们随时欢迎你成为 SEATiDE 一员 ;)
 				</p>
 				<p>
-					我们欢迎你成为 SEATiDE 一员或是单纯来旅个游
-					:)
+					注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归 SEATiDE 所有。侵权必究。
 				</p>
 			</div>
 			<div class="button-list">

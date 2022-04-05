@@ -183,7 +183,6 @@ export default Vue.extend({
 		getData() {
 			get("/api/server/v1/get/server")
 				.then((r) => {
-					console.log(r);
 					this.noInstanceInfo = false;
 					if (r.data.status !== "ok") {
 						this.server.ip = "-";

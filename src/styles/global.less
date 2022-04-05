@@ -306,6 +306,31 @@ abbr {
 	}
 }
 
+.darken-background {
+	position: relative;
+	z-index: -2;
+	&::after {
+		content: "";
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		
+	}
+
+	&.darken-1::after {
+		background: rgba(0, 0, 0, 0.1);
+	}
+	&.darken-2::after {
+		background: rgba(0, 0, 0, 0.2);
+	}
+	&.darken-3::after {
+		background: rgba(0, 0, 0, 0.3);
+	}
+}
+
 @textgray: #272727;
 @textmidgray: rgba(0, 0, 0, 0.5);
 @textlightgray: rgba(0, 0, 0, 0.3);
