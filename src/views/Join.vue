@@ -101,7 +101,7 @@
 			</div>
 			<div class="tidelab content">
 				<h1 class="primary-text" v-view.once="flowUp">加入 TiDELab</h1>
-				<p class="typo">
+				<p class="typo" v-view.once="flowUp">
 					<strong>TiDELab</strong> 是 SEATiDE 自主开发并<a
 						target="_blank"
 						href="https://github.com/seatidemc/ui"
@@ -111,7 +111,7 @@
 					参与管理服务器。例如，当服务器长期无人在线而自动关闭时，如果你有
 					TiDELab 账户，则可以登入后手动开启。
 				</p>
-				<p class="typo">
+				<p class="typo" v-view.once="flowUp">
 					TiDELab
 					目前的注册<strong>没有限制</strong>的。具体使用方法请参阅维基上的<a
 						target="_blank"
