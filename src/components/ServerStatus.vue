@@ -59,7 +59,7 @@
 					/>
 				</h1>
 				<hr />
-				<meta-bar style="margin-top: 16px" class="monospace">
+				<meta-bar v-if="isPCSize()" style="margin-top: 16px" class="monospace">
 					<meta-item icon="minecraft">
 						<template #name>版本</template>
 						<template #text>1.16.5</template>
