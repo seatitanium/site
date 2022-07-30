@@ -146,6 +146,10 @@ export default Vue.extend({
 				{
 					name: "Yuinkland",
 					amount: 50
+				} ,
+				{
+					name: "00_9527",
+					amount: 50
 				}
 			],
 		};
