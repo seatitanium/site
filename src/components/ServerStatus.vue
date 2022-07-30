@@ -62,15 +62,15 @@
 				<meta-bar style="margin-top: 16px" class="monospace">
 					<meta-item icon="minecraft">
 						<template #name>版本</template>
-						<template #text>1.16.5</template>
+						<template #text>1.18.2</template>
 					</meta-item>
-					<meta-item icon="gamepad">
-						<template #name>主题</template
-						><template #text>养老</template>
+					<meta-item icon="package">
+						<template #name>周目</template
+						><template #text>ST5</template>
 					</meta-item>
 					<meta-item icon="calendar"
 						><template #name>开始时间</template>
-						<template #text>2022-04-04</template></meta-item
+						<template #text>2022-07-30</template></meta-item
 					>
 				</meta-bar>
 			</div>
