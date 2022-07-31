@@ -92,7 +92,7 @@
 				</div>
 			</div>
 
-			<div v-if="server.rawMods && isPCSize()" class="all-mods">
+			<!-- <div v-if="server.rawMods && isPCSize()" class="all-mods">
 				<h2>模组列表 · {{ server.rawMods.length }} 个</h2>
 				<div class="raw-mods">
 					<div
@@ -114,7 +114,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>
