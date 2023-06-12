@@ -180,8 +180,7 @@
 								周目主题：
 								<div class="g">养老+微科技</div>
 							</li>
-							<li>
-								服务端：<img :src="require('@/assets/arclight.svg')" draggable="false" style="display: inline-block; height: 32px; vertical-align: middle" /></li>
+							<li>&nbsp;服务端：<img :src="require('@/assets/arclight.svg')" draggable="false" style="display: inline-block; height: 32px; vertical-align: middle" /></li>
 							<li>
 								服务器版本：
 								<div class="g">1.18.2</div>
@@ -933,6 +932,7 @@ export default Vue.extend({
 		color: transparent;
 		font-weight: bold;
 		display: inline-block;
+		text-shadow: none;
 	}
 }
 
@@ -940,6 +940,7 @@ export default Vue.extend({
 	padding: 64px;
 	background: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(10px);
+
 	text-shadow: @shadowlight;
 }
 </style>
