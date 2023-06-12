@@ -4,37 +4,31 @@
 			<div class="col first">
 				<logo class="footer light" />
 				<p class="copyright">
-					&copy; 2022 SEATiDE Modded Minecraft Server<br />
+					&copy; 2022-2023 Seatitanium & Oasis<br />
 					<small>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small>
 				</p>
 				<p>
-					SEATiDE 致力于以简单的方式获得高质量的 Minecraft
-					服务器体验和社区气氛。我们随时欢迎你成为 SEATiDE 一员 ;)
+					Seatitanium 致力于实现高自由度、带有探索性的游戏体验。模组的多样性承载着我们的追求。
 				</p>
 				<p>
 					注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归
-					SEATiDE 所有。侵权必究。
+					Seati 所有。部分图片来自于公有领域。
 				</p>
 			</div>
 			<div class="links">
 				联系服主 — <a href="mailto:christophersubilan@gmail.com">christophersubilan@gmail.com</a>
 				<br/>
-				友链 —
-				<a href="https://sotap.org" target="_blank">SoTap</a> ·
-				<a href="https://i.teriri.cc/" target="_blank"
-					>桜酱的温馨小窝</a
-				>
-				· <a href="https://subilan.win" target="_blank">服主博客</a> ·
-				<a href="https://www.mcnav.net/" target="_blank">MCNav</a>
+				快速前往 —
+				<a href="https://oases.red" target="_blank">Oasis</a> · <a href="https://i.oases.red" target="_blank">火星港</a>
 			</div>
 			<div class="button-list">
 				<icon-btn
-					@click.native="$open('https://github.com/seatidemc')"
+					@click.native="$open('https://github.com/seatitanium')"
 					icon="github"
 					class="dark"
 				/>
 				<icon-btn
-					@click.native="$open('https://w.seatide.top')"
+					@click.native="$open('https://w.seatitaniu.me')"
 					icon="book-outline"
 					class="dark"
 				/>

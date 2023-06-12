@@ -2,7 +2,7 @@
 
 body {
 	margin: 0;
-	font-family: ui-sans-serif, 'Inter', -apple-system, Helvetica, 'Segoe UI', '微软雅黑', 'Microsoft YaHei UI', sans-serif;
+	font-family: 'Rubik', '微软雅黑', 'Microsoft YaHei UI', sans-serif;
 	scroll-behavior: smooth;
 }
 
@@ -16,11 +16,47 @@ body {
 	max-width: 1200px;
 	display: block;
 	margin: auto;
+
 	@media screen and (max-width: 800px) {
 		padding: 20px !important;
 	}
+
 	@media screen and (max-width: 1200px) {
 		padding: 64px;
+	}
+}
+
+.logo {
+
+	.cls-2,
+	.cls-3,
+	.cls-4,
+	.cls-5 {
+		fill: white;
+	}
+}
+
+.logo-active {
+	.cls-2 {
+		fill: url(#g2);
+	}
+
+	.cls-3 {
+		fill: url(#g3);
+	}
+
+	.cls-4 {
+		fill: url(#g4);
+	}
+
+	.cls-5 {
+		fill: url(#g5);
+	}
+}
+
+.navbar.active {
+	.img {
+		.logo-active;
 	}
 }
 
@@ -45,7 +81,9 @@ figure {
 
 	figcaption {
 		color: @textlightgray;
+		font-size: 18px;
 		margin: 16px 0;
+
 		span {
 			font-weight: bold;
 			color: black;
@@ -64,9 +102,10 @@ hr {
 	font-family: Consolas, 'SF Mono', 'SFMono-Regular', ui-monospace, Menlo, monospace;
 }
 
-.typo-img {
-	box-shadow: @shadowlight;
-	border-radius: 5px;
+.common-background {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .typo {
@@ -74,27 +113,29 @@ hr {
 	line-height: 1.8;
 	position: relative;
 
-	& + figure {
+	&+figure {
 		position: relative;
 	}
 
-	& + figure img,
-	& + img {
+	&+figure img,
+	&+img {
 		width: 100%;
 		display: block;
 		margin: auto;
-		.typo-img;
 	}
 
 	&.light {
 		strong {
 			color: white;
 		}
+
 		a:hover {
 			color: white;
 		}
+
 		color: @textmidwhite;
 	}
+
 	strong {
 		color: black;
 	}
@@ -104,6 +145,7 @@ hr {
 		text-decoration: none;
 		color: inherit;
 		transition: all 0.2s ease;
+
 		&::after {
 			background: @primary;
 			width: 100%;
@@ -123,6 +165,7 @@ hr {
 			&::after {
 				opacity: 1;
 			}
+
 			color: black;
 		}
 	}
@@ -156,7 +199,11 @@ a {
 	color: transparent;
 	background: @primaryg;
 	background-clip: text;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-clip: text;
 	display: inline-block;
+	text-shadow: none;
 }
 
 .primarys-text {
@@ -173,17 +220,18 @@ abbr {
 	margin: 16px auto;
 	justify-content: center;
 	align-items: center;
+
 	.mdi {
 		margin-right: 0.5em;
 	}
 }
 
-.container > .content {
+.container>.content {
 	padding: 32px 0;
 }
 
 .container.content,
-.container > .content {
+.container>.content {
 	.primary-text {
 		font-size: 49.5px;
 		margin: 8px 0;
@@ -228,6 +276,7 @@ abbr {
 	&.qq {
 		background: linear-gradient(-96deg, #1680c7, #12b7f5);
 		color: white;
+
 		h2 {
 			color: @textlightwhite;
 		}
@@ -238,17 +287,21 @@ abbr {
 			color: @textlightgray;
 		}
 	}
+
 	@media (min-width: 1000px) {
 		&:hover {
 			.mdi {
 				opacity: 1;
 			}
+
 			.mdi.mdi-arrow-right {
 				transform: translateX(10px);
 			}
+
 			opacity: 0.5;
 		}
 	}
+
 	position: relative;
 	border-radius: 5px;
 	box-shadow: @shadowlight;
@@ -258,9 +311,11 @@ abbr {
 	align-items: center;
 	cursor: pointer;
 	transition: all 0.2s ease;
+
 	@media (max-width: 800px) {
 		padding: 8px 12px;
 	}
+
 	img {
 		width: 100px;
 		height: 100px;
@@ -274,6 +329,7 @@ abbr {
 
 	.text {
 		padding-left: 16px;
+
 		h2 {
 			font-weight: normal;
 		}
@@ -297,6 +353,7 @@ abbr {
 			}
 		}
 	}
+
 	margin: 16px;
 }
 
@@ -309,6 +366,7 @@ abbr {
 .darken-background {
 	position: relative;
 	z-index: 100;
+
 	&::after {
 		content: "";
 		height: 100%;
@@ -322,9 +380,11 @@ abbr {
 	&.darken-1::after {
 		background: rgba(0, 0, 0, 0.1);
 	}
+
 	&.darken-2::after {
 		background: rgba(0, 0, 0, 0.2);
 	}
+
 	&.darken-3::after {
 		background: rgba(0, 0, 0, 0.3);
 	}
@@ -337,13 +397,15 @@ abbr {
 }
 
 @textgray: #272727;
-@textmidgray: rgba(0, 0, 0, 0.5);
+@textmidgray: rgba(0, 0, 0, 0.7);
 @textlightgray: rgba(0, 0, 0, 0.3);
-@textmidwhite: rgba(255, 255, 255, 0.6);
+@textmidwhite: rgba(255, 255, 255, 0.7);
 @textlightwhite: rgba(255, 255, 255, 0.7);
-@primary: #fcd307;
-@primarydark: #f8d125;
-@primaryg: linear-gradient(135deg, rgba(255, 230, 0, 1) 0%, rgb(250, 173, 6) 100%);
+@primary: #2196f3;
+@primarydark: #1279cd;
+@primaryg: linear-gradient(135deg, @primary-gradient-first 0%, @primary-gradient-second 100%);
 @shadowlight: 0 3px 5px rgba(0, 0, 0, 0.2);
 @shadowlightx: 0 3px 5px rgba(0, 0, 0, 0.1);
 @shadowdark: 0 3px 5px rgba(0, 0, 0, 0.6);
+@primary-gradient-second: rgb(0, 110, 255);
+@primary-gradient-first: rgb(5, 193, 240);

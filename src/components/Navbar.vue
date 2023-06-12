@@ -73,15 +73,15 @@ export default Vue.extend({
 				},
 				{
 					name: "知识库",
-					href: "https://w.seatide.top"
+					href: "https://w.seati.cc"
 				},
 				{
 					name: "服规",
-					href: "https://w.seatide.top/server/rules.html"
+					href: "https://w.seati.cc/server/rules.html"
 				},
 				{
 					name: "Lab",
-					href: "https://lab.seatide.top"
+					href: "https://tisea.cc"
 				}
 			],
 			active: false,
@@ -207,7 +207,7 @@ export default Vue.extend({
 }
 
 .nav-link {
-	margin-left: 32px;
+	margin-left: 16px;
 	display: flex;
 	align-items: center;
 	@media screen and (max-width: 800px) {
@@ -234,7 +234,7 @@ export default Vue.extend({
 		}
 
 		&::after {
-			background: @primary;
+			background: #cecece;
 			width: 0;
 			content: " ";
 			display: block;

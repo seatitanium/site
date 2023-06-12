@@ -1,26 +1,26 @@
 <template>
 	<div page>
-		<banner :bg="require('@/assets/images/5.jpg')" fullscreen>
+		<banner :bg="require('@/assets/nyberg_moon.jpg')" fullscreen>
+			<template #subtitle> 高自由度 / 民主决议 / 周目制</template>
 			<template #title>
-				高效运行的<span class="stroke stroke-2">玩家主导</span>服务器
+				从头到脚都是
+				<div class="stroke stroke-2"><img style="height: 120px; display: inline-block; margin: 0 -0.5ex; transform: translateY(45px)" :src="require('@/assets/handwriting/不一样.svg')" draggable="false" /></div>
+				的感觉。
 			</template>
-			<template #subtitle> 不一样的体验 </template>
 			<template #text>
-				在 SEATiDE，你能体验到具有「民主、科技与自动化」特色的游戏。
+				在 Seati，你能够参与到游戏的整个流程。<br />
+				从周目的建立，到持续的耕耘，再到最终的「周目评定」······
 				<br />
-				——在独特的自由氛围下探索模组玩法和游戏实践。
+				在这里探索的你所留下的痕迹，亦将永存于宇宙千垣之间。
 				<br />
 				<div class="simple-info">
 					<div class="item">
-						<mdicon name="numeric-5-box-outline" />
-						<span><span class="no-mobile">当前周目</span> ST5</span>
+						<mdicon name="numeric-7-box-outline" />
+						<span><span class="no-mobile">当前周目</span> ST7</span>
 					</div>
 					<div class="item">
 						<mdicon name="minecraft" />
-						<span
-							><span class="no-mobile">游戏版本</span>
-							1.18.2</span
-						>
+						<span><span class="no-mobile">游戏版本</span> 1.18.2</span>
 					</div>
 					<div class="item">
 						<mdicon name="check" />
@@ -29,218 +29,206 @@
 				</div>
 			</template>
 			<template #buttons>
-				<btn
-					class="join-btn"
-					type="primary shadow arrow"
-					size="large"
-					icon="arrow-right"
-					to="/join"
-					>立即加入</btn
-				>
-				<btn
-					@click.native="$open('https://w.seatide.top')"
-					class="learnmore-btn"
-					type="outlined hover"
-					size="large"
-					>阅读文档</btn
-				>
+				<btn class="join-btn" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">立即加入</btn>
+				<btn @click.native="$open('https://w.seatide.top')" class="learnmore-btn" type="outlined shadow hover-light" size="large">阅读文档</btn>
 			</template>
 		</banner>
 		<div class="sections">
-			<section class="container">
-				<center>
-					<h1 id="features-title">SEATiDE 有哪些特点？</h1>
-				</center>
-				<section class="features">
-					<div class="feature-item" v-view.once="animateFeature">
-						<mdicon class="feature-icon" name="bug-check-outline" />
-						<div class="a text">
-							<h1>稳定可靠</h1>
-							<p
-								v-text="
-									'SEATiDE 全局使用阿里云的产品。游戏存档和所有数据每 10 分钟全量备份一次，且同时存留五个版本。每次停服也会自动备份。存档保存在安全的阿里云 OSS 中。'
-								"
-							/>
-						</div>
-					</div>
-					<div class="feature-item">
-						<mdicon
-							class="feature-icon"
-							name="wallet-plus-outline"
-						/>
-						<div class="b text">
-							<h1>忠于节省</h1>
-							<p
-								v-text="
-									'我们实行如连续 1 小时 0 人在线则停服的机制。若有玩家想继续游戏，可自行开启服务器。我们认为不应让高昂的服务器费用阻碍美好的 Minecraft 体验。'
-								"
-							/>
-						</div>
-					</div>
-					<div class="feature-item">
-						<mdicon
-							class="feature-icon"
-							name="message-text-outline"
-						/>
-						<div class="c text">
-							<h1>倡导提议</h1>
-							<p
-								v-text="
-									'玩家需求的满足是服务器运营的最大意义。在这里，你可以自由地发表对服务器策划和设计的合理建议，在与大家一同讨论的同时，共同建设更好的 SEATiDE。'
-								"
-							/>
-						</div>
-					</div>
-				</section>
-			</section>
-			<section
-				v-lazy:background-image="require('@/assets/images/3.jpg')"
-				class="feature-section"
-			>
+			<section v-lazy:background-image="require('@/assets/rocket-launch.png')" class="common-background darken-background darken-3">
 				<div class="container">
-					<section class="single-features">
-						<div class="single-feature">
-							<svg-minzhu f />
-							<div class="typo">
-								<h2>
-									<mdicon name="human-handsup" />
-									民主决定游戏内容
-								</h2>
-								<h1>多一种想法，多一个选择</h1>
-								<p
-									v-html="
-										'每一位加入服务器并成为正式成员的玩家都有权利提出自己对游戏内容的想法，无论内容。<br/>你的想法将成为游戏内容的一个选择，若得到大部分的认可，则可直接付诸实践。'
-									"
-									v-view.once="animateSFTypo"
-								/>
-								<btn
-									@click.native="
-										$open(
-											'https://w.seatide.top/about/operation.html#%E7%8E%A9%E5%AE%B6%E4%B8%BB%E5%AF%BC-%E6%B0%91%E4%B8%BB%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96'
-										)
-									"
-									type="primarylight arrow hover"
-									size="large"
-									icon="arrow-right"
-									>了解「民主」</btn
-								>
+					<div class="title-text" v-view.once="flowLeft">
+						<div>
+							<div>带你一步步领略模组的</div>
+							<img class="title-img-1" :src="require('@/assets/handwriting/大千世界.svg')" draggable="false" />
+						</div>
+					</div>
+					<div class="typo light section-1-text-1">
+						<p v-view.once="flowUp"><strong>模组是对原版游戏无与伦比的扩充。</strong>从我们最初接触模组开始，我们就已经清楚模组这一无可比拟的优势。它不受任何限制地向游戏中添加极为多样的内容，并跟随着作者的思绪形成一整套完美的新游戏体系。</p>
+						<p v-view.once="flowUp">模组如此多样，独乐不如众乐。</p>
+						<p v-view.once="flowUp"><strong>钛海为你提供了这样一个平台：</strong>我们共同决定这个周目玩什么——按照少数服从多数的原则；我们共同确定什么模组适合、什么模组不适合这一周目；我们共同观察并改进每个周目；我们共同记录并永久保存每个周目的记忆······</p>
+						<p v-view.once="flowUp">我们——玩家和管理员——将会携你漫步模组的大千世界，在每一个地方都留下痕迹。</p>
+					</div>
+				</div>
+			</section>
+			<section style="position: relative; background: black">
+				<video style="position: absolute; height: 100%; left: 50%; transform: translateX(-50%)" id="moon-video" muted>
+					<source :src="require('@/assets/moon.mp4')" type="video/mp4" />
+				</video>
+				<div
+					class="container"
+					v-view.once="
+						() => {
+							moonVideo.play();
+						}
+					"
+				>
+					<div class="title-text" style="justify-content: center" v-view.once="flowUp">
+						<div style="align-items: center">不止有...<img class="title-img-2" :src="require('@/assets/handwriting/周目制.svg')" draggable="false" /></div>
+					</div>
+					<section class="term-feats">
+						<div class="feat" v-view.once="flowLeft">
+							<div class="top" v-view.once="flowLeft">
+								<div class="icon">
+									<img style="transform: scale(1.1)" :src="require('@/assets/votes.png')" />
+								</div>
+								<div class="title">
+									<img style="transform: translateY(10px)" :src="require('@/assets/handwriting/投票.svg')" />
+								</div>
+							</div>
+							<div class="down">
+								<div class="typo light section-2-text">
+									<p v-view.once="flowUp">每个周目的主题或整合包候选项由管理员确定，玩家则进行决定性的一步——投票。<strong>最终所得票数最多的会成为本周目的主要游玩对象。</strong>遵从少数服从多数的原则。</p>
+									<p v-view.once="flowUp">你知道吗？<strong>投票</strong>是 Seati 长期以来（包含其前身「SEATiDE」）所盛行的制度，旨在从玩家处选取本周目最适合的模组搭配——模组实在是太多了！</p>
+								</div>
 							</div>
 						</div>
-						<div class="single-feature">
-							<div class="typo">
-								<h2>
-									<mdicon name="console" /> 利用技术解决问题
-								</h2>
-								<h1>自己动手，丰衣足食</h1>
-								<p
-									v-html="
-										'无论是我们需要的功能，还是新的游戏玩法；无论是游戏内还是游戏外，我们都可以亲自来创造。<br/>SEATiDE 提倡用各种各样的技术方法来完善我们共同的游戏体验，为服务器添砖加瓦。'
-									"
-									v-view.once="animateSFTypo"
-								/>
-								<btn
-									@click.native="
-										$open(
-											'https://w.seatide.top/about/operation.html#%E4%BD%8E%E6%88%90%E6%9C%AC-%E9%98%BF%E9%87%8C%E4%BA%91%E6%8A%A2%E5%8D%A0%E5%BC%8F-ecs-%E7%AE%80%E4%BB%8B'
-										)
-									"
-									type="primary arrow hover"
-									size="large"
-									icon="arrow-right"
-									>了解「技术」</btn
-								>
+
+						<div class="feat" v-view.once="flowLeft">
+							<div class="top" v-view.once="flowLeft">
+								<div class="icon">
+									<img style="transform: scale(0.9)" :src="require('@/assets/write.png')" />
+								</div>
+								<div class="title">
+									<img style="transform: translateY(10px)" :src="require('@/assets/handwriting/记录.svg')" />
+								</div>
 							</div>
-							<svg-jishu f />
+							<div class="down">
+								<div class="typo light section-2-text">
+									<p v-view.once="flowUp"><strong>担心周目匆匆逝去，没有耐心进行建筑？</strong>我们为玩家提供了专用的平台，玩家在上面可以记录和展示自己在每个周目中的经历和创作。</p>
+									<p v-view.once="flowUp">我们相信，正是记录才使得每个周目都有它自身的独特性和意义，而非匆匆飘过的...呃...不知道是什么东西。<strong>我们鼓励所有玩家在平台上记录自己的游戏体验。</strong>不久后，我们亦会将平台的部分功能与服务器建立联系。</p>
+								</div>
+							</div>
 						</div>
-						<div class="single-feature">
-							<svg-zidonghua f />
-							<div class="typo">
-								<h2>
-									<mdicon name="cash-check" />
-									让游戏容易且省钱
-								</h2>
-								<h1>随时想玩，随时开。<br />不玩不浪费。</h1>
-								<p
-									v-html="
-										'SEATiDE 使用阿里云抢占式 ECS，并利用内网优势与阿里云 OSS 直接相连。<br/>在保障数据安全的同时降低不必要的资金消耗，同时也为玩家提供便利的「开服渠道」以便在需要的时候恢复游戏。'
-									"
-									v-view.once="animateSFTypo"
-								/>
-								<btn type="outlined" size="large"
-									>你可以在加入后了解相关内容</btn
-								>
+
+						<div class="feat" v-view.once="flowLeft">
+							<div class="top" v-view.once="flowLeft">
+								<div class="icon">
+									<img style="transform: scale(1.1)" :src="require('@/assets/review.png')" />
+								</div>
+								<div class="title">
+									<img style="transform: translateY(25px)" :src="require('@/assets/handwriting/评价.svg')" />
+								</div>
+							</div>
+							<div class="down">
+								<div class="typo light section-2-text">
+									<p v-view.once="flowUp"><strong>模组之众多，带来模组搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。</p>
+									<p v-view.once="flowUp">这些模组的搭配合理吗？模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在 Seati 留下的宝贵痕迹。</p>
+								</div>
 							</div>
 						</div>
 					</section>
 				</div>
 			</section>
-			<section
-				v-lazy:background-image="require('@/assets/images/1.jpg')"
-				class="server-status-section"
-			>
-				<btn
-					@click.native="$open('https://lab.seatide.top')"
-					class="open-in-tidelab-btn"
-					type="primary scale"
-					>在 TiDELab 打开&emsp;<mdicon
-						name="launch"
-						class="icon-small"
-				/></btn>
+			<section v-lazy:background-image="require('@/assets/comet.jpg')" class="common-background darken-background darken-2">
 				<div class="container">
-					<server-status v-view.once="flowUp" />
+					<div class="title-text" v-view.once="flowLeft">
+						<div><img class="title-img-3" :src="require('@/assets/handwriting/强劲性能.svg')" draggable="false" />轻轻松松完成「星际穿越」</div>
+					</div>
+					<div class="performance-information">
+						<div class="item" v-view.once="scaleIn">
+							<img class="performance-img" :src="require('@/assets/core-i9.svg')" draggable="false" />
+							<div>Gen 13</div>
+							<div class="name">处理器</div>
+						</div>
+						<div class="item" v-view.once="scaleIn">
+							<img class="performance-img" :src="require('@/assets/ddr4.svg')" draggable="false" />
+							<div>16 GB</div>
+							<div class="name">分配内存</div>
+						</div>
+						<div class="item" v-view.once="scaleIn">
+							<img class="performance-img" :src="require('@/assets/rotating-earth.gif')" draggable="false" />
+							<div>50M</div>
+							<div class="name">峰值带宽</div>
+						</div>
+						<div class="item" v-view.once="scaleIn">
+							<img class="performance-img" :src="require('@/assets/ti-cube.png')" draggable="false" />
+							<div>1 TB</div>
+							<div class="name">存储空间</div>
+						</div>
+					</div>
 				</div>
 			</section>
-			<section
-				v-lazy:background-image="require('@/assets/images/4.jpg')"
-				class="more-information-section darken-background darken-2"
-			>
+
+			<section v-lazy:background-image="require('@/assets/images/1.jpg')" class="common-background darken-background darken-2">
 				<div class="container">
-					<section class="more-information">
-						<logo v-view.once="flowUp" class="hero center light" />
-						<p v-view.once="flowUp" class="typo">
-							<strong
-								>在
-								SEATiDE，你可以体验到与众不同的制度模式。</strong
-							>
-							在这里，几乎一切与游戏内容相关的事情都可以经过民主表决。无论加入时间长短、能力高下，每个人的声音都一样重要。
-						</p>
-						<p v-view.once="flowUp" class="typo">
-							<strong
-								>在
-								SEATiDE，没有虚无缥缈的华丽外饰或者权限结构。</strong
-							>
-							SEATiDE
-							不会向服务器中添加称号、装扮等旨在区分玩家等级高下的非游戏性内容，也不会以推出只方便少数人的特权。
-						</p>
-						<p v-view.once="flowUp" class="typo">
-							<strong
-								>在 SEATiDE，没有妨碍你灵感发挥的屏障。</strong
-							>
-							只要是你创作的建筑，都默认受到服规的保护，无论是否圈地。只要遇到熊孩子，我们都会彻查和处理，尽最大可能减少损失。
-						</p>
-						<p v-view.once="flowUp" class="typo">
-							<strong
-								>在
-								SEATiDE，你可以尽情发挥想象，享你所想。</strong
-							>
-							从建筑到生存，从冒险到休闲，这里的一切都极富有变化，为你带来无限的可能。不同周目拥有不同的主题，而这一切都由你来参与决定。
-						</p>
-						<p v-view.once="flowUp" class="typo">
-							<strong
-								>SEATiDE
-								仍在发展初期，诚邀你加入参与到这一切的瑰丽。</strong
-							>
-						</p>
-						<btn
-							@click.native="$router.push('/join')"
-							v-view.once="flowUp"
-							class="hoverscale hover join-btn"
-							type="primary arrow"
-							icon="arrow-right"
-							size="large"
-							>加入我们</btn
-						>
-					</section>
+					<div v-view.once="flowLeft" class="title-text">
+						<div><img class="title-img-4" :src="require('@/assets/handwriting/欢迎，新船员.svg')" draggable="false" /></div>
+					</div>
+					<div style="display: flex; align-items: flex-start">
+						<div class="welcome-text typo light">
+							<p v-view.once="flowUp"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
+							<p v-view.once="flowUp">Seati 是 Oasis 旗下独立运营的模组服务器，若要加入 Seati，需要首先成为 Oasis 的船员。<strong>好消息是，目前 Oasis 的加入并没有任何限制。</strong>而要获取 Seati 白名单需要完成相应的问卷。</p>
+							<p v-view.once="flowUp"><strong>单击图标可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
+						</div>
+						<div class="server-selection">
+							<div><img class="seati" draggable="false" :src="require('@/assets/seati-bg.png')" /></div>
+							<div><img class="oasis" draggable="false" :src="require('@/assets/oasis-logo.svg')" /></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section v-lazy:background-image="require('@/assets/images/3.jpg')" class="mod-information">
+				<div class="container">
+					<div class="mod-card" v-view.once="scaleIn">
+						<div class="title" v-view.once="flowLeft">这个周目，大概是这样的</div>
+						<ul v-view.once="flowLeft">
+							<li>
+								周目代号：
+								<div class="g">ST7</div>
+							</li>
+							<li>
+								周目主题：
+								<div class="g">养老+微科技</div>
+							</li>
+							<li>
+								服务端：<img :src="require('@/assets/arclight.svg')" draggable="false" style="display: inline-block; height: 32px; vertical-align: middle" /></li>
+							<li>
+								服务器版本：
+								<div class="g">1.18.2</div>
+							</li>
+							<li>
+								已获取白名单人数：
+								<div class="g">20+</div>
+							</li>
+							<li>
+								建议分配 RAM：
+								<div class="g">4GB</div>
+								最低，
+								<div class="g">8GB</div>
+								畅玩
+							</li>
+							<li>
+								正式开放日期：2023/
+								<div class="g">06</div>
+								/
+								<div class="g">12</div>
+							</li>
+							<li>
+								持续时间：
+								<div class="g">01:10:00</div>
+							</li>
+							<li>
+								周目构成方式：
+								<div class="g">玩家按主题自行组包</div>
+							</li>
+							<li>
+								模组个数：~
+								<div class="g">110</div>
+							</li>
+							<li>
+								插件个数：&lt;
+								<div class="g">10</div>
+							</li>
+							<li>
+								日均游玩人数：
+								<div class="g">-</div>
+							</li>
+							<li>
+								当前 TPS：
+								<div class="g">20.0</div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -248,22 +236,22 @@
 </template>
 
 <script lang="ts">
-import Banner from "@/components/Banner.vue";
-import Btn from "@/components/Btn.vue";
-import MetaBar from "@/components/MetaBar.vue";
-import MetaItem from "@/components/MetaItem.vue";
-import Status from "@/components/Status.vue";
-import SvgSheng from "@/components/typo/svg-sheng.vue";
-import SvgWen from "@/components/typo/svg-wen.vue";
-import SvgYi from "@/components/typo/svg-yi.vue";
-import SvgMinzhu from "@/components/typo/svg-minzhu.vue";
-import SvgJishu from "@/components/typo/svg-jishu.vue";
-import Vue from "vue";
-import anime from "animejs";
-import SvgZidonghua from "@/components/typo/svg-zidonghua.vue";
-import Logo from "@/components/Logo.vue";
-import { flowUp, isPCSize, isMobile, isPhoneSize, get, scaleIn } from "@/fn";
-import ServerStatus from "@/components/ServerStatus.vue";
+import Banner from '@/components/Banner.vue';
+import Btn from '@/components/Btn.vue';
+import MetaBar from '@/components/MetaBar.vue';
+import MetaItem from '@/components/MetaItem.vue';
+import Status from '@/components/Status.vue';
+import SvgSheng from '@/components/typo/svg-sheng.vue';
+import SvgWen from '@/components/typo/svg-wen.vue';
+import SvgYi from '@/components/typo/svg-yi.vue';
+import SvgMinzhu from '@/components/typo/svg-minzhu.vue';
+import SvgJishu from '@/components/typo/svg-jishu.vue';
+import Vue from 'vue';
+import anime from 'animejs';
+import SvgZidonghua from '@/components/typo/svg-zidonghua.vue';
+import Logo from '@/components/Logo.vue';
+import { flowUp, isPCSize, isMobile, isPhoneSize, get, scaleIn, flowLeft } from '@/fn';
+import ServerStatus from '@/components/ServerStatus.vue';
 
 export default Vue.extend({
 	components: {
@@ -279,50 +267,51 @@ export default Vue.extend({
 		MetaBar,
 		MetaItem,
 		Status,
-		ServerStatus,
+		ServerStatus
 	},
 	data() {
 		return {
 			server: {} as ServerInformation,
-			loadingStatus: "loading",
-			serverExists: false,
+			loadingStatus: 'loading',
+			serverExists: false
 		};
 	},
 	methods: {
 		scaleIn,
+		flowLeft,
 		animateFeature() {
 			anime({
-				targets: "#features-title",
+				targets: '#features-title',
 				opacity: [0, 1],
 				translateY: [30, 0],
-				easing: "easeInOutExpo",
+				easing: 'easeInOutExpo'
 			});
 			anime({
-				targets: ".feature-item",
+				targets: '.feature-item',
 				opacity: [0, 1],
-				easing: "easeInOutExpo",
+				easing: 'easeInOutExpo',
 				delay: (e, i) => {
 					return i * 50;
-				},
+				}
 			});
 		},
 		flowUp,
 		animateSFTypo(a: ViewObject) {
 			let parent = a.target.element.parentElement?.parentElement;
 			//@ts-ignore
-			let typo = parent.querySelector(".typo") as HTMLDivElement;
+			let typo = parent.querySelector('.typo') as HTMLDivElement;
 			anime({
 				targets: parent,
 				opacity: [0, 1],
 				translateX: [30, 0],
-				easing: "easeInOutExpo",
+				easing: 'easeInOutExpo'
 			});
 			anime({
 				targets: typo,
 				opacity: [0, 1],
 				translateY: [30, 0],
-				easing: "easeInOutExpo",
-				delay: 200,
+				easing: 'easeInOutExpo',
+				delay: 200
 			});
 		},
 		isPCSize,
@@ -332,11 +321,7 @@ export default Vue.extend({
 			if (/iPad|iPhone|iPod/.test(nav.platform)) {
 				return true;
 			} else {
-				return (
-					nav.maxTouchPoints &&
-					nav.maxTouchPoints > 2 &&
-					/MacIntel/.test(nav.platform)
-				);
+				return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
 			}
 		},
 		isPhoneSize,
@@ -345,8 +330,8 @@ export default Vue.extend({
 			if (!!!mod) {
 				return [];
 			}
-			mod.forEach((e) => {
-				if (e.type === "dep") {
+			mod.forEach(e => {
+				if (e.type === 'dep') {
 					names.push(e.name.toLowerCase());
 				}
 			});
@@ -354,31 +339,36 @@ export default Vue.extend({
 		},
 		getModCount(mod: ServerMod[]) {
 			let count = mod.length;
-			mod.forEach((e) => {
-				if (e.type === "set" && e.count) {
+			mod.forEach(e => {
+				if (e.type === 'set' && e.count) {
 					count += e.count - 1;
 				}
 			});
 			return count;
-		},
+		}
 	},
 	mounted() {
-		get("/api/server/v1/get/server")
-			.then((r) => {
+		get('/api/server/v1/get/server')
+			.then(r => {
 				let data: ServerInformation | null = r.data.data as any;
 				this.serverExists = data?.created ? true : false;
 				if (data !== null) {
 					this.server = data;
-					this.loadingStatus = "";
+					this.loadingStatus = '';
 				} else {
-					this.loadingStatus = "error";
+					this.loadingStatus = 'error';
 				}
 			})
-			.catch((e) => {
+			.catch(e => {
 				console.warn(e);
-				this.loadingStatus = "error";
+				this.loadingStatus = 'error';
 			});
 	},
+	computed: {
+		moonVideo() {
+			return document.getElementById('moon-video');
+		}
+	}
 });
 </script>
 
@@ -427,13 +417,13 @@ export default Vue.extend({
 		@media screen and (max-width: 1000px) {
 			font-size: 18px;
 		}
-		font-size: 24px;
+		font-size: 26px;
 		line-height: 1.8;
 		color: @textmidwhite;
 		max-width: 700px;
 		margin: 16px auto;
 		&::before {
-			content: "";
+			content: '';
 			margin-left: 2em;
 		}
 
@@ -448,72 +438,16 @@ export default Vue.extend({
 	}
 }
 
-.features {
+.features-container {
 	display: flex;
-	align-items: stretch;
-	flex-wrap: nowrap;
-	flex-direction: row;
 	@media screen and (max-width: 1000px) {
 		flex-direction: column;
-		.feature-item {
-			margin: 0 !important;
-			width: 100% !important;
-		}
 	}
-	padding: 32px 0;
+	flex-direction: row;
+	gap: 32px;
 
-	.feature-item {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		width: 33.333%;
-		margin: 0 16px;
-		opacity: 0;
-		position: relative;
-
-		.feature-icon {
-			color: @primary;
-			svg {
-				width: 100px;
-				height: 100px;
-				@media (max-width: 1200px) {
-					width: 150px;
-					height: 150px;
-				}
-			}
-		}
-
-		@media (max-width: 1200px) {
-			.feature-icon {
-				position: absolute;
-				z-index: -100;
-				opacity: 0.4;
-				left: 50%;
-				bottom: 50%;
-				transform: translate3d(-50%, 50%, 0);
-			}
-		}
-
-		@media (max-width: 1000px) {
-			justify-content: center;
-			margin: 16px 0 !important;
-		}
-		.text {
-			height: 100%;
-			margin-left: 16px;
-			@media (max-width: 1200px) {
-				text-align: center;
-			}
-			h1 {
-				margin-top: 0;
-				margin-bottom: 16px;
-				font-size: 28px;
-			}
-
-			p {
-				color: @textmidgray;
-			}
-		}
+	img {
+		height: 300px;
 	}
 }
 
@@ -521,7 +455,7 @@ export default Vue.extend({
 	> h1 {
 		color: @textgray;
 	}
-	padding: 32px 0;
+	padding: 72px 0;
 
 	#features-title {
 		opacity: 0;
@@ -530,7 +464,7 @@ export default Vue.extend({
 		margin-bottom: 32px;
 		margin-top: 0;
 		&::after {
-			content: "";
+			content: '';
 			display: block;
 			background: @primary;
 			height: 20px;
@@ -669,12 +603,13 @@ export default Vue.extend({
 
 .stroke {
 	position: relative;
+	display: inline-block;
 
 	&::after {
 		@media screen and (max-width: 800px) {
 			content: none;
 		}
-		content: "";
+		content: '';
 		height: 100%;
 		width: 100%;
 		left: 0;
@@ -706,7 +641,7 @@ export default Vue.extend({
 		margin-top: 8px;
 		padding: 4px 8px;
 	}
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(255, 255, 255, 0.3);
 	padding: 8px 16px;
 	margin-top: 32px;
 	display: inline-flex;
@@ -725,7 +660,7 @@ export default Vue.extend({
 		display: inline-flex;
 		align-items: center;
 		&::after {
-			content: "·";
+			content: '·';
 			margin: 0 12px;
 			@media screen and (max-width: 800px) {
 				margin: 0 8px;
@@ -759,7 +694,7 @@ export default Vue.extend({
 			height: 100%;
 			background: rgba(0, 0, 0, 0.3);
 			position: absolute;
-			content: " ";
+			content: ' ';
 			left: 0;
 			top: 0;
 			border-radius: inherit;
@@ -793,7 +728,7 @@ export default Vue.extend({
 		}
 
 		h1 {
-			font-size: 24px;
+			font-size: 26px;
 			@media (max-width: 1000px) {
 				font-size: 18px;
 			}
@@ -846,5 +781,165 @@ export default Vue.extend({
 	@media (max-width: 1200px) {
 		display: none;
 	}
+}
+
+.title-text {
+	font-size: 48px;
+	display: flex;
+	margin-bottom: 64px;
+	color: white;
+	text-shadow: @shadowdark;
+
+	img {
+		display: block;
+		margin-top: 16px;
+	}
+
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+}
+
+.section-1-text-1 {
+	font-size: 26px;
+	text-shadow: @shadowlight;
+}
+
+[class^='title-img'] {
+	display: block;
+	height: 230px;
+}
+
+.term-feats {
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	gap: 64px;
+
+	.feat {
+		background: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(2px);
+		box-shadow: @shadowdark;
+		padding: 32px 64px;
+		font-size: 26px;
+
+		.top {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			gap: 32px;
+		}
+	}
+
+	img {
+		height: 150px;
+	}
+}
+
+.performance-img {
+	height: 100px;
+}
+
+.performance-information {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	font-family: 'Encode Sans Semi Expanded', '微软雅黑', sans-serif;
+	color: white;
+	font-size: 48px;
+	gap: 32px;
+
+	.name {
+		font-size: 22px;
+		color: @textlightwhite;
+	}
+
+	.item {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		flex-direction: column;
+		width: 25%;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: 10px;
+		padding: 32px;
+	}
+}
+
+.welcome-text {
+	font-size: 26px;
+	width: 70%;
+	text-shadow: @shadowdark;
+}
+
+.server-selection {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	width: 30%;
+	justify-content: center;
+	align-items: center;
+
+	div {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+	}
+
+	img {
+		height: 200px;
+		border-radius: 100%;
+		transition: all 0.2s ease;
+		cursor: pointer;
+
+		&.seati {
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+
+		&.oasis {
+			transform: scale(1.5);
+			&:hover {
+				transform: scale(1.7);
+			}
+		}
+	}
+}
+
+.mod-information {
+	color: white;
+	font-size: 32px;
+	ul {
+		padding: 0;
+	}
+	li {
+		&::before {
+			content: '٭';
+			margin-right: 28px;
+		}
+		margin: 16px 0;
+		list-style: none;
+	}
+	.title {
+		font-size: 58px;
+	}
+	.g {
+		background: @primaryg;
+		background-clip: text;
+		color: transparent;
+		font-weight: bold;
+		display: inline-block;
+	}
+}
+
+.mod-card {
+	padding: 64px;
+	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+	text-shadow: @shadowlight;
 }
 </style>

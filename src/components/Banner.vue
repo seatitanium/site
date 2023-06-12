@@ -8,20 +8,19 @@
 				<slot name="buttons" />
 			</div>
 		</div>
-		
 	</div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
-	props: ["bg"],
+	props: ['bg']
 });
 </script>
 
 <style lang="less" scoped>
 .banner {
-	z-index: -2;
+	z-index: 1;
 	height: 500px;
 	width: 100%;
 	display: flex;
@@ -30,6 +29,17 @@ export default Vue.extend({
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: black;
+	position: relative;
+
+	&::before {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+		background: linear-gradient(to top, rgba(0, 0, 0, .3) 0%, transparent 100%);
+		content: '';
+	}
 
 	&[fullscreen] {
 		height: 100vh;
@@ -40,9 +50,10 @@ export default Vue.extend({
 }
 
 .text-box {
+	z-index: 3;
 	color: white;
 	@media screen and (min-width: 800px) {
-		margin-left: 48px;
+		margin-left: 72px;
 	}
 
 	@media screen and (max-width: 800px) {

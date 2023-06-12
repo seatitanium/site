@@ -1,11 +1,5 @@
 <template>
-	<button
-		@click="go()"
-		class="btn"
-		:class="
-			type + ' ' + size + ' ' + (isPCSize() && !isIOS() ? 'pc' : 'mobile')
-		"
-	>
+	<button @click="go()" class="btn" :class="type + ' ' + size + ' ' + (isPCSize() && !isIOS() ? 'pc' : 'mobile')">
 		<div class="content">
 			<slot />
 			<mdicon v-if="icon" :name="icon" class="icon" />
@@ -14,10 +8,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { isPCSize, isIOS } from "@/fn";
+import Vue from 'vue';
+import { isPCSize, isIOS } from '@/fn';
 export default Vue.extend({
-	props: ["type", "size", "icon", "to", "href"],
+	props: ['type', 'size', 'icon', 'to', 'href'],
 	methods: {
 		go() {
 			if (this.to) this.$router.push(this.to);
@@ -29,14 +23,10 @@ export default Vue.extend({
 			if (/iPad|iPhone|iPod/.test(nav.platform)) {
 				return true;
 			} else {
-				return (
-					nav.maxTouchPoints &&
-					nav.maxTouchPoints > 2 &&
-					/MacIntel/.test(nav.platform)
-				);
+				return nav.maxTouchPoints && nav.maxTouchPoints > 2 && /MacIntel/.test(nav.platform);
 			}
-		},
-	},
+		}
+	}
 });
 </script>
 
@@ -66,12 +56,12 @@ export default Vue.extend({
 	}
 
 	&.shadow {
-		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 	}
 
 	&.hover {
 		&:hover {
-			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 		}
 	}
 
@@ -82,18 +72,18 @@ export default Vue.extend({
 	}
 
 	&.primary-outlined {
-		border: 1px solid #fcd307;
-		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
+		border: 1px solid @primary;
+		background: linear-gradient(94deg, @primary-gradient-first 29.88%, @primary-gradient-second 67.68%);
 		background-clip: text;
 		color: transparent;
 
 		svg {
-			color: #fcd307;
+			color: @primary;
 		}
 	}
 
 	&.primarylight.pc {
-		background: linear-gradient(94deg, #fcd307 29.88%, #ffb526 67.68%);
+		background: linear-gradient(94deg, @primary-gradient-first 29.88%, @primary-gradient-second 67.68%);
 		background-clip: text;
 		color: transparent;
 	}
@@ -119,7 +109,7 @@ export default Vue.extend({
 
 		&::after {
 			transition: all 0.5s ease;
-			content: " ";
+			content: ' ';
 			display: block;
 			position: absolute;
 			left: 0;
@@ -132,17 +122,35 @@ export default Vue.extend({
 		}
 	}
 
+	&.primary-a {
+		background-image: linear-gradient(65deg, hsl(203deg 100% 50%) 0%, hsl(216deg 100% 50%) 3%, hsl(233deg 100% 59%) 16%, hsl(255deg 100% 59%) 40%, hsl(277deg 100% 50%) 72%, hsl(295deg 100% 50%) 100%);
+		animation: bg infinite;
+		animation-duration: 13s;
+		background-size: 140% auto;
+		color: white;
+	}
+
 	&.primary {
-		background-image: linear-gradient(
-			to right,
-			#fcd307 29.88%,
-			#ffb526 67.68%
-		);
+		background-image: linear-gradient(135deg, @primary-gradient-first 26%, @primary-gradient-second 75%);
 		background-size: 140% auto;
 		&:hover {
-			background-position: right center;
+			background-position: 40% center;
 		}
 		color: white;
+	}
+
+	@keyframes bg {
+		0% {
+			background-position: 0% center;
+		}
+
+		50% {
+			background-position: 100% center;
+		}
+
+		100% {
+			background-position: 0% center;
+		}
 	}
 
 	&.outlined {
