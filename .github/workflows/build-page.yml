@@ -28,6 +28,6 @@ jobs:
           git remote add origin https://Subilan:${{ secrets.ACCESS_TOKEN2 }}@github.com/seatitanium/site
           git add *
           git commit -m 'build'
-          git push origin build --force
+          git push origin HEAD:build --force
 
           
