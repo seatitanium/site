@@ -42,54 +42,50 @@ router.afterEach((to, from) => {
 Vue.mixin({
 	metaInfo: {
 		meta: [
-			{ property: 'og:title', content: 'SEATiDE | 高版本公益模组服务器' },
-			{ property: 'og:site_name', content: 'SEATiDE' },
+			{ property: 'og:title', content: 'Seati - Everything Titanium' },
+			{ property: 'og:site_name', content: 'Seati' },
 			{ property: 'og:type', content: 'website' },
-			{ property: 'og:url', content: 'https://seatide.top' },
+			{ property: 'og:url', content: 'https://seati.cc' },
 			{
 				property: 'og:image',
-				content: 'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/seatide-main.png'
+				content: 'https://seati.oss-cn-qingdao.aliyuncs.com/seati-transparent.png'
 			},
 			{
 				property: 'og:description',
-				content: '这里是 SEATiDE 服务器官方网站，你可以在这里获取到关于 SEATiDE 的介绍以及服务器的运行信息。'
+				content: '这里是 Seati 服务器官方网站，你可以在这里获取到关于 Seati 的介绍以及服务器的运行信息。'
 			},
 			{ name: 'twitter:card', content: 'summary' },
-			{ name: 'twitter:site', content: 'https://seatide.top' },
-			{ name: 'twitter:title', content: 'SEATiDE | 高版本公益模组服务器' },
+			{ name: 'twitter:site', content: 'https://seati.cc' },
+			{ name: 'twitter:title', content: 'Seati | 高版本公益模组服务器' },
 			{
 				name: 'twitter:description',
-				content: '这里是 SEATiDE 服务器官方网站，你可以在这里获取到关于 SEATiDE 的介绍以及服务器的运行信息。'
+				content: '这里是 Seati 服务器官方网站，你可以在这里获取到关于 Seati 的介绍以及服务器的运行信息。'
 			},
 			{ name: 'twitter:creator', content: '@subilan1995' },
-			{
-				name: 'twitter:image:src',
-				content: 'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/seatide-main.png'
-			},
-			{ itemprop: 'name', content: 'SEATiDE | 高版本公益模组服务器' },
+			{ itemprop: 'name', content: 'Seati | 高版本公益模组服务器' },
 			{
 				itemprop: 'description',
-				content: '这里是 SEATiDE 服务器官方网站，你可以在这里获取到关于 SEATiDE 的介绍以及服务器的运行信息。'
+				content: '这里是 Seati 服务器官方网站，你可以在这里获取到关于 Seati 的介绍以及服务器的运行信息。'
 			},
 			{
 				itemprop: 'image',
-				content: 'https://fnmdp.oss-cn-beijing.aliyuncs.com/images/seatide-main.png'
+				content: 'https://seati.oss-cn-qingdao.aliyuncs.com/seati-transparent.png'
 			},
 			{ httpEquiv: 'Content-Type', content: 'text/html; charset=utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{
 				name: 'description',
-				content: '这里是 SEATiDE 服务器官方网站，你可以在这里获取到关于 SEATiDE 的介绍以及服务器的运行信息。'
+				content: '这里是 Seati 服务器官方网站，你可以在这里获取到关于 Seati 的介绍以及服务器的运行信息。'
 			},
 			{
 				name: 'theme-color',
-				content: '#fcd307'
+				content: '#fff'
 			}
 		],
 		link: [
 			{
 				rel: 'canonical',
-				href: 'https://seatide.top'
+				href: 'https://seati.cc'
 			}
 		]
 	}
