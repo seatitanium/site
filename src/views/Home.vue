@@ -52,7 +52,7 @@
 				</div>
 			</section>
 			<section style="position: relative; background: black; overflow: hidden">
-				<video style="" id="moon-video" muted>
+				<video id="moon-video" muted>
 					<source :src="require('@/assets/moon.mp4')" type="video/mp4" />
 				</video>
 				<div
@@ -1042,6 +1042,7 @@ export default Vue.extend({
 
 	@media (max-width: 1000px) {
 		display: none;
+		pointer-events: none;
 	}
 }
 </style>
