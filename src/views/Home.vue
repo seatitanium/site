@@ -59,7 +59,7 @@
 					class="container"
 					v-view.once="
 						() => {
-							moonVideo.play();
+							if (!isMobile()) moonVideo.play();
 						}
 					"
 				>
