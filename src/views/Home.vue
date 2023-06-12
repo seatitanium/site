@@ -1,7 +1,7 @@
 <template>
 	<div page>
 		<banner :bg="require('@/assets/nyberg_moon.jpg')" fullscreen>
-			<template #subtitle> 高自由度 / 民主决议 / 周目制</template>
+			<template #subtitle> <div style="transform: translateY(100%)">高自由度 / 民主决议 / 周目制</div></template>
 			<template #title>
 				从头到脚都是
 				<div class="stroke stroke-2"><img style="height: 120px; display: inline-block; margin: 0 -0.5ex; transform: translateY(45px)" :src="require('@/assets/handwriting/不一样.svg')" draggable="false" /></div>
@@ -161,8 +161,8 @@
 							<p v-view.once="flowUp"><strong>单击图标可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
 						</div>
 						<div class="server-selection">
-							<div><img class="seati" draggable="false" :src="require('@/assets/seati-bg.png')" /></div>
-							<div><img class="oasis" draggable="false" :src="require('@/assets/oasis-logo.svg')" /></div>
+							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi')" class="seati" draggable="false" :src="require('@/assets/seati-bg.png')" /></div>
+							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=hGV5NDai9QXSySHVNEGWGebtEehB1ahG&jump_from=webapi')" class="oasis" draggable="false" :src="require('@/assets/oasis-logo.svg')" /></div>
 						</div>
 					</div>
 				</div>
