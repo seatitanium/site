@@ -18,7 +18,7 @@ body {
 	margin: auto;
 
 	@media screen and (max-width: 800px) {
-		padding: 20px !important;
+		padding: 32px !important;
 	}
 
 	@media screen and (max-width: 1200px) {
@@ -357,9 +357,19 @@ abbr {
 	margin: 16px;
 }
 
+.inline-block {
+	display: inline-block;
+}
+
 .no-mobile {
-	@media (max-width: 800px) {
-		display: none;
+	@media (max-width: 1000px) {
+		display: none !important;
+	}
+}
+
+.no-pc {
+	@media (min-width: 1001px) {
+		display: none !important;
 	}
 }
 

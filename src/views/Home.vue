@@ -1,10 +1,11 @@
 <template>
 	<div page>
 		<banner :bg="require('@/assets/nyberg_moon.jpg')" fullscreen>
-			<template #subtitle> <div style="transform: translateY(100%)">高自由度 / 民主决议 / 周目制</div></template>
+			<template #subtitle> <div class="fix1">高自由度 / 民主决议 / 周目制</div></template>
 			<template #title>
 				从头到脚都是
-				<div class="stroke stroke-2"><img style="height: 120px; display: inline-block; margin: 0 -0.5ex; transform: translateY(45px)" :src="require('@/assets/handwriting/不一样.svg')" draggable="false" /></div>
+				<div class="stroke stroke-2 no-mobile"><img class="buyiyang" :src="require('@/assets/handwriting/不一样.svg')" draggable="false" /></div>
+				<div class="no-pc inline-block">不一样</div>
 				的感觉。
 			</template>
 			<template #text>
@@ -51,7 +52,7 @@
 				</div>
 			</section>
 			<section style="position: relative; background: black">
-				<video style="position: absolute; height: 100%; left: 50%; transform: translateX(-50%)" id="moon-video" muted>
+				<video style="" id="moon-video" muted>
 					<source :src="require('@/assets/moon.mp4')" type="video/mp4" />
 				</video>
 				<div
@@ -154,7 +155,7 @@
 					<div v-view.once="flowLeft" class="title-text">
 						<div><img class="title-img-4" :src="require('@/assets/handwriting/欢迎，新船员.svg')" draggable="false" /></div>
 					</div>
-					<div style="display: flex; align-items: flex-start">
+					<div class="welcome">
 						<div class="welcome-text typo light">
 							<p v-view.once="flowUp"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
 							<p v-view.once="flowUp">Seati 是 Oasis 旗下独立运营的模组服务器，若要加入 Seati，需要首先成为 Oasis 的船员。<strong>好消息是，目前 Oasis 的加入并没有任何限制。</strong>而要获取 Seati 白名单需要完成相应的问卷。</p>
@@ -167,7 +168,7 @@
 					</div>
 				</div>
 			</section>
-			<section v-lazy:background-image="require('@/assets/images/3.jpg')" class="mod-information">
+			<section v-lazy:background-image="require('@/assets/images/3.jpg')" class="common-background mod-information">
 				<div class="container">
 					<div class="mod-card" v-view.once="scaleIn">
 						<div class="title" v-view.once="flowLeft">这个周目，大概是这样的</div>
@@ -376,9 +377,22 @@ export default Vue.extend({
 	margin-left: 32px;
 }
 
+.fix1 {
+	@media (min-width: 1000px) {
+		transform: translateY(100%);
+	}
+}
+
 .sections {
 	display: flex;
 	flex-direction: column;
+}
+
+.buyiyang {
+	height: 120px;
+	display: inline-block;
+	margin: 0 -0.5ex;
+	transform: translateY(45px);
 }
 
 .more-information {
@@ -408,7 +422,7 @@ export default Vue.extend({
 		margin-bottom: 32px;
 		color: white;
 		@media screen and (max-width: 1000px) {
-			font-size: 42px;
+			font-size: 32px;
 		}
 	}
 
@@ -605,8 +619,8 @@ export default Vue.extend({
 	display: inline-block;
 
 	&::after {
-		@media screen and (max-width: 800px) {
-			content: none;
+		@media screen and (max-width: 1000px) {
+			height: 0;
 		}
 		content: '';
 		height: 100%;
@@ -789,6 +803,13 @@ export default Vue.extend({
 	color: white;
 	text-shadow: @shadowdark;
 
+	@media (max-width: 1000px) {
+		font-size: 30px;
+		margin-bottom: 16px;
+		justify-content: center;
+		align-items: center;
+	}
+
 	img {
 		display: block;
 		margin-top: 16px;
@@ -803,12 +824,19 @@ export default Vue.extend({
 
 .section-1-text-1 {
 	font-size: 26px;
+	@media (max-width: 1000px) {
+		font-size: 18px;
+	}
 	text-shadow: @shadowlight;
 }
 
 [class^='title-img'] {
 	display: block;
 	height: 230px;
+
+	@media (max-width: 1000px) {
+		height: 100px;
+	}
 }
 
 .term-feats {
@@ -817,11 +845,19 @@ export default Vue.extend({
 	flex-direction: column;
 	gap: 64px;
 
+	@media (max-width: 1000px) {
+		gap: 32px;
+	}
+
 	.feat {
 		background: rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(2px);
 		box-shadow: @shadowdark;
 		padding: 32px 64px;
+		@media (max-width: 1000px) {
+			padding: 16px;
+			font-size: 18px;
+		}
 		font-size: 26px;
 
 		.top {
@@ -834,6 +870,10 @@ export default Vue.extend({
 
 	img {
 		height: 150px;
+
+		@media (max-width: 1000px) {
+			height: 100px;
+		}
 	}
 }
 
@@ -850,12 +890,22 @@ export default Vue.extend({
 	font-size: 48px;
 	gap: 32px;
 
+	@media (max-width: 1000px) {
+		gap: 16px;
+		font-size: 32px;
+		flex-direction: column;
+	}
+
 	.name {
 		font-size: 22px;
 		color: @textlightwhite;
 	}
 
 	.item {
+		@media (max-width: 1000px) {
+			width: 100%;
+			padding: 32px 0;
+		}
 		display: flex;
 		align-items: center;
 		gap: 16px;
@@ -872,6 +922,20 @@ export default Vue.extend({
 	font-size: 26px;
 	width: 70%;
 	text-shadow: @shadowdark;
+	@media (max-width: 1000px) {
+		width: 100%;
+		font-size: 18px;
+	}
+}
+
+.welcome {
+	display: flex;
+	align-items: flex-start;
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+		align-items: stretch;
+	}
 }
 
 .server-selection {
@@ -882,6 +946,11 @@ export default Vue.extend({
 	justify-content: center;
 	align-items: center;
 
+	@media (max-width: 1000px) {
+		width: 100%;
+		flex-direction: row;
+	}
+
 	div {
 		width: 50%;
 		display: flex;
@@ -889,6 +958,9 @@ export default Vue.extend({
 	}
 
 	img {
+		@media (max-width: 1000px) {
+			height: 100px;
+		}
 		height: 200px;
 		border-radius: 100%;
 		transition: all 0.2s ease;
@@ -912,6 +984,12 @@ export default Vue.extend({
 .mod-information {
 	color: white;
 	font-size: 32px;
+	@media (max-width: 1000px) {
+		font-size: 18px;
+		img {
+			height: 20px !important;
+		}
+	}
 	ul {
 		padding: 0;
 	}
@@ -919,11 +997,17 @@ export default Vue.extend({
 		&::before {
 			content: '٭';
 			margin-right: 28px;
+			@media (max-width: 1000px) {
+				margin-right: 8px;
+			}
 		}
 		margin: 16px 0;
 		list-style: none;
 	}
 	.title {
+		@media (max-width: 1000px) {
+			font-size: 32px;
+		}
 		font-size: 58px;
 	}
 	.g {
@@ -942,5 +1026,22 @@ export default Vue.extend({
 	backdrop-filter: blur(10px);
 
 	text-shadow: @shadowlight;
+
+	@media (max-width: 1000px) {
+		padding: 0;
+		background: transparent;
+		backdrop-filter: none;
+	}
+}
+
+#moon-video {
+	position: absolute;
+	height: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@media (max-width: 1000px) {
+		display: none;
+	}
 }
 </style>
