@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</section>
-			<section style="position: relative; background: black">
+			<section style="position: relative; background: black; overflow: hidden">
 				<video style="" id="moon-video" muted>
 					<source :src="require('@/assets/moon.mp4')" type="video/mp4" />
 				</video>
@@ -64,7 +64,7 @@
 					"
 				>
 					<div class="title-text" style="justify-content: center" v-view.once="flowUp">
-						<div style="align-items: center">不止有...<img class="title-img-2" :src="require('@/assets/handwriting/周目制.svg')" draggable="false" /></div>
+						<div style="align-items: center">不太一样的<img class="title-img-2" :src="require('@/assets/handwriting/周目制.svg')" draggable="false" /></div>
 					</div>
 					<section class="term-feats">
 						<div class="feat" v-view.once="flowLeft">
