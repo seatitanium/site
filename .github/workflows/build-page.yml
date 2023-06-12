@@ -28,5 +28,5 @@ jobs:
         run: |
           cd dist
           git init
-          git remote set-url --add origin https://Subilan:${{ secrets.ACCESS_TOKEN2 }}@github.com/seatitanium/site
+          git remote add origin https://Subilan:${{ secrets.ACCESS_TOKEN2 }}@github.com/seatitanium/site
           git push -u origin build -f
