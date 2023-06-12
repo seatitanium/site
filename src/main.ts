@@ -56,13 +56,13 @@ Vue.mixin({
 			},
 			{ name: 'twitter:card', content: 'summary' },
 			{ name: 'twitter:site', content: 'https://seati.cc' },
-			{ name: 'twitter:title', content: 'Seati | 高版本公益模组服务器' },
+			{ name: 'twitter:title', content: 'Seati - Everything Titanium' },
 			{
 				name: 'twitter:description',
 				content: '这里是 Seati 服务器官方网站，你可以在这里获取到关于 Seati 的介绍以及服务器的运行信息。'
 			},
 			{ name: 'twitter:creator', content: '@subilan1995' },
-			{ itemprop: 'name', content: 'Seati | 高版本公益模组服务器' },
+			{ itemprop: 'name', content: 'Seati | Everything Titanium' },
 			{
 				itemprop: 'description',
 				content: '这里是 Seati 服务器官方网站，你可以在这里获取到关于 Seati 的介绍以及服务器的运行信息。'
