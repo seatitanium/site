@@ -8,26 +8,26 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      
+      - uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v2.5.2
         with:
           node-version: 16.18.0
-          
-      - name: Install and Build
+      - name: Build
         run: |
           npm install
           npm run build
           echo 'seati.cc' > dist/CNAME
           
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          branch: build
-          folder: dist
-          single-commit: false
+      - name: Push
+        run: |
+          cd dist
+          git init
+          git config --global user.email ''
+          git config --global user.name 'bot'
+          git remote add origin https://Subilan:${{ secrets.a }}@github.com/seatitanium/site
+          git add *
+          git commit -m 'build'
+          git push origin HEAD:build --force
+
+          
