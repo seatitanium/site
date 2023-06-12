@@ -25,7 +25,7 @@ jobs:
           git init
           git config --global user.email ''
           git config --global user.name 'bot'
-          git remote add origin https://Subilan:${{ secrets.ACCESS_TOKEN2 }}@github.com/seatitanium/site
+          git remote add origin https://Subilan:${{ secrets.a }}@github.com/seatitanium/site
           git add *
           git commit -m 'build'
           git push origin HEAD:build --force
