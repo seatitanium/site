@@ -79,7 +79,7 @@ Vue.mixin({
 			},
 			{
 				name: 'theme-color',
-				content: '#fff'
+				content: '#2196f3'
 			}
 		],
 		link: [
