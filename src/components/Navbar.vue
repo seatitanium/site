@@ -73,14 +73,14 @@ export default Vue.extend({
 				},
 				{
 					name: "知识库",
-					href: "https://w.seati.cc"
+					href: "https://wiki.seati.cc"
 				},
 				{
 					name: "服规",
-					href: "https://w.seati.cc/server/rules.html"
+					href: "https://wiki.seati.cc/ti/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%84%E5%88%99"
 				},
 				{
-					name: "Lab",
+					name: "Tisea",
 					href: "https://tisea.cc"
 				}
 			],
