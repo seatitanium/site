@@ -48,7 +48,7 @@ Vue.mixin({
 			{ property: 'og:url', content: 'https://seati.cc' },
 			{
 				property: 'og:image',
-				content: 'https://seati.oss-cn-qingdao.aliyuncs.com/seati-transparent.png'
+				content: 'https://seati.oss-cn-qingdao.aliyuncs.com/titanium.png'
 			},
 			{
 				property: 'og:description',
@@ -69,7 +69,7 @@ Vue.mixin({
 			},
 			{
 				itemprop: 'image',
-				content: 'https://seati.oss-cn-qingdao.aliyuncs.com/seati-transparent.png'
+				content: 'https://seati.oss-cn-qingdao.aliyuncs.com/titanium.png'
 			},
 			{ httpEquiv: 'Content-Type', content: 'text/html; charset=utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
