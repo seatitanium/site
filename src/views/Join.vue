@@ -7,10 +7,11 @@
 		</banner>
 		<div class="container">
 			<div class="join content">
-				<h1 class="primary-text" v-view.once="flowUp">加入群聊</h1>
-				<p class="typo" v-view.once="flowUp">Seati 的交流与讨论主要在 QQ 群内进行，同时也有微信讨论群以满足交流需求。请注意，Seati 白名单的获取需要完成专门的问卷，<strong>具体的完成方式和渠道加入群聊后可见</strong>。 与 Oasis 一样，服务器仅接受<strong> Java 正版</strong>进入。同时，建议根据每周目不同需求更改 RAM 分配， 以防模组加载导致的游戏卡顿。</p>
+				<h1 class="primary-text" v-view.once="flowUp">立即加入 Seati</h1>
+				<p class="typo" v-view.once="flowUp"><strong>加入 QQ 交流群</strong>&emsp;我们的交流与讨论主要在 QQ 群内进行，我们强烈建议你加入~在这里你可以获取到第一手信息，获取帮助，并且可以参与到每周目的投票过程中。单击下方加群按钮可快速入群，或者搜索群号 820912578 亦可入群。<em>提示：入群不需要白名单。</em></p>
+				<p class="typo" v-view.once="flowUp"><strong>获取 Seati 白名单</strong>&emsp;若要开始游玩，需要获取 Seati 的白名单。要获取白名单，请前往问卷网填写问卷并等待人工审核，稍后通过邮件或者群内询问管理员的方式得到结果。单击问卷网按钮可前往问卷填写页面。</p>
 				<div class="join-cards">
-					<a v-view.once="flowUp" class="join-card qq" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" target="_blank">
+					<a class="join-card qq" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" target="_blank">
 						<mdicon name="arrow-right" />
 						<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/tencent-qq.svg" />
 						<div class="text">
@@ -18,18 +19,18 @@
 							<h2>点击加入，或搜索群号 820912578<br />验证信息请填写你的正版 ID</h2>
 						</div>
 					</a>
-					<div v-view.once="flowUp" class="join-card wechant">
-						<mdicon name="qrcode-scan" />
-						<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/tencent-wechant.svg" />
+					<a class="join-card wenjuan" href="https://www.wenjuan.com/s/UZBZJvcsEix" target="_blank">
+						<mdicon name="arrow-right" />
+						<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/wenjuanwang.png" />
 						<div class="text">
-							<h1>微信讨论群</h1>
-							<h2>由于限制，加入 QQ 讨论群后扫码可加</h2>
+							<h1>白名单获取</h1>
+							<h2>点击前往问卷网，填写 Seati 玩家入服问卷以获取白名单</h2>
 						</div>
-					</div>
+					</a>
 				</div>
 				<p class="typo" v-view.once="flowUp">加入以后，请先认真阅读<strong>置顶群公告</strong>中的内容，这将指导你进行下一步操作。</p>
 				<p class="typo" v-view.once="flowUp">
-					如果你对模组有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读<strong>我们编写的<a target="_blank" href="https://wiki.seati.cc">维基</a></strong
+					如果你对模组有些生疏、不知道如何开始，或者有其它问题，你可以选择在<strong>群聊里询问</strong>或者阅读我们编写的<strong><a target="_blank" href="https://wiki.seati.cc">知识库</a></strong
 					>，上面归纳了大家觉得有用的要点，这本书由所有人一起编写，为了让你更快地解决问题 :)
 				</p>
 			</div>
