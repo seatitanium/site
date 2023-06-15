@@ -171,62 +171,18 @@
 			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/3.jpg'" class="common-background mod-information">
 				<div class="container">
 					<div class="mod-card" v-view.once="scaleIn">
-						<div class="title" v-view.once="flowLeft">这个周目，大概是这样的</div>
+						<div class="title" style="font-weight: bold" v-view.once="flowLeft">这个周目，大概是这样的</div>
 						<ul v-view.once="flowLeft">
-							<li>
-								周目代号：
-								<div class="g">ST7</div>
-							</li>
-							<li>
-								周目主题：
-								<div class="g">养老+微科技</div>
-							</li>
-							<li>&nbsp;服务端：<img :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/arclight.svg'" draggable="false" style="display: inline-block; height: 32px; vertical-align: middle" /></li>
-							<li>
-								服务器版本：
-								<div class="g">1.18.2</div>
-							</li>
-							<li>
-								已获取白名单人数：
-								<div class="g">20+</div>
-							</li>
-							<li>
-								建议分配 RAM：
-								<div class="g">4GB</div>
-								最低，
-								<div class="g">8GB</div>
-								畅玩
-							</li>
-							<li>
-								正式开放日期：2023/
-								<div class="g">06</div>
-								/
-								<div class="g">12</div>
-							</li>
-							<li>
-								持续时间：
-								<div class="g">01:10:00</div>
-							</li>
-							<li>
-								周目构成方式：
-								<div class="g">玩家按主题自行组包</div>
-							</li>
-							<li>
-								模组个数：~
-								<div class="g">110</div>
-							</li>
-							<li>
-								插件个数：&lt;
-								<div class="g">10</div>
-							</li>
-							<li>
-								日均游玩人数：
-								<div class="g">-</div>
-							</li>
-							<li>
-								当前 TPS：
-								<div class="g">20.0</div>
-							</li>
+							<li>周目代号：ST7</li>
+							<li>周目主题：养老+微科技</li>
+							<li>版本：Java 1.18.2</li>
+							<li>服务端：Forge 40.2.9</li>
+							<li>白名单人数：23</li>
+							<li>建议分配 RAM：8GB+</li>
+							<li>正式开放日期：2023/06/14</li>
+							<li>持续时间：{{ duration }}</li>
+							<li>周目构成方式：玩家按主题自行组包</li>
+							<li>模组个数：~110</li>
 						</ul>
 					</div>
 				</div>
@@ -273,7 +229,8 @@ export default Vue.extend({
 		return {
 			server: {} as ServerInformation,
 			loadingStatus: 'loading',
-			serverExists: false
+			serverExists: false,
+			duration: ''
 		};
 	},
 	methods: {
@@ -345,6 +302,20 @@ export default Vue.extend({
 				}
 			});
 			return count;
+		},
+		getDuration() {
+			let d = new Date().getTime() - new Date('2023/06/14 12:00:00').getTime();
+			let x = d / 1000 / 60 / 60;
+			let H = Math.floor(x);
+			x = (x - H) * 60;
+			let M = Math.floor(x);
+			x = (x - M) * 60;
+			let S = Math.floor(x);
+			let _S = S.toString();
+			if (_S.length === 1) {
+				_S = `0${_S}`;
+			}
+			return `${H}:${M}:${_S}`;
 		}
 	},
 	mounted() {
@@ -363,6 +334,10 @@ export default Vue.extend({
 				console.warn(e);
 				this.loadingStatus = 'error';
 			});
+
+		setInterval(() => {
+			this.duration = this.getDuration();
+		}, 1000);
 	},
 	computed: {
 		moonVideo() {
@@ -1000,6 +975,12 @@ export default Vue.extend({
 			@media (max-width: 1000px) {
 				margin-right: 8px;
 			}
+			background: @primaryg;
+			background-clip: text;
+			color: transparent;
+			font-weight: bold;
+			display: inline-block;
+			text-shadow: none;
 		}
 		margin: 16px 0;
 		list-style: none;
@@ -1010,19 +991,11 @@ export default Vue.extend({
 		}
 		font-size: 58px;
 	}
-	.g {
-		background: @primaryg;
-		background-clip: text;
-		color: transparent;
-		font-weight: bold;
-		display: inline-block;
-		text-shadow: none;
-	}
 }
 
 .mod-card {
 	padding: 64px;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(10px);
 
 	text-shadow: @shadowlight;
