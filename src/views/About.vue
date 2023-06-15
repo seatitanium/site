@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/6.jpg')">
+		<banner bg="https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/6.jpg">
 			<template #title>关于 Seati</template>
 			<template #subtitle>了解更多</template>
 			<template #text
@@ -8,7 +8,7 @@
 			/></template>
 		</banner>
 		<div class="container content">
-			<img class="bad-design" draggable="false" src="@/assets/bad-design2.svg" />
+			<img class="bad-design" draggable="false" src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/bad-design2.svg" />
 			<h1 v-view.once="flowUp" class="primary-text">Seati 的过去</h1>
 			<p v-view.once="flowUp" class="typo">
 				<strong>Seati</strong> 最初是在 2018
@@ -30,11 +30,11 @@
 				SunRise 的 Logo。SunRise 是个太阳，SEATiDE 作为下游自然而然就成了月亮，同时也符合「潮汐」的命名。
 			</p>
 			<figure v-view.once="flowUp" >
-				<img src="@/assets/sunrise.svg" />
+				<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/sunrise.svg" />
 				<figcaption>SunRise 的 Logo</figcaption>
 			</figure  >
 			<figure v-view.once="flowUp">
-				<img style="width: 90%" v-view.once="flowLeft" src="@/assets/seatide-text.png" />
+				<img style="width: 90%" v-view.once="flowLeft" src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/seatide-text.png" />
 				<figcaption>SEATiDE 的 Logo</figcaption>
 			</figure>
 			<p class="typo" v-view.once="flowUp">
@@ -44,7 +44,7 @@
 				我们希望这次能够更加贴近「海洋」的主题，因而采用了富有活力的字体表现以及蓝色的主色调。
 			</p>
 			<figure v-view.once="flowUp">
-				<img style="width: 90%; transform: scale(.8)" v-view.once="flowLeft" src="@/assets/seati-gradient.svg" />
+				<img style="width: 90%; transform: scale(.8)" v-view.once="flowLeft" src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/seati-gradient.svg" />
 				<figcaption>当前使用的 Seati Logo</figcaption>
 			</figure>
 			<p v-view.once="flowUp" class="typo">
@@ -58,7 +58,7 @@
 				<img
 					v-view.once="flowLeft"
 					v-lazy="
-						require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/seatide-archive.png')
+						'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/seatide-archive.png'
 					"
 				/>
 				<figcaption>SEATiDE 的旧官网</figcaption>
@@ -128,7 +128,7 @@
 				target="_blank"
 			>
 				<mdicon name="arrow-right" />
-				<img src="@/assets/tencent-qq.svg" />
+				<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/tencent-qq.svg" />
 				<div class="text">
 					<h1>QQ 讨论群</h1>
 					<h2>
@@ -143,7 +143,7 @@
 				href="https://github.com/seatidemc"
 				target="_blank"
 			>
-				<img src="@/assets/github.svg" />
+				<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/github.svg" />
 				<div class="text">
 					<mdicon name="arrow-right" />
 					<h1>查看 GitHub</h1>
@@ -194,39 +194,5 @@ export default Vue.extend({
 
 .container {
 	margin-bottom: 64px;
-}
-
-.saying {
-	p {
-		font-style: italic;
-		text-align: center;
-		.quote {
-			font-style: normal;
-		}
-	}
-
-	&,
-	p {
-		font-size: 44px !important;
-		@media (max-width: 1000px) {
-			font-size: 20px !important;
-		}
-	}
-
-	@media (max-width: 1000px) {
-		margin: 16px 0 !important;
-		padding: 16px;
-	}
-	margin: 32px 0 !important;
-	color: rgba(255, 255, 255, 0.5);
-	padding: 32px;
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('~@/assets/images/say-bg.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	strong {
-		color: white;
-		font-weight: normal;
-	}
 }
 </style>

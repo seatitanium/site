@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/2.jpg')">
+		<banner :bg="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/2.jpg'">
 			<template #title> 加入 Seati </template>
 			<template #subtitle> 立即开始 </template>
 			<template #text> 不同于我们的主服务器 Oasis，要获取 Seati 的白名单，需要完成问卷。<br />不过，即使没有完成问卷，你也可以加入 Oasis 或者 Seati 的讨论群。 </template>
@@ -12,7 +12,7 @@
 				<div class="join-cards">
 					<a v-view.once="flowUp" class="join-card qq" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" target="_blank">
 						<mdicon name="arrow-right" />
-						<img src="@/assets/tencent-qq.svg" />
+						<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/tencent-qq.svg" />
 						<div class="text">
 							<h1>QQ 讨论群</h1>
 							<h2>点击加入，或搜索群号 820912578<br />验证信息请填写你的正版 ID</h2>
@@ -20,7 +20,7 @@
 					</a>
 					<div v-view.once="flowUp" class="join-card wechant">
 						<mdicon name="qrcode-scan" />
-						<img src="@/assets/tencent-wechant.svg" />
+						<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/tencent-wechant.svg" />
 						<div class="text">
 							<h1>微信讨论群</h1>
 							<h2>由于限制，加入 QQ 讨论群后扫码可加</h2>
