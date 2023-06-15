@@ -234,7 +234,7 @@ export default Vue.extend({
 		}
 
 		&::after {
-			background: #cecece;
+			background: #2196f3;
 			width: 0;
 			content: " ";
 			display: block;
