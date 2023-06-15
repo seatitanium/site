@@ -140,7 +140,7 @@
 			<a
 				v-view.once="flowLeft"
 				class="link-card github"
-				href="https://github.com/seatidemc"
+				href="https://github.com/seatitanium"
 				target="_blank"
 			>
 				<img src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/github.svg" />

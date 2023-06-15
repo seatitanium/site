@@ -31,7 +31,7 @@
 			</template>
 			<template #buttons>
 				<btn class="join-btn" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">立即加入</btn>
-				<btn @click.native="$open('https://w.seatide.top')" class="learnmore-btn" type="outlined shadow hover-light" size="large">阅读文档</btn>
+				<btn @click.native="$open('https://wiki.seati.cc')" class="learnmore-btn" type="outlined shadow hover-light" size="large">阅读文档</btn>
 			</template>
 		</banner>
 		<div class="sections">

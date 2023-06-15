@@ -87,7 +87,7 @@ export default Vue.extend({
 			active: false,
 			hamburgerOpen: false,
 			titles: {
-				home: "高效运行的 Mod 服",
+				home: "Everything Titanium",
 				join: "立即加入",
 				server: "服务器状态",
 				about: "关于",
@@ -125,7 +125,7 @@ export default Vue.extend({
 		updateTitle(name: string) {
 			if (Object.keys(this.titles).includes(name)) {
 				// @ts-ignore
-				document.title = "SEATiDE | " + this.titles[name];
+				document.title = "Seati | " + this.titles[name];
 			}
 		},
 		toggleDropdown(directOption?: boolean) {
