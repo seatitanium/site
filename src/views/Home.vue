@@ -1,10 +1,10 @@
 <template>
 	<div page>
-		<banner :bg="require('@/assets/nyberg_moon.jpg')" fullscreen>
+		<banner :bg="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/nyberg_moon.jpg')" fullscreen>
 			<template #subtitle> <div class="fix1">高自由度 / 民主决议 / 周目制</div></template>
 			<template #title>
 				从头到脚都是
-				<div class="stroke stroke-2 no-mobile"><img class="buyiyang" :src="require('@/assets/handwriting/不一样.svg')" draggable="false" /></div>
+				<div class="stroke stroke-2 no-mobile"><img class="buyiyang" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/不一样.svg')" draggable="false" /></div>
 				<div class="no-pc inline-block">不一样</div>
 				的感觉。
 			</template>
@@ -35,12 +35,12 @@
 			</template>
 		</banner>
 		<div class="sections">
-			<section v-lazy:background-image="require('@/assets/rocket-launch.png')" class="common-background darken-background darken-3">
+			<section v-lazy:background-image="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/rocket-launch.png')" class="common-background darken-background darken-3">
 				<div class="container">
 					<div class="title-text" v-view.once="flowLeft">
 						<div>
 							<div>带你一步步领略模组的</div>
-							<img class="title-img-1" :src="require('@/assets/handwriting/大千世界.svg')" draggable="false" />
+							<img class="title-img-1" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/大千世界.svg')" draggable="false" />
 						</div>
 					</div>
 					<div class="typo light section-1-text-1">
@@ -53,7 +53,7 @@
 			</section>
 			<section style="position: relative; background: black; overflow: hidden">
 				<video id="moon-video" muted>
-					<source :src="require('@/assets/moon.mp4')" type="video/mp4" />
+					<source :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/moon.mp4')" type="video/mp4" />
 				</video>
 				<div
 					class="container"
@@ -64,16 +64,16 @@
 					"
 				>
 					<div class="title-text" style="justify-content: center" v-view.once="flowUp">
-						<div style="align-items: center">不太一样的<img class="title-img-2" :src="require('@/assets/handwriting/周目制.svg')" draggable="false" /></div>
+						<div style="align-items: center">不太一样的<img class="title-img-2" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/周目制.svg')" draggable="false" /></div>
 					</div>
 					<section class="term-feats">
 						<div class="feat" v-view.once="flowLeft">
 							<div class="top" v-view.once="flowLeft">
 								<div class="icon">
-									<img style="transform: scale(1.1)" :src="require('@/assets/votes.png')" />
+									<img style="transform: scale(1.1)" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/votes.png')" />
 								</div>
 								<div class="title">
-									<img style="transform: translateY(10px)" :src="require('@/assets/handwriting/投票.svg')" />
+									<img style="transform: translateY(10px)" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/投票.svg')" />
 								</div>
 							</div>
 							<div class="down">
@@ -87,10 +87,10 @@
 						<div class="feat" v-view.once="flowLeft">
 							<div class="top" v-view.once="flowLeft">
 								<div class="icon">
-									<img style="transform: scale(0.9)" :src="require('@/assets/write.png')" />
+									<img style="transform: scale(0.9)" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/write.png')" />
 								</div>
 								<div class="title">
-									<img style="transform: translateY(10px)" :src="require('@/assets/handwriting/记录.svg')" />
+									<img style="transform: translateY(10px)" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/记录.svg')" />
 								</div>
 							</div>
 							<div class="down">
@@ -104,10 +104,10 @@
 						<div class="feat" v-view.once="flowLeft">
 							<div class="top" v-view.once="flowLeft">
 								<div class="icon">
-									<img style="transform: scale(1.1)" :src="require('@/assets/review.png')" />
+									<img style="transform: scale(1.1)" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/review.png')" />
 								</div>
 								<div class="title">
-									<img style="transform: translateY(25px)" :src="require('@/assets/handwriting/评价.svg')" />
+									<img style="transform: translateY(25px)" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/评价.svg')" />
 								</div>
 							</div>
 							<div class="down">
@@ -120,29 +120,29 @@
 					</section>
 				</div>
 			</section>
-			<section v-lazy:background-image="require('@/assets/comet.jpg')" class="common-background darken-background darken-2">
+			<section v-lazy:background-image="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/comet.jpg')" class="common-background darken-background darken-2">
 				<div class="container">
 					<div class="title-text" v-view.once="flowLeft">
-						<div><img class="title-img-3" :src="require('@/assets/handwriting/强劲性能.svg')" draggable="false" />轻轻松松完成「星际穿越」</div>
+						<div><img class="title-img-3" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/强劲性能.svg')" draggable="false" />轻轻松松完成「星际穿越」</div>
 					</div>
 					<div class="performance-information">
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="require('@/assets/core-i9.svg')" draggable="false" />
+							<img class="performance-img" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/core-i9.svg')" draggable="false" />
 							<div>Gen 13</div>
 							<div class="name">处理器</div>
 						</div>
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="require('@/assets/ddr4.svg')" draggable="false" />
+							<img class="performance-img" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/ddr4.svg')" draggable="false" />
 							<div>16 GB</div>
 							<div class="name">分配内存</div>
 						</div>
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="require('@/assets/rotating-earth.gif')" draggable="false" />
+							<img class="performance-img" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/rotating-earth.gif')" draggable="false" />
 							<div>50M</div>
 							<div class="name">峰值带宽</div>
 						</div>
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="require('@/assets/ti-cube.png')" draggable="false" />
+							<img class="performance-img" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/ti-cube.png')" draggable="false" />
 							<div>1 TB</div>
 							<div class="name">存储空间</div>
 						</div>
@@ -150,10 +150,10 @@
 				</div>
 			</section>
 
-			<section v-lazy:background-image="require('@/assets/images/1.jpg')" class="common-background darken-background darken-2">
+			<section v-lazy:background-image="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/1.jpg')" class="common-background darken-background darken-2">
 				<div class="container">
 					<div v-view.once="flowLeft" class="title-text">
-						<div><img class="title-img-4" :src="require('@/assets/handwriting/欢迎，新船员.svg')" draggable="false" /></div>
+						<div><img class="title-img-4" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/欢迎，新船员.svg')" draggable="false" /></div>
 					</div>
 					<div class="welcome">
 						<div class="welcome-text typo light">
@@ -162,13 +162,13 @@
 							<p v-view.once="flowUp"><strong>单击图标可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
 						</div>
 						<div class="server-selection">
-							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi')" class="seati" draggable="false" :src="require('@/assets/seati-bg.png')" /></div>
-							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=hGV5NDai9QXSySHVNEGWGebtEehB1ahG&jump_from=webapi')" class="oasis" draggable="false" :src="require('@/assets/oasis-logo.svg')" /></div>
+							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi')" class="seati" draggable="false" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/seati-bg.png')" /></div>
+							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=hGV5NDai9QXSySHVNEGWGebtEehB1ahG&jump_from=webapi')" class="oasis" draggable="false" :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/oasis-logo.svg')" /></div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section v-lazy:background-image="require('@/assets/images/3.jpg')" class="common-background mod-information">
+			<section v-lazy:background-image="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/3.jpg')" class="common-background mod-information">
 				<div class="container">
 					<div class="mod-card" v-view.once="scaleIn">
 						<div class="title" v-view.once="flowLeft">这个周目，大概是这样的</div>
@@ -181,7 +181,7 @@
 								周目主题：
 								<div class="g">养老+微科技</div>
 							</li>
-							<li>&nbsp;服务端：<img :src="require('@/assets/arclight.svg')" draggable="false" style="display: inline-block; height: 32px; vertical-align: middle" /></li>
+							<li>&nbsp;服务端：<img :src="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/arclight.svg')" draggable="false" style="display: inline-block; height: 32px; vertical-align: middle" /></li>
 							<li>
 								服务器版本：
 								<div class="g">1.18.2</div>

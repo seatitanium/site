@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="require('@/assets/images/2.jpg')">
+		<banner :bg="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/2.jpg')">
 			<template #title> 加入 Seati </template>
 			<template #subtitle> 立即开始 </template>
 			<template #text> 不同于我们的主服务器 Oasis，要获取 Seati 的白名单，需要完成问卷。<br />不过，即使没有完成问卷，你也可以加入 Oasis 或者 Seati 的讨论群。 </template>

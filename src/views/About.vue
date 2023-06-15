@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="require('@/assets/images/6.jpg')">
+		<banner :bg="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/6.jpg')">
 			<template #title>关于 Seati</template>
 			<template #subtitle>了解更多</template>
 			<template #text
@@ -58,7 +58,7 @@
 				<img
 					v-view.once="flowLeft"
 					v-lazy="
-						require('@/assets/images/seatide-archive.png')
+						require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/seatide-archive.png')
 					"
 				/>
 				<figcaption>SEATiDE 的旧官网</figcaption>

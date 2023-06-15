@@ -1,6 +1,6 @@
 <template>
 	<div page>
-		<banner :bg="require('@/assets/images/7.jpg')">
+		<banner :bg="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/7.jpg')">
 			<template #title> 捐助 Seati </template>
 			<template #subtitle> 帮助我们持续运行 </template>
 			<template #text> Seati 当前没有任何盈利项目，但接受无偿捐助，这能够维持 Seati 的运行，也是 Seati 的唯一收入。<br />你可以在本页面查看 Seati 的资金运转情况和过往捐赠者信息。 </template>
@@ -39,8 +39,8 @@
 					<strong>5 天无理由全额退款</strong>，超过 5 天若仍因某些原因仍需退款可联系服主。
 				</p>
 				<div v-view.once="flowUp" class="pay">
-					<img v-lazy="require('@/assets/images/alipay-qr.jpg')" />
-					<img v-lazy="require('@/assets/images/wechat-qr.jpg')" />
+					<img v-lazy="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/alipay-qr.jpg')" />
+					<img v-lazy="require('https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/wechat-qr.jpg')" />
 				</div>
 				<h1 v-view.once="flowUp" class="primary-text">感谢捐助</h1>
 				<p v-view.once="flowUp">感谢这些人的无偿捐助，帮助了 Seati 发展和维持运行。排名使用洗牌算法随机排列，刷新页面可重排。</p>
