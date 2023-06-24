@@ -19,7 +19,7 @@
 			/>
 			<div class="nav-link">
 				<div
-					@click="x.route ? $router.push({ name: x.route }) : $open(x.href)"
+					@click="x.route ? $router.push({ name: x.route }) : $open(x.href as string)"
 					class="link"
 					:class="$route.name === x.route ? 'active' : ''"
 					v-for="(x, i) in links"
