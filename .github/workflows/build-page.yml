@@ -1,33 +1,36 @@
-name: Release Page
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v2.5.2
-        with:
-          node-version: 16.18.0
-      - name: Build
-        run: |
-          npm install
-          npm run build
-          echo 'seati.cc' > dist/CNAME
-          
-      - name: Push
-        run: |
-          cd dist
-          git init
-          git config --global user.email ''
-          git config --global user.name 'bot'
-          git remote add origin https://Subilan:${{ secrets.a }}@github.com/seatitanium/site
-          git add *
-          git commit -m 'build'
-          git push origin HEAD:build --force
+    - name: Checkout
+      uses: actions/checkout@v3
 
-          
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+
+    - name: Build
+      run: |
+        npm install
+        npm run build
+        
+    - name: Setup SSH Deploy Keys
+      run: |
+        mkdir -p ~/.ssh
+        echo '${{ secrets.PRIVKEY }}' > ./key
+        chmod 600 ./key
+        echo '${{ secrets.KNOWN_HOSTS }}' > ~/.ssh/known_hosts
+  
+    - name: Deploy
+      run: |
+        scp -i ./key -r ./dist/* root@8.218.58.237:/home/wwwroot/seati
