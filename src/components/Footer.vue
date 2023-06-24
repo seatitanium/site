@@ -19,7 +19,7 @@
 			</div>
 			<div class="button-list">
 				<icon-btn @click.native="$open('https://github.com/seatitanium')" icon="github" class="dark" />
-				<icon-btn @click.native="$open('https://w.seatitaniu.me')" icon="book-outline" class="dark" />
+				<icon-btn @click.native="$open('https://wiki.seati.cc')" icon="book-outline" class="dark" />
 			</div>
 		</div>
 	</footer>

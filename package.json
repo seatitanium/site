@@ -35,6 +35,7 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "typescript": "~4.1.5",
+    "volar-service-vetur": "^0.0.8",
     "vue-cli-plugin-style-resources-loader": "^0.1.4",
     "vue-template-compiler": "^2.6.11"
   }
