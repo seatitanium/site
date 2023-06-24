@@ -90,3 +90,10 @@ export function isIOS(nav: Navigator) {
 export function sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export function toStandardDate(dateString: string) {
+	return new Date(dateString)
+		.toLocaleString()
+		.replace(/\/(\d)\//g, '/0$1/')
+		.replace(/\/(\d)$/g, '/0$1');
+}

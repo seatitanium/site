@@ -5,45 +5,39 @@
 				<logo class="footer light" />
 				<p class="copyright">
 					&copy; 2022-2023 Seatitanium & Oasis<br />
-					<small>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small>
+					<small>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small><br />
+					<small>Latest built at {{ latestBuildDate }}</small>
 				</p>
-				<p>
-					Seatitanium 致力于实现高自由度、带有探索性的游戏体验。模组的多样性承载着我们的追求。
-				</p>
-				<p>
-					注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归
-					Seati 所有。部分图片来自于公有领域。
-				</p>
+				<p>Seatitanium 致力于实现高自由度、带有探索性的游戏体验。模组的多样性承载着我们的追求。</p>
+				<p>注：如无特殊说明，所有文字的著作权和游戏摄影作品使用权归 Seati 所有。部分图片来自于公有领域。</p>
 			</div>
 			<div class="links">
 				联系服主 — <a href="mailto:christophersubilan@gmail.com">christophersubilan@gmail.com</a>
-				<br/>
+				<br />
 				快速前往 —
 				<a href="https://oases.red" target="_blank">Oasis</a> · <a href="https://i.oases.red" target="_blank">火星港</a>
 			</div>
 			<div class="button-list">
-				<icon-btn
-					@click.native="$open('https://github.com/seatitanium')"
-					icon="github"
-					class="dark"
-				/>
-				<icon-btn
-					@click.native="$open('https://w.seatitaniu.me')"
-					icon="book-outline"
-					class="dark"
-				/>
+				<icon-btn @click.native="$open('https://github.com/seatitanium')" icon="github" class="dark" />
+				<icon-btn @click.native="$open('https://w.seatitaniu.me')" icon="book-outline" class="dark" />
 			</div>
 		</div>
 	</footer>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Logo from "./Logo.vue";
-import IconBtn from "@/components/IconBtn.vue";
+import Vue from 'vue';
+import Logo from './Logo.vue';
+import IconBtn from '@/components/IconBtn.vue';
+import { toStandardDate } from '@/fn';
 
 export default Vue.extend({
 	components: { Logo, IconBtn },
+	computed: {
+		latestBuildDate() {
+			return !!document.documentElement.dataset['buildTimestamp'] ? toStandardDate(document.documentElement.dataset['buildTimestamp']) : 'unknown';
+		}
+	}
 });
 </script>
 
@@ -58,7 +52,7 @@ footer {
 			text-align: center;
 			margin: 8px 0;
 		}
-		
+
 		position: absolute;
 		right: 0;
 		bottom: calc(32px + 14px);
