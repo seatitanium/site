@@ -1,44 +1,22 @@
 <template>
 	<div class="navbar-box">
 		<nav class="navbar" :class="active ? 'active' : 'inactive'">
-			<div
-				class="hamburger"
-				:class="hamburgerOpen ? 'open' : ''"
-				@click="
-					hamburgerOpen = !hamburgerOpen;
-					toggleDropdown();
-				"
-			>
+			<div class="hamburger" :class="hamburgerOpen ? 'open' : ''" @click="
+				hamburgerOpen = !hamburgerOpen;
+			toggleDropdown();
+			">
 				<span class="hamburger__top-bun"></span>
 				<span class="hamburger__bottom-bun"></span>
 			</div>
-			<logo
-				@click.native="$router.push('/')"
-				class="nav"
-				:class="active ? '' : 'light'"
-			/>
+			<logo @click.native="$router.push('/')" class="nav" :class="active ? '' : 'light'" />
 			<div class="nav-link">
-				<div
-					@click="x.route ? $router.push({ name: x.route }) : $open(x.href as string)"
-					class="link"
-					:class="$route.name === x.route ? 'active' : ''"
-					v-for="(x, i) in links"
-					:key="i"
-				>
+				<div @click="jumpto(x.route || x.href || '')" class="link" :class="{ active: isCurrentPage(x.route || '') }"
+					v-for="(x, i) in links" :key="i">
 					{{ x.name }}
 				</div>
 			</div>
 			<div ref="dropdown" class="dropdown" style="display: none">
-				<span
-					@click="
-						$router.push({ name: x.route });
-						hamburgerOpen = false;
-						toggleDropdown();
-					"
-					class="dropdown-item"
-					v-for="(x, i) in links"
-					:key="i"
-				>
+				<span @click="onDropdownItemClick(x)" class="dropdown-item" v-for="(x, i) in links" :key="i">
 					{{ x.name }}
 				</span>
 			</div>
@@ -57,19 +35,19 @@ export default Vue.extend({
 			links: [
 				{
 					name: "首页",
-					route: "home",
+					route: "/",
 				},
 				{
 					name: "加入",
-					route: "join",
+					route: "/join",
 				},
 				{
 					name: "关于",
-					route: "about",
+					route: "/about",
 				},
 				{
 					name: "捐助",
-					route: "donate",
+					route: "/donate",
 				},
 				{
 					name: "知识库",
@@ -155,6 +133,9 @@ export default Vue.extend({
 				obj.style.pointerEvents = "auto";
 			}
 		},
+		isCurrentPage(route: string) {
+			return (route === '/' && this.$route.name === 'home') || `/${this.$route.name}` === route;
+		},
 		activateNav() {
 			if ((document.scrollingElement as Element).scrollTop > 100) {
 				this.active = true;
@@ -162,6 +143,18 @@ export default Vue.extend({
 				this.active = false;
 			}
 		},
+		jumpto(to: string) {
+			if (to.startsWith("/")) {
+				this.$router.push(to);
+			} else {
+				window.open(to);
+			}
+		},
+		onDropdownItemClick(x: any) {
+			this.$router.push({ name: x.route });
+			this.hamburgerOpen = false;
+			this.toggleDropdown();
+		}
 	},
 });
 </script>
@@ -170,25 +163,31 @@ export default Vue.extend({
 .navbar {
 	.logo.nav {
 		cursor: pointer;
+
 		@media (max-width: 800px) {
 			margin-left: 42px;
 		}
 	}
 
 	&.inactive {
+
 		.hamburger__bottom-bun,
 		.hamburger__top-bun {
 			background: #fff;
 		}
+
 		.link {
 			&:not(.active):hover {
 				color: white !important;
 			}
+
 			&.active {
 				color: white !important;
 			}
+
 			color: @textmidwhite;
 		}
+
 		background: rgba(0, 0, 0, .2);
 		backdrop-filter: blur(5px);
 	}
@@ -198,10 +197,12 @@ export default Vue.extend({
 	}
 
 	&.active {
+
 		.hamburger__bottom-bun,
 		.hamburger__top-bun {
 			background: @textmidgray;
 		}
+
 		background: white;
 	}
 }
@@ -210,6 +211,7 @@ export default Vue.extend({
 	margin-left: 16px;
 	display: flex;
 	align-items: center;
+
 	@media screen and (max-width: 800px) {
 		display: none;
 	}
@@ -227,6 +229,7 @@ export default Vue.extend({
 		&.active {
 			color: @textgray;
 			transform: scale(1.2);
+
 			&::after {
 				opacity: 1;
 				width: 120%;
@@ -305,9 +308,11 @@ export default Vue.extend({
 
 .open {
 	transform: rotate(90deg);
+
 	.hamburger__top-bun {
 		transform: rotate(45deg) translateY(0px);
 	}
+
 	.hamburger__bottom-bun {
 		transform: rotate(-45deg) translateY(0px);
 	}

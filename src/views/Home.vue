@@ -1,10 +1,15 @@
 <template>
 	<div page>
-		<banner :bg="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/nyberg_moon.jpg'" fullscreen>
-			<template #subtitle> <div class="fix1">高自由度 / 民主决议 / 周目制</div></template>
+		<banner bg="https://seati.oss-cn-qingdao.aliyuncs.com/assets/nyberg_moon.jpg" fullscreen>
+			<template #subtitle>
+				<div class="fix1">高自由度 / 民主决议 / 周目制</div>
+			</template>
 			<template #title>
 				从头到脚都是
-				<div class="stroke stroke-2 no-mobile"><img class="buyiyang" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/不一样.svg'" draggable="false" /></div>
+				<div class="stroke stroke-2 no-mobile">
+					<img class="buyiyang" src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/不一样.svg"
+						draggable="false" />
+				</div>
 				<div class="no-pc inline-block">不一样</div>
 				的感觉。
 			</template>
@@ -31,55 +36,63 @@
 			</template>
 			<template #buttons>
 				<btn class="join-btn" type="primary-a shadow arrow" size="large" icon="arrow-right" to="/join">立即加入</btn>
-				<btn @click.native="$open('https://wiki.seati.cc')" class="learnmore-btn" type="outlined shadow hover-light" size="large">阅读文档</btn>
+				<btn @click.native="$open('https://wiki.seati.cc')" class="learnmore-btn" type="outlined shadow hover-light"
+					size="large">阅读文档</btn>
 			</template>
 		</banner>
 		<div class="sections">
-			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/rocket-launch.png'" class="common-background darken-background darken-3">
+			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/rocket-launch.png'"
+				class="common-background darken-background darken-3">
 				<div class="container">
 					<div class="title-text" v-view.once="flowLeft">
 						<div>
 							<div>带你一步步领略模组的</div>
-							<img class="title-img-1" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/大千世界.svg'" draggable="false" />
+							<img class="title-img-1"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/大千世界.svg'"
+								draggable="false" />
 						</div>
 					</div>
 					<div class="typo light section-1-text-1">
-						<p v-view.once="flowUp"><strong>模组是对原版游戏无与伦比的扩充。</strong>从我们最初接触模组开始，我们就已经清楚模组这一无可比拟的优势。它不受任何限制地向游戏中添加极为多样的内容，并跟随着作者的思绪形成一整套完美的新游戏体系。</p>
+						<p v-view.once="flowUp">
+							<strong>模组是对原版游戏无与伦比的扩充。</strong>从我们最初接触模组开始，我们就已经清楚模组这一无可比拟的优势。它不受任何限制地向游戏中添加极为多样的内容，并跟随着作者的思绪形成一整套完美的新游戏体系。
+						</p>
 						<p v-view.once="flowUp">模组如此多样，独乐不如众乐。</p>
-						<p v-view.once="flowUp"><strong>钛海为你提供了这样一个平台：</strong>我们共同决定这个周目玩什么——按照少数服从多数的原则；我们共同确定什么模组适合、什么模组不适合这一周目；我们共同观察并改进每个周目；我们共同记录并永久保存每个周目的记忆······</p>
+						<p v-view.once="flowUp">
+							<strong>钛海为你提供了这样一个平台：</strong>我们共同决定这个周目玩什么——按照少数服从多数的原则；我们共同确定什么模组适合、什么模组不适合这一周目；我们共同观察并改进每个周目；我们共同记录并永久保存每个周目的记忆······
+						</p>
 						<p v-view.once="flowUp">我们——玩家和管理员——将会携你漫步模组的大千世界，在每一个地方都留下痕迹。</p>
 					</div>
 				</div>
 			</section>
 			<section style="position: relative; background: black; overflow: hidden">
-				<video id="moon-video" muted>
+				<video ref="moonvideo" id="moon-video" muted>
 					<source :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/moon.mp4'" type="video/mp4" />
 				</video>
-				<div
-					class="container"
-					v-view.once="
-						() => {
-							if (!isMobile()) (moonVideo as HTMLVideoElement).play();
-						}
-					"
-				>
+				<div class="container" v-view.once="autoplayBackgroundVideo()">
 					<div class="title-text" style="justify-content: center" v-view.once="flowUp">
-						<div style="align-items: center">不太一样的<img class="title-img-2" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/周目制.svg'" draggable="false" /></div>
+						<div style="align-items: center">不太一样的<img class="title-img-2"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/周目制.svg'"
+								draggable="false" /></div>
 					</div>
 					<section class="term-feats">
 						<div class="feat" v-view.once="flowLeft">
 							<div class="top" v-view.once="flowLeft">
 								<div class="icon">
-									<img style="transform: scale(1.1)" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/votes.png'" />
+									<img style="transform: scale(1.1)"
+										:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/votes.png'" />
 								</div>
 								<div class="title">
-									<img style="transform: translateY(10px)" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/投票.svg'" />
+									<img style="transform: translateY(10px)"
+										:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/投票.svg'" />
 								</div>
 							</div>
 							<div class="down">
 								<div class="typo light section-2-text">
-									<p v-view.once="flowUp">每个周目的主题或整合包候选项由管理员确定，玩家则进行决定性的一步——投票。<strong>最终所得票数最多的会成为本周目的主要游玩对象。</strong>遵从少数服从多数的原则。</p>
-									<p v-view.once="flowUp">你知道吗？<strong>投票</strong>是 Seati 长期以来（包含其前身「SEATiDE」）所盛行的制度，旨在从玩家处选取本周目最适合的模组搭配——模组实在是太多了！</p>
+									<p v-view.once="flowUp">
+										每个周目的主题或整合包候选项由管理员确定，玩家则进行决定性的一步——投票。<strong>最终所得票数最多的会成为本周目的主要游玩对象。</strong>遵从少数服从多数的原则。
+									</p>
+									<p v-view.once="flowUp">你知道吗？<strong>投票</strong>是 Seati
+										长期以来（包含其前身「SEATiDE」）所盛行的制度，旨在从玩家处选取本周目最适合的模组搭配——模组实在是太多了！</p>
 								</div>
 							</div>
 						</div>
@@ -87,16 +100,22 @@
 						<div class="feat" v-view.once="flowLeft">
 							<div class="top" v-view.once="flowLeft">
 								<div class="icon">
-									<img style="transform: scale(0.9)" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/write.png'" />
+									<img style="transform: scale(0.9)"
+										:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/write.png'" />
 								</div>
 								<div class="title">
-									<img style="transform: translateY(10px)" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/记录.svg'" />
+									<img style="transform: translateY(10px)"
+										:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/记录.svg'" />
 								</div>
 							</div>
 							<div class="down">
 								<div class="typo light section-2-text">
-									<p v-view.once="flowUp"><strong>担心周目匆匆逝去，没有耐心进行建筑？</strong>我们为玩家提供了专用的平台，玩家在上面可以记录和展示自己在每个周目中的经历和创作。</p>
-									<p v-view.once="flowUp">我们相信，正是记录才使得每个周目都有它自身的独特性和意义，而非匆匆飘过的...呃...不知道是什么东西。<strong>我们鼓励所有玩家在平台上记录自己的游戏体验。</strong>不久后，我们亦会将平台的部分功能与服务器建立联系。</p>
+									<p v-view.once="flowUp">
+										<strong>担心周目匆匆逝去，没有耐心进行建筑？</strong>我们为玩家提供了专用的平台，玩家在上面可以记录和展示自己在每个周目中的经历和创作。
+									</p>
+									<p v-view.once="flowUp">
+										我们相信，正是记录才使得每个周目都有它自身的独特性和意义，而非匆匆飘过的...呃...不知道是什么东西。<strong>我们鼓励所有玩家在平台上记录自己的游戏体验。</strong>不久后，我们亦会将平台的部分功能与服务器建立联系。
+									</p>
 								</div>
 							</div>
 						</div>
@@ -104,45 +123,59 @@
 						<div class="feat" v-view.once="flowLeft">
 							<div class="top" v-view.once="flowLeft">
 								<div class="icon">
-									<img style="transform: scale(1.1)" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/review.png'" />
+									<img style="transform: scale(1.1)"
+										:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/review.png'" />
 								</div>
 								<div class="title">
-									<img style="transform: translateY(25px)" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/评价.svg'" />
+									<img style="transform: translateY(25px)"
+										:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/评价.svg'" />
 								</div>
 							</div>
 							<div class="down">
 								<div class="typo light section-2-text">
-									<p v-view.once="flowUp"><strong>模组之众多，带来模组搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。</p>
-									<p v-view.once="flowUp">这些模组的搭配合理吗？模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在 Seati 留下的宝贵痕迹。</p>
+									<p v-view.once="flowUp">
+										<strong>模组之众多，带来模组搭配之复杂。</strong>每个周目之后，我们都会提供专用的渠道来获取本周目游玩体验的信息。
+									</p>
+									<p v-view.once="flowUp">
+										这些模组的搭配合理吗？模组是否真正符合了周目主题？稳定吗？<strong>或者...最为简单的——玩得开心吗？</strong>还是肝到爆了？！这些评价维度会成为每个周目的独特象征，同时大大帮助我们后续做得更好。更重要的是，这亦是你在
+										Seati 留下的宝贵痕迹。</p>
 								</div>
 							</div>
 						</div>
 					</section>
 				</div>
 			</section>
-			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/comet.jpg'" class="common-background darken-background darken-2">
+			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/comet.jpg'"
+				class="common-background darken-background darken-2">
 				<div class="container">
 					<div class="title-text" v-view.once="flowLeft">
-						<div><img class="title-img-3" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/强劲性能.svg'" draggable="false" />轻轻松松完成「星际穿越」</div>
+						<div><img class="title-img-3"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/强劲性能.svg'"
+								draggable="false" />轻轻松松完成「星际穿越」</div>
 					</div>
 					<div class="performance-information">
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/core-i9.svg'" draggable="false" />
+							<img class="performance-img"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/core-i9.svg'" draggable="false" />
 							<div>Gen 13</div>
 							<div class="name">处理器</div>
 						</div>
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/ddr4.svg'" draggable="false" />
+							<img class="performance-img" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/ddr4.svg'"
+								draggable="false" />
 							<div>16 GB</div>
 							<div class="name">分配内存</div>
 						</div>
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/rotating-earth.gif'" draggable="false" />
+							<img class="performance-img"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/rotating-earth.gif'"
+								draggable="false" />
 							<div>50M</div>
 							<div class="name">峰值带宽</div>
 						</div>
 						<div class="item" v-view.once="scaleIn">
-							<img class="performance-img" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/ti-cube.png'" draggable="false" />
+							<img class="performance-img"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/ti-cube.png'" draggable="false" />
 							<div>1 TB</div>
 							<div class="name">存储空间</div>
 						</div>
@@ -150,39 +183,49 @@
 				</div>
 			</section>
 
-			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/1.jpg'" class="common-background darken-background darken-2">
+			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/1.jpg'"
+				class="common-background darken-background darken-2">
 				<div class="container">
 					<div v-view.once="flowLeft" class="title-text">
-						<div><img class="title-img-4" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/欢迎，新船员.svg'" draggable="false" /></div>
+						<div><img class="title-img-4"
+								:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/欢迎，新船员.svg'"
+								draggable="false" /></div>
 					</div>
 					<div class="welcome">
 						<div class="welcome-text typo light">
 							<p v-view.once="flowUp"><strong>我们期待并欢迎每一位新船员的加入。</strong>...等等，为什么是「船员」？</p>
-							<p v-view.once="flowUp">Seati 是 Oasis 旗下独立运营的模组服务器，若要加入 Seati，需要首先成为 Oasis 的船员。<strong>好消息是，目前 Oasis 的加入并没有任何限制。</strong>而要获取 Seati 白名单需要完成相应的问卷。</p>
+							<p v-view.once="flowUp">Seati 是 Oasis 旗下独立运营的模组服务器，若要加入 Seati，需要首先成为 Oasis 的船员。<strong>好消息是，目前
+									Oasis 的加入并没有任何限制。</strong>而要获取 Seati 白名单需要完成相应的问卷。</p>
 							<p v-view.once="flowUp"><strong>单击图标可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
 						</div>
 						<div class="server-selection">
-							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi')" class="seati" draggable="false" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/seati-bg.png'" /></div>
-							<div><img @click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=hGV5NDai9QXSySHVNEGWGebtEehB1ahG&jump_from=webapi')" class="oasis" draggable="false" :src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/oasis-logo.svg'" /></div>
+							<div><img
+									@click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi')"
+									class="seati" draggable="false"
+									:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/seati-bg.png'" /></div>
+							<div><img
+									@click="$open('https://qm.qq.com/cgi-bin/qm/qr?k=hGV5NDai9QXSySHVNEGWGebtEehB1ahG&jump_from=webapi')"
+									class="oasis" draggable="false"
+									:src="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/oasis-logo.svg'" /></div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/3.jpg'" class="common-background mod-information">
+			<section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/3.jpg'"
+				class="common-background mod-information">
 				<div class="container">
 					<div class="mod-card" v-view.once="scaleIn">
-						<div class="title" style="font-weight: bold" v-view.once="flowLeft">这个周目，大概是这样的</div>
+						<div class="title" v-view.once="flowLeft">当前周目信息 - 2023/07/31 更新</div>
 						<ul v-view.once="flowLeft">
-							<li>周目代号：ST7</li>
-							<li>周目主题：养老+微科技</li>
+							<li>周目代号：ST8</li>
+							<li>周目整合包：Create: Astral（机械动力:星辰）</li>
 							<li>版本：Java 1.18.2</li>
-							<li>服务端：Forge 40.2.9</li>
-							<li>白名单人数：23</li>
+							<li>服务端：Fabric 0.14.21</li>
+							<li>白名单人数：28</li>
 							<li>建议分配 RAM：8GB+</li>
-							<li>正式开放日期：2023/06/14</li>
-							<li>持续时间：{{ duration }}</li>
-							<li>周目构成方式：玩家按主题自行组包</li>
-							<li>模组个数：~110</li>
+							<li>正式开放日期：2023/07/31</li>
+							<li>周目持续时间：{{ duration }}</li>
+							<li>模组个数：277</li>
 						</ul>
 					</div>
 				</div>
@@ -197,14 +240,8 @@ import Btn from '@/components/Btn.vue';
 import MetaBar from '@/components/MetaBar.vue';
 import MetaItem from '@/components/MetaItem.vue';
 import Status from '@/components/Status.vue';
-import SvgSheng from '@/components/typo/svg-sheng.vue';
-import SvgWen from '@/components/typo/svg-wen.vue';
-import SvgYi from '@/components/typo/svg-yi.vue';
-import SvgMinzhu from '@/components/typo/svg-minzhu.vue';
-import SvgJishu from '@/components/typo/svg-jishu.vue';
 import Vue from 'vue';
 import anime from 'animejs';
-import SvgZidonghua from '@/components/typo/svg-zidonghua.vue';
 import Logo from '@/components/Logo.vue';
 import { flowUp, isPCSize, isMobile, isPhoneSize, get, scaleIn, flowLeft } from '@/fn';
 import ServerStatus from '@/components/ServerStatus.vue';
@@ -213,12 +250,6 @@ export default Vue.extend({
 	components: {
 		Banner,
 		Btn,
-		SvgWen,
-		SvgSheng,
-		SvgYi,
-		SvgMinzhu,
-		SvgJishu,
-		SvgZidonghua,
 		Logo,
 		MetaBar,
 		MetaItem,
@@ -236,6 +267,10 @@ export default Vue.extend({
 	methods: {
 		scaleIn,
 		flowLeft,
+		autoplayBackgroundVideo() {
+			// @ts-ignore
+			if (!isMobile() && this.$refs.moonvideo) this.$refs.moonvideo.play();
+		},
 		animateFeature() {
 			anime({
 				targets: '#features-title',
@@ -304,18 +339,18 @@ export default Vue.extend({
 			return count;
 		},
 		getDuration() {
-			let d = new Date().getTime() - new Date('2023/06/14 12:00:00').getTime();
+			let d = new Date().getTime() - new Date('2023-07-31 18:00').getTime();
 			let x = d / 1000 / 60 / 60;
 			let H = Math.floor(x);
 			x = (x - H) * 60;
 			let M = Math.floor(x);
 			x = (x - M) * 60;
 			let S = Math.floor(x);
-			let _S = S.toString();
-			if (_S.length === 1) {
-				_S = `0${_S}`;
-			}
-			return `${H}:${M}:${_S}`;
+			let {_H, _M, _S} = {_H: H.toString(), _M: M.toString(), _S: S.toString()};
+			if (_S.length === 1) _S = `0${_S}`;
+			if (_H.length === 1) _H = `0${_H}`;
+			if (_M.length === 1) _M = `0${_M}`
+			return `${_H}:${_M}:${_S}`;
 		}
 	},
 	mounted() {
@@ -338,11 +373,6 @@ export default Vue.extend({
 		setInterval(() => {
 			this.duration = this.getDuration();
 		}, 1000);
-	},
-	computed: {
-		moonVideo() {
-			return document.getElementById('moon-video');
-		}
 	}
 });
 </script>
@@ -396,6 +426,7 @@ export default Vue.extend({
 		text-align: center;
 		margin-bottom: 32px;
 		color: white;
+
 		@media screen and (max-width: 1000px) {
 			font-size: 32px;
 		}
@@ -405,11 +436,13 @@ export default Vue.extend({
 		@media screen and (max-width: 1000px) {
 			font-size: 18px;
 		}
+
 		font-size: 26px;
 		line-height: 1.8;
 		color: @textmidwhite;
 		max-width: 700px;
 		margin: 16px auto;
+
 		&::before {
 			content: '';
 			margin-left: 2em;
@@ -428,9 +461,11 @@ export default Vue.extend({
 
 .features-container {
 	display: flex;
+
 	@media screen and (max-width: 1000px) {
 		flex-direction: column;
 	}
+
 	flex-direction: row;
 	gap: 32px;
 
@@ -440,9 +475,10 @@ export default Vue.extend({
 }
 
 .container {
-	> h1 {
+	>h1 {
 		color: @textgray;
 	}
+
 	padding: 72px 0;
 
 	#features-title {
@@ -451,6 +487,7 @@ export default Vue.extend({
 		font-size: 48px;
 		margin-bottom: 32px;
 		margin-top: 0;
+
 		&::after {
 			content: '';
 			display: block;
@@ -485,32 +522,41 @@ export default Vue.extend({
 		.single-feature {
 			width: 90%;
 			opacity: 0;
+
 			@media screen and (min-width: 1000px) {
 				margin: 72px 0;
 				padding: 32px;
 			}
+
 			&:not(.light) {
 				background: rgba(0, 0, 0, 0.4);
 			}
+
 			&.light {
 				background: rgba(255, 255, 255, 0.3);
+
 				.typo p {
 					color: @textlightwhite;
 				}
 			}
+
 			display: flex;
+
 			@media (max-width: 1000px) {
 				flex-direction: column;
 				padding: 56px 16px;
 				margin: 32px 0;
 				width: 100%;
 			}
+
 			@media (max-width: 1200px) {
-				> svg:first-child,
-				> svg:last-child {
+
+				>svg:first-child,
+				>svg:last-child {
 					display: none;
 				}
 			}
+
 			align-items: center;
 
 			svg {
@@ -524,14 +570,17 @@ export default Vue.extend({
 
 				@media screen and (max-width: 1000px) {
 					text-align: center;
+
 					button {
 						margin: auto;
 					}
 				}
+
 				color: white;
 				text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
 
 				@media screen and (min-width: 1310px) {
+
 					h1,
 					h2 {
 						white-space: nowrap;
@@ -543,12 +592,15 @@ export default Vue.extend({
 					margin-top: 0;
 					margin-bottom: 8px;
 					font-size: 32px;
+
 					@media screen and (max-width: 1000px) {
 						font-size: 22.4px;
+
 						svg {
 							transform: scale(1.4) !important;
 						}
 					}
+
 					svg {
 						transform: scale(1.2);
 						margin-right: 0.5em;
@@ -557,15 +609,18 @@ export default Vue.extend({
 
 				h1 {
 					font-size: 48px;
+
 					@media screen and (max-width: 1000px) {
 						font-size: 30px;
 					}
+
 					margin: 0;
 				}
 
 				p {
 					font-size: 18px;
 					color: @textmidwhite;
+
 					@media screen and (max-width: 1000px) {
 						font-size: 14px;
 					}
@@ -597,6 +652,7 @@ export default Vue.extend({
 		@media screen and (max-width: 1000px) {
 			height: 0;
 		}
+
 		content: '';
 		height: 100%;
 		width: 100%;
@@ -624,36 +680,44 @@ export default Vue.extend({
 
 .simple-info {
 	font-size: 18px;
+
 	@media screen and (max-width: 800px) {
 		font-size: 12px;
 		margin-top: 8px;
 		padding: 4px 8px;
 	}
+
 	background: rgba(255, 255, 255, 0.3);
 	padding: 8px 16px;
 	margin-top: 32px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+
 	.mdi {
 		margin-right: 0.5em;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
 		@media (max-width: 800px) {
 			width: 16px;
 		}
 	}
+
 	.item {
 		display: inline-flex;
 		align-items: center;
+
 		&::after {
 			content: '·';
 			margin: 0 12px;
+
 			@media screen and (max-width: 800px) {
 				margin: 0 8px;
 			}
 		}
+
 		&:last-child::after {
 			content: none;
 		}
@@ -677,6 +741,7 @@ export default Vue.extend({
 		opacity: 0;
 		margin: 8px;
 		position: relative;
+
 		&::after {
 			width: 100%;
 			height: 100%;
@@ -688,22 +753,27 @@ export default Vue.extend({
 			border-radius: inherit;
 			z-index: -2;
 		}
+
 		h2,
 		p {
 			font-weight: normal;
 		}
+
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
 		border-radius: 4px;
 		color: white;
+
 		@media (max-width: 800px) {
 			padding: 8px 16px;
+
 			p {
 				margin: 0 !important;
 				max-width: 100px !important;
 			}
 		}
+
 		padding: 16px;
 		cursor: pointer;
 		transition: box-shadow 0.2s ease;
@@ -717,26 +787,32 @@ export default Vue.extend({
 
 		h1 {
 			font-size: 26px;
+
 			@media (max-width: 1000px) {
 				font-size: 18px;
 			}
+
 			margin: 0;
 		}
 
 		h2 {
 			font-size: 14px;
+
 			@media (max-width: 1000px) {
 				font-size: 10.5px;
 			}
+
 			margin: 0;
 			color: rgba(255, 255, 255, 0.5);
 		}
 
 		p {
 			font-size: 14px;
+
 			@media (max-width: 1000px) {
 				font-size: 10.5px;
 			}
+
 			margin-top: 10px;
 			margin-bottom: 0;
 			max-width: 200px;
@@ -748,6 +824,7 @@ export default Vue.extend({
 			top: 16px;
 			.monospace;
 			opacity: 0.4;
+
 			@media (max-width: 800px) {
 				display: none;
 			}
@@ -766,6 +843,7 @@ export default Vue.extend({
 	position: absolute;
 	right: 16px;
 	top: 16px;
+
 	@media (max-width: 1200px) {
 		display: none;
 	}
@@ -799,9 +877,11 @@ export default Vue.extend({
 
 .section-1-text-1 {
 	font-size: 26px;
+
 	@media (max-width: 1000px) {
 		font-size: 18px;
 	}
+
 	text-shadow: @shadowlight;
 }
 
@@ -829,10 +909,12 @@ export default Vue.extend({
 		backdrop-filter: blur(2px);
 		box-shadow: @shadowdark;
 		padding: 32px 64px;
+
 		@media (max-width: 1000px) {
 			padding: 16px;
 			font-size: 18px;
 		}
+
 		font-size: 26px;
 
 		.top {
@@ -881,6 +963,7 @@ export default Vue.extend({
 			width: 100%;
 			padding: 32px 0;
 		}
+
 		display: flex;
 		align-items: center;
 		gap: 16px;
@@ -897,6 +980,7 @@ export default Vue.extend({
 	font-size: 26px;
 	width: 70%;
 	text-shadow: @shadowdark;
+
 	@media (max-width: 1000px) {
 		width: 100%;
 		font-size: 18px;
@@ -936,6 +1020,7 @@ export default Vue.extend({
 		@media (max-width: 1000px) {
 			height: 100px;
 		}
+
 		height: 200px;
 		border-radius: 100%;
 		transition: all 0.2s ease;
@@ -949,6 +1034,7 @@ export default Vue.extend({
 
 		&.oasis {
 			transform: scale(1.5);
+
 			&:hover {
 				transform: scale(1.7);
 			}
@@ -958,43 +1044,52 @@ export default Vue.extend({
 
 .mod-information {
 	color: white;
-	font-size: 32px;
+	font-size: 1.5rem;
+
 	@media (max-width: 1000px) {
 		font-size: 18px;
+
 		img {
 			height: 20px !important;
 		}
 	}
+
 	ul {
 		padding: 0;
 	}
+
 	li {
 		&::before {
-			content: '٭';
-			margin-right: 28px;
+			content: '>';
+			font-family: Minecraft, monospace;
+			margin-right: 1rem;
+
 			@media (max-width: 1000px) {
 				margin-right: 8px;
 			}
+
 			background: @primaryg;
 			background-clip: text;
 			color: transparent;
-			font-weight: bold;
 			display: inline-block;
 			text-shadow: none;
 		}
+
 		margin: 16px 0;
 		list-style: none;
 	}
+
 	.title {
 		@media (max-width: 1000px) {
-			font-size: 32px;
+			font-size: 1.7rem;
 		}
-		font-size: 58px;
+
+		font-size: 2.4rem;
 	}
 }
 
 .mod-card {
-	padding: 64px;
+	padding: 2rem;
 	background: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(10px);
 
