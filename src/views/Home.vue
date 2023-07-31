@@ -218,14 +218,14 @@
 						<div class="title" v-view.once="flowLeft">当前周目信息 - 2023/07/31 更新</div>
 						<ul v-view.once="flowLeft">
 							<li>周目代号：ST8</li>
-							<li>周目整合包：Create: Astral（机械动力:星辰）</li>
-							<li>版本：Java 1.18.2</li>
-							<li>服务端：Fabric 0.14.21</li>
-							<li>白名单人数：28</li>
-							<li>建议分配 RAM：8GB+</li>
+							<li>周目整合包：Infinity（无限）</li>
+							<li>版本：Java 1.18.1</li>
+							<li>服务端：Fabric 0.13.3</li>
+							<li>白名单人数：29</li>
+							<li>建议分配 RAM：>= 4GB</li>
 							<li>正式开放日期：2023/07/31</li>
 							<li>周目持续时间：{{ duration }}</li>
-							<li>模组个数：154</li>
+							<li>模组个数：185</li>
 						</ul>
 					</div>
 				</div>
