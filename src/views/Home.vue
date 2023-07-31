@@ -5,13 +5,7 @@
 				<div class="fix1">高自由度 / 民主决议 / 周目制</div>
 			</template>
 			<template #title>
-				从头到脚都是
-				<div class="stroke stroke-2 no-mobile">
-					<img class="buyiyang" src="https://seati.oss-cn-qingdao.aliyuncs.com/assets/handwriting/不一样.svg"
-						draggable="false" />
-				</div>
-				<div class="no-pc inline-block">不一样</div>
-				的感觉。
+				从头到脚都是不一样的感觉。
 			</template>
 			<template #text>
 				在 Seati，你能够参与到游戏的整个流程。<br />
