@@ -339,7 +339,7 @@ export default Vue.extend({
 			return count;
 		},
 		getDuration() {
-			let d = new Date().getTime() - new Date('2023-07-31 18:00').getTime();
+			let d = new Date().getTime() - new Date('2023-07-31 20:30').getTime();
 			let x = d / 1000 / 60 / 60;
 			let H = Math.floor(x);
 			x = (x - H) * 60;
