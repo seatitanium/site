@@ -2,7 +2,7 @@
 	<div page>
 		<banner bg="https://seati.oss-cn-qingdao.aliyuncs.com/assets/nyberg_moon.jpg" fullscreen>
 			<template #subtitle>
-				<div class="fix1">高自由度 / 民主决议 / 周目制</div>
+				高自由度 / 民主决议 / 周目制
 			</template>
 			<template #title>
 				从头到脚都是不一样的感觉。
@@ -374,12 +374,6 @@ export default Vue.extend({
 <style lang="less" scoped>
 .learnmore-btn {
 	margin-left: 32px;
-}
-
-.fix1 {
-	@media (min-width: 1000px) {
-		transform: translateY(100%);
-	}
 }
 
 .sections {
