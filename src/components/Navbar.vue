@@ -151,7 +151,7 @@ export default Vue.extend({
 			}
 		},
 		onDropdownItemClick(x: any) {
-			this.$router.push({ name: x.route });
+			this.jumpto(x);
 			this.hamburgerOpen = false;
 			this.toggleDropdown();
 		}
