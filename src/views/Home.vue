@@ -206,7 +206,10 @@
         </div>
       </section>
       <section v-lazy:background-image="'https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/3.jpg'"
-               class="common-background mod-information">
+               class="mod-information darken-3 blur" :class="{
+        'common-background': !isMobile(),
+        'darken-background': isMobile()
+               }">
         <div class="container">
           <div class="mod-card" v-view.once="scaleIn">
             <div class="title" v-view.once="flowLeft">当前周目信息 - 2023/08/14 更新</div>
@@ -372,6 +375,15 @@ export default Vue.extend({
 </script>
 
 <style lang="less" scoped>
+
+.background-darkener::before {
+  content: " ";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .2);
+}
+
 .learnmore-btn {
   margin-left: 32px;
 }
