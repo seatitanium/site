@@ -49,6 +49,10 @@ export default Vue.extend({
 					name: "捐助",
 					route: "/donate",
 				},
+        {
+          name: "下载",
+          href: "https://storage.seati.cc"
+        },
 				{
 					name: "知识库",
 					href: "https://wiki.seati.cc"
@@ -57,10 +61,6 @@ export default Vue.extend({
 					name: "服规",
 					href: "https://wiki.seati.cc/ti/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%84%E5%88%99"
 				},
-				{
-					name: "Tisea",
-					href: "https://tisea.cc"
-				}
 			],
 			active: false,
 			hamburgerOpen: false,

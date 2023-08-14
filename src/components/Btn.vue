@@ -42,12 +42,12 @@ export default Vue.extend({
 
 	&.large {
 		@media screen and (max-width: 1000px) {
-			font-size: 14px;
+			font-size: 1rem;
 		}
 		@media screen and (min-width: 1000px) {
 			padding: 10px 20px;
 		}
-		font-size: 18px;
+		font-size: 1.2rem;
 	}
 
 	&.small {
@@ -129,6 +129,19 @@ export default Vue.extend({
 		background-size: 140% auto;
 		color: white;
 	}
+
+  &.primary-o {
+    background-image: linear-gradient(
+        65deg,
+        hsl(36deg 100% 50%) 0%,
+        hsl(24deg 100% 49%) 50%,
+        hsl(0deg 100% 48%) 100%
+    );
+    animation: bg infinite;
+    animation-duration: 13s;
+    background-size: 140% auto;
+    color: white;
+  }
 
 	&.primary {
 		background-image: linear-gradient(135deg, @primary-gradient-first 26%, @primary-gradient-second 75%);

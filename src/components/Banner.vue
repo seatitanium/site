@@ -43,9 +43,6 @@ export default Vue.extend({
 
 	&[fullscreen] {
 		height: 100vh;
-		@media (max-width: 800px) {
-			height: calc(100vh * 0.9);
-		}
 	}
 }
 
@@ -68,18 +65,18 @@ export default Vue.extend({
 	}
 
 	h1 {
-		font-size: 58px;
+		font-size: 2.8rem;
 		@media screen and (max-width: 800px) {
 			font-size: 40.5px;
 		}
 	}
 
 	h2 {
-		font-size: 38.4px;
+		font-size: 2rem;
 		font-weight: normal;
 		margin-bottom: 8px;
 		@media screen and (max-width: 800px) {
-			font-size: 26.88px;
+			font-size: 1.5rem;
 		}
 	}
 
