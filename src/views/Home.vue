@@ -198,7 +198,7 @@
                   Oasis 的加入并没有任何限制。</strong>而要获取 Seati 白名单需要完成相应的问卷。</p>
               <p v-view.once="flowUp"><strong>单击图标可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
-            <div class="welcome-btns">
+            <div class="welcome-btns" v-view.once="flowUp">
               <btn class="primary-a shadow arrow" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" size="large" icon="arrow-right">立即加入 Seati 讨论群</btn>
               <btn class="primary-o shadow arrow" href="https://qm.qq.com/cgi-bin/qm/qr?k=SCJedgwusNyNbwfz-ySVBu8am63VFSHF&jump_from=webapi" size="large" icon="arrow-right">立即加入 Oasis 讨论群</btn>
             </div>
@@ -215,14 +215,13 @@
             <div class="title" v-view.once="flowLeft">当前周目信息 - 2023/08/14 更新</div>
             <ul v-view.once="flowLeft">
               <li>周目代号：ST9</li>
-              <li>周目整合包：Infinity（无限）</li>
-              <li>版本：Java 1.18.1</li>
-              <li>服务端：Fabric 0.13.3</li>
-              <li>白名单人数：29</li>
+              <li>周目整合包：格雷科技量子跃迁 GTQT</li>
+              <li>版本：Java 1.12.2</li>
+              <li>服务端：Forge 1.12.2-14.23.5-2860</li>
               <li>建议分配 RAM：>= 4GB</li>
-              <li>正式开放日期：2023/07/31</li>
+              <li>正式开放日期：2023/08/15</li>
               <li>周目持续时间：{{ duration }}</li>
-              <li>模组个数：185</li>
+              <li>模组个数：255</li>
             </ul>
           </div>
         </div>
@@ -336,7 +335,7 @@ export default Vue.extend({
       return count;
     },
     getDuration() {
-      let d = new Date().getTime() - new Date('2023-07-31 20:30').getTime();
+      let d = new Date().getTime() - new Date('2023-08-15 19:00').getTime();
       let x = d / 1000 / 60 / 60;
       let H = Math.floor(x);
       x = (x - H) * 60;
