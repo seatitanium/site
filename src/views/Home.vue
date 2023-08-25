@@ -15,12 +15,12 @@
         <br/>
         <div class="simple-info">
           <div class="item">
-            <mdicon name="numeric-8-box-outline"/>
-            <span><span class="no-mobile">当前周目</span> ST8</span>
+            <mdicon name="numeric-9-box-outline"/>
+            <span><span class="no-mobile">当前周目</span> ST9</span>
           </div>
           <div class="item">
             <mdicon name="minecraft"/>
-            <span><span class="no-mobile">游戏版本</span> 1.18.2</span>
+            <span><span class="no-mobile">游戏版本</span> 1.12.2</span>
           </div>
           <div class="item">
             <mdicon name="check"/>
