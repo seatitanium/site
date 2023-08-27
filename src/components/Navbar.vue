@@ -10,7 +10,7 @@
 			</div>
 			<logo @click.native="$router.push('/')" class="nav" :class="active ? '' : 'light'" />
 			<div class="nav-link">
-				<div @click="jumpto(x.route || x.href || '')" class="link" :class="{ active: isCurrentPage(x.route || '') }"
+				<div @click="jumpto(x)" class="link" :class="{ active: isCurrentPage(x.route || '') }"
 					v-for="(x, i) in links" :key="i">
 					{{ x.name }}
 				</div>
@@ -49,10 +49,10 @@ export default Vue.extend({
 					name: "捐助",
 					route: "/donate",
 				},
-        {
-          name: "下载",
-          href: "https://storage.seati.cc"
-        },
+				{
+					name: "下载",
+					href: "https://storage.seati.cc"
+				},
 				{
 					name: "知识库",
 					href: "https://wiki.seati.cc"
@@ -143,11 +143,17 @@ export default Vue.extend({
 				this.active = false;
 			}
 		},
-		jumpto(to: string) {
-			if (to.startsWith("/")) {
-				this.$router.push(to);
-			} else {
-				window.open(to);
+		jumpto(to: {
+			name: string,
+			route?: string,
+			href?: string
+		}) {
+			if (to.route) {
+				this.$router.push(to.route);
+			}
+
+			if (to.href) {
+				window.open(to.href);
 			}
 		},
 		onDropdownItemClick(x: any) {

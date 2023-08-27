@@ -13,9 +13,16 @@ body {
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 1000px;
 	display: block;
-	margin: auto;
+
+	@media (min-width: 1000px) {
+		margin: 2rem auto;
+	}
+
+	@media (max-width: 1000px) {
+		margin: 2rem;
+	}
 }
 
 .logo {
@@ -222,15 +229,11 @@ abbr {
 	}
 }
 
-.container>.content {
-	padding: 32px 0;
-}
-
 .container.content,
 .container>.content {
 	.primary-text {
-		font-size: 49.5px;
-		margin: 8px 0;
+		font-size: 2.5rem;
+		margin: .5rem 0;
 
 		@media screen and (max-width: 1000px) {
 			font-size: 40.6px;
@@ -240,13 +243,8 @@ abbr {
 	p,
 	ul,
 	ol {
-		font-size: 22px;
-		margin-top: 8px;
-		margin-bottom: 8px;
-
-		@media screen and (max-width: 1000px) {
-			font-size: 18px;
-		}
+		font-size: 1.2rem;
+		margin: .5rem 0;
 	}
 }
 
