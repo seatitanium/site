@@ -196,7 +196,7 @@
               <p v-view.once="flowUp">Seati 是 Oasis 旗下独立运营的模组服务器，若要加入 Seati，需要首先成为 Oasis
                 的船员。<strong>好消息是，目前
                   Oasis 的加入并没有任何限制。</strong>而要获取 Seati 白名单需要完成相应的问卷。</p>
-              <p v-view.once="flowUp"><strong>单击图标可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
+              <p v-view.once="flowUp"><strong>单击按钮可加入相应的交流群，在那里你可以获取最新、最准确的消息。</strong></p>
             </div>
             <div class="welcome-btns" v-view.once="flowUp">
               <btn class="primary-a shadow arrow" href="https://qm.qq.com/cgi-bin/qm/qr?k=tcoJ_CF6AjAWGQS62TxGRIidea_4tqw7&jump_from=webapi" size="large" icon="arrow-right">立即加入 Seati 讨论群</btn>
