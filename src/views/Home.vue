@@ -15,8 +15,8 @@
         <br/>
         <div class="simple-info">
           <div class="item">
-            <mdicon name="numeric-9-box-outline"/>
-            <span><span class="no-mobile">当前周目</span> ST9</span>
+            <mdicon name="numeric-10-box-outline"/>
+            <span><span class="no-mobile">当前周目</span> ST10</span>
           </div>
           <div class="item">
             <mdicon name="minecraft"/>
@@ -212,16 +212,16 @@
                }">
         <div class="container">
           <div class="mod-card" v-view.once="scaleIn">
-            <div class="title" v-view.once="flowLeft">当前周目信息 - 2023/08/14 更新</div>
+            <div class="title" v-view.once="flowLeft">当前周目信息 - 2023/09/12 更新</div>
             <ul v-view.once="flowLeft">
-              <li>周目代号：ST9</li>
-              <li>周目整合包：格雷科技量子跃迁 GTQT</li>
+              <li>周目代号：ST10</li>
+              <li>周目整合包：Nomifactory CEu</li>
               <li>版本：Java 1.12.2</li>
               <li>服务端：Forge 1.12.2-14.23.5-2860</li>
               <li>建议分配 RAM：>= 4GB</li>
-              <li>正式开放日期：2023/08/15</li>
+              <li>正式开放日期：2023/09/12</li>
               <li>周目持续时间：{{ duration }}</li>
-              <li>模组个数：255</li>
+              <li>模组个数：134</li>
             </ul>
           </div>
         </div>
