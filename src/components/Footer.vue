@@ -4,7 +4,7 @@
 			<div class="col first">
 				<logo class="footer light" />
 				<p class="copyright">
-					&copy; 2022-2023 Seatitanium & Oasis<br />
+					&copy; 2022-2024 Seatitanium & Oasis<br />
 					<small>网站基于 Vue 2 · GitHub Pages · 我们❤️开源</small><br />
 					<small>Latest built at {{ latestBuildDate }}</small>
 				</p>
