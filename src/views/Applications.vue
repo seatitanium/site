@@ -12,7 +12,7 @@
                     <div class="appl-cards">
                         <div class="appl-card" v-view.once="applCardHook" v-for="(y, k) in x.applications">
                             <div class="appl-no"><span class="serif italic">Ticket</span> #{{
-                                k + 1 }}</div>
+                                x.applications.length - k - 1 }}</div>
                             <div class="appl-id">
                                 {{ y.id }}
                             </div>
@@ -25,9 +25,9 @@
                                 <mdicon :name="y.passed ? 'check' : 'close'" />
                                 {{ y.passed ? '审核通过' : '审核未通过' }}
                             </div>
-                            <!-- <div class="appl-date">
-                            <span class="serif italic">Certification date: </span>{{ y.date }}
-                        </div> -->
+                            <div class="appl-date">
+                                <span class="serif italic">@ </span>{{ y.date }}
+                            </div>
                             <div class="appl-sharables" v-if="Object.values(y.sharables).length > 0">
                                 <div class="sharable" v-for="z in Object.keys(y.sharables)">
                                     <div class="start">
@@ -74,8 +74,22 @@ const data: Term[] = [
                     '今日起，全新的审核结果页面就正式投入使用啦': '你在问卷里的一些想法，可以按照你的意愿选择，是否公开在此处。一些审核记录也会被保存在这里。将来可能会有更多不同形式的记录信息，甚至可以与游戏的内容交互哦~一切只为助你更好地记录在 Seati 的点点滴滴 \\(^o^)/~'
                 },
                 passed: false
+            },
+            {
+                id: 'JesseM1024',
+                date: '2024/01/12 02:06',
+                sharables: {
+                    '填写一段对现实中，或者网络中，或者理想中的自己的介绍': '游戏经历：fps 模拟经营 航空航天 开放世界 沙盒\nmc经历：1.4至今\nst模组档经历参阅st wiki 水域自动化笔记，那里几万字呢'
+                },
+                passed: true
+            },
+            {
+                id: 'Gao_Shi_Ya',
+                date: '2024/01/12 02:08',
+                sharables: {},
+                passed: true
             }
-        ]
+        ].reverse() as Application[]
     }
 ]
 
@@ -225,7 +239,7 @@ function applCardHook(e: ViewObject) {
 <style lang="less" scoped>
 .appl-card {
     border-radius: 20px;
-    border: 1px dashed rgba(0, 0, 0, .21);
+    border: 2px dashed rgba(0, 0, 0, .2);
     padding: 2rem;
     position: relative;
 
@@ -249,12 +263,12 @@ function applCardHook(e: ViewObject) {
         gap: .5rem;
         line-height: 1;
         border-radius: 50px;
-            padding: .3rem 1rem;
+        padding: .3rem 1rem;
 
         &.passed {
             color: #4caf50;
             background: #e8f5e9;
-            
+
         }
 
         &.not-passed {
@@ -359,4 +373,5 @@ function applCardHook(e: ViewObject) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-}</style>
+}
+</style>
