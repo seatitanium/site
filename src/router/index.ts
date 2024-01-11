@@ -23,6 +23,11 @@ const routes: Array<RouteConfig> = [
 		path: '/donate',
 		name: 'donate',
 		component: () => import('@/views/Donate.vue')
+	},
+	{
+		path: '/applications',
+		name: 'applications',
+		component: () => import('@/views/Applications.vue')
 	}
 ];
 
