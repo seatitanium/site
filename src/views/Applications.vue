@@ -33,7 +33,7 @@
                                     <div class="start">
                                         <div class="q">“</div>{{ z }}
                                     </div>
-                                    <div class="sharable-content">{{ y.sharables[z] }}</div>
+                                    <div class="sharable-content" v-html="y.sharables[z]"/>
                                     <div class="end">
                                         <div class="q">”</div>
                                     </div>
@@ -79,7 +79,7 @@ const data: Term[] = [
                 id: 'JesseM1024',
                 date: '2024/01/12 02:06',
                 sharables: {
-                    '填写一段对现实中，或者网络中，或者理想中的自己的介绍': '游戏经历：fps 模拟经营 航空航天 开放世界 沙盒\nmc经历：1.4至今\nst模组档经历参阅st wiki 水域自动化笔记，那里几万字呢'
+                    '填写一段对现实中，或者网络中，或者理想中的自己的介绍': '游戏经历：fps 模拟经营 航空航天 开放世界 沙盒<br/>mc经历：1.4至今<br/>st模组档经历参阅st wiki 水域自动化笔记，那里几万字呢'
                 },
                 passed: true
             },
