@@ -16,7 +16,7 @@
                             <div class="appl-id">
                                 {{ y.id }}
                             </div>
-                            <div class="appl-ticket-detail">
+                            <div class="appl-ticket-detail" v-if="y.passed">
                                 <span class="serif"><span class="italic">Certified</span> ticket for Seati </span> ST{{
                                     x.number
                                 }}
@@ -71,7 +71,7 @@ const data: Term[] = [
                 id: 'Subilan',
                 date: '2024/01/12 00:27',
                 sharables: {
-                    '今日起，全新的审核结果页面就正式投入使用啦': '你在问卷里的一些想法，可以按照你的意愿选择，是否公开在此处。一些审核记录也会被保存在这里。将来可能会有更多不同形式的记录信息，助你记录在 Seati 的点点滴滴 \\(^o^)/~'
+                    '今日起，全新的审核结果页面就正式投入使用啦': '你在问卷里的一些想法，可以按照你的意愿选择，是否公开在此处。一些审核记录也会被保存在这里。将来可能会有更多不同形式的记录信息，甚至可以与游戏的内容交互哦~一切只为助你更好地记录在 Seati 的点点滴滴 \\(^o^)/~'
                 },
                 passed: false
             }
