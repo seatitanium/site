@@ -68,66 +68,13 @@ const data: Term[] = [
         number: 11,
         applications: [
             {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: false,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-            {
-                id: 'Example',
-                passed: true,
-                sharables: { 'Title': 'Content' },
-                date: '2024/01/11 23:06'
-            },
-
+                id: 'Subilan',
+                date: '2024/01/12 00:27',
+                sharables: {
+                    '今日起，全新的审核结果页面就正式投入使用啦': '你在问卷里的一些想法，可以按照你的意愿选择，是否公开在此处。一些审核记录也会被保存在这里。将来可能会有更多不同形式的记录信息，助你记录在 Seati 的点点滴滴 \\(^o^)/~'
+                },
+                passed: true
+            }
         ]
     }
 ]
