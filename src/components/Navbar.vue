@@ -70,6 +70,7 @@ export default Vue.extend({
 				server: "服务器状态",
 				about: "关于",
 				donate: "捐助",
+				applications: "审核结果及玩家列表"
 			},
 		};
 	},
@@ -104,6 +105,12 @@ export default Vue.extend({
 			if (Object.keys(this.titles).includes(name)) {
 				// @ts-ignore
 				document.title = "Seati | " + this.titles[name];
+				const newTitle = document.createElement('title');
+				// @ts-ignore
+				newTitle.innerText = "Seati | " + this.titles[name];
+				const currentTitle = document.head.querySelector('title')
+				if (currentTitle !== null) currentTitle.remove();
+				document.head.appendChild(newTitle);
 			}
 		},
 		toggleDropdown(directOption?: boolean) {
