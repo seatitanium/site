@@ -7,7 +7,7 @@
         </banner>
         <div class="container">
             <div class="content typo">
-                <div class="term" v-for="(x, i) in data">
+                <div class="term" v-for="x in data">
                     <h1 class="primary-text" v-view.once="flowUp">ST{{ x.number }}</h1>
                     <div class="appl-cards">
                         <div class="appl-card" v-view.once="applCardHook" v-for="(y, k) in x.applications">
