@@ -20,10 +20,7 @@
         <div class="container">
             <div class="content typo">
                 <div class="term" v-for="x in data">
-                    <div class="quicksearch-button" @click="quicksearchOpened = !quicksearchOpened"
-                        @mouseenter="mouseEnterQuickSearchBtn()" @mouseleave="mouseLeaveQuickSearchBtn()">
-                        {{ quicksearchOpened ? '关闭' : '通过 ID 快速查询' }}
-                    </div>
+                    
                     <h1 class="primary-text" v-view.once="flowUp">页面简介</h1>
                     <p v-view.once="flowUp">
                         此页面列出了尝试取得白名单的玩家的所有审核记录，以及他们在问卷中填写的一些信息（由本人选择是否公开）。每个玩家在每次参与问卷时的相关信息，会被归类在填写时正运行或预计运行的周目的标题之下。</p>
