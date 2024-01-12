@@ -1,5 +1,17 @@
 <template>
     <div page>
+        <div ref="quicksearchOverlay" class="quicksearch-cool-overlay">
+            <div ref="quicksearchTextbox" class="text-box">
+                <div class="primary">需要通过 ID 快速查询审核结果？</div>
+                <div class="secondary"><span class="subtle">仅需输入 ID
+                        即可得知与之关联的所有信息。</span><br /><br />注意：此功能不会透露任何内部信息。<br />能够显示在这里的信息，在页面中亦可找到，为公开内容。</div>
+                <div class="indicator">鼠标左键单击按钮开始查询</div>
+            </div>
+            <div ref="quicksearchDialog" class="quicksearch-cool-dialog">
+                <input v-model="quicksearchContent" placeholder="在此键入要搜索的 ID" class="quicksearch-input" />
+            </div>
+        </div>
+
         <banner bg="https://seati.oss-cn-qingdao.aliyuncs.com/assets/images/8.jpg">
             <template #title>审核结果及玩家列表</template>
             <template #subtitle>获取白名单</template>
@@ -8,6 +20,10 @@
         <div class="container">
             <div class="content typo">
                 <div class="term" v-for="x in data">
+                    <div class="quicksearch-button" @click="quicksearchOpened = !quicksearchOpened"
+                        @mouseenter="mouseEnterQuickSearchBtn()" @mouseleave="mouseLeaveQuickSearchBtn()">
+                        {{ quicksearchOpened ? '关闭' : '通过 ID 快速查询' }}
+                    </div>
                     <h1 class="primary-text" v-view.once="flowUp">页面简介</h1>
                     <p v-view.once="flowUp">
                         此页面列出了尝试取得白名单的玩家的所有审核记录，以及他们在问卷中填写的一些信息（由本人选择是否公开）。每个玩家在每次参与问卷时的相关信息，会被归类在填写时正运行或预计运行的周目的标题之下。</p>
@@ -57,6 +73,7 @@
 import Banner from '@/components/Banner.vue';
 import { flowUp } from '@/fn';
 import applications from '@/applications.json';
+import { ref, watch } from 'vue';
 
 interface Term {
     applications: Application[],
@@ -78,6 +95,12 @@ const data: Term[] = [
     }
 ]
 
+const quicksearchOverlay = ref<HTMLDivElement | null>(null);
+const quicksearchTextbox = ref<HTMLDivElement | null>(null);
+const quicksearchDialog = ref<HTMLDivElement | null>(null);
+const quicksearchContent = ref('');
+const quicksearchOpened = ref(false);
+
 function applCardHook(e: ViewObject) {
     flowUp(e);
     const passedStatus = e.target.element.querySelector('.appl-status.passed');
@@ -89,9 +112,192 @@ function applCardHook(e: ViewObject) {
         notPassedStatus.classList.add('shake-animation');
     }
 }
+
+function wait(ms: number) {
+    return new Promise<void>((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, ms);
+    })
+}
+
+watch(quicksearchOpened, async v => {
+    const textbox = quicksearchTextbox.value as HTMLDivElement
+    const dialog = quicksearchDialog.value as HTMLDivElement
+    const overlay = quicksearchOverlay.value as HTMLDivElement
+    if (v) {
+        if (overlay.style.display !== 'flex') { textbox.style.display = 'none'; await showOverlay(); }
+        else {
+            textbox.style.opacity = '0';
+            textbox.style.transform = 'translateX(-20px)'
+            await wait(200);
+            textbox.style.display = 'none';
+        }
+        dialog.style.display = 'block';
+        await wait(20);
+        dialog.style.opacity = '1';
+        dialog.style.transform = 'translateX(0)'
+    } else {
+        mouseLeaveQuickSearchBtn();
+        await wait(200);
+        textbox.style.opacity = '1';
+        textbox.style.transform = 'translateX(0)'
+        textbox.style.display = 'block';
+        dialog.style.display = 'none';
+        dialog.style.opacity = '0';
+        dialog.style.transform = 'translateX(20px)'
+    }
+})
+
+async function showOverlay() {
+    const el = quicksearchOverlay.value as HTMLDivElement
+    el.style.display = 'flex';
+    await wait(20);
+    el.style.opacity = '1';
+    el.style.transform = 'scale(1)';
+}
+
+async function closeOverlay() {
+    const el = quicksearchOverlay.value as HTMLDivElement
+    el.style.opacity = '0';
+    el.style.transform = 'scale(1.1)';
+    await wait(200);
+    el.style.display = 'none';
+}
+
+function mouseEnterQuickSearchBtn() {
+    if (quicksearchOpened.value) return;
+    showOverlay();
+}
+
+function mouseLeaveQuickSearchBtn() {
+    if (quicksearchOpened.value) return;
+    closeOverlay();
+}
 </script>
 
 <style lang="less">
+.quicksearch-cool-overlay {
+
+    .text-box {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+        transition: all .2s ease;
+    }
+
+    .quicksearch-cool-dialog {
+        display: none;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all .2s ease;
+
+        .quicksearch-input {
+            background: transparent;
+            font-size: 2rem;
+            font-family: 'SF Mono', 'Cascadia Mono', Consolas, 'Courier New', Courier, monospace;
+            outline: none;
+            color: white;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, .2);
+            transition: all .2s ease;
+
+            &:hover {
+                border-bottom-color: rgba(255, 255, 255, 1);
+            }
+
+            &:focus {
+                border-bottom-color: @primary;
+            }
+
+            &::placeholder {
+                color: rgba(255, 255, 255, .6);
+            }
+        }
+    }
+
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(5px);
+    z-index: 1500;
+    display: none;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all .2s ease;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    *::selection {
+        background: transparent;
+    }
+
+    .primary {
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+
+    .secondary {
+        font-size: 2rem;
+    }
+
+    .subtle {
+        color: rgba(255, 255, 255, .6);
+    }
+
+    .indicator {
+        font-size: 2rem;
+        padding-top: 4rem;
+        font-style: italic;
+
+        &::before,
+        &::after {
+            color: @primary;
+            font-weight: bold;
+        }
+
+        &::before {
+            content: '> ';
+        }
+
+        &::after {
+            content: ' <';
+        }
+    }
+
+    color: white;
+}
+
+.quicksearch-button {
+    border-radius: 40px;
+    padding: 1rem 2rem;
+    border: 1px solid rgba(0, 0, 0, .2);
+    display: block;
+    position: fixed;
+    line-height: 1;
+    cursor: pointer;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 2rem;
+    z-index: 200;
+    transition: all .2s ease;
+    background: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+    z-index: 1500;
+
+    &:hover {
+        background: @primaryg;
+        color: white;
+        border-color: transparent;
+        transform: translateX(50%) scale(1.1);
+    }
+}
+
 @keyframes scale-emphasis {
     0% {
         transform: scale(1) rotate(0);
