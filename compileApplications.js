@@ -49,9 +49,9 @@ function getSharables(sharablePreference, dictionary) {
 		.filter(k => sharablePreference.includes(k))
 		.forEach(k => {
 			let Qnumber = sharableMap[k];
-            let Qtext = questionTexts[questionRaws.indexOf(questionRaws.filter(x => x.includes(Qnumber))[0])];
+			let Qtext = questionTexts[questionRaws.indexOf(questionRaws.filter(x => x.includes(Qnumber))[0])];
 			let pre = getFirstValueByPartialKey(Qnumber, dictionary).replace(/\n/g, '<br/>');
-            if (pre.trim().length > 0) result[Qtext] = pre; 
+			if (pre.trim().length > 0) result[Qtext] = pre;
 		});
 	return result;
 }
@@ -69,9 +69,8 @@ const applications = Object.values(data).map(d => {
 		id: getFirstValueByPartialKeyMapped('id', d),
 		passed: passedIds.includes(getFirstValueByPartialKeyMapped('id', d)),
 		sharables: getSharables(getFirstValueByPartialKeyMapped('sharable-preference', d), d),
-		submissionDate: getFirstValueByPartialKeyMapped('submissionTime', d),
-		determinationDate: `${date.getFullYear()}-${withZero(date.getMonth() + 1)}-${withZero(date.getDate())} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+		submissionDate: getFirstValueByPartialKeyMapped('submissionTime', d)
 	};
 });
 
-fs.writeFileSync('src/applications.json', JSON.stringify(applications));
+fs.writeFileSync(`src/data/applications/applications_${date.getTime()}.json`, JSON.stringify(applications));
