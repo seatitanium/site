@@ -33,7 +33,7 @@
                                     <div class="start">
                                         <div class="q">“</div>{{ z }}
                                     </div>
-                                    <div class="sharable-content" v-html="y.sharables[z]"/>
+                                    <div class="sharable-content" v-html="y.sharables[z]" />
                                     <div class="end">
                                         <div class="q">”</div>
                                     </div>
@@ -87,6 +87,14 @@ const data: Term[] = [
                 id: 'Gao_Shi_Ya',
                 date: '2024/01/12 02:08',
                 sharables: {},
+                passed: true
+            },
+            {
+                id: 'Qing_Ming',
+                date: '2024/01/12 11:46',
+                sharables: {
+                    '简要介绍一下自己最喜欢的模组或整合包类型': '下次还填龙之冒险（每周目都写，仍未如愿）。龙之冒险是一个高强度的冒险向整合包，其有着非常详细的游戏任务流程和介绍，因为有着大量模组的支撑，不同玩家也能有不同的游玩方向并且都有了一定的用处（例如：可以通过农夫乐事制作不同种类的食物来解锁不同的奖励和为冒险提供保障；通过星辉魔法，观测不同的星座，来为自身提供不同种的增益）。并且，整合包内有着庞大的任务系统和商店，玩家可以通过完成任务或是系统收购以获得货币，并且因为有ftb模组的加成，使得玩家可以通过组队共同完成任务，增进了玩家间的合作。'
+                },
                 passed: true
             }
         ].reverse() as Application[]
