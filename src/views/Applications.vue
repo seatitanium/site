@@ -9,14 +9,15 @@
             <div class="content typo">
                 <div class="term" v-for="x in data">
                     <h1 class="primary-text" v-view.once="flowUp">页面简介</h1>
-                    <p v-view.once="flowUp">此页面列出了尝试取得白名单的玩家的所有审核记录，以及他们在问卷中填写的一些信息（由本人选择是否公开）。每个玩家在每次参与问卷时的相关信息，会被归类在填写时正运行或预计运行的周目的标题之下。</p>
+                    <p v-view.once="flowUp">
+                        此页面列出了尝试取得白名单的玩家的所有审核记录，以及他们在问卷中填写的一些信息（由本人选择是否公开）。每个玩家在每次参与问卷时的相关信息，会被归类在填写时正运行或预计运行的周目的标题之下。</p>
                     <p v-view.once="flowUp">此页面上的信息不是实时更新的，会有一定的延迟。本人的信息根据本人意愿可随时修改，具体事宜请联系交流群内的管理员。</p>
                     <p v-view.once="flowUp">玩家个人的观点和提供的信息，不代表 Seati 的观点和信息。</p>
                     <h1 class="primary-text" v-view.once="flowUp">ST{{ x.number }}</h1>
                     <div class="appl-cards">
                         <div class="appl-card" v-view.once="applCardHook" v-for="(y, k) in x.applications">
                             <div class="appl-no"><span class="serif italic">Ticket</span> #{{
-                                x.applications.length - k - 1 }}</div>
+                                x.applications.length - k }}</div>
                             <div class="appl-id">
                                 {{ y.id }}
                             </div>
@@ -30,7 +31,8 @@
                                 <span class="text">{{ y.passed ? '审核通过' : '审核未通过' }}</span>
                             </div>
                             <div class="appl-date">
-                                <span class="serif italic">@ </span>{{ y.date }}
+                                <span class="serif italic">GMT+8 @ </span>
+                                <span class="serif">{{ y.submissionDate }}</span>
                             </div>
                             <div class="appl-sharables" v-if="Object.values(y.sharables).length > 0">
                                 <div class="sharable" v-for="z in Object.keys(y.sharables)">
@@ -54,6 +56,7 @@
 <script lang="ts" setup>
 import Banner from '@/components/Banner.vue';
 import { flowUp } from '@/fn';
+import applications from '@/applications.json';
 
 interface Term {
     applications: Application[],
@@ -64,53 +67,14 @@ interface Application {
     id: string,
     passed: boolean,
     sharables: { [prop: string]: string },
-    date: string
+    submissionDate: string,
+    determinationDate: string
 }
 
 const data: Term[] = [
     {
         number: 11,
-        applications: [
-            {
-                id: 'Subilan',
-                date: '2024/01/12 00:27',
-                sharables: {
-                    '今日起，全新的审核结果页面就正式投入使用啦': '你在问卷里的一些想法，可以按照你的意愿选择，是否公开在此处。一些审核记录也会被保存在这里。将来可能会有更多不同形式的记录信息，甚至可以与游戏的内容交互哦~一切只为助你更好地记录在 Seati 的点点滴滴 \\(^o^)/~'
-                },
-                passed: false
-            },
-            {
-                id: 'JesseM1024',
-                date: '2024/01/12 02:06',
-                sharables: {
-                    '简要介绍一下自己对模组的看法或者经验': '各类整合包的锁阶段最好不要是生硬的锁，反例即为玄理2。较好的锁阶段是格雷的各个电压等级的材料，这些在到了阶段后是要大量投入实际生产当中去的<br/>模组添加模型不要用三角面建模多面体，材质需要是具有美术水平的16x，最多是仿16x的32x，反例为恐怖生物<br/>个人经验会于毕业后更新于st wiki的自动化笔记上'
-                },
-                passed: true
-            },
-            {
-                id: 'Gao_Shi_Ya',
-                date: '2024/01/12 02:08',
-                sharables: {},
-                passed: true
-            },
-            {
-                id: 'Qing_Ming',
-                date: '2024/01/12 11:46',
-                sharables: {
-                    '简要介绍一下自己最喜欢的模组或整合包类型': '下次还填龙之冒险（每周目都写，仍未如愿）。龙之冒险是一个高强度的冒险向整合包，其有着非常详细的游戏任务流程和介绍，因为有着大量模组的支撑，不同玩家也能有不同的游玩方向并且都有了一定的用处（例如：可以通过农夫乐事制作不同种类的食物来解锁不同的奖励和为冒险提供保障；通过星辉魔法，观测不同的星座，来为自身提供不同种的增益）。并且，整合包内有着庞大的任务系统和商店，玩家可以通过完成任务或是系统收购以获得货币，并且因为有ftb模组的加成，使得玩家可以通过组队共同完成任务，增进了玩家间的合作。'
-                },
-                passed: true
-            },
-            {
-                id: 'GoldStorm_XX',
-                date: '2024/01/12 12:37',
-                sharables: {
-                    '简要介绍一下自己对模组的看法或者经验': '希望来点新鲜有创意，能够改变游戏玩法的mod，很火的那些mod翻来覆去的已经玩遍了，无非就是改个数据魔改一下之类的',
-                    '简要介绍一下自己最喜欢的模组或整合包类型': '休闲养老，玩起来会很惬意，比较轻松；末日生存，难度较大，挑战起来有趣，同时本身比较喜欢这个题材'
-                },
-                passed: true
-            }
-        ].reverse() as Application[]
+        applications: (applications as Application[]).reverse() as Application[]
     }
 ]
 
@@ -345,8 +309,6 @@ function applCardHook(e: ViewObject) {
         line-height: 1;
         opacity: .3;
         pointer-events: none;
-        .serif;
-        .italic;
 
         @media (max-width: 1000px) {
             font-size: 1.1rem;
