@@ -23,7 +23,7 @@
                             </div>
                             <div class="appl-status" :class="y.passed ? 'passed' : 'not-passed'">
                                 <mdicon :name="y.passed ? 'check' : 'close'" />
-                                {{ y.passed ? '审核通过' : '审核未通过' }}
+                                <span class="text">{{ y.passed ? '审核通过' : '审核未通过' }}</span>
                             </div>
                             <div class="appl-date">
                                 <span class="serif italic">@ </span>{{ y.date }}
@@ -251,6 +251,10 @@ function applCardHook(e: ViewObject) {
     padding: 2rem;
     position: relative;
 
+    @media (max-width: 1000px) {
+        padding: 1rem;
+    }
+
     .appl-no {
         font-weight: bold;
         font-size: 7rem;
@@ -260,6 +264,10 @@ function applCardHook(e: ViewObject) {
         left: .5rem;
         bottom: .5rem;
         pointer-events: none;
+
+        @media (max-width: 1000px) {
+            font-size: 4rem;
+        }
     }
 
     .appl-status {
@@ -272,6 +280,19 @@ function applCardHook(e: ViewObject) {
         line-height: 1;
         border-radius: 50px;
         padding: .3rem 1rem;
+
+        @media (max-width: 1000px) {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            justify-content: center;
+            top: 1rem;
+            right: 1rem;
+
+            .text {
+                display: none;
+            }
+        }
 
         &.passed {
             color: #4caf50;
@@ -289,10 +310,18 @@ function applCardHook(e: ViewObject) {
         font-size: 2.8rem;
         line-height: 1;
         font-weight: bold;
+
+        @media (max-width: 1000px) {
+            font-size: 2rem;
+        }
     }
 
     .appl-ticket-detail {
         font-size: 1.3rem;
+
+        @media (max-width: 1000px) {
+            font-size: 1.1rem;
+        }
     }
 
     .appl-date {
@@ -305,6 +334,10 @@ function applCardHook(e: ViewObject) {
         pointer-events: none;
         .serif;
         .italic;
+
+        @media (max-width: 1000px) {
+            font-size: 1.1rem;
+        }
     }
 
     .appl-sharables {
@@ -319,17 +352,19 @@ function applCardHook(e: ViewObject) {
             border-radius: 20px;
             position: relative;
 
-            &:hover {
-                background: @primaryg;
-                padding: 1rem 2rem;
-                color: rgba(255, 255, 255, .7);
+            @media (min-width: 1000px) {
+                &:hover {
+                    background: @primaryg;
+                    padding: 1rem 2rem;
+                    color: rgba(255, 255, 255, .7);
 
-                .start,
-                .end {
-                    color: white;
+                    .start,
+                    .end {
+                        color: white;
 
-                    .q {
-                        color: rgba(255, 255, 255, .7);
+                        .q {
+                            color: rgba(255, 255, 255, .7);
+                        }
                     }
                 }
             }
@@ -343,9 +378,18 @@ function applCardHook(e: ViewObject) {
                 font-weight: bold;
                 font-size: 1.2rem;
 
+                @media (max-width: 1000px) {
+                    font-size: 1rem;
+                }
+
                 .q {
                     color: @primary;
                     font-size: 2rem;
+
+                    @media (max-width: 1000px) {
+                        font-size: 1.5rem;
+                    }
+
                     pointer-events: none;
                 }
 
@@ -364,6 +408,10 @@ function applCardHook(e: ViewObject) {
 
             .sharable-content {
                 font-size: 1.5rem;
+
+                @media (max-width: 1000px) {
+                    font-size: 1.2rem;
+                }
             }
         }
     }
