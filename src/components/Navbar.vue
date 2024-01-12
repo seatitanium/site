@@ -15,7 +15,7 @@
 					{{ x.name }}
 				</div>
 			</div>
-			<div ref="dropdown" class="dropdown" style="display: none">
+			<div ref="dropdown" class="dropdown">
 				<span @click="onDropdownItemClick(x)" class="dropdown-item" v-for="(x, i) in links" :key="i">
 					{{ x.name }}
 				</span>
@@ -61,6 +61,10 @@ export default Vue.extend({
 					name: "服规",
 					href: "https://wiki.seati.cc/ti/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%84%E5%88%99"
 				},
+				{
+					name: '审核结果',
+					route: '/applications'
+				}
 			],
 			active: false,
 			hamburgerOpen: false,
@@ -338,6 +342,8 @@ export default Vue.extend({
 	top: 62px;
 	left: 0;
 	background: white;
+	opacity: 0;
+	pointer-events: none;
 
 	.dropdown-item {
 		width: 100%;
