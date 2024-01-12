@@ -84,8 +84,7 @@ interface Application {
     id: string,
     passed: boolean,
     sharables: { [prop: string]: string },
-    submissionDate: string,
-    determinationDate: string
+    submissionDate: string
 }
 
 const data: Term[] = [
