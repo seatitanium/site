@@ -126,8 +126,10 @@ watch(quicksearchOpened, async v => {
     const dialog = quicksearchDialog.value as HTMLDivElement
     const overlay = quicksearchOverlay.value as HTMLDivElement
     if (v) {
-        if (overlay.style.display !== 'flex') { textbox.style.display = 'none'; await showOverlay(); }
-        else {
+        if (overlay.style.display !== 'flex') {
+            textbox.style.display = 'none';
+            await showOverlay();
+        } else {
             textbox.style.opacity = '0';
             textbox.style.transform = 'translateX(-20px)'
             await wait(200);
