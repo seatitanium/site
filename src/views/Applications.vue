@@ -152,17 +152,17 @@ function wait(ms: number) {
 }
 
 watch(quicksearchContent, v => {
+    if (quicksearchContent.value === '') {
+        quicksearchResult.value = [];
+        return;
+    }
     if (quicksearchLocked.value) return;
     quicksearchLocked.value = true;
     setTimeout(() => {
         quicksearchLocked.value = false;
     }, 200);
-    if (quicksearchContent.value === '') {
-        quicksearchResult.value = [];
-        return;
-    }
     for (let t of terms) {
-        let result = t.applications.filter(x => x.id.includes(v));
+        let result = t.applications.filter(x => x.id.toLowerCase().includes(v.toLowerCase()));
         let resultArr = [];
         for (let r of result) {
             resultArr.push({
