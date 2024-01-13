@@ -212,16 +212,16 @@
                }">
         <div class="container">
           <div class="mod-card" v-view.once="scaleIn">
-            <div class="title" v-view.once="flowLeft">当前周目信息 - 2023/09/12 更新</div>
+            <div class="title" v-view.once="flowLeft">当前周目信息 - 2024/01/14 更新</div>
             <ul v-view.once="flowLeft">
-              <li>周目代号：ST10</li>
-              <li>周目整合包：Nomifactory CEu</li>
-              <li>版本：Java 1.12.2</li>
-              <li>服务端：Forge 1.12.2-14.23.5-2860</li>
-              <li>建议分配 RAM：>= 4GB</li>
-              <li>正式开放日期：2023/09/12</li>
+              <li>周目代号：ST11</li>
+              <li>周目整合包：光芒消逝之日</li>
+              <li>版本：Java 1.16.5</li>
+              <li>服务端：Forge 1.16.5-36.2.39</li>
+              <li>建议分配 RAM：>= 2GB</li>
+              <li>正式开放日期：2024/01/14</li>
               <li>周目持续时间：{{ duration }}</li>
-              <li>模组个数：134</li>
+              <li>模组个数：89</li>
             </ul>
           </div>
         </div>
