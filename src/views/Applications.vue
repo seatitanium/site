@@ -9,6 +9,28 @@
             </div>
             <div ref="quicksearchDialog" class="quicksearch-cool-dialog">
                 <input v-model="quicksearchContent" placeholder="在此键入要搜索的 ID" class="quicksearch-input" />
+                <div class="quicksearch-results">
+                    <div class="result-box" v-if="quicksearchResult.length > 0">
+                        <div class="quicksearch-result" v-for="(x, i) in quicksearchResult">
+                            <div class="result-date">
+                                <span class="serif"><span class="italic">GMT+8 @</span> {{ x.submissionDate }}</span>
+                            </div>
+                            <div class="result-id">
+                                {{ x.id }}
+                            </div>
+                            <div class="appl-status" :class="x.passed ? 'passed' : 'not-passed'">
+                                <mdicon :name="x.passed ? 'check' : 'close'" />
+                                <span class="text">{{ x.passed ? '审核通过' : '审核未通过' }}</span>
+                            </div>
+                            <div class="result-term-badge">
+                                ST{{ x.term }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empty-text" v-else>
+                        {{ quicksearchContent.length > 0 ? `暂无包含 「${quicksearchContent}」 的结果` : '键入任意关键字以继续' }}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -19,8 +41,11 @@
         </banner>
         <div class="container">
             <div class="content typo">
-                <div class="term" v-for="x in data">
-                    
+                <div class="term" v-for="x in terms">
+                    <div class="quicksearch-button" @click="quicksearchOpened = !quicksearchOpened"
+                        @mouseenter="mouseEnterQuickSearchBtn()" @mouseleave="mouseLeaveQuickSearchBtn()">
+                        {{ quicksearchOpened ? '关闭' : '通过 ID 快速查询' }}
+                    </div>
                     <h1 class="primary-text" v-view.once="flowUp">页面简介</h1>
                     <p v-view.once="flowUp">
                         此页面列出了尝试取得白名单的玩家的所有审核记录，以及他们在问卷中填写的一些信息（由本人选择是否公开）。每个玩家在每次参与问卷时的相关信息，会被归类在填写时正运行或预计运行的周目的标题之下。</p>
@@ -69,7 +94,7 @@
 <script lang="ts" setup>
 import Banner from '@/components/Banner.vue';
 import { flowUp } from '@/fn';
-import applications from '@/applications.json';
+import applications11 from '@/applications-st11.json';
 import { ref, watch } from 'vue';
 
 interface Term {
@@ -84,10 +109,17 @@ interface Application {
     submissionDate: string
 }
 
-const data: Term[] = [
+interface QuicksearchResult {
+    id: string,
+    passed: boolean,
+    submissionDate: string,
+    term: number
+}
+
+const terms: Term[] = [
     {
         number: 11,
-        applications: (applications as Application[]).reverse() as Application[]
+        applications: (applications11 as Application[]).reverse() as Application[]
     }
 ]
 
@@ -96,6 +128,8 @@ const quicksearchTextbox = ref<HTMLDivElement | null>(null);
 const quicksearchDialog = ref<HTMLDivElement | null>(null);
 const quicksearchContent = ref('');
 const quicksearchOpened = ref(false);
+const quicksearchLocked = ref(false);
+const quicksearchResult = ref<QuicksearchResult[]>([]);
 
 function applCardHook(e: ViewObject) {
     flowUp(e);
@@ -116,6 +150,31 @@ function wait(ms: number) {
         }, ms);
     })
 }
+
+watch(quicksearchContent, v => {
+    if (quicksearchLocked.value) return;
+    quicksearchLocked.value = true;
+    setTimeout(() => {
+        quicksearchLocked.value = false;
+    }, 200);
+    if (quicksearchContent.value === '') {
+        quicksearchResult.value = [];
+        return;
+    }
+    for (let t of terms) {
+        let result = t.applications.filter(x => x.id.includes(v));
+        let resultArr = [];
+        for (let r of result) {
+            resultArr.push({
+                term: t.number,
+                id: r.id,
+                passed: r.passed,
+                submissionDate: r.submissionDate
+            });
+        }
+        quicksearchResult.value = resultArr;
+    }
+})
 
 watch(quicksearchOpened, async v => {
     const textbox = quicksearchTextbox.value as HTMLDivElement
@@ -138,6 +197,7 @@ watch(quicksearchOpened, async v => {
     } else {
         mouseLeaveQuickSearchBtn();
         await wait(200);
+        quicksearchContent.value = '';
         textbox.style.opacity = '1';
         textbox.style.transform = 'translateX(0)'
         textbox.style.display = 'block';
@@ -175,127 +235,6 @@ function mouseLeaveQuickSearchBtn() {
 </script>
 
 <style lang="less">
-.quicksearch-cool-overlay {
-
-    .text-box {
-        display: block;
-        transform: translateX(0);
-        opacity: 1;
-        transition: all .2s ease;
-    }
-
-    .quicksearch-cool-dialog {
-        display: none;
-        opacity: 0;
-        transform: translateX(20px);
-        transition: all .2s ease;
-
-        .quicksearch-input {
-            background: transparent;
-            font-size: 2rem;
-            font-family: 'SF Mono', 'Cascadia Mono', Consolas, 'Courier New', Courier, monospace;
-            outline: none;
-            color: white;
-            border: none;
-            border-bottom: 2px solid rgba(255, 255, 255, .2);
-            transition: all .2s ease;
-
-            &:hover {
-                border-bottom-color: rgba(255, 255, 255, 1);
-            }
-
-            &:focus {
-                border-bottom-color: @primary;
-            }
-
-            &::placeholder {
-                color: rgba(255, 255, 255, .6);
-            }
-        }
-    }
-
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0, 0, 0, .7);
-    backdrop-filter: blur(5px);
-    z-index: 1500;
-    display: none;
-    opacity: 0;
-    transform: scale(1.1);
-    transition: all .2s ease;
-
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    *::selection {
-        background: transparent;
-    }
-
-    .primary {
-        font-size: 4rem;
-        font-weight: bold;
-        margin: 1rem 0;
-    }
-
-    .secondary {
-        font-size: 2rem;
-    }
-
-    .subtle {
-        color: rgba(255, 255, 255, .6);
-    }
-
-    .indicator {
-        font-size: 2rem;
-        padding-top: 4rem;
-        font-style: italic;
-
-        &::before,
-        &::after {
-            color: @primary;
-            font-weight: bold;
-        }
-
-        &::before {
-            content: '> ';
-        }
-
-        &::after {
-            content: ' <';
-        }
-    }
-
-    color: white;
-}
-
-.quicksearch-button {
-    border-radius: 40px;
-    padding: 1rem 2rem;
-    border: 1px solid rgba(0, 0, 0, .2);
-    display: block;
-    position: fixed;
-    line-height: 1;
-    cursor: pointer;
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 2rem;
-    z-index: 200;
-    transition: all .2s ease;
-    background: white;
-    font-size: 1.5rem;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
-    z-index: 1500;
-
-    &:hover {
-        background: @primaryg;
-        color: white;
-        border-color: transparent;
-        transform: translateX(50%) scale(1.1);
-    }
-}
-
 @keyframes scale-emphasis {
     0% {
         transform: scale(1) rotate(0);
@@ -426,6 +365,215 @@ function mouseLeaveQuickSearchBtn() {
 </style>
 
 <style lang="less" scoped>
+.quicksearch-cool-overlay {
+
+    .text-box {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+        transition: all .2s ease;
+    }
+
+    .quicksearch-cool-dialog {
+        display: none;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all .2s ease;
+
+        .empty-text {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .quicksearch-input {
+            background: transparent;
+            font-size: 2rem;
+            font-family: 'SF Mono', 'Cascadia Mono', Consolas, 'Courier New', Courier, monospace;
+            outline: none;
+            color: white;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, .2);
+            transition: all .2s ease;
+
+            &:hover {
+                border-bottom-color: rgba(255, 255, 255, 1);
+            }
+
+            &:focus {
+                border-bottom-color: @primary;
+            }
+
+            &::placeholder {
+                color: rgba(255, 255, 255, .6);
+            }
+        }
+    }
+
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(5px);
+    z-index: 1500;
+    display: none;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all .2s ease;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    *::selection {
+        background: transparent;
+    }
+
+    .primary {
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+
+    .secondary {
+        font-size: 2rem;
+    }
+
+    .subtle {
+        color: rgba(255, 255, 255, .6);
+    }
+
+    .indicator {
+        font-size: 2rem;
+        padding-top: 4rem;
+        font-style: italic;
+
+        &::before,
+        &::after {
+            color: @primary;
+            font-weight: bold;
+        }
+
+        &::before {
+            content: '> ';
+        }
+
+        &::after {
+            content: ' <';
+        }
+    }
+
+    color: white;
+}
+
+.quicksearch-results {
+    .result-box {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        gap: 1rem;
+        align-items: stretch;
+        max-height: 500px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+
+}
+
+.quicksearch-result {
+    text-align: left;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-radius: 20px;
+    position: relative;
+
+    .result-id {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .result-date {
+        opacity: .6;
+    }
+
+    .appl-status {
+        display: inline-flex;
+        border: 1px solid;
+        margin-top: .5rem;
+
+        &.passed {
+            color: #69f0ae;
+        }
+
+        &.not-passed {
+            color: #ff5252;
+        }
+    }
+
+    .result-term-badge {
+        padding: .2rem .5rem;
+        background: white;
+        color: @primary;
+        border-radius: 20px;
+        display: inline-block;
+        position: absolute;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        line-height: 1;
+    }
+}
+
+.quicksearch-button {
+    border-radius: 40px;
+    padding: 1rem 2rem;
+    border: 1px solid rgba(0, 0, 0, .2);
+    display: block;
+    position: fixed;
+    line-height: 1;
+    cursor: pointer;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 2rem;
+    z-index: 200;
+    transition: all .2s ease;
+    background: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+    z-index: 1500;
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
+
+    &:hover {
+        background: @primaryg;
+        color: white;
+        border-color: transparent;
+        transform: translateX(50%) scale(1.1);
+    }
+}
+
+.appl-status {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    line-height: 1;
+    border-radius: 50px;
+    padding: .3rem 1rem;
+
+    &.passed {
+        color: #4caf50;
+
+    }
+
+    &.not-passed {
+        color: #f44336;
+    }
+}
+
 .appl-card {
     border-radius: 20px;
     border: 2px dashed rgba(0, 0, 0, .2);
@@ -434,6 +582,33 @@ function mouseLeaveQuickSearchBtn() {
 
     @media (max-width: 1000px) {
         padding: 1rem;
+    }
+
+    .appl-status {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+
+        &.passed {
+            background: #e8f5e9;
+        }
+
+        &.not-passed {
+            background: #ffebee;
+        }
+
+        @media (max-width: 1000px) {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            justify-content: center;
+            top: 1rem;
+            right: 1rem;
+
+            .text {
+                display: none;
+            }
+        }
     }
 
     .appl-no {
@@ -448,42 +623,6 @@ function mouseLeaveQuickSearchBtn() {
 
         @media (max-width: 1000px) {
             font-size: 4rem;
-        }
-    }
-
-    .appl-status {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-        line-height: 1;
-        border-radius: 50px;
-        padding: .3rem 1rem;
-
-        @media (max-width: 1000px) {
-            width: 32px;
-            height: 32px;
-            padding: 0;
-            justify-content: center;
-            top: 1rem;
-            right: 1rem;
-
-            .text {
-                display: none;
-            }
-        }
-
-        &.passed {
-            color: #4caf50;
-            background: #e8f5e9;
-
-        }
-
-        &.not-passed {
-            color: #f44336;
-            background: #ffebee;
         }
     }
 
