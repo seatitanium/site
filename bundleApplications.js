@@ -19,4 +19,4 @@ appls.forEach(filename => {
 	});
 });
 
-fs.writeFileSync('./src/applications.json', JSON.stringify(result));
+fs.writeFileSync('./src/applications-st11.json', JSON.stringify(result));
