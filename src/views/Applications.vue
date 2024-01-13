@@ -579,6 +579,7 @@ function mouseLeaveQuickSearchBtn() {
     border: 2px dashed rgba(0, 0, 0, .2);
     padding: 2rem;
     position: relative;
+    min-height: 80px;
 
     @media (max-width: 1000px) {
         padding: 1rem;
@@ -613,7 +614,7 @@ function mouseLeaveQuickSearchBtn() {
 
     .appl-no {
         font-weight: bold;
-        font-size: 7rem;
+        font-size: 6rem;
         line-height: 1;
         opacity: .1;
         position: absolute;
@@ -622,7 +623,7 @@ function mouseLeaveQuickSearchBtn() {
         pointer-events: none;
 
         @media (max-width: 1000px) {
-            font-size: 4rem;
+            font-size: 3rem;
         }
     }
 
