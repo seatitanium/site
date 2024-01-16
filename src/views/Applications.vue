@@ -166,6 +166,7 @@ watch(quicksearchContent, v => {
     setTimeout(() => {
         quicksearchLocked.value = false;
     }, 200);
+    quicksearchResult.value = [];
     for (let t of terms) {
         let result = t.applications.filter(x => x.id.toLowerCase().includes(v.toLowerCase()));
         let resultArr = [];
@@ -177,7 +178,7 @@ watch(quicksearchContent, v => {
                 submissionDate: r.submissionDate
             });
         }
-        quicksearchResult.value = resultArr;
+        quicksearchResult.value = quicksearchResult.value.concat(resultArr);
     }
 })
 
