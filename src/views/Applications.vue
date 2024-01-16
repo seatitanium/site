@@ -95,6 +95,7 @@
 import Banner from '@/components/Banner.vue';
 import { flowUp } from '@/fn';
 import applications11 from '@/applications-st11.json';
+import applications12 from '@/applications-st12.json'
 import { ref, watch } from 'vue';
 
 interface Term {
@@ -119,7 +120,11 @@ interface QuicksearchResult {
 const terms: Term[] = [
     {
         number: 11,
-        applications: (applications11 as Application[]).reverse() as Application[]
+        applications: (applications11 as Application[]).reverse()
+    },
+    {
+        number: 12,
+        applications: (applications12 as Application[]).reverse()
     }
 ]
 
