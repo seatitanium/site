@@ -19,4 +19,10 @@ appls.forEach(filename => {
 	});
 });
 
-fs.writeFileSync('./src/applications-st11.json', JSON.stringify(result));
+const dest = 12;
+
+const prev = fs.readFileSync(`./src/applications-st${dest-1}.json`).toString('utf-8');
+const prevj = JSON.parse(prev);
+result = result.slice(prevj.length - result.length);
+
+fs.writeFileSync('./src/applications-st12.json', JSON.stringify(result));
