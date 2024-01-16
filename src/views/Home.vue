@@ -23,8 +23,8 @@
             <span><span class="no-mobile">游戏版本</span> 1.16.5</span>
           </div>
           <div class="item">
-            <mdicon name="check"/>
-            <span>正版验证<span class="no-mobile">开启</span></span>
+            <mdicon name="information-outline"/>
+            <span>正版验证<span class="no-mobile">关闭</span></span>
           </div>
         </div>
       </template>
