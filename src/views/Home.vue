@@ -16,15 +16,15 @@
         <div class="simple-info">
           <div class="item">
             <mdicon name="alpha-n-box-outline"/>
-            <span><span class="no-mobile">当前周目</span> ST11</span>
+            <span><span class="no-mobile">当前周目</span> ST12</span>
           </div>
           <div class="item">
             <mdicon name="minecraft"/>
             <span><span class="no-mobile">游戏版本</span> 1.16.5</span>
           </div>
           <div class="item">
-            <mdicon name="information-outline"/>
-            <span>正版验证<span class="no-mobile">关闭</span></span>
+            <mdicon name="check"/>
+            <span>正版验证<span class="no-mobile">开启</span></span>
           </div>
         </div>
       </template>
@@ -212,16 +212,16 @@
                }">
         <div class="container">
           <div class="mod-card" v-view.once="scaleIn">
-            <div class="title" v-view.once="flowLeft">当前周目信息 - 2024/01/14 更新</div>
+            <div class="title" v-view.once="flowLeft">当前周目信息 - 2024/01/16 更新</div>
             <ul v-view.once="flowLeft">
-              <li>周目代号：ST11</li>
-              <li>周目整合包：光芒消逝之日</li>
+              <li>周目代号：ST12</li>
+              <li>周目整合包：龙之冒险</li>
               <li>版本：Java 1.16.5</li>
-              <li>服务端：Forge 1.16.5-36.2.39</li>
-              <li>建议分配 RAM：>= 2GB</li>
-              <li>正式开放日期：2024/01/14</li>
+              <li>服务端：Forge 1.16.5-36.2.35</li>
+              <li>建议分配 RAM：>= 4GB</li>
+              <li>正式开放日期：2024/01/16</li>
               <li>周目持续时间：{{ duration }}</li>
-              <li>模组个数：89</li>
+              <li>模组个数：145</li>
             </ul>
           </div>
         </div>
@@ -335,7 +335,7 @@ export default Vue.extend({
       return count;
     },
     getDuration() {
-      let d = new Date().getTime() - new Date('2024-01-14 00:12').getTime();
+      let d = new Date().getTime() - new Date('2024-01-16 21:15').getTime();
       let x = d / 1000 / 60 / 60;
       let H = Math.floor(x);
       x = (x - H) * 60;
