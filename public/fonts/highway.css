@@ -1,0 +1,29 @@
+@font-face {
+    font-family: HighwayGothic;
+    src: url('./HWYGCOND.TTF');
+    font-stretch: extra-condensed;
+}
+
+@font-face {
+    font-family: HighwayGothic;
+    src: url('./HWYGEXPD.TTF');
+    font-stretch: extra-expanded;
+}
+
+@font-face {
+    font-family: HighwayGothic;
+    src: url('./HWYGNRRW.TTF');
+    font-stretch: condensed;
+}
+
+@font-face {
+    font-family: HighwayGothic;
+    src: url('./HWYGOTH.TTF');
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: HighwayGothic;
+    src: url('./HWYGWDE.TTF');
+    font-stretch: expanded;
+}
