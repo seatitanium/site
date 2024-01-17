@@ -98,22 +98,34 @@
         "recordDate": "2024/01/16",
         "description": "烂，10小时速通，关键是通完了怎么和平了？那我怎么生产生物材料？<br/>——水域自动化笔记，JesseM1024<br/>我真无语白忙活一场，<strong><em>某人</em></strong>下次提整合包注意点，再整这种单人包上来浪费版本号有你好果汁吃奥。——su",
         "information": {
-            "name": "光芒消逝之日",
+            "name": "光芒消逝之日 1.3.2",
             "from": "2024/01/14",
             "to": "2024/01/14",
             "version": "1.16.5",
             "modcount": 87,
             "playercount": 6
         },
-        "files": []
+        "files": [
+            {
+                "filename": "pack_光芒消逝之日-1.3.2.zip",
+                "size": 364,
+                "unit": "m"
+            }
+        ]
     },
     "12": {
         "information": {
-            "name": "龙之冒险",
+            "name": "龙之冒险 v3.2a",
             "from": "2024/01/16",
             "version": "1.16.5",
             "modcount": 145
         },
-        "files": []
+        "files": [
+            {
+                "filename": "pack_龙之冒险v3.2a.zip",
+                "size": 706,
+                "unit": "m"
+            }
+        ]
     }
 }
