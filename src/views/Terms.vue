@@ -16,7 +16,8 @@
                             {{ termList[i].information.name }}
                         </div>
                         <div class="secondary">
-                            <span class="dates">{{ termList[i].information.from }}-{{ termList[i].information.to ?? 'Now' }}</span>
+                            <span class="dates">{{ termList[i].information.from }}-{{ termList[i].information.to ?? 'Now'
+                            }}</span>
                             ·
                             <span class="duration">{{ getDuration(termList[i].information.from, termList[i].information.to)
                             }}d</span>
@@ -40,7 +41,7 @@
                             <div class="downloads" :class="`st${i}`" v-if="termList[i].files.length > 0">
                                 <a v-for="y in termList[i].files" target="_blank"
                                     :href="`https://fnmdp-1253679544.cos.ap-hongkong.myqcloud.com/uploads/ST${i}/${y.filename}`">
-                                    下载{{ getFileNameCN(y.filename) }} .{{ y.filename.split('.')[1] }} <span
+                                    <mdicon :name="getIcon(y.filename)"/> 下载{{ getFileNameCN(y.filename) }} .{{ getFormat(y.filename) }} <span
                                         style="opacity: .6;">- {{ y.size }}{{
                                             getUnit(y.unit) }}</span>
                                 </a>
@@ -95,6 +96,7 @@ function getDuration(from: string, to?: string) {
 function getFileNameCN(filename: string) {
     if (filename.includes('mod')) return '模组包'
     if (filename.includes('world')) return '存档'
+    if (filename.includes('pack')) return '整合包'
     return ''
 }
 
@@ -104,6 +106,18 @@ function getUnit(u: string) {
         'm': 'MiB',
         'k': 'KiB'
     }[u];
+}
+
+function getFormat(name: string) {
+    const splitted = name.split('.');
+    return splitted[splitted.length - 1];
+}
+
+function getIcon(name: string) {
+    if (name.includes('mod')) return 'cog';
+    if (name.includes('world')) return 'earth';
+    if (name.includes('pack')) return 'package-variant';
+    return 'question-outline'
 }
 </script>
 
@@ -185,16 +199,25 @@ function getUnit(u: string) {
 
     a {
         color: white;
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
         padding: .5rem 1rem;
         border-radius: 5px;
         cursor: pointer;
+        line-height: 1;
         box-shadow: 0 3px 0 rgba(0, 0, 0, .1);
+        transition: all .2s ease;
 
         &.disabled {
             background: #aaa;
             text-align: center;
             cursor: not-allowed;
+        }
+
+        &:hover {
+            transform: translateX(4px);
+            box-shadow: none;
         }
     }
 
