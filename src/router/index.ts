@@ -28,6 +28,11 @@ const routes: Array<RouteConfig> = [
 		path: '/applications',
 		name: 'applications',
 		component: () => import('@/views/Applications.vue')
+	},
+	{
+		path: '/terms',
+		name: 'terms',
+		component: () => import('@/views/Terms.vue')
 	}
 ];
 

@@ -1,0 +1,119 @@
+{
+    "7": {
+        "recordDate": "2023/07/29",
+        "description": "2023 年的第一个周目，也是 SEATiDE 服务器归于 Oasis 旗下的第一个周目。自组包，玩起来趣味性可能比魔改包少一些，但这一周目的活跃度表现其实不错的。<br/>起初有差不多 30 多名玩家进入了游戏，但大多数都没有开始，剩下的大概只有 12 名。——su",
+        "information": {
+            "name": "主题：魔法+科技自组",
+            "from": "2023/06/14",
+            "to": "2023/07/29",
+            "version": "1.18.2",
+            "modcount": 105,
+            "playercount": 12
+        },
+        "files": [
+            {
+                "filename": "world.7z",
+                "size": 2.9,
+                "unit": "g"
+            },
+            {
+                "filename": "mods.zip",
+                "size": 170,
+                "unit": "m"
+            }
+        ]
+    },
+    "8": {
+        "recordDate": "2023/08/14",
+        "description": "虽然整合包名字是「无限」，但是好像不太耐玩的样子，半个月已经收尾了。也有可能是在座的各位都是速通玩家吧（笑）。——su",
+        "information": {
+            "name": "无限 Infinity",
+            "from": "2023/08/01",
+            "to": "2023/08/13",
+            "version": "1.18.1",
+            "modcount": 148,
+            "playercount": 12
+        },
+        "files": [
+            {
+                "filename": "world.7z",
+                "size": 7.8,
+                "unit": "g"
+            },
+            {
+                "filename": "mods.zip",
+                "size": 262,
+                "unit": "m"
+            }
+        ]
+    },
+    "9": {
+        "recordDate": "2023/09/08",
+        "description": "整合包可以不耐玩，但是 bug 太多甚至还炸档就是你的不对了。——su<br/><br/>烂中烂，宇航服导致死档无法加入服务器。科技锁死，草草收场<br/>——水域自动化笔记，JesseM1024",
+        "information": {
+            "name": "格雷：量子跃迁 GTQT",
+            "from": "2023/08/15",
+            "to": "2023/09/08",
+            "version": "1.12.2",
+            "modcount": 258
+        },
+        "files": [
+            {
+                "filename": "world.zip",
+                "size": 572,
+                "unit": "m"
+            },
+            {
+                "filename": "mods.zip",
+                "size": 419,
+                "unit": "m"
+            }
+        ]
+    },
+    "10": {
+        "recordDate": "2024/01/13",
+        "description": "不得不说是真滴耐玩啊，好评！开了100+天，直接破2018年至今的记录了。。——su",
+        "information": {
+            "name": "Nomifactory CEu",
+            "from": "2023/09/12",
+            "to": "2024/01/03",
+            "version": "1.12.2",
+            "modcount": 136,
+            "playercount": 7
+        },
+        "files": [
+            {
+                "filename": "world.7z",
+                "size": 338,
+                "unit": "m"
+            },
+            {
+                "filename": "mods.zip",
+                "size": 179,
+                "unit": "m"
+            }
+        ]
+    },
+    "11": {
+        "recordDate": "2024/01/16",
+        "description": "烂，10小时速通，关键是通完了怎么和平了？那我怎么生产生物材料？<br/>——水域自动化笔记，JesseM1024<br/>我真无语白忙活一场，<strong><em>某人</em></strong>下次提整合包注意点，再整这种单人包上来浪费版本号有你好果汁吃奥。——su",
+        "information": {
+            "name": "光芒消逝之日",
+            "from": "2024/01/14",
+            "to": "2024/01/14",
+            "version": "1.16.5",
+            "modcount": 87,
+            "playercount": 6
+        },
+        "files": []
+    },
+    "12": {
+        "information": {
+            "name": "龙之冒险",
+            "from": "2024/01/16",
+            "version": "1.16.5",
+            "modcount": 145
+        },
+        "files": []
+    }
+}

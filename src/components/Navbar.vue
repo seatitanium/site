@@ -50,8 +50,8 @@ export default Vue.extend({
 					route: "/donate",
 				},
 				{
-					name: "下载",
-					href: "https://storage.seati.cc"
+					name: "周目",
+					route: '/terms'
 				},
 				{
 					name: "知识库",
@@ -74,7 +74,8 @@ export default Vue.extend({
 				server: "服务器状态",
 				about: "关于",
 				donate: "捐助",
-				applications: "审核结果及玩家列表"
+				applications: "审核结果及玩家列表",
+				terms: '周目'
 			},
 		};
 	},
