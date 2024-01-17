@@ -40,7 +40,7 @@
                         <div class="description-and-downloads">
                             <div class="downloads" :class="`st${i}`" v-if="termList[i].files.length > 0">
                                 <a v-for="y in termList[i].files" target="_blank"
-                                    :href="`https://fnmdp-1253679544.cos.ap-hongkong.myqcloud.com/uploads/ST${i}/${y.filename}`">
+                                    :href="`https://d.seati.cc/uploads/ST${i}/${y.filename}`">
                                     <mdicon :name="getIcon(y.filename)"/> 下载{{ getFileNameCN(y.filename) }} .{{ getFormat(y.filename) }} <span
                                         style="opacity: .6;">- {{ y.size }}{{
                                             getUnit(y.unit) }}</span>
