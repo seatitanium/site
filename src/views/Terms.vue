@@ -24,15 +24,17 @@
                         </div>
                         <div class="meta" :class="`st${i}`">
                             <span>
-                                <mdicon name="minecraft" />游戏版本 {{ termList[i].information.version }}
+                                <mdicon name="minecraft" />{{ !isMobile() ? '游戏版本' : '' }} {{ termList[i].information.version
+                                }}
                             </span>
                             ·
                             <span>
-                                <mdicon name="wrench" />模组数量 {{ termList[i].information.modcount }}
+                                <mdicon name="wrench" />{{ !isMobile() ? '模组数量' : '' }} {{ termList[i].information.modcount }}
                             </span>
                             ·
                             <span>
-                                <mdicon name="account-group" />有效玩家 {{ termList[i].information.playercount ?
+                                <mdicon name="account-group" />{{ !isMobile() ? '有效玩家' : '' }} {{
+                                    termList[i].information.playercount ?
                                     termList[i].information.playercount
                                     : '-' }}
                             </span>
@@ -41,9 +43,9 @@
                             <div class="downloads" :class="`st${i}`" v-if="termList[i].files.length > 0">
                                 <a v-for="y in termList[i].files" target="_blank"
                                     :href="`https://d.seati.cc/uploads/ST${i}/${y.filename}`">
-                                    <mdicon :name="getIcon(y.filename)"/> 下载{{ getFileNameCN(y.filename) }} .{{ getFormat(y.filename) }} <span
-                                        style="opacity: .6;">- {{ y.size }}{{
-                                            getUnit(y.unit) }}</span>
+                                    <mdicon :name="getIcon(y.filename)" /> 下载{{ getFileNameCN(y.filename) }} .{{
+                                        getFormat(y.filename) }} <span v-if="!isMobile()" style="opacity: .6;">- {{ y.size }}{{
+        getUnit(y.unit) }}</span>
                                 </a>
                             </div>
                             <div class="downloads" v-else>
@@ -61,7 +63,7 @@
 <script lang="ts" setup>
 import tl from '@/terms.json';
 import Banner from '@/components/Banner.vue';
-import { flowLeft } from '@/fn';
+import { flowLeft, isMobile } from '@/fn';
 
 interface TermList {
     [prop: number]: TermItem
@@ -145,6 +147,13 @@ function getIcon(name: string) {
     pointer-events: none;
     width: 250px;
     height: 250px;
+
+    @media (max-width: 900px) {
+        width: 160px;
+        height: auto;
+        font-size: 7rem;
+    }
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,10 +193,18 @@ function getIcon(name: string) {
     gap: 1rem;
     flex-wrap: nowrap;
     flex-direction: row;
+
+    @media (max-width: 900px) {
+        flex-direction: column-reverse;
+    }
 }
 
 .description {
     width: 70%;
+
+    @media (max-width: 900px) {
+        width: 100%;
+    }
 }
 
 .downloads {
@@ -196,6 +213,10 @@ function getIcon(name: string) {
     width: 30%;
     flex-direction: column;
     gap: .5rem;
+
+    @media (max-width: 900px) {
+        width: 100%;
+    }
 
     a {
         color: white;
@@ -274,6 +295,12 @@ function getIcon(name: string) {
 
 .information {
     width: calc(100% - 250px - 3rem);
+
+    @media (max-width: 900px) {
+        width: calc(100% - 160px - 2rem);
+        padding: 1rem;
+    }
+
     padding: 1rem;
     padding-left: 2rem;
 
@@ -306,16 +333,23 @@ function getIcon(name: string) {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    min-width: 1000px;
     max-width: 1200px;
 
     .primary {
         font-size: 2rem;
         font-weight: bold;
+
+        @media (max-width: 900px) {
+            font-size: 1.5rem;
+        }
     }
 
     .secondary {
         font-size: 1.3rem;
+
+        @media (max-width: 900px) {
+            font-size: 1rem;
+        }
 
         margin-bottom: .5rem;
 
@@ -339,5 +373,4 @@ function getIcon(name: string) {
             margin-right: .25rem;
         }
     }
-}
-</style>
+}</style>
