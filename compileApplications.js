@@ -56,7 +56,7 @@ function getSharables(sharablePreference, dictionary) {
 	return result;
 }
 
-const passedIds = ['JesseM1024', 'Gao_Shi_Ya', 'Qing_Ming', 'GoldStorm_XX', 'awedwd', 'Haruitsuki', 'sotireddddd', 'xiang_yang_hua', 'Yuki_nohana', 'bluelingb', 'usua233', 'liancya', 'LanXingYa', 'Xiao_Lin_Ya'];
+const passedIds = ['JesseM1024', 'Gao_Shi_Ya', 'Qing_Ming', 'GoldStorm_XX', 'awedwd', 'Haruitsuki', 'sotireddddd', 'xiang_yang_hua', 'Yuki_nohana', 'bluelingb', 'usua233', 'liancya', 'LanXingYa', 'Xiao_Lin_Ya', 'Curvature_'];
 
 const date = new Date();
 
