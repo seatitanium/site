@@ -114,17 +114,26 @@
         ]
     },
     "12": {
+        "recordDate": "2024/02/01",
+        "description": "",
         "information": {
             "name": "龙之冒险 v3.2a",
             "from": "2024/01/16",
+            "to": "2024/02/01",
             "version": "1.16.5",
-            "modcount": 145
+            "modcount": 145,
+            "playercount": 11
         },
         "files": [
             {
                 "filename": "pack_龙之冒险v3.2a.zip",
                 "size": 706,
                 "unit": "m"
+            },
+            {
+                "filename": "world.7z",
+                "size": 7.98,
+                "unit": "g"
             }
         ]
     }
