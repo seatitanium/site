@@ -33,4 +33,4 @@ jobs:
   
     - name: Deploy
       run: |
-        scp -i ./key -r ./dist/* root@8.218.58.237:/home/wwwroot/seati
+        scp -i ./key -r ./dist/* root@43.134.16.51:/root/wwwroot/site
