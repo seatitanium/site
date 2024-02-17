@@ -13,9 +13,6 @@
 			</div>
 			<div class="links">
 				联系服主 — <a href="mailto:christophersubilan@gmail.com">christophersubilan@gmail.com</a>
-				<br />
-				快速前往 —
-				<a href="https://oases.red" target="_blank">Oasis</a> · <a href="https://i.oases.red" target="_blank">火星港</a>
 			</div>
 			<div class="button-list">
 				<icon-btn @click.native="$open('https://github.com/seatitanium')" icon="github" class="dark" />
